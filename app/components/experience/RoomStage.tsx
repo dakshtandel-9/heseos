@@ -80,5 +80,5 @@ export default function RoomStage({ scene, state, selected, onSelect }: Props) {
     return <button key={f.id} className={cls} style={{ left: pct(pin.x), top: pct(pin.y) }} aria-pressed={selected === f.id} aria-label={`${f.label}: ${productStatus(p, state)}`} onClick={() => onSelect(f.id)}><i><Icon size={15} strokeWidth={2.2} /></i><span>{f.label}<small>{productStatus(p, state)}</small></span></button>;
    })}
   </div>
- </div>{pannable && hint && <span className="xp-hint"><MoveHorizontal size={14} />Drag to look around</span>}</div>;
+ </div>{pannable && hint && !selected && <span className="xp-hint"><MoveHorizontal size={14} />Drag to look around</span>}</div>;
 }

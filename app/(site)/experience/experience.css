@@ -243,6 +243,11 @@ button.xp-chip:hover{background:#f4f1ea;color:var(--ink)}
  .xp-rail-thumb{width:60px;height:38px}
  .xp-dock{gap:12px}
 }
+@media (max-width:1060px){
+ .xp-dock{flex-wrap:wrap;gap:6px 12px;padding:8px 12px}
+ .xp-ask{flex-basis:100%;min-width:0}
+ .xp-reply{display:none}
+}
 @media (max-height:640px) and (min-width:600px) and (orientation:landscape){
  .xp{height:100svh;min-height:340px}
  .xp-rail-thumb{width:52px;height:30px}
@@ -282,6 +287,8 @@ button.xp-chip:hover{background:#f4f1ea;color:var(--ink)}
  .xp-room-chip i,.xp-room-chip small,.xp-room-chip-go{display:none}
  .xp-room-chip.on{box-shadow:inset 0 0 0 1.5px var(--amber),0 6px 16px #00000073}
  .xp-hint{bottom:auto;top:54px}
+ .xp-pin i{width:32px;height:32px}
+ .xp-pin span{display:none}
  .xp-dock{display:block;padding:0}
  .xp-rail{gap:4px;padding:7px 10px;align-items:center}
  .xp-rail-item{display:flex;align-items:center;gap:7px;padding:4px 11px 4px 4px;border-radius:999px;font-size:13px;background:#ffffff0d}

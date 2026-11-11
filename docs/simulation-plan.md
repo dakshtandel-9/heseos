@@ -1,5 +1,15 @@
 # Apartment 2 installation plan
 
+## How /experience shows it
+
+The page is a photographed walk-through, not the 3D model. Each room has a lights-on and a lights-off picture taken from the same camera (`public/media/experience/<room>-lit.webp` and `-dark.webp`); the dimmer fades between them, and colour temperature tints the lit picture. The living room also has curtains-closed pictures for the window motor. The overview (`home-lit` / `home-dark`) lights each room through its own outline, so one circuit never brightens another room.
+
+Marker positions, overlay rectangles (TV, AC, fan, window) and the overview outlines are percentages of each picture, kept in `lib/experience-scenes.ts`. If a picture is replaced, re-measure them on the new picture. `npm run test:simulation` checks that every fitting has a marker on its own room's picture and that every picture exists.
+
+Layout: on wide screens the picture, room strip and command line sit on the left with controls in a column on the right, all in one screen. On phones and upright tablets the picture and room strip stay pinned at the top while the controls scroll beneath; wide pictures pan sideways and jump to a device when it is chosen.
+
+The installation rules below apply unchanged; the 3D placement notes describe the earlier model viewer, which the page no longer uses.
+
 The apartment is a furnished home, not a display wall for every catalogue item. The physical fittings are defined in `FITTINGS`; catalogue alternatives replace a fitting and never create another one.
 
 | Room | Lighting circuit | Single fitted control | Other planned equipment |

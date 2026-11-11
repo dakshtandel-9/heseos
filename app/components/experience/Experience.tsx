@@ -176,7 +176,7 @@ export default function Experience() {
     <div className={'xp-ask' + (typing ? ' open' : '')}>
      <form className="xp-command" onSubmit={e => { e.preventDefault(); if (input.trim()) execute(input); }}>
       <label className="sr-only" htmlFor="xp-command">Type a command</label>
-      <input id="xp-command" value={input} onChange={e => setInput(e.target.value)} placeholder={room ? `“Lights off” in the ${ROOM_NAMES[room].toLowerCase()}` : '“Away mode” or “go to the kitchen”'} autoComplete="off" enterKeyHint="send" />
+      <input id="xp-command" value={input} onChange={e => setInput(e.target.value)} placeholder={room ? 'Try “lights off” or “dim to 30%”' : 'Try “away mode” or “go to the kitchen”'} autoComplete="off" enterKeyHint="send" />
       <button type="submit" aria-label="Send command" disabled={!input.trim()}><Send size={16} /></button>
       <button type="button" className={micOn ? 'on' : ''} aria-label={micOn ? 'Turn voice off' : 'Turn voice on'} aria-pressed={micOn} aria-busy={voiceState === 'starting' || voiceState === 'processing'} onClick={toggleMic}>{micOn ? <Mic size={16} /> : <MicOff size={16} />}</button>
       <button type="button" aria-label={spoken ? 'Mute spoken replies' : 'Unmute spoken replies'} aria-pressed={spoken} disabled={!micOn} onClick={toggleSpoken}>{spoken ? <Volume2 size={16} /> : <VolumeX size={16} />}</button>

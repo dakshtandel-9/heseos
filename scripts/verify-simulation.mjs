@@ -96,6 +96,20 @@ const visited=[];for(const step of ROOM_TOUR)if(visited.at(-1)!==step.stop)visit
 assert.deepEqual(visited,ROOM_PLAN.map(r=>r.id),'the tour visits each room contiguously, without catalogue-order jumps');
 for(const step of ROOM_TOUR)if(step.fitting)assert.equal(FITTINGS.find(f=>f.id===step.fitting)?.room,step.stop);
 for(const [x,z,room]of [[-5.5,1.75,'living'],[-2,1.2,'kitchen'],[-1,-2.5,'bedroom'],[-3,-4.3,'bedroom2'],[-5.4,-.6,'bath'],[-4.4,-2,'living']])assert.equal(roomAtPoint(x,z),room,'rendered lighting zone follows the floor plan');
+// The photographed apartment: every fitting has a marker on its own room's picture, inside the frame,
+// and every picture the page asks for is on disk.
+const scenesSource=fs.readFileSync(new URL('../lib/experience-scenes.ts',import.meta.url),'utf8');
+const {ROOM_SCENES,HOME_SCENE}=await import('data:text/javascript;base64,'+Buffer.from(ts.transpileModule(scenesSource,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText).toString('base64'));
+const inFrame=(p,label)=>assert.ok(p.x>=0&&p.x<=100&&p.y>=0&&p.y<=100,`${label} must sit inside its picture`);
+assert.deepEqual(Object.keys(ROOM_SCENES).sort(),ROOM_PLAN.map(r=>r.id).sort(),'every room has a picture');
+assert.deepEqual(Object.keys(HOME_SCENE.rooms).sort(),ROOM_PLAN.map(r=>r.id).sort(),'every room has an area on the overhead view');
+for(const f of FITTINGS){const pin=ROOM_SCENES[f.room].pins[f.id];assert.ok(pin,`${f.id} needs a marker in the ${f.room} picture`);inFrame(pin,f.id);}
+for(const s of Object.values(ROOM_SCENES)){
+ for(const id of Object.keys(s.pins))assert.equal(FITTINGS.find(f=>f.id===id)?.room,s.room,`${id} is marked in the ${s.room} picture but fitted elsewhere`);
+ for(const src of [s.lit,s.dark,s.thumb,s.window?.lit,s.window?.dark].filter(Boolean))assert.ok(fs.existsSync(new URL('../public'+src,import.meta.url)),`${src} is missing`);
+}
+for(const src of [HOME_SCENE.lit,HOME_SCENE.dark,'/media/experience/home-thumb.webp','/media/experience/tv.webp','/media/experience/visitor.webp'])assert.ok(fs.existsSync(new URL('../public'+src,import.meta.url)),`${src} is missing`);
+for(const [id,r] of Object.entries(HOME_SCENE.rooms)){inFrame(r.label,`${id} label`);for(const [x,y] of r.area)inFrame({x,y},`${id} area`);}
 console.log(`Simulation verified: ${FITTINGS.length} physical fittings, ${ROOM_PLAN.length} independent light controls, ${INSTALLED_PRODUCTS.length} compatible product options, ${ROOM_TOUR.length} room-ordered tour stops. Isolation, substitutions, sensors, calls and energy accounting passed.`);
 
 assert.equal(sim.lightingCommandTarget('lights off','kitchen'),'kitchen');
