@@ -1,24 +1,13 @@
 import type { Metadata } from 'next';
-import { ArrowUpRight, Info } from 'lucide-react';
-export const metadata: Metadata = {title:'Book a free demo'};
-const SELECTS=[
- {id:'city',label:'City',options:['Bangalore','Delhi / Delhi NCR','Kolkata','Mumbai','Pune','Other']},
- {id:'property',label:'Property type',options:['Independent home','Gated villa','Apartment','Architect or interior designer','Builder','Other']},
- {id:'stage',label:'Stage of construction',options:['Early stage','Electrical work in progress','Interior work in progress','Close to handover','Handover','Ready to move in']},
- {id:'requirement',label:'Requirement',options:['Partial home automation','Complete home automation']},
-];
-// The form is the planned design; it stays disabled until lead capture is connected.
-export default function DemoPage(){return <section className="section light demo-page">
- <div className="section-head"><h1 className="headline">Book a free demo.</h1><p className="lead">See Heseos working in your home, then get a package that fits your rooms and wiring.</p></div>
- <div className="notice" role="note"><Info size={18}/><div><strong>Booking on this site is coming soon.</strong> Until then, request your demo on heseos.com. <a className="link" href="https://www.heseos.com/" target="_blank" rel="noreferrer">Open heseos.com <ArrowUpRight size={14}/></a></div></div>
- <form className="form" aria-describedby="demo-note">
-  <fieldset disabled>
-   <legend className="sr-only">Demo request (preview)</legend>
-   <label>Name<input name="name" autoComplete="name"/></label>
-   <label>Phone<input name="phone" type="tel" autoComplete="tel"/></label>
-   {SELECTS.map(s=><label key={s.id}>{s.label}<select name={s.id} defaultValue=""><option value="" disabled>Choose…</option>{s.options.map(o=><option key={o}>{o}</option>)}</select></label>)}
-   <button className="btn" type="submit">Request a demo</button>
-  </fieldset>
-  <p id="demo-note" className="muted">This form is a preview of the booking flow and isn’t connected yet.</p>
- </form>
-</section>;}
+import { ArrowUpRight, Check, MessageCircle } from 'lucide-react';
+import ContactForm from '../../components/site/ContactForm';
+import { CONTACT } from '../../../lib/site';
+export const metadata: Metadata = {title:'Book a free demo',description:'Plan your connected home with Heseos. Tell us about your space and request a free product demo and consultation.'};
+export default async function DemoPage({searchParams}:{searchParams:Promise<{product?:string;package?:string;space?:string}>}){
+ const query=await searchParams;
+ const selected=[['Product',query.product],['Package',query.package],['Space',query.space]].filter((entry):entry is [string,string]=>typeof entry[1]==='string').map(([label,value])=>`${label}: ${value.slice(0,200)}`).join('\n');
+ return <div className="demo-page"><div className="demo-layout">
+  <section className="demo-intro" aria-labelledby="demo-title"><span className="demo-eyebrow">Your connected home starts here</span><h1 id="demo-title">Experience a<br/>home that<br/><em>gets you.</em></h1><p>See what Heseos can do for your space. Tell us a little about your home and we’ll help you find the right setup.</p><ul>{['Explore products and everyday scenes','Discuss your rooms, wiring and preferences','Get a configuration and quote for your project'].map(text=><li key={text}><Check size={17} aria-hidden="true"/>{text}</li>)}</ul><div className="demo-chat"><MessageCircle size={24} aria-hidden="true"/><div><strong>Prefer a conversation?</strong><a href={CONTACT.whatsapp} target="_blank" rel="noreferrer">Chat with our team <ArrowUpRight size={15}/></a></div></div></section>
+  <section className="demo-form-card" aria-labelledby="demo-form-title"><span className="demo-eyebrow">Free consultation</span><h2 id="demo-form-title">Book your demo.</h2><p>Leave your details. Our team will contact you to arrange a suitable time.</p>{selected&&<p className="demo-interest">{selected}</p>}<ContactForm type="demo" context={selected} button="Request my free demo"/><p className="demo-form-note">No payment required. We’ll confirm the timing and format with you.</p></section>
+ </div><section className="demo-next" aria-labelledby="demo-next-title"><h2 id="demo-next-title">What happens next?</h2><ol><li><span>01</span><h3>A quick conversation</h3><p>We learn about your space and what you want to automate.</p></li><li><span>02</span><h3>A demo built around you</h3><p>Explore suitable devices, controls and everyday routines.</p></li><li><span>03</span><h3>A clear way forward</h3><p>Review your configuration, pricing and installation requirements.</p></li></ol></section></div>;
+}

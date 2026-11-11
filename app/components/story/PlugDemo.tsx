@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Power } from 'lucide-react';
-// The TV in Apartment 1 on its Smart Plug. The wattage is the simulation's illustrative standby load.
+// The TV in Apartment 2 on its Smart Plug. The wattage is the simulation's illustrative standby load.
 export default function PlugDemo(){
  const [on,setOn]=useState(true);
  return <div className="plug-demo">

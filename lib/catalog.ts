@@ -79,7 +79,7 @@ export type BagEntry={id:string;qty:number;name:string;detail:string;price:numbe
 // A bag line id is a product slug or a package id; anything else is ignored.
 export function resolveBagLine(line:BagLine):BagEntry|null{
  const pkg=line.id.startsWith('pkg:')?parsePackageId(line.id):null;
- if(pkg)return {...line,name:pkg.name,detail:pkg.items.map(i=>`${i.qty} × ${i.name}`).join(' · '),price:pkg.price,mrp:pkg.mrp,image:PACKAGE_IMAGE[pkg.type],href:`/packages?type=${pkg.type}&bhk=${pkg.bhk}`};
+ if(pkg)return {...line,name:pkg.name,detail:pkg.items.map(i=>`${i.qty} × ${i.name}`).join(' · '),price:pkg.price,mrp:pkg.mrp,image:PACKAGE_IMAGE[pkg.type],href:'/build'};
  const p=product(line.id);
  if(!p||p.price===null||p.mrp===null)return null;
  return {...line,name:p.name,detail:p.eyebrow,price:p.price,mrp:p.mrp,image:p.image,href:`/products/${p.slug}`};

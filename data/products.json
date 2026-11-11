@@ -1,0 +1,5779 @@
+{
+  "meta": {
+    "version": "2026-11-01",
+    "source": "HESEOS Product Brochure 2026–27 (68 pages, pdf/updated brochure 2026-27 (2).pdf)",
+    "about": "The full HESEOS product catalogue, until the admin panel replaces this file. Categories hold subcategories; subcategories hold product families; each family lists its selectable options and the configurations named in the brochure. Listing cards use illustrative generated studio renders; detail galleries retain brochure and model-specific images. `review` notes on any record are internal and never rendered.",
+    "company": "Heseos Technology Pvt. Ltd",
+    "tagline": "Lighting Ahead",
+    "contact": {
+      "email": "support@heseos.com",
+      "website": "https://www.heseos.com",
+      "whatsapp": "+918265077639",
+      "phone": ""
+    },
+    "disclaimer": "Product pictures may differ from the actual product. Specifications are taken from the HESEOS 2026–27 brochure; configurations and finishes are confirmed with every quote.",
+    "worksWith": [
+      "Google Home",
+      "Amazon Alexa",
+      "Apple Siri"
+    ],
+    "downloads": [
+      {
+        "label": "HESEOS Product Brochure 2026–27",
+        "type": "Brochure",
+        "href": ""
+      },
+      {
+        "label": "Technical data sheet",
+        "type": "Data sheet",
+        "href": ""
+      },
+      {
+        "label": "Installation manual",
+        "type": "Manual",
+        "href": ""
+      }
+    ],
+    "stats": [
+      {
+        "value": "15+",
+        "label": "Years of industry experience"
+      },
+      {
+        "value": "9000+",
+        "label": "Happy customers"
+      },
+      {
+        "value": "1,00,000+",
+        "label": "Devices installed"
+      },
+      {
+        "value": "6+",
+        "label": "International projects"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How do I get a price?",
+        "a": "Choose the configuration you need on any product page and select Request a quote. Our team replies with pricing, availability and lead times for your project."
+      },
+      {
+        "q": "Are the product pictures exact?",
+        "a": "Pictures are illustrative and may differ from the actual product. Ask for a demo to see the hardware in person."
+      },
+      {
+        "q": "Does HESEOS work with my voice assistant?",
+        "a": "The HESEOS app works with Google Home, Amazon Alexa and Apple Siri."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "slug": "smart-switches",
+      "name": "Smart Switches & Control",
+      "shortName": "Switches & Control",
+      "tagline": "Every switch, reimagined.",
+      "description": "Touch panels, retrofit modules, modular switches, premium glass switches and screen control panels. Control lights, fans and appliances by touch, from the HESEOS app or with your voice.",
+      "image": "/media/browse/category/smart-switches-panels.webp"
+    },
+    {
+      "slug": "home-automation",
+      "name": "Home Automation Devices",
+      "shortName": "Home Automation",
+      "tagline": "Make the home you have smart.",
+      "description": "Smart plugs, IR blasters, energy meters and curtain motors that bring your existing appliances, remotes and windows into the HESEOS app.",
+      "image": "/media/browse/category/automation-controls.webp"
+    },
+    {
+      "slug": "smart-security",
+      "name": "Smart Security",
+      "shortName": "Security",
+      "tagline": "Every door. Every alert. In your pocket.",
+      "description": "Smart door locks, video door phones and doorbells, and security sensors that keep watch and tell you the moment something happens.",
+      "image": "/media/browse/category/smart-door-locks.webp"
+    },
+    {
+      "slug": "smart-lighting",
+      "name": "Smart Lighting",
+      "shortName": "Lighting",
+      "tagline": "Illuminate your world.",
+      "description": "Smart COB downlights and motion-sensing tubelights, in IoT and non-IoT versions, with dimming and single-colour or CCT light.",
+      "image": "/media/browse/category/smart-lighting.webp"
+    },
+    {
+      "slug": "smart-fans",
+      "name": "Smart Fans",
+      "shortName": "Fans",
+      "tagline": "Quiet air. Smart control.",
+      "description": "HESEOS Elegance smart BLDC fans in six design collections, with remote, app and voice control.",
+      "image": "/media/browse/category/bldc-fans.webp"
+    }
+  ],
+  "subcategories": [
+    {
+      "slug": "touch-panels",
+      "category": "smart-switches",
+      "name": "Touch Panels",
+      "tagline": "The whole switchboard, in glass.",
+      "description": "HESEOS Touch Panels replace the entire traditional switchboard with a sleek, modern touch interface. Five series, each in 2, 4, 6, 8 and 12 module sizes.",
+      "image": "/media/browse/touch-panels.webp",
+      "brochurePages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "filters": [
+        {
+          "key": "modules",
+          "label": "Modules"
+        },
+        {
+          "key": "finish",
+          "label": "Finish"
+        },
+        {
+          "key": "availability",
+          "label": "Availability"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What sizes do touch panels come in?",
+          "a": "Every series is listed in 2, 4, 6, 8 and 12 module sizes."
+        },
+        {
+          "q": "Which series come in colour finishes?",
+          "a": "The Edge (TEA) and Bezzel (TPB) series are shown in Rose Gold, Grey, Gold, Chrome and Black. Finish availability can vary by size, so we confirm it with your quote."
+        },
+        {
+          "q": "Who can buy the K Panel Series?",
+          "a": "The K Panel Series (TPK) is offered to builders only."
+        }
+      ]
+    },
+    {
+      "slug": "retrofit-modules",
+      "category": "smart-switches",
+      "name": "Retrofit Modules",
+      "tagline": "Keep your switches. Make them smart.",
+      "description": "Transform your existing appliances into smart devices with Retrofit. Control your lights, fans and other appliances from your phone, in 1 to 6 module versions.",
+      "image": "/media/browse/retrofit-modules.webp",
+      "brochurePages": [
+        15,
+        16,
+        17
+      ],
+      "filters": [
+        {
+          "key": "modules",
+          "label": "Modules"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Do I need to replace my switchboard?",
+          "a": "No. Retrofit modules are made for the switchboards you already have, so your existing switches stay in place."
+        },
+        {
+          "q": "How many appliances can one module control?",
+          "a": "Modules come in 1, 2, 3, 4, 5 and 6 module versions. Tell us the loads on each board and we will recommend the right size."
+        }
+      ]
+    },
+    {
+      "slug": "modular-switches",
+      "category": "smart-switches",
+      "name": "Modular Switches",
+      "tagline": "Smart switches. Same plates.",
+      "description": "Modernize your home by replacing traditional switches while keeping your existing plates intact. On/off, fan regulator and dimmer modules.",
+      "image": "/media/browse/modular-switches.webp",
+      "brochurePages": [
+        18,
+        19,
+        20
+      ],
+      "filters": [
+        {
+          "key": "function",
+          "label": "Function"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Will they fit my existing plates?",
+          "a": "Yes. Smart Modular Switches replace traditional switch modules while keeping your existing plates intact."
+        },
+        {
+          "q": "Can I control a fan's speed?",
+          "a": "Yes. Choose the Fan Regulator module for fan speed control, or Light On/Off with Dimmer for dimmable lights."
+        }
+      ]
+    },
+    {
+      "slug": "premium-glass-switches",
+      "category": "smart-switches",
+      "name": "Premium Glass Touch Switches",
+      "tagline": "Art and technology, at your fingertips.",
+      "description": "Premium switches with distinctive looks and high quality materials that enhance any interior. 1 to 4 switch configurations in brushed, textured, leather and glass collections.",
+      "image": "/media/browse/premium-glass-touch-switches.webp",
+      "brochurePages": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "filters": [
+        {
+          "key": "switches",
+          "label": "Switches"
+        },
+        {
+          "key": "collection",
+          "label": "Collection"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Which collections are available?",
+          "a": "Premium Brushed, Premium Textured, Premium Leather and Premium Glass. Collection availability for each switch configuration is confirmed with your quote."
+        }
+      ]
+    },
+    {
+      "slug": "screen-control-panels",
+      "category": "smart-switches",
+      "name": "Screen Control Panels",
+      "tagline": "Your whole home on one screen.",
+      "description": "Control every smart device from one intuitive interface, with a touchscreen, a knob switch and voice commands. In 4, 6 and 8 inch sizes.",
+      "image": "/media/browse/screen-control-panels.webp",
+      "brochurePages": [
+        44,
+        45,
+        46
+      ],
+      "filters": [
+        {
+          "key": "screen",
+          "label": "Screen size"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What can I control from the screen?",
+          "a": "All your HESEOS smart home devices, plus scenes. The panel also shows temperature and weather."
+        }
+      ]
+    },
+    {
+      "slug": "smart-plugs",
+      "category": "home-automation",
+      "name": "Smart Plugs",
+      "tagline": "Heavy appliances, now smart.",
+      "description": "Convert traditional appliances into connected devices. Switch 16 A appliances like ACs and geysers from your phone and track the energy they use.",
+      "image": "/media/browse/smart-plugs.webp",
+      "brochurePages": [
+        29,
+        30,
+        31
+      ],
+      "filters": [],
+      "faqs": [
+        {
+          "q": "Which appliances can I use with it?",
+          "a": "The Smart Plug is made for 16 A heavy appliances such as ACs and geysers."
+        }
+      ]
+    },
+    {
+      "slug": "ir-blasters",
+      "category": "home-automation",
+      "name": "IR Blasters",
+      "tagline": "One app for every remote.",
+      "description": "Automate remote-controlled appliances like ACs and TVs from the HESEOS app, without a drawer full of remotes.",
+      "image": "/media/browse/ir-blasters.webp",
+      "brochurePages": [
+        32,
+        33,
+        34
+      ],
+      "filters": [],
+      "faqs": [
+        {
+          "q": "How is it powered?",
+          "a": "Plug it into any USB outlet, such as a phone charger."
+        }
+      ]
+    },
+    {
+      "slug": "energy-meters",
+      "category": "home-automation",
+      "name": "Energy Meters",
+      "tagline": "See where every unit goes.",
+      "description": "Track and analyze electricity use in real time across multiple locations, with warnings when consumption crosses your thresholds.",
+      "image": "/media/browse/energy-meters.webp",
+      "brochurePages": [
+        35,
+        36
+      ],
+      "filters": [
+        {
+          "key": "mounting",
+          "label": "Mounting"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Which versions are available?",
+          "a": "A Three Phase Energy Meter and a Three Phase DIN Rail Energy Meter."
+        }
+      ]
+    },
+    {
+      "slug": "curtain-blind-motors",
+      "category": "home-automation",
+      "name": "Curtain & Blind Motors",
+      "tagline": "Open the day with a touch.",
+      "description": "Quiet, smooth automation for curtains, drapes and roller blinds, in homes and commercial spaces.",
+      "image": "/media/browse/curtain-automation.webp",
+      "brochurePages": [
+        37,
+        38,
+        39
+      ],
+      "filters": [
+        {
+          "key": "type",
+          "label": "Type"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can it be mounted on the wall?",
+          "a": "Yes. The curtain motor supports both ceiling and wall installation."
+        },
+        {
+          "q": "What happens if something blocks the curtain?",
+          "a": "The motor stops on blockage."
+        }
+      ]
+    },
+    {
+      "slug": "door-locks",
+      "category": "smart-security",
+      "name": "Smart Door Locks",
+      "tagline": "Advanced security. Effortless access.",
+      "description": "Smart locks for wooden, glass, sliding and screen doors, levers and drawers. Unlock with fingerprint, password, RFID card, app, OTP or face recognition, depending on the model.",
+      "image": "/media/browse/digital-door-locks.webp",
+      "brochurePages": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "filters": [
+        {
+          "key": "doorType",
+          "label": "Door type"
+        },
+        {
+          "key": "unlocking",
+          "label": "Unlocking method"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can several family members use the lock?",
+          "a": "Yes. Smart door locks store multiple sets of fingerprints, and adding or managing them is easy."
+        },
+        {
+          "q": "Can I let a guest in when I'm away?",
+          "a": "Yes. Generate passwords and share them so guests can get in when you are not at home. You also get access alerts and an attendance record."
+        },
+        {
+          "q": "What if the battery runs out?",
+          "a": "Models with backup power have a USB external power supply interface, so you can still get in during a power outage."
+        }
+      ]
+    },
+    {
+      "slug": "video-door-phones",
+      "category": "smart-security",
+      "name": "Video Door Phones & Doorbells",
+      "tagline": "See who's there. From anywhere.",
+      "description": "Monitor your doorstep with HD video: IP and analog video door phones, and a Wi-Fi smart doorbell.",
+      "image": "/media/browse/smart-vdp-doorbells.webp",
+      "brochurePages": [
+        26,
+        27,
+        28
+      ],
+      "filters": [
+        {
+          "key": "technology",
+          "label": "Technology"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What's the difference between IP and analog?",
+          "a": "An IP VDP uses your internet network for high-quality video and audio and integrates with your smart home. An analog VDP shows live visuals of your entrance and is a cost-effective choice for homes, workplaces and residential complexes."
+        }
+      ]
+    },
+    {
+      "slug": "security-sensors",
+      "category": "smart-security",
+      "name": "Security Sensors",
+      "tagline": "Small sensors. Constant watch.",
+      "description": "Compact sensors that monitor motion, presence, gas and smoke, and trigger connected devices or alert you in response.",
+      "image": "/media/browse/smart-sensors.webp",
+      "brochurePages": [
+        47,
+        48
+      ],
+      "filters": [
+        {
+          "key": "detects",
+          "label": "Detects"
+        },
+        {
+          "key": "technology",
+          "label": "Technology"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Microwave or PIR motion sensor?",
+          "a": "A microwave sensor uses the Doppler effect and can detect movement through glass and thin walls. A PIR sensor detects the heat people and animals give off within its field of view."
+        },
+        {
+          "q": "How do gas and smoke alerts reach me?",
+          "a": "Install the HESEOS app on any iOS or Android device and it pushes a notification to you wherever you are."
+        }
+      ]
+    },
+    {
+      "slug": "cob-downlights",
+      "category": "smart-lighting",
+      "name": "COB Downlights",
+      "tagline": "Precise light, smartly controlled.",
+      "description": "Smart COB downlights in Chrome, Roundo and Deep COB designs, from 8 W to 18 W. Available in IoT and non-IoT, single colour and CCT versions.",
+      "image": "/media/browse/led-cob-lighting.webp",
+      "brochurePages": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "filters": [
+        {
+          "key": "wattage",
+          "label": "Wattage"
+        },
+        {
+          "key": "cutout",
+          "label": "Cut-out"
+        },
+        {
+          "key": "beam",
+          "label": "Beam angle"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Which wattages are available?",
+          "a": "Each series has 8 W, 12 W and 18 W models."
+        },
+        {
+          "q": "Can I get a non-smart version?",
+          "a": "Yes. Every series is available in IoT and basic non-IoT versions, in single colour or CCT."
+        },
+        {
+          "q": "What cut-out do I need?",
+          "a": "Cut-outs range from 55 mm to 90 mm depending on the model. Each product page lists the cut-out for every model."
+        }
+      ]
+    },
+    {
+      "slug": "led-tubelights",
+      "category": "smart-lighting",
+      "name": "LED Tubelights",
+      "tagline": "On when you arrive. On when the power isn't.",
+      "description": "A motion-sensing, dimmable T8 tubelight with a built-in emergency battery, for offices, corridors, basements and commercial facilities.",
+      "image": "/media/browse/led-cob-lighting.webp",
+      "brochurePages": [
+        56,
+        57
+      ],
+      "filters": [
+        {
+          "key": "cct",
+          "label": "Colour temperature"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How long does the emergency battery last?",
+          "a": "It has a 2200 mAh lithium-ion battery. Backup time depends on brightness; ask us for the data sheet."
+        }
+      ]
+    },
+    {
+      "slug": "bldc-fans",
+      "category": "smart-fans",
+      "name": "Elegance BLDC Fans",
+      "tagline": "Six collections. One quiet motor.",
+      "description": "HESEOS Elegance smart BLDC fans use a brushless motor for smooth, noiseless and reliable operation, with lower power consumption than traditional fans.",
+      "image": "/media/browse/elegance-series.webp",
+      "brochurePages": [
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "filters": [
+        {
+          "key": "colour",
+          "label": "Colour"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is a BLDC fan?",
+          "a": "A BLDC (brushless DC) fan uses a brushless motor for smooth, noiseless and reliable operation, with higher durability and lower power consumption than traditional brushed-motor fans."
+        },
+        {
+          "q": "What warranty do the fans have?",
+          "a": "Elegance fans carry a 3 year warranty."
+        },
+        {
+          "q": "How can I control the fan?",
+          "a": "With the smart remote, the HESEOS app, or your voice through Google Home, Amazon Alexa or Apple Siri."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "slug": "magnetic-touch-panel",
+      "subcategory": "touch-panels",
+      "name": "Magnetic Touch Panel",
+      "code": "TPM",
+      "tagline": "Glass, held by magnets.",
+      "summary": "The Magnetic Touch Panel series replaces your switchboard with a seamless black glass panel, in five module sizes.",
+      "image": "/media/products/studio/magnetic-touch-panel.webp",
+      "gallery": [
+        "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-range.webp",
+        "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-touch.webp",
+        "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-app.webp",
+        "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-detail.webp",
+        "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-night.webp"
+      ],
+      "highlights": [
+        "Scheduling",
+        "Workflow set",
+        "Secure Wi-Fi",
+        "Security alert",
+        "Surge protector",
+        "Sensor strip"
+      ],
+      "features": [
+        {
+          "title": "One panel, every load",
+          "body": "Replace the entire traditional switchboard with a sleek, modern touch interface."
+        },
+        {
+          "title": "Scenes and schedules",
+          "body": "Set schedules and workflows in the HESEOS app so lights and appliances follow your day."
+        },
+        {
+          "title": "Touch, app or voice",
+          "body": "Use the panel, your phone, or Google Home, Amazon Alexa and Apple Siri."
+        }
+      ],
+      "options": [
+        {
+          "key": "modules",
+          "label": "Module size",
+          "values": [
+            {
+              "id": "2",
+              "label": "2 Module"
+            },
+            {
+              "id": "4",
+              "label": "4 Module"
+            },
+            {
+              "id": "6",
+              "label": "6 Module"
+            },
+            {
+              "id": "8",
+              "label": "8 Module"
+            },
+            {
+              "id": "12",
+              "label": "12 Module"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "tpm-2m",
+          "label": "2 Module",
+          "options": {
+            "modules": "2"
+          },
+          "images": [
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-2-1.webp",
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-2-2.webp"
+          ]
+        },
+        {
+          "id": "tpm-4m",
+          "label": "4 Module",
+          "options": {
+            "modules": "4"
+          },
+          "images": [
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-4-1.webp",
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-4-2.webp"
+          ]
+        },
+        {
+          "id": "tpm-6m",
+          "label": "6 Module",
+          "options": {
+            "modules": "6"
+          },
+          "images": [
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-6-1.webp",
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-6-2.webp"
+          ]
+        },
+        {
+          "id": "tpm-8m",
+          "label": "8 Module",
+          "options": {
+            "modules": "8"
+          },
+          "images": [
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-8-1.webp",
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-8-2.webp"
+          ]
+        },
+        {
+          "id": "tpm-12m",
+          "label": "12 Module",
+          "options": {
+            "modules": "12"
+          },
+          "images": [
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-12-1.webp",
+            "/media/catalog/magnetic-touch-panel/magnetic-touch-panel-12-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Series code",
+          "value": "TPM"
+        },
+        {
+          "label": "Module sizes",
+          "value": "2, 4, 6, 8 and 12 module"
+        },
+        {
+          "label": "Control",
+          "value": "Touch, HESEOS app and voice assistants"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Replaces the existing switchboard plate and switches."
+      ],
+      "attributes": {
+        "modules": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "12"
+        ]
+      },
+      "related": [
+        "edge-panel-series",
+        "screen-control-panel",
+        "ir-blaster"
+      ],
+      "brochurePages": [
+        9
+      ]
+    },
+    {
+      "slug": "touch-panel-series",
+      "subcategory": "touch-panels",
+      "name": "Touch Panel Series",
+      "code": "TP",
+      "tagline": "The classic HESEOS glass panel.",
+      "summary": "The Touch Panel Series puts every light, fan and appliance on one backlit black glass panel, in five module sizes.",
+      "image": "/media/products/studio/touch-panel-series.webp",
+      "gallery": [
+        "/media/catalog/touch-panel-series/touch-panel-series-range.webp",
+        "/media/catalog/touch-panel-series/touch-panel-series-touch.webp",
+        "/media/catalog/touch-panel-series/touch-panel-series-app.webp",
+        "/media/catalog/touch-panel-series/touch-panel-series-detail.webp",
+        "/media/catalog/touch-panel-series/touch-panel-series-night.webp"
+      ],
+      "highlights": [
+        "Scheduling",
+        "Workflow set",
+        "Secure Wi-Fi",
+        "Security alert",
+        "Surge protector",
+        "Sensor strip"
+      ],
+      "features": [
+        {
+          "title": "Backlit touch keys",
+          "body": "Clearly lit keys for lights, fans and scenes, on a sleek glass front."
+        },
+        {
+          "title": "Scenes and schedules",
+          "body": "Set schedules and workflows in the HESEOS app so lights and appliances follow your day."
+        },
+        {
+          "title": "Touch, app or voice",
+          "body": "Use the panel, your phone, or Google Home, Amazon Alexa and Apple Siri."
+        }
+      ],
+      "options": [
+        {
+          "key": "modules",
+          "label": "Module size",
+          "values": [
+            {
+              "id": "2",
+              "label": "2 Module"
+            },
+            {
+              "id": "4",
+              "label": "4 Module"
+            },
+            {
+              "id": "6",
+              "label": "6 Module"
+            },
+            {
+              "id": "8",
+              "label": "8 Module"
+            },
+            {
+              "id": "12",
+              "label": "12 Module"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "tp-2m",
+          "label": "2 Module",
+          "options": {
+            "modules": "2"
+          },
+          "images": [
+            "/media/catalog/touch-panel-series/touch-panel-series-2-1.webp",
+            "/media/catalog/touch-panel-series/touch-panel-series-2-2.webp"
+          ]
+        },
+        {
+          "id": "tp-4m",
+          "label": "4 Module",
+          "options": {
+            "modules": "4"
+          },
+          "images": [
+            "/media/catalog/touch-panel-series/touch-panel-series-4-1.webp",
+            "/media/catalog/touch-panel-series/touch-panel-series-4-2.webp"
+          ]
+        },
+        {
+          "id": "tp-6m",
+          "label": "6 Module",
+          "options": {
+            "modules": "6"
+          },
+          "images": [
+            "/media/catalog/touch-panel-series/touch-panel-series-6-1.webp",
+            "/media/catalog/touch-panel-series/touch-panel-series-6-2.webp"
+          ]
+        },
+        {
+          "id": "tp-8m",
+          "label": "8 Module",
+          "options": {
+            "modules": "8"
+          },
+          "images": [
+            "/media/catalog/touch-panel-series/touch-panel-series-8-1.webp",
+            "/media/catalog/touch-panel-series/touch-panel-series-8-2.webp"
+          ]
+        },
+        {
+          "id": "tp-12m",
+          "label": "12 Module",
+          "options": {
+            "modules": "12"
+          },
+          "images": [
+            "/media/catalog/touch-panel-series/touch-panel-series-12-1.webp",
+            "/media/catalog/touch-panel-series/touch-panel-series-12-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Series code",
+          "value": "TP"
+        },
+        {
+          "label": "Module sizes",
+          "value": "2, 4, 6, 8 and 12 module"
+        },
+        {
+          "label": "Control",
+          "value": "Touch, HESEOS app and voice assistants"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Replaces the existing switchboard plate and switches."
+      ],
+      "attributes": {
+        "modules": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "12"
+        ]
+      },
+      "related": [
+        "magnetic-touch-panel",
+        "screen-control-panel",
+        "smart-plug-16a"
+      ],
+      "links": [
+        {
+          "label": "See the Touch Panel story",
+          "href": "/products/touch-panel"
+        }
+      ],
+      "brochurePages": [
+        10
+      ]
+    },
+    {
+      "slug": "edge-panel-series",
+      "subcategory": "touch-panels",
+      "name": "Edge Panel Series",
+      "code": "TEA",
+      "tagline": "Glass, framed in metal.",
+      "summary": "The Edge Panel Series frames black glass with a metal edge in five finishes, from Rose Gold to Chrome.",
+      "image": "/media/products/studio/edge-panel-series.webp",
+      "gallery": [
+        "/media/catalog/edge-panel-angle.webp",
+        "/media/catalog/edge-panel-detail.webp",
+        "/media/catalog/edge-panel-touch.webp",
+        "/media/catalog/edge-panel-living-room.webp",
+        "/media/catalog/edge-panel-bedroom.webp",
+        "/media/catalog/edge-panel-finishes.webp",
+        "/media/catalog/edge-panel-sizes.webp"
+      ],
+      "badges": [
+        "5 finishes"
+      ],
+      "highlights": [
+        "Scheduling",
+        "Workflow set",
+        "Secure Wi-Fi",
+        "Security alert",
+        "Surge protector",
+        "Sensor strip"
+      ],
+      "features": [
+        {
+          "title": "Five finishes",
+          "body": "Rose Gold, Grey, Gold, Chrome or Black edges to match your interiors."
+        },
+        {
+          "title": "Scenes and schedules",
+          "body": "Set schedules and workflows in the HESEOS app so lights and appliances follow your day."
+        },
+        {
+          "title": "Touch, app or voice",
+          "body": "Use the panel, your phone, or Google Home, Amazon Alexa and Apple Siri."
+        }
+      ],
+      "options": [
+        {
+          "key": "modules",
+          "label": "Module size",
+          "values": [
+            {
+              "id": "2",
+              "label": "2 Module"
+            },
+            {
+              "id": "4",
+              "label": "4 Module"
+            },
+            {
+              "id": "6",
+              "label": "6 Module"
+            },
+            {
+              "id": "8",
+              "label": "8 Module"
+            },
+            {
+              "id": "12",
+              "label": "12 Module"
+            }
+          ]
+        },
+        {
+          "key": "finish",
+          "label": "Finish",
+          "confirm": true,
+          "values": [
+            {
+              "id": "rose-gold",
+              "label": "Rose Gold",
+              "swatch": "#d8a596"
+            },
+            {
+              "id": "grey",
+              "label": "Grey",
+              "swatch": "#c9cbcf"
+            },
+            {
+              "id": "gold",
+              "label": "Gold",
+              "swatch": "#d9b64c"
+            },
+            {
+              "id": "chrome",
+              "label": "Chrome",
+              "swatch": "linear-gradient(135deg,#f2f3f5,#9a9ea5)"
+            },
+            {
+              "id": "black",
+              "label": "Black",
+              "swatch": "#111311"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "tea-2m",
+          "label": "2 Module",
+          "options": {
+            "modules": "2"
+          }
+        },
+        {
+          "id": "tea-4m",
+          "label": "4 Module",
+          "options": {
+            "modules": "4"
+          }
+        },
+        {
+          "id": "tea-6m",
+          "label": "6 Module",
+          "options": {
+            "modules": "6"
+          }
+        },
+        {
+          "id": "tea-8m",
+          "label": "8 Module",
+          "options": {
+            "modules": "8"
+          }
+        },
+        {
+          "id": "tea-12m",
+          "label": "12 Module",
+          "options": {
+            "modules": "12"
+          }
+        }
+      ],
+      "specs": [
+        {
+          "label": "Series code",
+          "value": "TEA"
+        },
+        {
+          "label": "Module sizes",
+          "value": "2, 4, 6, 8 and 12 module"
+        },
+        {
+          "label": "Finishes",
+          "value": "Rose Gold, Grey, Gold, Chrome, Black"
+        },
+        {
+          "label": "Control",
+          "value": "Touch, HESEOS app and voice assistants"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Replaces the existing switchboard plate and switches."
+      ],
+      "attributes": {
+        "modules": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "12"
+        ],
+        "finish": [
+          "Rose Gold",
+          "Grey",
+          "Gold",
+          "Chrome",
+          "Black"
+        ]
+      },
+      "related": [
+        "bezzel-panel-series",
+        "premium-glass-touch-switch",
+        "screen-control-panel"
+      ],
+      "brochurePages": [
+        11
+      ],
+      "review": [
+        "Brochure shows five finishes for the series; confirm which finishes are made in each module size.",
+        "edge-panel-*.webp images (except edge-panel-series.webp) are AI renders made from the brochure photo as a sample gallery; replace with product photography. The touch, living-room and bedroom shots show the keys in one row rather than the 2x2 grid."
+      ]
+    },
+    {
+      "slug": "bezzel-panel-series",
+      "subcategory": "touch-panels",
+      "name": "Bezzel Panel Series",
+      "code": "TPB",
+      "tagline": "A polished bezel, in five finishes.",
+      "summary": "The Bezzel Panel Series surrounds black or white glass with a polished bezel, with coloured indicator keys.",
+      "image": "/media/products/studio/bezzel-panel-series.webp",
+      "gallery": [
+        "/media/catalog/bezzel-panel-series/bezzel-panel-series-range.webp",
+        "/media/catalog/bezzel-panel-series/bezzel-panel-series-touch.webp",
+        "/media/catalog/bezzel-panel-series/bezzel-panel-series-app.webp",
+        "/media/catalog/bezzel-panel-series/bezzel-panel-series-detail.webp",
+        "/media/catalog/bezzel-panel-series/bezzel-panel-series-night.webp"
+      ],
+      "badges": [
+        "5 finishes"
+      ],
+      "highlights": [
+        "Scheduling",
+        "Workflow set",
+        "Secure Wi-Fi",
+        "Security alert",
+        "Surge protector",
+        "Sensor strip"
+      ],
+      "features": [
+        {
+          "title": "Five finishes",
+          "body": "Rose Gold, Grey, Gold, Chrome or Black bezels to match your interiors."
+        },
+        {
+          "title": "Scenes and schedules",
+          "body": "Set schedules and workflows in the HESEOS app so lights and appliances follow your day."
+        },
+        {
+          "title": "Touch, app or voice",
+          "body": "Use the panel, your phone, or Google Home, Amazon Alexa and Apple Siri."
+        }
+      ],
+      "options": [
+        {
+          "key": "modules",
+          "label": "Module size",
+          "values": [
+            {
+              "id": "2",
+              "label": "2 Module"
+            },
+            {
+              "id": "4",
+              "label": "4 Module"
+            },
+            {
+              "id": "6",
+              "label": "6 Module"
+            },
+            {
+              "id": "8",
+              "label": "8 Module"
+            },
+            {
+              "id": "12",
+              "label": "12 Module"
+            }
+          ]
+        },
+        {
+          "key": "finish",
+          "label": "Finish",
+          "confirm": true,
+          "values": [
+            {
+              "id": "rose-gold",
+              "label": "Rose Gold",
+              "swatch": "#d8a596"
+            },
+            {
+              "id": "grey",
+              "label": "Grey",
+              "swatch": "#c9cbcf"
+            },
+            {
+              "id": "gold",
+              "label": "Gold",
+              "swatch": "#d9b64c"
+            },
+            {
+              "id": "chrome",
+              "label": "Chrome",
+              "swatch": "linear-gradient(135deg,#f2f3f5,#9a9ea5)"
+            },
+            {
+              "id": "black",
+              "label": "Black",
+              "swatch": "#111311"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "tpb-2m",
+          "label": "2 Module",
+          "options": {
+            "modules": "2"
+          },
+          "images": [
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-2-1.webp",
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-2-2.webp"
+          ]
+        },
+        {
+          "id": "tpb-4m",
+          "label": "4 Module",
+          "options": {
+            "modules": "4"
+          },
+          "images": [
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-4-1.webp",
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-4-2.webp"
+          ]
+        },
+        {
+          "id": "tpb-6m",
+          "label": "6 Module",
+          "options": {
+            "modules": "6"
+          },
+          "images": [
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-6-1.webp",
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-6-2.webp"
+          ]
+        },
+        {
+          "id": "tpb-8m",
+          "label": "8 Module",
+          "options": {
+            "modules": "8"
+          },
+          "images": [
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-8-1.webp",
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-8-2.webp"
+          ]
+        },
+        {
+          "id": "tpb-12m",
+          "label": "12 Module",
+          "options": {
+            "modules": "12"
+          },
+          "images": [
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-12-1.webp",
+            "/media/catalog/bezzel-panel-series/bezzel-panel-series-12-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Series code",
+          "value": "TPB"
+        },
+        {
+          "label": "Module sizes",
+          "value": "2, 4, 6, 8 and 12 module"
+        },
+        {
+          "label": "Finishes",
+          "value": "Rose Gold, Grey, Gold, Chrome, Black"
+        },
+        {
+          "label": "Control",
+          "value": "Touch, HESEOS app and voice assistants"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Replaces the existing switchboard plate and switches."
+      ],
+      "attributes": {
+        "modules": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "12"
+        ],
+        "finish": [
+          "Rose Gold",
+          "Grey",
+          "Gold",
+          "Chrome",
+          "Black"
+        ]
+      },
+      "related": [
+        "edge-panel-series",
+        "premium-glass-touch-switch",
+        "screen-control-panel"
+      ],
+      "brochurePages": [
+        12
+      ],
+      "review": [
+        "Series name is printed as “Bezzel”; confirm the spelling to use online.",
+        "Confirm which finishes are made in each module size."
+      ]
+    },
+    {
+      "slug": "k-panel-series",
+      "subcategory": "touch-panels",
+      "name": "K Panel Series",
+      "code": "TPK",
+      "tagline": "Minimal glass for projects.",
+      "summary": "The K Panel Series is a minimal black glass panel with fine line keys, offered to builders for residential projects.",
+      "image": "/media/products/studio/k-panel-series.webp",
+      "gallery": [
+        "/media/catalog/k-panel-series/k-panel-series-range.webp",
+        "/media/catalog/k-panel-series/k-panel-series-touch.webp",
+        "/media/catalog/k-panel-series/k-panel-series-app.webp",
+        "/media/catalog/k-panel-series/k-panel-series-detail.webp",
+        "/media/catalog/k-panel-series/k-panel-series-night.webp"
+      ],
+      "badges": [
+        "Builders only"
+      ],
+      "highlights": [
+        "Scheduling",
+        "Workflow set",
+        "Secure Wi-Fi",
+        "Security alert",
+        "Surge protector",
+        "Sensor strip"
+      ],
+      "features": [
+        {
+          "title": "Made for projects",
+          "body": "A consistent, minimal panel for every apartment in a development."
+        },
+        {
+          "title": "Scenes and schedules",
+          "body": "Set schedules and workflows in the HESEOS app so lights and appliances follow your day."
+        },
+        {
+          "title": "Touch, app or voice",
+          "body": "Use the panel, your phone, or Google Home, Amazon Alexa and Apple Siri."
+        }
+      ],
+      "options": [
+        {
+          "key": "modules",
+          "label": "Module size",
+          "values": [
+            {
+              "id": "2",
+              "label": "2 Module"
+            },
+            {
+              "id": "4",
+              "label": "4 Module"
+            },
+            {
+              "id": "6",
+              "label": "6 Module"
+            },
+            {
+              "id": "8",
+              "label": "8 Module"
+            },
+            {
+              "id": "12",
+              "label": "12 Module"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "tpk-2m",
+          "label": "2 Module",
+          "options": {
+            "modules": "2"
+          },
+          "images": [
+            "/media/catalog/k-panel-series/k-panel-series-2-1.webp",
+            "/media/catalog/k-panel-series/k-panel-series-2-2.webp"
+          ]
+        },
+        {
+          "id": "tpk-4m",
+          "label": "4 Module",
+          "options": {
+            "modules": "4"
+          },
+          "images": [
+            "/media/catalog/k-panel-series/k-panel-series-4-1.webp",
+            "/media/catalog/k-panel-series/k-panel-series-4-2.webp"
+          ]
+        },
+        {
+          "id": "tpk-6m",
+          "label": "6 Module",
+          "options": {
+            "modules": "6"
+          },
+          "images": [
+            "/media/catalog/k-panel-series/k-panel-series-6-1.webp",
+            "/media/catalog/k-panel-series/k-panel-series-6-2.webp"
+          ]
+        },
+        {
+          "id": "tpk-8m",
+          "label": "8 Module",
+          "options": {
+            "modules": "8"
+          },
+          "images": [
+            "/media/catalog/k-panel-series/k-panel-series-8-1.webp",
+            "/media/catalog/k-panel-series/k-panel-series-8-2.webp"
+          ]
+        },
+        {
+          "id": "tpk-12m",
+          "label": "12 Module",
+          "options": {
+            "modules": "12"
+          },
+          "images": [
+            "/media/catalog/k-panel-series/k-panel-series-12-1.webp",
+            "/media/catalog/k-panel-series/k-panel-series-12-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Series code",
+          "value": "TPK"
+        },
+        {
+          "label": "Module sizes",
+          "value": "2, 4, 6, 8 and 12 module"
+        },
+        {
+          "label": "Availability",
+          "value": "Builders only"
+        },
+        {
+          "label": "Control",
+          "value": "Touch, HESEOS app and voice assistants"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Replaces the existing switchboard plate and switches."
+      ],
+      "attributes": {
+        "modules": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "12"
+        ],
+        "availability": [
+          "Builders only"
+        ]
+      },
+      "related": [
+        "touch-panel-series",
+        "screen-control-panel",
+        "wooden-door-lock"
+      ],
+      "brochurePages": [
+        13
+      ]
+    },
+    {
+      "slug": "retrofit-module",
+      "subcategory": "retrofit-modules",
+      "name": "Retrofit Module",
+      "tagline": "Your switchboard, now smart.",
+      "summary": "Retrofit modules turn the lights, fans and appliances on your existing switchboard into smart devices you control from your phone.",
+      "image": "/media/products/studio/smart-retrofit-module.webp",
+      "gallery": [
+        "/media/catalog/retrofit/retrofit-features.webp",
+        "/media/products-page/retrofit-modules.webp",
+        "/media/catalog/retrofit/retrofit-app.webp",
+        "/media/catalog/retrofit/retrofit-closeup.webp",
+        "/media/catalog/retrofit/retrofit-bedroom.webp"
+      ],
+      "highlights": [
+        "Scheduling",
+        "Workflow set",
+        "Surge protector",
+        "Secure Wi-Fi",
+        "Security alert",
+        "Sensor strip"
+      ],
+      "features": [
+        {
+          "title": "Keep your switches",
+          "body": "Made for the switchboards you already have, so your existing switches stay."
+        },
+        {
+          "title": "Control from anywhere",
+          "body": "Switch lights, fans and other appliances from the HESEOS app, at home or away."
+        },
+        {
+          "title": "Works with your assistant",
+          "body": "Google Home, Amazon Alexa and Apple Siri."
+        }
+      ],
+      "options": [
+        {
+          "key": "modules",
+          "label": "Module",
+          "values": [
+            {
+              "id": "1",
+              "label": "1 Module"
+            },
+            {
+              "id": "2",
+              "label": "2 Module"
+            },
+            {
+              "id": "3",
+              "label": "3 Module"
+            },
+            {
+              "id": "4",
+              "label": "4 Module"
+            },
+            {
+              "id": "5",
+              "label": "5 Module"
+            },
+            {
+              "id": "6",
+              "label": "6 Module"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "retrofit-1m",
+          "label": "1 Module",
+          "options": {
+            "modules": "1"
+          },
+          "images": [
+            "/media/catalog/retrofit/retrofit-1m-1.webp",
+            "/media/catalog/retrofit/retrofit-1m-2.webp"
+          ]
+        },
+        {
+          "id": "retrofit-2m",
+          "label": "2 Module",
+          "options": {
+            "modules": "2"
+          },
+          "images": [
+            "/media/catalog/retrofit/retrofit-2m-1.webp",
+            "/media/catalog/retrofit/retrofit-2m-2.webp"
+          ]
+        },
+        {
+          "id": "retrofit-3m",
+          "label": "3 Module",
+          "options": {
+            "modules": "3"
+          },
+          "images": [
+            "/media/catalog/retrofit/retrofit-3m-1.webp",
+            "/media/catalog/retrofit/retrofit-3m-2.webp"
+          ]
+        },
+        {
+          "id": "retrofit-4m",
+          "label": "4 Module",
+          "options": {
+            "modules": "4"
+          },
+          "images": [
+            "/media/catalog/retrofit/retrofit-4m-1.webp",
+            "/media/catalog/retrofit/retrofit-4m-2.webp"
+          ]
+        },
+        {
+          "id": "retrofit-5m",
+          "label": "5 Module",
+          "options": {
+            "modules": "5"
+          },
+          "images": [
+            "/media/catalog/retrofit/retrofit-5m-1.webp",
+            "/media/catalog/retrofit/retrofit-5m-2.webp"
+          ]
+        },
+        {
+          "id": "retrofit-6m",
+          "label": "6 Module",
+          "options": {
+            "modules": "6"
+          },
+          "images": [
+            "/media/catalog/retrofit/retrofit-6m-1.webp",
+            "/media/catalog/retrofit/retrofit-6m-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Versions",
+          "value": "1, 2, 3, 4, 5 and 6 module"
+        },
+        {
+          "label": "Controls",
+          "value": "Lights, fans and other appliances"
+        },
+        {
+          "label": "Control",
+          "value": "HESEOS app and voice assistants"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Fits inside your existing switchboard; your switches stay in place."
+      ],
+      "attributes": {
+        "modules": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ]
+      },
+      "related": [
+        "modular-smart-switch",
+        "smart-plug-16a",
+        "ir-blaster"
+      ],
+      "brochurePages": [
+        15,
+        16,
+        17
+      ],
+      "review": [
+        "Confirm the number of channels and maximum load per module version for the spec table."
+      ]
+    },
+    {
+      "slug": "modular-smart-switch",
+      "subcategory": "modular-switches",
+      "name": "Smart Modular Switch",
+      "tagline": "Upgrade the switch, keep the plate.",
+      "summary": "Smart Modular Switches replace traditional switch modules while keeping your existing plates intact. Choose on/off, fan regulator or dimmer modules.",
+      "image": "/media/products/studio/smart-modular-switch.webp",
+      "gallery": [
+        "/media/catalog/modular-smart-switch/modular-smart-switch-range.webp",
+        "/media/catalog/modular-smart-switch/modular-smart-switch-touch.webp",
+        "/media/catalog/modular-smart-switch/modular-smart-switch-app.webp",
+        "/media/catalog/modular-smart-switch/modular-smart-switch-install.webp",
+        "/media/catalog/modular-smart-switch/modular-smart-switch-detail.webp"
+      ],
+      "highlights": [
+        "Scheduling",
+        "Workflow set",
+        "Surge protector",
+        "Secure Wi-Fi",
+        "Security alert",
+        "Sensor strip"
+      ],
+      "features": [
+        {
+          "title": "Keep your plates",
+          "body": "Smart functionality, just by upgrading the traditional switches."
+        },
+        {
+          "title": "Fan and dimmer control",
+          "body": "Dedicated fan regulator and light dimmer modules, alongside 1, 2 and 4 on/off modules."
+        },
+        {
+          "title": "Works with your assistant",
+          "body": "Google Home, Amazon Alexa and Apple Siri."
+        }
+      ],
+      "options": [
+        {
+          "key": "type",
+          "label": "Module",
+          "values": [
+            {
+              "id": "1-onoff",
+              "label": "1 On/Off"
+            },
+            {
+              "id": "2-onoff",
+              "label": "2 On/Off"
+            },
+            {
+              "id": "4-onoff",
+              "label": "4 On/Off"
+            },
+            {
+              "id": "fan-regulator",
+              "label": "Fan Regulator"
+            },
+            {
+              "id": "dimmer",
+              "label": "Light On/Off with Dimmer"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "modular-1-onoff",
+          "label": "1 On/Off Module",
+          "options": {
+            "type": "1-onoff"
+          },
+          "images": [
+            "/media/catalog/modular-smart-switch/modular-smart-switch-1-1.webp",
+            "/media/catalog/modular-smart-switch/modular-smart-switch-1-2.webp"
+          ]
+        },
+        {
+          "id": "modular-2-onoff",
+          "label": "2 On/Off Module",
+          "options": {
+            "type": "2-onoff"
+          },
+          "images": [
+            "/media/catalog/modular-smart-switch/modular-smart-switch-2-1.webp",
+            "/media/catalog/modular-smart-switch/modular-smart-switch-2-2.webp"
+          ]
+        },
+        {
+          "id": "modular-4-onoff",
+          "label": "4 On/Off Module",
+          "options": {
+            "type": "4-onoff"
+          },
+          "images": [
+            "/media/catalog/modular-smart-switch/modular-smart-switch-4-1.webp",
+            "/media/catalog/modular-smart-switch/modular-smart-switch-4-2.webp"
+          ]
+        },
+        {
+          "id": "modular-fan-regulator",
+          "label": "Fan Regulator",
+          "options": {
+            "type": "fan-regulator"
+          },
+          "images": [
+            "/media/catalog/modular-smart-switch/modular-smart-switch-fan-1.webp",
+            "/media/catalog/modular-smart-switch/modular-smart-switch-fan-2.webp"
+          ]
+        },
+        {
+          "id": "modular-dimmer",
+          "label": "Light On/Off with Dimmer",
+          "options": {
+            "type": "dimmer"
+          },
+          "images": [
+            "/media/catalog/modular-smart-switch/modular-smart-switch-dim-1.webp",
+            "/media/catalog/modular-smart-switch/modular-smart-switch-dim-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Modules",
+          "value": "1 on/off, 2 on/off, 4 on/off, fan regulator, light on/off with dimmer"
+        },
+        {
+          "label": "Fits",
+          "value": "Existing modular switch plates"
+        },
+        {
+          "label": "Control",
+          "value": "Touch, HESEOS app and voice assistants"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Replaces traditional switch modules; existing plates stay in place."
+      ],
+      "attributes": {
+        "function": [
+          "On/Off",
+          "Fan regulator",
+          "Dimmer"
+        ]
+      },
+      "related": [
+        "retrofit-module",
+        "touch-panel-series",
+        "elegance-base"
+      ],
+      "brochurePages": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "slug": "premium-glass-touch-switch",
+      "subcategory": "premium-glass-switches",
+      "name": "Premium Glass Touch Switch",
+      "tagline": "Distinctive materials. Smart inside.",
+      "summary": "Premium touch switches in brushed, textured, leather and glass collections, in 1 to 4 switch configurations.",
+      "image": "/media/products/studio/glass-touch-switches.webp",
+      "gallery": [
+        "/media/products/studio/premium-brushed-touch-switches.webp",
+        "/media/products/studio/premium-textured-touch-switches.webp",
+        "/media/products/studio/premium-leather-touch-switches.webp",
+        "/media/products/studio/glass-touch-switches.webp",
+        "/media/catalog/premium-brushed.webp",
+        "/media/catalog/premium-textured.webp",
+        "/media/catalog/premium-leather.webp",
+        "/media/catalog/premium-glass.webp"
+      ],
+      "badges": [
+        "4 collections"
+      ],
+      "features": [
+        {
+          "title": "Four collections",
+          "body": "Premium Brushed, Textured, Leather and Glass, to suit any interior."
+        },
+        {
+          "title": "High quality materials",
+          "body": "Distinctive looks that enhance the ambience of every room."
+        },
+        {
+          "title": "Smart features",
+          "body": "Control from the switch, the HESEOS app or your voice assistant."
+        }
+      ],
+      "options": [
+        {
+          "key": "switches",
+          "label": "Switches",
+          "values": [
+            {
+              "id": "1s",
+              "label": "1S"
+            },
+            {
+              "id": "2s",
+              "label": "2S"
+            },
+            {
+              "id": "3s",
+              "label": "3S"
+            },
+            {
+              "id": "4s",
+              "label": "4S"
+            }
+          ]
+        },
+        {
+          "key": "collection",
+          "label": "Collection",
+          "confirm": true,
+          "values": [
+            {
+              "id": "brushed",
+              "label": "Premium Brushed",
+              "image": "/media/products/studio/premium-brushed-touch-switches.webp"
+            },
+            {
+              "id": "textured",
+              "label": "Premium Textured",
+              "image": "/media/products/studio/premium-textured-touch-switches.webp"
+            },
+            {
+              "id": "leather",
+              "label": "Premium Leather",
+              "image": "/media/products/studio/premium-leather-touch-switches.webp"
+            },
+            {
+              "id": "glass",
+              "label": "Premium Glass",
+              "image": "/media/products/studio/glass-touch-switches.webp"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "premium-1s",
+          "label": "1S",
+          "options": {
+            "switches": "1s"
+          }
+        },
+        {
+          "id": "premium-2s",
+          "label": "2S",
+          "options": {
+            "switches": "2s"
+          }
+        },
+        {
+          "id": "premium-3s",
+          "label": "3S",
+          "options": {
+            "switches": "3s"
+          }
+        },
+        {
+          "id": "premium-4s",
+          "label": "4S",
+          "options": {
+            "switches": "4s"
+          }
+        }
+      ],
+      "specs": [
+        {
+          "label": "Configurations",
+          "value": "1S, 2S, 3S, 4S"
+        },
+        {
+          "label": "Collections",
+          "value": "Premium Brushed, Premium Textured, Premium Leather, Premium Glass"
+        },
+        {
+          "label": "Control",
+          "value": "Touch, HESEOS app and voice assistants"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "attributes": {
+        "switches": [
+          "1S",
+          "2S",
+          "3S",
+          "4S"
+        ],
+        "collection": [
+          "Brushed",
+          "Textured",
+          "Leather",
+          "Glass"
+        ]
+      },
+      "related": [
+        "edge-panel-series",
+        "screen-control-panel",
+        "chrome-cob-downlight"
+      ],
+      "brochurePages": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "review": [
+        "Confirm which collections are made in each switch configuration (up to 16 combinations).",
+        "Confirm connectivity for the premium range."
+      ]
+    },
+    {
+      "slug": "screen-control-panel",
+      "subcategory": "screen-control-panels",
+      "name": "Screen Control Panel",
+      "tagline": "Touch, turn or talk.",
+      "summary": "A wall-mounted touchscreen with a control knob and voice commands, for every smart device in your home. In 4, 6 and 8 inch sizes.",
+      "image": "/media/products/studio/smart-screen-control-panel.webp",
+      "gallery": [
+        "/media/catalog/screen-control-panel/screen-control-panel-range.webp",
+        "/media/catalog/screen-control-panel/screen-control-panel-top.webp",
+        "/media/catalog/screen-control-panel/screen-control-panel-touch.webp",
+        "/media/catalog/screen-control-panel/screen-control-panel-hallway.webp",
+        "/media/catalog/screen-control-panel/screen-control-panel-brochure.webp"
+      ],
+      "highlights": [
+        "Temperature",
+        "Scene mode",
+        "Weather station",
+        "Voice control",
+        "Easy to install",
+        "Wi-Fi connection"
+      ],
+      "features": [
+        {
+          "title": "Everything, one screen",
+          "body": "Comprehensive control over all your smart home devices from a single, intuitive interface."
+        },
+        {
+          "title": "Knob and voice",
+          "body": "Adjust with the knob switch or speak a command."
+        },
+        {
+          "title": "Scenes and climate",
+          "body": "Switch scene modes and see temperature and weather at a glance."
+        }
+      ],
+      "options": [
+        {
+          "key": "screen",
+          "label": "Screen size",
+          "values": [
+            {
+              "id": "4",
+              "label": "4 inch"
+            },
+            {
+              "id": "6",
+              "label": "6 inch"
+            },
+            {
+              "id": "8",
+              "label": "8 inch"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "h4inpanelty",
+          "label": "4 inch",
+          "model": "H4INPanelTY",
+          "options": {
+            "screen": "4"
+          },
+          "images": [
+            "/media/catalog/screen-control-panel/screen-control-panel-4in-1.webp",
+            "/media/catalog/screen-control-panel/screen-control-panel-4in-2.webp"
+          ]
+        },
+        {
+          "id": "h6inpanelty",
+          "label": "6 inch",
+          "model": "H6INPanelTY",
+          "options": {
+            "screen": "6"
+          },
+          "images": [
+            "/media/catalog/screen-control-panel/screen-control-panel-6in-1.webp",
+            "/media/catalog/screen-control-panel/screen-control-panel-6in-2.webp"
+          ]
+        },
+        {
+          "id": "h8inpanelty",
+          "label": "8 inch",
+          "model": "H8INPanelTY",
+          "options": {
+            "screen": "8"
+          },
+          "images": [
+            "/media/catalog/screen-control-panel/screen-control-panel-8in-1.webp",
+            "/media/catalog/screen-control-panel/screen-control-panel-8in-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "H4INPanelTY (4 inch), H6INPanelTY (6 inch), H8INPanelTY (8 inch)"
+        },
+        {
+          "label": "Control",
+          "value": "Touchscreen, knob switch, voice commands"
+        },
+        {
+          "label": "Features",
+          "value": "Temperature, scene mode, weather station"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Wall mounted. Easy to install."
+      ],
+      "attributes": {
+        "screen": [
+          "4 inch",
+          "6 inch",
+          "8 inch"
+        ]
+      },
+      "related": [
+        "edge-panel-series",
+        "curtain-blind-motor",
+        "ip-video-door-phone"
+      ],
+      "brochurePages": [
+        44,
+        45,
+        46
+      ]
+    },
+    {
+      "slug": "smart-plug-16a",
+      "subcategory": "smart-plugs",
+      "name": "Smart Plug 16A",
+      "tagline": "See every watt.",
+      "summary": "Plug in your AC or geyser and switch it from your phone, set schedules, and monitor the energy it uses, even when you are away.",
+      "image": "/media/products/studio/wi-fi-smart-plug.webp",
+      "gallery": [
+        "/media/catalog/smart-plug-16a/smart-plug-16a-studio.webp",
+        "/media/catalog/smart-plug-16a/smart-plug-16a-top.webp",
+        "/media/catalog/smart-plug-16a/smart-plug-16a-detail.webp",
+        "/media/catalog/smart-plug-16a/smart-plug-16a-geyser.webp",
+        "/media/catalog/smart-plug-16a/smart-plug-16a-kitchen.webp",
+        "/media/catalog/smart-plug-16a/smart-plug-16a-app.webp",
+        "/media/catalog/smart-plug-16a/smart-plug-16a-brochure.webp"
+      ],
+      "highlights": [
+        "Voice control",
+        "Control with app",
+        "Energy monitoring",
+        "Easy to install",
+        "Set scheduling",
+        "Wi-Fi connectivity"
+      ],
+      "features": [
+        {
+          "title": "Built for heavy appliances",
+          "body": "Turn 16 A appliances like ACs and geysers on or off using your phone."
+        },
+        {
+          "title": "Effortless control",
+          "body": "Simply plug your appliance into the HESEOS Smart Plug and manage it remotely."
+        },
+        {
+          "title": "Remote access",
+          "body": "Manage your appliances from anywhere, even when you're not at home."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "smart-plug-16a",
+          "label": "Smart Plug 16A",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Rating",
+          "value": "16 A"
+        },
+        {
+          "label": "Monitoring",
+          "value": "Energy monitoring in the HESEOS app"
+        },
+        {
+          "label": "Control",
+          "value": "App, voice, schedules"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Plugs into a standard socket. No wiring needed."
+      ],
+      "attributes": {},
+      "related": [
+        "ir-blaster",
+        "three-phase-energy-meter",
+        "retrofit-module"
+      ],
+      "links": [
+        {
+          "label": "Buy online",
+          "href": "/store/buy/smart-plug"
+        },
+        {
+          "label": "See the Smart Plug story",
+          "href": "/products/smart-plug"
+        }
+      ],
+      "brochurePages": [
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "slug": "ir-blaster",
+      "subcategory": "ir-blasters",
+      "name": "IR Blaster",
+      "tagline": "One remote. Every room.",
+      "summary": "Turn your smartphone into a universal remote for ACs, TVs and other infrared appliances. Plug it into any USB outlet and add your remotes in the HESEOS app.",
+      "image": "/media/products/studio/smart-ir-blaster.webp",
+      "gallery": [
+        "/media/catalog/ir-blaster/ir-blaster-studio.webp",
+        "/media/catalog/ir-blaster/ir-blaster-top.webp",
+        "/media/catalog/ir-blaster/ir-blaster-charger.webp",
+        "/media/catalog/ir-blaster/ir-blaster-bedroom.webp",
+        "/media/catalog/ir-blaster/ir-blaster-living.webp",
+        "/media/catalog/ir-blaster/ir-blaster-app.webp",
+        "/media/catalog/ir-blaster/ir-blaster-brochure.webp"
+      ],
+      "highlights": [
+        "App control",
+        "Scenes change",
+        "Scheduling",
+        "Secure Wi-Fi"
+      ],
+      "features": [
+        {
+          "title": "Universal compatibility",
+          "body": "Controls a wide range of infrared devices."
+        },
+        {
+          "title": "Easy setup",
+          "body": "Plug into any USB outlet, such as a phone charger, and connect with the HESEOS app."
+        },
+        {
+          "title": "Control from anywhere",
+          "body": "Manage your devices from anywhere using your smartphone."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "ir-blaster",
+          "label": "IR Blaster",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Power",
+          "value": "Any USB outlet"
+        },
+        {
+          "label": "Controls",
+          "value": "Infrared remote-controlled appliances"
+        },
+        {
+          "label": "Features",
+          "value": "App control, scenes, scheduling"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Plug into any USB outlet in the room with your appliances."
+      ],
+      "attributes": {},
+      "related": [
+        "smart-plug-16a",
+        "screen-control-panel",
+        "touch-panel-series"
+      ],
+      "links": [
+        {
+          "label": "Buy online",
+          "href": "/store/buy/ir-blaster"
+        },
+        {
+          "label": "See the IR Blaster story",
+          "href": "/products/ir-blaster"
+        }
+      ],
+      "brochurePages": [
+        32,
+        33,
+        34
+      ]
+    },
+    {
+      "slug": "three-phase-energy-meter",
+      "subcategory": "energy-meters",
+      "name": "Three Phase Energy Meter",
+      "tagline": "Real-time energy, everywhere.",
+      "summary": "Track electricity use in real time at many locations throughout your space, and receive warnings when consumption goes above your thresholds.",
+      "image": "/media/products/studio/three-phase-energy-meter.webp",
+      "gallery": [
+        "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-top.webp",
+        "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-clamp.webp",
+        "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-app.webp",
+        "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-room.webp",
+        "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-panel.webp"
+      ],
+      "highlights": [
+        "Threshold alerts",
+        "Energy monitoring",
+        "Multi location tracking",
+        "Secure Wi-Fi",
+        "Easy to install"
+      ],
+      "features": [
+        {
+          "title": "Real-time tracking",
+          "body": "Track and analyze electricity usage in real time across multiple locations within your space."
+        },
+        {
+          "title": "Threshold alerts",
+          "body": "Receive warnings when consumption goes above predetermined thresholds."
+        },
+        {
+          "title": "Two versions",
+          "body": "A three phase energy meter, and a three phase DIN rail version for distribution boards."
+        }
+      ],
+      "options": [
+        {
+          "key": "type",
+          "label": "Version",
+          "values": [
+            {
+              "id": "standard",
+              "label": "Three Phase Energy Meter"
+            },
+            {
+              "id": "din-rail",
+              "label": "Three Phase DIN Rail Energy Meter"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "energy-meter-3p",
+          "label": "Three Phase Energy Meter",
+          "options": {
+            "type": "standard"
+          },
+          "images": [
+            "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-standard-1.webp",
+            "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-standard-2.webp"
+          ]
+        },
+        {
+          "id": "energy-meter-3p-din",
+          "label": "Three Phase DIN Rail Energy Meter",
+          "options": {
+            "type": "din-rail"
+          },
+          "images": [
+            "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-din-1.webp",
+            "/media/catalog/three-phase-energy-meter/three-phase-energy-meter-din-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Supply",
+          "value": "Three phase"
+        },
+        {
+          "label": "Versions",
+          "value": "Three Phase Energy Meter, Three Phase DIN Rail Energy Meter"
+        },
+        {
+          "label": "Alerts",
+          "value": "Consumption threshold warnings"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi"
+        }
+      ],
+      "installation": [
+        "Installed at the distribution board by a qualified electrician."
+      ],
+      "attributes": {
+        "mounting": [
+          "Standard",
+          "DIN rail"
+        ]
+      },
+      "related": [
+        "smart-plug-16a",
+        "motion-sensor-t8-tubelight",
+        "retrofit-module"
+      ],
+      "brochurePages": [
+        35,
+        36
+      ],
+      "review": [
+        "Confirm ratings (current, CT range) and mounting for the standard version."
+      ]
+    },
+    {
+      "slug": "curtain-blind-motor",
+      "subcategory": "curtain-blind-motors",
+      "name": "Curtain & Roller Blind Motor",
+      "tagline": "Curtains that move on cue.",
+      "summary": "Open and close curtains, drapes and roller blinds with a touch, on a schedule, or with your voice. Quiet, smooth and installed on the ceiling or wall.",
+      "image": "/media/products/studio/smart-curtain-motor.webp",
+      "gallery": [
+        "/media/catalog/curtain-blind-motor/curtain-blind-motor-sunrise.webp",
+        "/media/catalog/curtain-blind-motor/curtain-blind-motor-app.webp",
+        "/media/catalog/curtain-blind-motor/curtain-blind-motor-bedroom.webp",
+        "/media/catalog/curtain-blind-motor/curtain-blind-motor-living.webp",
+        "/media/catalog/curtain-blind-motor/curtain-blind-motor-brochure.webp"
+      ],
+      "highlights": [
+        "Voice control",
+        "High voltage control",
+        "App control",
+        "Stop on blockage",
+        "Noise reduce",
+        "Group motor control"
+      ],
+      "features": [
+        {
+          "title": "Motorized operation",
+          "body": "Effortlessly open and close curtains with the touch of a button."
+        },
+        {
+          "title": "Quiet and smooth",
+          "body": "Operates quietly to enhance comfort and convenience."
+        },
+        {
+          "title": "Your schedule",
+          "body": "Set schedules or control manually with the remote or the app, and group several motors together."
+        }
+      ],
+      "options": [
+        {
+          "key": "type",
+          "label": "Motor",
+          "values": [
+            {
+              "id": "curtain",
+              "label": "Curtain Motor"
+            },
+            {
+              "id": "roller-blind",
+              "label": "Roller Blind Motor"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "curtain-motor",
+          "label": "Curtain Motor",
+          "options": {
+            "type": "curtain"
+          },
+          "images": [
+            "/media/catalog/curtain-blind-motor/curtain-blind-motor-curtain-1.webp",
+            "/media/catalog/curtain-blind-motor/curtain-blind-motor-curtain-2.webp"
+          ]
+        },
+        {
+          "id": "roller-blind-motor",
+          "label": "Roller Blind Motor",
+          "options": {
+            "type": "roller-blind"
+          },
+          "images": [
+            "/media/catalog/curtain-blind-motor/curtain-blind-motor-roller-1.webp",
+            "/media/catalog/curtain-blind-motor/curtain-blind-motor-roller-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Motors",
+          "value": "Curtain motor, roller blind motor"
+        },
+        {
+          "label": "Installation",
+          "value": "Ceiling or wall"
+        },
+        {
+          "label": "Control",
+          "value": "Remote, HESEOS app, voice, schedules"
+        },
+        {
+          "label": "Safety",
+          "value": "Stops on blockage"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "installation": [
+        "Ceiling or wall installation."
+      ],
+      "attributes": {
+        "type": [
+          "Curtain",
+          "Roller blind"
+        ]
+      },
+      "related": [
+        "screen-control-panel",
+        "human-presence-sensor",
+        "edge-panel-series"
+      ],
+      "brochurePages": [
+        37,
+        38,
+        39
+      ]
+    },
+    {
+      "slug": "drawer-lock",
+      "subcategory": "door-locks",
+      "name": "Smart Drawer Lock",
+      "tagline": "Fingerprint security for drawers.",
+      "summary": "A smart drawer lock with a keyless locking system that offers fingerprint access and enhanced security for your drawer.",
+      "image": "/media/products/studio/drawer-lock.webp",
+      "gallery": [
+        "/media/catalog/drawer-lock/drawer-lock-drawer-finger.webp",
+        "/media/catalog/drawer-lock/drawer-lock-drawer-app.webp",
+        "/media/catalog/drawer-lock/drawer-lock-drawer-detail.webp",
+        "/media/catalog/drawer-lock/drawer-lock-drawer-cabinet.webp",
+        "/media/catalog/drawer-lock/drawer-lock-drawer-wardrobe.webp"
+      ],
+      "features": [
+        {
+          "title": "Keyless",
+          "body": "Open your drawer with your fingerprint. No keys to keep track of."
+        },
+        {
+          "title": "Compact",
+          "body": "A small, discreet lock for drawers and cabinets."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hdl-a",
+              "label": "HDL-A"
+            },
+            {
+              "id": "hdl-a1",
+              "label": "HDL-A1"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hdl-a",
+          "label": "HDL-A",
+          "model": "HDL-A",
+          "options": {
+            "model": "hdl-a"
+          },
+          "images": [
+            "/media/catalog/drawer-lock/drawer-lock-hdl-a-1.webp",
+            "/media/catalog/drawer-lock/drawer-lock-hdl-a-2.webp"
+          ]
+        },
+        {
+          "id": "hdl-a1",
+          "label": "HDL-A1",
+          "model": "HDL-A1",
+          "options": {
+            "model": "hdl-a1"
+          },
+          "images": [
+            "/media/catalog/drawer-lock/drawer-lock-hdl-a1-1.webp",
+            "/media/catalog/drawer-lock/drawer-lock-hdl-a1-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HDL-A, HDL-A1"
+        },
+        {
+          "label": "Unlocking",
+          "value": "Fingerprint"
+        },
+        {
+          "label": "Use",
+          "value": "Drawers and cabinets"
+        }
+      ],
+      "attributes": {
+        "doorType": [
+          "Drawer"
+        ],
+        "unlocking": [
+          "Fingerprint"
+        ]
+      },
+      "related": [
+        "wooden-door-lock",
+        "smart-doorbell",
+        "pir-motion-sensor"
+      ],
+      "brochurePages": [
+        22
+      ]
+    },
+    {
+      "slug": "glass-door-lock",
+      "subcategory": "door-locks",
+      "name": "Smart Glass Door Lock",
+      "tagline": "Made for glass. Six ways in.",
+      "summary": "A sleek, secure glass door lock with reliable protection and a modern style for your home or office.",
+      "image": "/media/products/studio/glass-door-lock.webp",
+      "gallery": [
+        "/media/catalog/glass-door-lock/glass-door-lock-glass-finger.webp",
+        "/media/catalog/glass-door-lock/glass-door-lock-glass-app.webp",
+        "/media/catalog/glass-door-lock/glass-door-lock-glass-detail.webp",
+        "/media/catalog/glass-door-lock/glass-door-lock-glass-corridor.webp",
+        "/media/catalog/glass-door-lock/glass-door-lock-brochure.webp"
+      ],
+      "highlights": [
+        "App unlock",
+        "Password unlock",
+        "Finger unlock",
+        "RFID unlock",
+        "Scramble code",
+        "OTP"
+      ],
+      "features": [
+        {
+          "title": "Multiple unlocking ways",
+          "body": "App, password, fingerprint, RFID card, scramble code or one-time password."
+        },
+        {
+          "title": "For the whole family",
+          "body": "Stores multiple sets of fingerprints, and is easy to manage."
+        },
+        {
+          "title": "Share access",
+          "body": "Generate passwords for guests when you're not at home, with access alerts and an attendance record."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hnewlock",
+              "label": "HNEWLOCK"
+            },
+            {
+              "id": "hgl-ttg3",
+              "label": "HGL-TTG3"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hnewlock",
+          "label": "HNEWLOCK",
+          "model": "HNEWLOCK",
+          "options": {
+            "model": "hnewlock"
+          },
+          "images": [
+            "/media/catalog/glass-door-lock/glass-door-lock-hnewlock-1.webp",
+            "/media/catalog/glass-door-lock/glass-door-lock-hnewlock-2.webp"
+          ]
+        },
+        {
+          "id": "hgl-ttg3-glass",
+          "label": "HGL-TTG3",
+          "model": "HGL-TTG3",
+          "options": {
+            "model": "hgl-ttg3"
+          },
+          "images": [
+            "/media/catalog/glass-door-lock/glass-door-lock-ttg3-1.webp",
+            "/media/catalog/glass-door-lock/glass-door-lock-ttg3-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HNEWLOCK, HGL-TTG3"
+        },
+        {
+          "label": "Unlocking",
+          "value": "App, password, fingerprint, RFID card, scramble code, OTP"
+        },
+        {
+          "label": "Access records",
+          "value": "Access alerts and attendance record"
+        },
+        {
+          "label": "Door",
+          "value": "Glass doors"
+        }
+      ],
+      "attributes": {
+        "doorType": [
+          "Glass"
+        ],
+        "unlocking": [
+          "App",
+          "Password",
+          "Fingerprint",
+          "RFID card",
+          "Scramble code",
+          "OTP"
+        ]
+      },
+      "related": [
+        "sliding-door-lock",
+        "ip-video-door-phone",
+        "smart-doorbell"
+      ],
+      "brochurePages": [
+        22,
+        23
+      ],
+      "review": [
+        "HGL-TTG3 is printed under both Glass and Sliding door locks; confirm whether it is one product."
+      ]
+    },
+    {
+      "slug": "sliding-door-lock",
+      "subcategory": "door-locks",
+      "name": "Smart Sliding Door Lock",
+      "tagline": "Sliding doors, unlocked your way.",
+      "summary": "Open your sliding doors in multiple ways: enter a passcode, swipe an RFID card, scan your fingerprint, use the mobile app or insert a mechanical key.",
+      "image": "/media/products/studio/sliding-door-lock.webp",
+      "gallery": [
+        "/media/catalog/sliding-door-lock/sliding-door-lock-sliding-studio.webp",
+        "/media/catalog/sliding-door-lock/sliding-door-lock-sliding-patio.webp",
+        "/media/catalog/sliding-door-lock/sliding-door-lock-sliding-side.webp",
+        "/media/catalog/sliding-door-lock/sliding-door-lock-sliding-finger.webp",
+        "/media/catalog/sliding-door-lock/sliding-door-lock-sliding-app.webp",
+        "/media/catalog/sliding-door-lock/sliding-door-lock-sliding-detail.webp",
+        "/media/catalog/sliding-door-lock/sliding-door-lock-sliding-night.webp"
+      ],
+      "features": [
+        {
+          "title": "Five ways in",
+          "body": "Passcode, RFID card, fingerprint, mobile app or mechanical key."
+        },
+        {
+          "title": "Slim profile",
+          "body": "A narrow body made for sliding door frames."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hgl-ttg3",
+              "label": "HGL-TTG3"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hgl-ttg3-sliding",
+          "label": "HGL-TTG3",
+          "model": "HGL-TTG3",
+          "options": {
+            "model": "hgl-ttg3"
+          }
+        }
+      ],
+      "specs": [
+        {
+          "label": "Model",
+          "value": "HGL-TTG3"
+        },
+        {
+          "label": "Unlocking",
+          "value": "Passcode, RFID card, fingerprint, mobile app, mechanical key"
+        },
+        {
+          "label": "Door",
+          "value": "Sliding doors"
+        }
+      ],
+      "attributes": {
+        "doorType": [
+          "Sliding"
+        ],
+        "unlocking": [
+          "Password",
+          "RFID card",
+          "Fingerprint",
+          "App",
+          "Mechanical key"
+        ]
+      },
+      "related": [
+        "glass-door-lock",
+        "wooden-door-lock",
+        "smart-doorbell"
+      ],
+      "brochurePages": [
+        22
+      ],
+      "review": [
+        "Same model label as a glass door lock (HGL-TTG3); confirm the sliding-door model code."
+      ]
+    },
+    {
+      "slug": "wooden-door-lock",
+      "subcategory": "door-locks",
+      "name": "Smart Wooden Door Lock",
+      "tagline": "Premium design. Advanced security.",
+      "summary": "Smart locks for wooden and metal doors that open with multiple unlocking methods, in four models.",
+      "image": "/media/products/studio/wooden-door-lock.webp",
+      "gallery": [
+        "/media/catalog/wooden-door-lock/wooden-door-lock-wooden-entrance.webp",
+        "/media/catalog/wooden-door-lock/wooden-door-lock-wooden-finger.webp",
+        "/media/catalog/wooden-door-lock/wooden-door-lock-wooden-app.webp",
+        "/media/catalog/wooden-door-lock/wooden-door-lock-wooden-night.webp",
+        "/media/catalog/wooden-door-lock/wooden-door-lock-brochure.webp"
+      ],
+      "highlights": [
+        "App unlock",
+        "Password unlock",
+        "Phys. key unlock",
+        "Finger unlock",
+        "RFID unlock",
+        "Scramble code",
+        "OTP"
+      ],
+      "features": [
+        {
+          "title": "Universal fit",
+          "body": "Compatible with most wooden and metal doors."
+        },
+        {
+          "title": "Durable construction",
+          "body": "Strong aluminium alloy panel, anti-corrosion and sturdy."
+        },
+        {
+          "title": "Backup power",
+          "body": "A USB external power supply interface ensures access even during power outages."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "series-1-pro",
+              "label": "Series 1 Pro"
+            },
+            {
+              "id": "hwl-k31r-ty",
+              "label": "HWL-K31R-TY"
+            },
+            {
+              "id": "hwl-818-ty",
+              "label": "HWL-818-TY"
+            },
+            {
+              "id": "h-oa3-bg",
+              "label": "H_OA3-B & G"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "series-1-pro",
+          "label": "Series 1 Pro",
+          "model": "SERIES 1 PRO",
+          "options": {
+            "model": "series-1-pro"
+          },
+          "images": [
+            "/media/catalog/wooden-door-lock/wooden-door-lock-s1pro-1.webp",
+            "/media/catalog/wooden-door-lock/wooden-door-lock-s1pro-2.webp"
+          ]
+        },
+        {
+          "id": "hwl-k31r-ty",
+          "label": "HWL-K31R-TY",
+          "model": "HWL-K31R-TY",
+          "options": {
+            "model": "hwl-k31r-ty"
+          },
+          "images": [
+            "/media/catalog/wooden-door-lock/wooden-door-lock-k31r-1.webp",
+            "/media/catalog/wooden-door-lock/wooden-door-lock-k31r-2.webp"
+          ]
+        },
+        {
+          "id": "hwl-818-ty",
+          "label": "HWL-818-TY",
+          "model": "HWL-818-TY",
+          "options": {
+            "model": "hwl-818-ty"
+          },
+          "images": [
+            "/media/catalog/wooden-door-lock/wooden-door-lock-818-1.webp",
+            "/media/catalog/wooden-door-lock/wooden-door-lock-818-2.webp"
+          ]
+        },
+        {
+          "id": "h-oa3-bg",
+          "label": "H_OA3-B & G",
+          "model": "H_OA3-B & G",
+          "options": {
+            "model": "h-oa3-bg"
+          },
+          "images": [
+            "/media/catalog/wooden-door-lock/wooden-door-lock-oa3-1.webp",
+            "/media/catalog/wooden-door-lock/wooden-door-lock-oa3-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "Series 1 Pro, HWL-K31R-TY, HWL-818-TY, H_OA3-B & G"
+        },
+        {
+          "label": "Unlocking",
+          "value": "App, password, physical key, fingerprint, RFID card, scramble code, OTP"
+        },
+        {
+          "label": "Door",
+          "value": "Most wooden and metal doors"
+        },
+        {
+          "label": "Construction",
+          "value": "Aluminium alloy panel, anti-corrosion"
+        },
+        {
+          "label": "Backup power",
+          "value": "USB external power supply interface"
+        }
+      ],
+      "attributes": {
+        "doorType": [
+          "Wooden",
+          "Metal"
+        ],
+        "unlocking": [
+          "App",
+          "Password",
+          "Mechanical key",
+          "Fingerprint",
+          "RFID card",
+          "Scramble code",
+          "OTP"
+        ]
+      },
+      "related": [
+        "screen-door-lock",
+        "ip-video-door-phone",
+        "smart-doorbell"
+      ],
+      "brochurePages": [
+        24,
+        25
+      ],
+      "review": [
+        "Brochure says “5 different unlocking methods” but lists 7 icons; confirm per model.",
+        "Confirm the printed model code “H_OA3-B & G”."
+      ]
+    },
+    {
+      "slug": "screen-door-lock",
+      "subcategory": "door-locks",
+      "name": "Smart Screen Door Lock",
+      "tagline": "See who's there. Then let them in.",
+      "summary": "Smart door locks with a built-in screen and six ways to unlock, including fingerprint, password and face recognition.",
+      "image": "/media/products/studio/screen-door-lock.webp",
+      "gallery": [
+        "/media/catalog/screen-door-lock/screen-door-lock-screen-entrance.webp",
+        "/media/catalog/screen-door-lock/screen-door-lock-screen-face.webp",
+        "/media/catalog/screen-door-lock/screen-door-lock-screen-app.webp",
+        "/media/catalog/screen-door-lock/screen-door-lock-screen-detail.webp",
+        "/media/catalog/screen-door-lock/screen-door-lock-screen-night.webp"
+      ],
+      "badges": [
+        "Face recognition"
+      ],
+      "features": [
+        {
+          "title": "Six ways to unlock",
+          "body": "Including fingerprint, password and face recognition."
+        },
+        {
+          "title": "Built-in screen",
+          "body": "See who is at the door right on the lock."
+        },
+        {
+          "title": "Four models",
+          "body": "From rose gold to matte black finishes."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hwl-928-ty",
+              "label": "HWL-928-TY"
+            },
+            {
+              "id": "h-lock-933-tt",
+              "label": "H-LOCK 933-TT"
+            },
+            {
+              "id": "h-9",
+              "label": "H-9"
+            },
+            {
+              "id": "h-lock-k1-ty",
+              "label": "H-LOCK-K1-TY"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hwl-928-ty",
+          "label": "HWL-928-TY",
+          "model": "HWL-928-TY",
+          "options": {
+            "model": "hwl-928-ty"
+          },
+          "images": [
+            "/media/catalog/screen-door-lock/screen-door-lock-928-1.webp",
+            "/media/catalog/screen-door-lock/screen-door-lock-928-2.webp"
+          ]
+        },
+        {
+          "id": "h-lock-933-tt",
+          "label": "H-LOCK 933-TT",
+          "model": "H-LOCK 933-TT",
+          "options": {
+            "model": "h-lock-933-tt"
+          },
+          "images": [
+            "/media/catalog/screen-door-lock/screen-door-lock-933-1.webp",
+            "/media/catalog/screen-door-lock/screen-door-lock-933-2.webp"
+          ]
+        },
+        {
+          "id": "h-9",
+          "label": "H-9",
+          "model": "H-9",
+          "options": {
+            "model": "h-9"
+          },
+          "images": [
+            "/media/catalog/screen-door-lock/screen-door-lock-h9-1.webp",
+            "/media/catalog/screen-door-lock/screen-door-lock-h9-2.webp"
+          ]
+        },
+        {
+          "id": "h-lock-k1-ty",
+          "label": "H-LOCK-K1-TY",
+          "model": "H-LOCK-K1-TY",
+          "options": {
+            "model": "h-lock-k1-ty"
+          },
+          "images": [
+            "/media/catalog/screen-door-lock/screen-door-lock-k1-1.webp",
+            "/media/catalog/screen-door-lock/screen-door-lock-k1-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HWL-928-TY, H-LOCK 933-TT, H-9, H-LOCK-K1-TY"
+        },
+        {
+          "label": "Unlocking",
+          "value": "6 ways, including fingerprint, password and face recognition"
+        },
+        {
+          "label": "Display",
+          "value": "Built-in screen"
+        }
+      ],
+      "attributes": {
+        "doorType": [
+          "Wooden",
+          "Metal"
+        ],
+        "unlocking": [
+          "Fingerprint",
+          "Password",
+          "Face recognition"
+        ]
+      },
+      "related": [
+        "wooden-door-lock",
+        "ip-video-door-phone",
+        "human-presence-sensor"
+      ],
+      "brochurePages": [
+        24
+      ],
+      "review": [
+        "Confirm the six unlocking methods and door compatibility per model."
+      ]
+    },
+    {
+      "slug": "lever-door-lock",
+      "subcategory": "door-locks",
+      "name": "Smart Lever Door Lock",
+      "tagline": "Get rid of keys.",
+      "summary": "A smart handle lock for homes and offices, with fingerprint unlock, Bluetooth app connection, a passcode keypad and physical backup keys.",
+      "image": "/media/products/studio/lever-door-lock.webp",
+      "gallery": [
+        "/media/catalog/lever-door-lock/lever-door-lock-lever-studio.webp",
+        "/media/catalog/lever-door-lock/lever-door-lock-lever-detail.webp",
+        "/media/catalog/lever-door-lock/lever-door-lock-lever-office.webp",
+        "/media/catalog/lever-door-lock/lever-door-lock-lever-finger.webp",
+        "/media/catalog/lever-door-lock/lever-door-lock-lever-app.webp",
+        "/media/catalog/lever-door-lock/lever-door-lock-lever-bedroom.webp",
+        "/media/catalog/lever-door-lock/lever-door-lock-lever-top.webp"
+      ],
+      "features": [
+        {
+          "title": "Fingerprint unlock",
+          "body": "A simple, keyless way to secure your home or office."
+        },
+        {
+          "title": "Bluetooth app",
+          "body": "Connect with the mobile app over Bluetooth."
+        },
+        {
+          "title": "Backup keys",
+          "body": "Physical backup keys and a passcode keypad, just in case."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hohwl-05-tt",
+              "label": "HOHWL-05-TT"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hohwl-05-tt",
+          "label": "HOHWL-05-TT",
+          "model": "HOHWL-05-TT",
+          "options": {
+            "model": "hohwl-05-tt"
+          }
+        }
+      ],
+      "specs": [
+        {
+          "label": "Model",
+          "value": "HOHWL-05-TT"
+        },
+        {
+          "label": "Unlocking",
+          "value": "Fingerprint, mobile app (Bluetooth), passcode keypad, physical backup keys"
+        },
+        {
+          "label": "Use",
+          "value": "Homes and offices"
+        }
+      ],
+      "attributes": {
+        "doorType": [
+          "Lever handle"
+        ],
+        "unlocking": [
+          "Fingerprint",
+          "App",
+          "Password",
+          "Mechanical key"
+        ]
+      },
+      "related": [
+        "wooden-door-lock",
+        "drawer-lock",
+        "smart-doorbell"
+      ],
+      "brochurePages": [
+        24
+      ]
+    },
+    {
+      "slug": "ip-video-door-phone",
+      "subcategory": "video-door-phones",
+      "name": "IP Video Door Phone",
+      "code": "HL",
+      "tagline": "Your entrance, over the internet.",
+      "summary": "An IP video door phone that uses your internet network for high-quality video and audio at your entrance, with seamless smart home integration.",
+      "image": "/media/products/studio/ip-video-door-phone.webp",
+      "gallery": [
+        "/media/catalog/ip-video-door-phone/ip-video-door-phone-studio.webp",
+        "/media/catalog/ip-video-door-phone/ip-video-door-phone-top.webp",
+        "/media/catalog/ip-video-door-phone/ip-video-door-phone-detail.webp",
+        "/media/catalog/ip-video-door-phone/ip-video-door-phone-lobby.webp",
+        "/media/catalog/ip-video-door-phone/ip-video-door-phone-entrance.webp",
+        "/media/catalog/ip-video-door-phone/ip-video-door-phone-app.webp",
+        "/media/catalog/ip-video-door-phone/ip-video-door-phone-chime.webp"
+      ],
+      "features": [
+        {
+          "title": "High-quality video and audio",
+          "body": "Clear communication with whoever is at your entrance."
+        },
+        {
+          "title": "Smart home integration",
+          "body": "Advanced security that works with the rest of your HESEOS system."
+        },
+        {
+          "title": "Homes and businesses",
+          "body": "Ideal for modern homes and businesses."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "ip-vdp-hl",
+          "label": "IP VDP (HL)",
+          "model": "HL",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Series",
+          "value": "HL"
+        },
+        {
+          "label": "Technology",
+          "value": "IP (internet network)"
+        },
+        {
+          "label": "Integration",
+          "value": "HESEOS smart home system"
+        }
+      ],
+      "attributes": {
+        "technology": [
+          "IP"
+        ]
+      },
+      "related": [
+        "smart-doorbell",
+        "screen-door-lock",
+        "screen-control-panel"
+      ],
+      "brochurePages": [
+        26,
+        27
+      ]
+    },
+    {
+      "slug": "analog-video-door-phone",
+      "subcategory": "video-door-phones",
+      "name": "Analog Video Door Phone",
+      "code": "HS",
+      "tagline": "See your door. Simply.",
+      "summary": "An analog video door phone that displays live visuals of your entrance: a cost-effective way to manage calls and enhance security.",
+      "image": "/media/products/studio/analog-video-door-phone.webp",
+      "gallery": [
+        "/media/catalog/analog-video-door-phone/analog-video-door-phone-vdp-studio.webp",
+        "/media/catalog/analog-video-door-phone/analog-video-door-phone-vdp-hall.webp",
+        "/media/catalog/analog-video-door-phone/analog-video-door-phone-vdp-touch.webp",
+        "/media/catalog/analog-video-door-phone/analog-video-door-phone-vdp-outdoor.webp",
+        "/media/catalog/analog-video-door-phone/analog-video-door-phone-vdp-night.webp",
+        "/media/catalog/analog-video-door-phone/analog-video-door-phone-vdp-family.webp",
+        "/media/catalog/analog-video-door-phone/analog-video-door-phone-vdp-detail.webp"
+      ],
+      "features": [
+        {
+          "title": "Live visuals",
+          "body": "See your entrance on the indoor monitor."
+        },
+        {
+          "title": "Cost-effective",
+          "body": "A simple way to manage calls at the door."
+        },
+        {
+          "title": "For every building",
+          "body": "Suited to homes, workplaces and residential complexes."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "analog-vdp-hs",
+          "label": "Analog VDP (HS)",
+          "model": "HS",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Series",
+          "value": "HS"
+        },
+        {
+          "label": "Technology",
+          "value": "Analog"
+        },
+        {
+          "label": "Use",
+          "value": "Homes, workplaces, residential complexes"
+        }
+      ],
+      "attributes": {
+        "technology": [
+          "Analog"
+        ]
+      },
+      "related": [
+        "ip-video-door-phone",
+        "wooden-door-lock",
+        "smart-doorbell"
+      ],
+      "brochurePages": [
+        26,
+        27
+      ]
+    },
+    {
+      "slug": "smart-doorbell",
+      "subcategory": "video-door-phones",
+      "name": "Smart Doorbell",
+      "tagline": "130° of peace of mind.",
+      "summary": "A doorbell combo with an HD 130° wide-angle camera and motion detection, for clear, expansive views of your entry on your phone.",
+      "image": "/media/products/studio/smart-doorbell.webp",
+      "gallery": [
+        "/media/catalog/smart-doorbell/smart-doorbell-studio.webp",
+        "/media/catalog/smart-doorbell/smart-doorbell-top.webp",
+        "/media/catalog/smart-doorbell/smart-doorbell-detail.webp",
+        "/media/catalog/smart-doorbell/smart-doorbell-day.webp",
+        "/media/catalog/smart-doorbell/smart-doorbell-night.webp",
+        "/media/catalog/smart-doorbell/smart-doorbell-app.webp",
+        "/media/catalog/smart-doorbell/smart-doorbell-chime.webp"
+      ],
+      "highlights": [
+        "Motion detection",
+        "Infrared night vision",
+        "Wide angle lens",
+        "Two-way intercom",
+        "Works with app",
+        "Rechargeable battery",
+        "Wi-Fi connection",
+        "2 MP HD camera"
+      ],
+      "features": [
+        {
+          "title": "Wide view",
+          "body": "An HD 130° wide-angle camera shows your whole entry."
+        },
+        {
+          "title": "Day and night",
+          "body": "Motion detection and infrared night vision."
+        },
+        {
+          "title": "Talk from anywhere",
+          "body": "Two-way intercom through the HESEOS app, on a rechargeable battery and Wi-Fi."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "smart-doorbell",
+          "label": "Smart Doorbell",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Camera",
+          "value": "2 megapixel HD, 130° wide angle"
+        },
+        {
+          "label": "Night vision",
+          "value": "Infrared"
+        },
+        {
+          "label": "Audio",
+          "value": "Two-way intercom"
+        },
+        {
+          "label": "Power",
+          "value": "Rechargeable battery"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi, HESEOS app"
+        }
+      ],
+      "attributes": {
+        "technology": [
+          "Wi-Fi"
+        ]
+      },
+      "related": [
+        "ip-video-door-phone",
+        "wooden-door-lock",
+        "pir-motion-sensor"
+      ],
+      "brochurePages": [
+        27,
+        28
+      ]
+    },
+    {
+      "slug": "microwave-motion-sensor",
+      "subcategory": "security-sensors",
+      "name": "Microwave Motion Sensor",
+      "tagline": "Sees movement through glass.",
+      "summary": "A high-sensitivity sensor that uses the Doppler effect, emitting radio frequency pulses to detect movement, even through glass and thin walls.",
+      "image": "/media/products/studio/microwave-motion-sensor.webp",
+      "gallery": [
+        "/media/catalog/microwave-motion-sensor/microwave-motion-sensor-mw-studio.webp",
+        "/media/catalog/microwave-motion-sensor/microwave-motion-sensor-mw-office.webp",
+        "/media/catalog/microwave-motion-sensor/microwave-motion-sensor-mw-stairs.webp",
+        "/media/catalog/microwave-motion-sensor/microwave-motion-sensor-mw-side.webp",
+        "/media/catalog/microwave-motion-sensor/microwave-motion-sensor-mw-parking.webp",
+        "/media/catalog/microwave-motion-sensor/microwave-motion-sensor-mw-app.webp",
+        "/media/catalog/microwave-motion-sensor/microwave-motion-sensor-mw-detail.webp"
+      ],
+      "features": [
+        {
+          "title": "High sensitivity",
+          "body": "Doppler-effect detection picks up small movements."
+        },
+        {
+          "title": "Through barriers",
+          "body": "Detects movement through physical barriers like glass and thin walls."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "microwave-motion-sensor",
+          "label": "Microwave Motion Sensor",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Detects",
+          "value": "Motion"
+        },
+        {
+          "label": "Technology",
+          "value": "Microwave (Doppler effect)"
+        },
+        {
+          "label": "Mounting",
+          "value": "Ceiling"
+        }
+      ],
+      "attributes": {
+        "detects": [
+          "Motion"
+        ],
+        "technology": [
+          "Microwave"
+        ]
+      },
+      "related": [
+        "pir-motion-sensor",
+        "chrome-cob-downlight",
+        "motion-sensor-t8-tubelight"
+      ],
+      "brochurePages": [
+        48
+      ],
+      "review": [
+        "Mounting inferred from the photo (recessed ceiling); confirm."
+      ]
+    },
+    {
+      "slug": "pir-motion-sensor",
+      "subcategory": "security-sensors",
+      "name": "PIR Motion Sensor",
+      "tagline": "Senses the warmth of movement.",
+      "summary": "A passive infrared sensor that detects motion by measuring changes in the infrared radiation (heat) emitted by people or animals within its field of view.",
+      "image": "/media/products/studio/pir-motion-sensor.webp",
+      "gallery": [
+        "/media/catalog/pir-motion-sensor/pir-motion-sensor-pir-studio.webp",
+        "/media/catalog/pir-motion-sensor/pir-motion-sensor-pir-bath.webp",
+        "/media/catalog/pir-motion-sensor/pir-motion-sensor-pir-closet.webp",
+        "/media/catalog/pir-motion-sensor/pir-motion-sensor-pir-foyer.webp",
+        "/media/catalog/pir-motion-sensor/pir-motion-sensor-pir-side.webp",
+        "/media/catalog/pir-motion-sensor/pir-motion-sensor-pir-app.webp",
+        "/media/catalog/pir-motion-sensor/pir-motion-sensor-pir-detail.webp"
+      ],
+      "features": [
+        {
+          "title": "Passive infrared",
+          "body": "Detects the heat that people and animals give off."
+        },
+        {
+          "title": "Automate on arrival",
+          "body": "Trigger lights and devices as someone enters the room."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "pir-motion-sensor",
+          "label": "PIR Motion Sensor",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Detects",
+          "value": "Motion"
+        },
+        {
+          "label": "Technology",
+          "value": "Passive infrared (PIR)"
+        }
+      ],
+      "attributes": {
+        "detects": [
+          "Motion"
+        ],
+        "technology": [
+          "Passive infrared"
+        ]
+      },
+      "related": [
+        "microwave-motion-sensor",
+        "human-presence-sensor",
+        "smart-doorbell"
+      ],
+      "brochurePages": [
+        48
+      ]
+    },
+    {
+      "slug": "gas-leak-sensor",
+      "subcategory": "security-sensors",
+      "name": "Smart Gas Leak Sensor",
+      "tagline": "Alerts you to danger, wherever you are.",
+      "summary": "A smart gas leak detector with a built-in screen that pushes a notification to your phone the moment a gas leak is detected.",
+      "image": "/media/products/studio/gas-leak-sensor.webp",
+      "gallery": [
+        "/media/catalog/gas-leak-sensor/gas-leak-sensor-studio.webp",
+        "/media/catalog/gas-leak-sensor/gas-leak-sensor-top.webp",
+        "/media/catalog/gas-leak-sensor/gas-leak-sensor-detail.webp",
+        "/media/catalog/gas-leak-sensor/gas-leak-sensor-kitchen.webp",
+        "/media/catalog/gas-leak-sensor/gas-leak-sensor-cylinder.webp",
+        "/media/catalog/gas-leak-sensor/gas-leak-sensor-app.webp",
+        "/media/catalog/gas-leak-sensor/gas-leak-sensor-side.webp"
+      ],
+      "badges": [
+        "Inbuilt screen"
+      ],
+      "features": [
+        {
+          "title": "Instant alerts",
+          "body": "Notifications pushed directly to your iOS or Android device if a gas leak is detected."
+        },
+        {
+          "title": "Inbuilt screen",
+          "body": "See readings and status on the sensor itself."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "gas-leak-sensor",
+          "label": "Smart Gas Leak Sensor",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Detects",
+          "value": "Gas leaks"
+        },
+        {
+          "label": "Display",
+          "value": "Inbuilt screen"
+        },
+        {
+          "label": "Alerts",
+          "value": "Push notifications on iOS and Android"
+        }
+      ],
+      "attributes": {
+        "detects": [
+          "Gas leak"
+        ],
+        "technology": [
+          "Gas sensing"
+        ]
+      },
+      "related": [
+        "smoke-detector",
+        "human-presence-sensor",
+        "smart-plug-16a"
+      ],
+      "brochurePages": [
+        48
+      ]
+    },
+    {
+      "slug": "smoke-detector",
+      "subcategory": "security-sensors",
+      "name": "Smart Smoke Detector",
+      "tagline": "Early warning, on your phone.",
+      "summary": "A smart smoke detector that alerts you to potential danger wherever you are, with notifications pushed straight to your phone.",
+      "image": "/media/products/studio/smoke-detector.webp",
+      "gallery": [
+        "/media/catalog/smoke-detector/smoke-detector-studio.webp",
+        "/media/catalog/smoke-detector/smoke-detector-top.webp",
+        "/media/catalog/smoke-detector/smoke-detector-detail.webp",
+        "/media/catalog/smoke-detector/smoke-detector-bedroom.webp",
+        "/media/catalog/smoke-detector/smoke-detector-test.webp",
+        "/media/catalog/smoke-detector/smoke-detector-app.webp",
+        "/media/catalog/smoke-detector/smoke-detector-install.webp"
+      ],
+      "features": [
+        {
+          "title": "Wherever you are",
+          "body": "Alerts reach you through the HESEOS app on iOS and Android."
+        },
+        {
+          "title": "Simple setup",
+          "body": "Install the HESEOS app and pair the detector."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "smoke-detector",
+          "label": "Smart Smoke Detector",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Detects",
+          "value": "Smoke"
+        },
+        {
+          "label": "Alerts",
+          "value": "Push notifications on iOS and Android"
+        }
+      ],
+      "attributes": {
+        "detects": [
+          "Smoke"
+        ],
+        "technology": [
+          "Smoke sensing"
+        ]
+      },
+      "related": [
+        "gas-leak-sensor",
+        "microwave-motion-sensor",
+        "screen-control-panel"
+      ],
+      "brochurePages": [
+        48
+      ]
+    },
+    {
+      "slug": "human-presence-sensor",
+      "subcategory": "security-sensors",
+      "name": "Human Presence Motion Sensor",
+      "tagline": "Knows you're still in the room.",
+      "summary": "A smart presence sensor that detects human presence and switches lights and devices on or off accordingly, without any manual effort.",
+      "image": "/media/products/studio/human-presence-sensor.webp",
+      "gallery": [
+        "/media/catalog/human-presence-sensor/human-presence-sensor-studio.webp",
+        "/media/catalog/human-presence-sensor/human-presence-sensor-top.webp",
+        "/media/catalog/human-presence-sensor/human-presence-sensor-detail.webp",
+        "/media/catalog/human-presence-sensor/human-presence-sensor-office.webp",
+        "/media/catalog/human-presence-sensor/human-presence-sensor-living.webp",
+        "/media/catalog/human-presence-sensor/human-presence-sensor-app.webp",
+        "/media/catalog/human-presence-sensor/human-presence-sensor-scale.webp"
+      ],
+      "features": [
+        {
+          "title": "Presence, not just motion",
+          "body": "Automatically detects human presence in a space."
+        },
+        {
+          "title": "Hands-free automation",
+          "body": "Activates or deactivates lights and devices as people come and go."
+        }
+      ],
+      "options": [],
+      "variants": [
+        {
+          "id": "human-presence-sensor",
+          "label": "Human Presence Motion Sensor",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Detects",
+          "value": "Human presence"
+        },
+        {
+          "label": "Automation",
+          "value": "Switches lights and devices automatically"
+        }
+      ],
+      "attributes": {
+        "detects": [
+          "Presence"
+        ],
+        "technology": [
+          "Presence detection"
+        ]
+      },
+      "related": [
+        "pir-motion-sensor",
+        "chrome-cob-downlight",
+        "curtain-blind-motor"
+      ],
+      "brochurePages": [
+        48
+      ]
+    },
+    {
+      "slug": "chrome-cob-downlight",
+      "subcategory": "cob-downlights",
+      "name": "Chrome Smart COB Downlight",
+      "tagline": "A polished reflector, 100 lm/W.",
+      "summary": "A smart COB downlight with a chrome reflector, from 8 W to 18 W at 100 lumens per watt, in IoT and non-IoT, single colour and CCT versions.",
+      "image": "/media/products/studio/chrome-cob-downlight.webp",
+      "gallery": [
+        "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-range.webp",
+        "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-app.webp",
+        "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-cct.webp",
+        "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-detail.webp",
+        "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-brochure.webp"
+      ],
+      "highlights": [
+        "Smart Wi-Fi",
+        "Dimming",
+        "CCT",
+        "RF remote",
+        "PF > 0.9",
+        "Surge > 4 kV",
+        "Single colour",
+        "Basic non-IoT"
+      ],
+      "features": [
+        {
+          "title": "Efficient",
+          "body": "100 lumens per watt across the range."
+        },
+        {
+          "title": "Smart or simple",
+          "body": "IoT versions with Wi-Fi, dimming and RF remote; basic non-IoT versions too."
+        },
+        {
+          "title": "Tunable light",
+          "body": "Single colour or CCT (tunable white) versions."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hscob-101",
+              "label": "HSCOB 101 · 8 W"
+            },
+            {
+              "id": "hscob-102",
+              "label": "HSCOB 102 · 12 W"
+            },
+            {
+              "id": "hscob-103",
+              "label": "HSCOB 103 · 18 W"
+            },
+            {
+              "id": "hscob-104",
+              "label": "HSCOB 104 · 12 W"
+            },
+            {
+              "id": "hscob-105",
+              "label": "HSCOB 105 · 18 W"
+            },
+            {
+              "id": "hscob-106",
+              "label": "HSCOB 106 · 8 W"
+            }
+          ]
+        },
+        {
+          "key": "control",
+          "label": "Control",
+          "confirm": true,
+          "values": [
+            {
+              "id": "iot",
+              "label": "IoT"
+            },
+            {
+              "id": "non-iot",
+              "label": "Non-IoT"
+            }
+          ]
+        },
+        {
+          "key": "light",
+          "label": "Light",
+          "confirm": true,
+          "values": [
+            {
+              "id": "single",
+              "label": "Single colour"
+            },
+            {
+              "id": "cct",
+              "label": "CCT"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "chrome-hscob-101",
+          "label": "HSCOB 101",
+          "model": "HSCOB 101",
+          "options": {
+            "model": "hscob-101"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "8 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W70 × H50 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "65 mm"
+            },
+            {
+              "label": "Efficacy",
+              "value": "100 lm/W"
+            }
+          ],
+          "images": [
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-101-1.webp",
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-101-2.webp"
+          ]
+        },
+        {
+          "id": "chrome-hscob-102",
+          "label": "HSCOB 102",
+          "model": "HSCOB 102",
+          "options": {
+            "model": "hscob-102"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "12 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W85 × H65 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "80 mm"
+            },
+            {
+              "label": "Efficacy",
+              "value": "100 lm/W"
+            }
+          ],
+          "images": [
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-102-1.webp",
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-102-2.webp"
+          ]
+        },
+        {
+          "id": "chrome-hscob-103",
+          "label": "HSCOB 103",
+          "model": "HSCOB 103",
+          "options": {
+            "model": "hscob-103"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "18 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W95 × H75 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "90 mm"
+            },
+            {
+              "label": "Efficacy",
+              "value": "100 lm/W"
+            }
+          ],
+          "images": [
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-103-1.webp",
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-103-2.webp"
+          ]
+        },
+        {
+          "id": "chrome-hscob-104",
+          "label": "HSCOB 104",
+          "model": "HSCOB 104",
+          "options": {
+            "model": "hscob-104"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "12 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W85 × H65 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "80 mm"
+            },
+            {
+              "label": "Efficacy",
+              "value": "100 lm/W"
+            }
+          ],
+          "images": [
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-104-1.webp",
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-104-2.webp"
+          ]
+        },
+        {
+          "id": "chrome-hscob-105",
+          "label": "HSCOB 105",
+          "model": "HSCOB 105",
+          "options": {
+            "model": "hscob-105"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "18 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W95 × H75 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "90 mm"
+            },
+            {
+              "label": "Efficacy",
+              "value": "100 lm/W"
+            }
+          ],
+          "images": [
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-105-1.webp",
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-105-2.webp"
+          ]
+        },
+        {
+          "id": "chrome-hscob-106",
+          "label": "HSCOB 106",
+          "model": "HSCOB 106",
+          "options": {
+            "model": "hscob-106"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "8 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W70 × H50 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "65 mm"
+            },
+            {
+              "label": "Efficacy",
+              "value": "100 lm/W"
+            }
+          ],
+          "images": [
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-106-1.webp",
+            "/media/catalog/chrome-cob-downlight/chrome-cob-downlight-106-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Power",
+          "value": "8 W to 18 W"
+        },
+        {
+          "label": "Efficacy",
+          "value": "100 lm/W"
+        },
+        {
+          "label": "Cut-out",
+          "value": "65 mm, 80 mm, 90 mm"
+        },
+        {
+          "label": "Versions",
+          "value": "IoT and non-IoT; single colour and CCT"
+        },
+        {
+          "label": "Power factor",
+          "value": "> 0.9"
+        },
+        {
+          "label": "Surge protection",
+          "value": "> 4 kV"
+        },
+        {
+          "label": "Smart control",
+          "value": "Wi-Fi, dimming, RF remote (IoT versions)"
+        }
+      ],
+      "attributes": {
+        "wattage": [
+          "8 W",
+          "12 W",
+          "18 W"
+        ],
+        "cutout": [
+          "65 mm",
+          "80 mm",
+          "90 mm"
+        ]
+      },
+      "related": [
+        "roundo-cob-downlight",
+        "deep-cob-downlight",
+        "human-presence-sensor"
+      ],
+      "brochurePages": [
+        50,
+        51
+      ],
+      "review": [
+        "Brochure prints “PF > 90”; confirm the power factor value.",
+        "Confirm how HSCOB 101–106 differ where specs repeat (e.g. 101 and 106), likely finish or IoT version."
+      ]
+    },
+    {
+      "slug": "roundo-cob-downlight",
+      "subcategory": "cob-downlights",
+      "name": "Roundo Smart COB Downlight",
+      "tagline": "A focused 36° beam.",
+      "summary": "A smart COB downlight with a 36° beam, in black or white, from 8 W to 18 W, in IoT and non-IoT, single colour and CCT versions.",
+      "image": "/media/products/studio/roundo-cob-downlight.webp",
+      "gallery": [
+        "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-range.webp",
+        "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-remote.webp",
+        "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-cct.webp",
+        "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-detail.webp",
+        "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-brochure.webp"
+      ],
+      "highlights": [
+        "Smart Wi-Fi",
+        "Dimming",
+        "CCT",
+        "RF remote",
+        "PF > 0.9",
+        "Surge > 4 kV",
+        "Single colour",
+        "Basic non-IoT"
+      ],
+      "features": [
+        {
+          "title": "Focused beam",
+          "body": "A 36° beam angle across the range."
+        },
+        {
+          "title": "Smart or simple",
+          "body": "IoT versions with Wi-Fi, dimming and RF remote; basic non-IoT versions too."
+        },
+        {
+          "title": "Tunable light",
+          "body": "Single colour or CCT (tunable white) versions."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hscob-201",
+              "label": "HSCOB 201 · 8 W"
+            },
+            {
+              "id": "hscob-202",
+              "label": "HSCOB 202 · 12 W"
+            },
+            {
+              "id": "hscob-203",
+              "label": "HSCOB 203 · 18 W"
+            },
+            {
+              "id": "hscob-204",
+              "label": "HSCOB 204 · 12 W"
+            },
+            {
+              "id": "hscob-205",
+              "label": "HSCOB 205 · 18 W"
+            },
+            {
+              "id": "hscob-206",
+              "label": "HSCOB 206 · 8 W"
+            }
+          ]
+        },
+        {
+          "key": "control",
+          "label": "Control",
+          "confirm": true,
+          "values": [
+            {
+              "id": "iot",
+              "label": "IoT"
+            },
+            {
+              "id": "non-iot",
+              "label": "Non-IoT"
+            }
+          ]
+        },
+        {
+          "key": "light",
+          "label": "Light",
+          "confirm": true,
+          "values": [
+            {
+              "id": "single",
+              "label": "Single colour"
+            },
+            {
+              "id": "cct",
+              "label": "CCT"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "roundo-hscob-201",
+          "label": "HSCOB 201",
+          "model": "HSCOB 201",
+          "options": {
+            "model": "hscob-201"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "8 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W74 × H63 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "55 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-201-1.webp",
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-201-2.webp"
+          ]
+        },
+        {
+          "id": "roundo-hscob-202",
+          "label": "HSCOB 202",
+          "model": "HSCOB 202",
+          "options": {
+            "model": "hscob-202"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "12 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W85 × H76 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "75 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-202-1.webp",
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-202-2.webp"
+          ]
+        },
+        {
+          "id": "roundo-hscob-203",
+          "label": "HSCOB 203",
+          "model": "HSCOB 203",
+          "options": {
+            "model": "hscob-203"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "18 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W95 × H90 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "80 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-203-1.webp",
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-203-2.webp"
+          ]
+        },
+        {
+          "id": "roundo-hscob-204",
+          "label": "HSCOB 204",
+          "model": "HSCOB 204",
+          "options": {
+            "model": "hscob-204"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "12 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W85 × H65 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "80 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-204-1.webp",
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-204-2.webp"
+          ]
+        },
+        {
+          "id": "roundo-hscob-205",
+          "label": "HSCOB 205",
+          "model": "HSCOB 205",
+          "options": {
+            "model": "hscob-205"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "18 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W95 × H90 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "90 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-205-1.webp",
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-205-2.webp"
+          ]
+        },
+        {
+          "id": "roundo-hscob-206",
+          "label": "HSCOB 206",
+          "model": "HSCOB 206",
+          "options": {
+            "model": "hscob-206"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "8 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W74 × H53 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "65 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-206-1.webp",
+            "/media/catalog/roundo-cob-downlight/roundo-cob-downlight-206-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Power",
+          "value": "8 W to 18 W"
+        },
+        {
+          "label": "Beam angle",
+          "value": "36°"
+        },
+        {
+          "label": "Cut-out",
+          "value": "55 mm to 90 mm"
+        },
+        {
+          "label": "Versions",
+          "value": "IoT and non-IoT; single colour and CCT"
+        },
+        {
+          "label": "Power factor",
+          "value": "> 0.9"
+        },
+        {
+          "label": "Surge protection",
+          "value": "> 4 kV"
+        },
+        {
+          "label": "Smart control",
+          "value": "Wi-Fi, dimming, RF remote (IoT versions)"
+        }
+      ],
+      "attributes": {
+        "wattage": [
+          "8 W",
+          "12 W",
+          "18 W"
+        ],
+        "cutout": [
+          "55 mm",
+          "65 mm",
+          "75 mm",
+          "80 mm",
+          "90 mm"
+        ],
+        "beam": [
+          "36°"
+        ]
+      },
+      "related": [
+        "deep-cob-downlight",
+        "chrome-cob-downlight",
+        "microwave-motion-sensor"
+      ],
+      "brochurePages": [
+        52,
+        53
+      ],
+      "review": [
+        "Roundo and Deep COB tables both use model codes HSCOB 201–206 with different cut-outs; confirm the codes for each series.",
+        "Brochure prints “PF > 90”; confirm the power factor value."
+      ]
+    },
+    {
+      "slug": "deep-cob-downlight",
+      "subcategory": "cob-downlights",
+      "name": "Deep COB Smart Downlight",
+      "tagline": "Deep-set for low glare.",
+      "summary": "A smart COB downlight with a deep-set chrome reflector and a 36° beam, from 8 W to 18 W, in IoT and non-IoT, single colour and CCT versions.",
+      "image": "/media/products/studio/deep-cob-downlight.webp",
+      "gallery": [
+        "/media/catalog/deep-cob-downlight/deep-cob-downlight-range.webp",
+        "/media/catalog/deep-cob-downlight/deep-cob-downlight-app.webp",
+        "/media/catalog/deep-cob-downlight/deep-cob-downlight-cct.webp",
+        "/media/catalog/deep-cob-downlight/deep-cob-downlight-detail.webp",
+        "/media/catalog/deep-cob-downlight/deep-cob-downlight-brochure.webp"
+      ],
+      "highlights": [
+        "Smart Wi-Fi",
+        "Dimming",
+        "CCT",
+        "RF remote",
+        "PF > 0.9",
+        "Surge > 4 kV",
+        "Single colour",
+        "Basic non-IoT"
+      ],
+      "features": [
+        {
+          "title": "Deep-set reflector",
+          "body": "The light source sits deep inside a chrome reflector."
+        },
+        {
+          "title": "Smart or simple",
+          "body": "IoT versions with Wi-Fi, dimming and RF remote; basic non-IoT versions too."
+        },
+        {
+          "title": "Tunable light",
+          "body": "Single colour or CCT (tunable white) versions."
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "id": "hscob-201",
+              "label": "HSCOB 201 · 8 W"
+            },
+            {
+              "id": "hscob-202",
+              "label": "HSCOB 202 · 12 W"
+            },
+            {
+              "id": "hscob-203",
+              "label": "HSCOB 203 · 18 W"
+            },
+            {
+              "id": "hscob-204",
+              "label": "HSCOB 204 · 12 W"
+            },
+            {
+              "id": "hscob-205",
+              "label": "HSCOB 205 · 18 W"
+            },
+            {
+              "id": "hscob-206",
+              "label": "HSCOB 206 · 8 W"
+            }
+          ]
+        },
+        {
+          "key": "control",
+          "label": "Control",
+          "confirm": true,
+          "values": [
+            {
+              "id": "iot",
+              "label": "IoT"
+            },
+            {
+              "id": "non-iot",
+              "label": "Non-IoT"
+            }
+          ]
+        },
+        {
+          "key": "light",
+          "label": "Light",
+          "confirm": true,
+          "values": [
+            {
+              "id": "single",
+              "label": "Single colour"
+            },
+            {
+              "id": "cct",
+              "label": "CCT"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "deep-hscob-201",
+          "label": "HSCOB 201",
+          "model": "HSCOB 201",
+          "options": {
+            "model": "hscob-201"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "8 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W74 × H63 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "65 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-201-1.webp",
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-201-2.webp"
+          ]
+        },
+        {
+          "id": "deep-hscob-202",
+          "label": "HSCOB 202",
+          "model": "HSCOB 202",
+          "options": {
+            "model": "hscob-202"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "12 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W85 × H76 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "75 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-202-1.webp",
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-202-2.webp"
+          ]
+        },
+        {
+          "id": "deep-hscob-203",
+          "label": "HSCOB 203",
+          "model": "HSCOB 203",
+          "options": {
+            "model": "hscob-203"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "18 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W95 × H90 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "85 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-203-1.webp",
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-203-2.webp"
+          ]
+        },
+        {
+          "id": "deep-hscob-204",
+          "label": "HSCOB 204",
+          "model": "HSCOB 204",
+          "options": {
+            "model": "hscob-204"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "12 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W85 × H65 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "75 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-204-1.webp",
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-204-2.webp"
+          ]
+        },
+        {
+          "id": "deep-hscob-205",
+          "label": "HSCOB 205",
+          "model": "HSCOB 205",
+          "options": {
+            "model": "hscob-205"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "18 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W95 × H90 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "65 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-205-1.webp",
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-205-2.webp"
+          ]
+        },
+        {
+          "id": "deep-hscob-206",
+          "label": "HSCOB 206",
+          "model": "HSCOB 206",
+          "options": {
+            "model": "hscob-206"
+          },
+          "specs": [
+            {
+              "label": "Power",
+              "value": "8 W"
+            },
+            {
+              "label": "Dimension",
+              "value": "W74 × H53 mm"
+            },
+            {
+              "label": "Cut-out",
+              "value": "85 mm"
+            },
+            {
+              "label": "Beam angle",
+              "value": "36°"
+            }
+          ],
+          "images": [
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-206-1.webp",
+            "/media/catalog/deep-cob-downlight/deep-cob-downlight-206-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Power",
+          "value": "8 W to 18 W"
+        },
+        {
+          "label": "Beam angle",
+          "value": "36°"
+        },
+        {
+          "label": "Cut-out",
+          "value": "65 mm to 85 mm"
+        },
+        {
+          "label": "Versions",
+          "value": "IoT and non-IoT; single colour and CCT"
+        },
+        {
+          "label": "Power factor",
+          "value": "> 0.9"
+        },
+        {
+          "label": "Surge protection",
+          "value": "> 4 kV"
+        },
+        {
+          "label": "Smart control",
+          "value": "Wi-Fi, dimming, RF remote (IoT versions)"
+        }
+      ],
+      "attributes": {
+        "wattage": [
+          "8 W",
+          "12 W",
+          "18 W"
+        ],
+        "cutout": [
+          "65 mm",
+          "75 mm",
+          "85 mm"
+        ],
+        "beam": [
+          "36°"
+        ]
+      },
+      "related": [
+        "roundo-cob-downlight",
+        "chrome-cob-downlight",
+        "human-presence-sensor"
+      ],
+      "brochurePages": [
+        54,
+        55
+      ],
+      "review": [
+        "Model codes repeat the Roundo table (HSCOB 201–206); confirm.",
+        "Printed cut-outs look inconsistent with dimensions (e.g. HSCOB 205 at W95 mm with a 65 mm cut-out, HSCOB 206 at W74 mm with 85 mm); confirm."
+      ]
+    },
+    {
+      "slug": "motion-sensor-t8-tubelight",
+      "subcategory": "led-tubelights",
+      "name": "Motion Sensor Emergency Dimmable T8 Tubelight",
+      "tagline": "Light that waits for you.",
+      "summary": "A 20 W T8 tubelight that switches on when movement is detected, switches off to save energy, dims to your preferred level, and keeps shining during a power outage.",
+      "image": "/media/products/studio/smart-tubelight.webp",
+      "gallery": [
+        "/media/catalog/motion-sensor-t8-tubelight/motion-sensor-t8-tubelight-t8-studio.webp",
+        "/media/catalog/motion-sensor-t8-tubelight/motion-sensor-t8-tubelight-t8-office.webp",
+        "/media/catalog/motion-sensor-t8-tubelight/motion-sensor-t8-tubelight-t8-stairs.webp",
+        "/media/catalog/motion-sensor-t8-tubelight/motion-sensor-t8-tubelight-t8-emergency.webp",
+        "/media/catalog/motion-sensor-t8-tubelight/motion-sensor-t8-tubelight-t8-cct.webp",
+        "/media/catalog/motion-sensor-t8-tubelight/motion-sensor-t8-tubelight-t8-detail.webp",
+        "/media/catalog/motion-sensor-t8-tubelight/motion-sensor-t8-tubelight-parking.webp"
+      ],
+      "badges": [
+        "Emergency backup"
+      ],
+      "features": [
+        {
+          "title": "Motion sensing",
+          "body": "Activates instantly when movement is detected and turns off automatically to conserve energy."
+        },
+        {
+          "title": "Dimmable",
+          "body": "Adjust brightness to your preferred level."
+        },
+        {
+          "title": "Emergency backup",
+          "body": "A built-in battery keeps the light on through power outages."
+        }
+      ],
+      "options": [
+        {
+          "key": "cct",
+          "label": "Colour temperature",
+          "confirm": true,
+          "values": [
+            {
+              "id": "3000k",
+              "label": "3000K",
+              "swatch": "#ffd9a0"
+            },
+            {
+              "id": "4000k",
+              "label": "4000K",
+              "swatch": "#fff1d6"
+            },
+            {
+              "id": "6500k",
+              "label": "6500K",
+              "swatch": "#e6f0ff"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "t8-tubelight-20w",
+          "label": "20 W T8",
+          "options": {}
+        }
+      ],
+      "specs": [
+        {
+          "label": "Power",
+          "value": "20 W"
+        },
+        {
+          "label": "Input voltage",
+          "value": "190 V–270 V"
+        },
+        {
+          "label": "Colour temperature",
+          "value": "3000K / 4000K / 6500K"
+        },
+        {
+          "label": "Battery",
+          "value": "Lithium-ion, 2200 mAh"
+        },
+        {
+          "label": "Surge protection",
+          "value": "5 kV"
+        },
+        {
+          "label": "Ingress protection",
+          "value": "IP20"
+        }
+      ],
+      "installation": [
+        "Ideal for offices, corridors, basements and commercial facilities."
+      ],
+      "attributes": {
+        "cct": [
+          "3000K",
+          "4000K",
+          "6500K"
+        ]
+      },
+      "related": [
+        "microwave-motion-sensor",
+        "three-phase-energy-meter",
+        "chrome-cob-downlight"
+      ],
+      "brochurePages": [
+        56,
+        57
+      ],
+      "review": [
+        "Confirm whether 3000K, 4000K and 6500K are separate orderable models or one tunable product."
+      ]
+    },
+    {
+      "slug": "elegance-base",
+      "subcategory": "bldc-fans",
+      "name": "Elegance Base Model",
+      "tagline": "Pure, quiet BLDC.",
+      "summary": "The HESEOS Elegance smart BLDC fan in its simplest form, in black, brown or white.",
+      "image": "/media/products/studio/elegance-base.webp",
+      "gallery": [
+        "/media/catalog/elegance-base/elegance-base-running.webp",
+        "/media/catalog/elegance-base/elegance-base-below.webp",
+        "/media/catalog/elegance-base/elegance-base-remote.webp",
+        "/media/catalog/elegance-base/elegance-base-detail.webp",
+        "/media/catalog/elegance-collection.webp"
+      ],
+      "highlights": [
+        "High torque motor",
+        "Energy efficient",
+        "Smart remote",
+        "Smooth operation",
+        "Superior air",
+        "Longer life span"
+      ],
+      "features": [
+        {
+          "title": "Brushless DC motor",
+          "body": "Smooth, noiseless and reliable operation, with lower power consumption than traditional fans."
+        },
+        {
+          "title": "Smart control",
+          "body": "Smart remote, Wi-Fi app control and voice through Google Home, Amazon Alexa and Apple Siri."
+        },
+        {
+          "title": "3 year warranty",
+          "body": "ISO certified, with THD under 5%."
+        }
+      ],
+      "options": [
+        {
+          "key": "colour",
+          "label": "Colour",
+          "values": [
+            {
+              "id": "black",
+              "label": "Black",
+              "swatch": "#1d1d1d"
+            },
+            {
+              "id": "brown",
+              "label": "Brown",
+              "swatch": "#5b3a29"
+            },
+            {
+              "id": "white",
+              "label": "White",
+              "swatch": "#f2f1ec"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hbfebm01",
+          "label": "Black",
+          "model": "HBFEBM01",
+          "options": {
+            "colour": "black"
+          },
+          "images": [
+            "/media/catalog/elegance-base/elegance-base-black-1.webp",
+            "/media/catalog/elegance-base/elegance-base-black-2.webp"
+          ]
+        },
+        {
+          "id": "hbfebm02",
+          "label": "Brown",
+          "model": "HBFEBM02",
+          "options": {
+            "colour": "brown"
+          },
+          "images": [
+            "/media/catalog/elegance-base/elegance-base-brown-1.webp",
+            "/media/catalog/elegance-base/elegance-base-brown-2.webp"
+          ]
+        },
+        {
+          "id": "hbfebm03",
+          "label": "White",
+          "model": "HBFEBM03",
+          "options": {
+            "colour": "white"
+          },
+          "images": [
+            "/media/catalog/elegance-base/elegance-base-white-1.webp",
+            "/media/catalog/elegance-base/elegance-base-white-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HBFEBM01 Black, HBFEBM02 Brown, HBFEBM03 White"
+        },
+        {
+          "label": "Motor",
+          "value": "BLDC, high torque"
+        },
+        {
+          "label": "Control",
+          "value": "Smart remote, Wi-Fi app, voice assistants"
+        },
+        {
+          "label": "THD",
+          "value": "< 5%"
+        },
+        {
+          "label": "Certification",
+          "value": "ISO"
+        },
+        {
+          "label": "Warranty",
+          "value": "3 years"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "warranty": "3 years",
+      "attributes": {
+        "colour": [
+          "Black",
+          "Brown",
+          "White"
+        ]
+      },
+      "related": [
+        "elegance-golden-cap",
+        "modular-smart-switch",
+        "human-presence-sensor"
+      ],
+      "brochurePages": [
+        58,
+        60,
+        61
+      ]
+    },
+    {
+      "slug": "elegance-gold-black-marble",
+      "subcategory": "bldc-fans",
+      "name": "Elegance Gold Black Marble",
+      "tagline": "Gold detailing on a marble motif.",
+      "summary": "The Elegance smart BLDC fan with a gold and black marble motor cover, in black, brown or white.",
+      "image": "/media/products/studio/elegance-gold-black-marble.webp",
+      "gallery": [
+        "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-running.webp",
+        "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-below.webp",
+        "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-remote.webp",
+        "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-detail.webp",
+        "/media/catalog/elegance-collection.webp"
+      ],
+      "highlights": [
+        "High torque motor",
+        "Energy efficient",
+        "Smart remote",
+        "Smooth operation",
+        "Superior air",
+        "Longer life span"
+      ],
+      "features": [
+        {
+          "title": "Brushless DC motor",
+          "body": "Smooth, noiseless and reliable operation, with lower power consumption than traditional fans."
+        },
+        {
+          "title": "Smart control",
+          "body": "Smart remote, Wi-Fi app control and voice through Google Home, Amazon Alexa and Apple Siri."
+        },
+        {
+          "title": "3 year warranty",
+          "body": "ISO certified, with THD under 5%."
+        }
+      ],
+      "options": [
+        {
+          "key": "colour",
+          "label": "Colour",
+          "values": [
+            {
+              "id": "black",
+              "label": "Black",
+              "swatch": "#1d1d1d"
+            },
+            {
+              "id": "brown",
+              "label": "Brown",
+              "swatch": "#5b3a29"
+            },
+            {
+              "id": "white",
+              "label": "White",
+              "swatch": "#f2f1ec"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hbfegbm01",
+          "label": "Black",
+          "model": "HBFEGBM01",
+          "options": {
+            "colour": "black"
+          },
+          "images": [
+            "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-black-1.webp",
+            "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-black-2.webp"
+          ]
+        },
+        {
+          "id": "hbfegbm02",
+          "label": "Brown",
+          "model": "HBFEGBM02",
+          "options": {
+            "colour": "brown"
+          },
+          "images": [
+            "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-brown-1.webp",
+            "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-brown-2.webp"
+          ]
+        },
+        {
+          "id": "hbfegbm03",
+          "label": "White",
+          "model": "HBFEGBM03",
+          "options": {
+            "colour": "white"
+          },
+          "images": [
+            "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-white-1.webp",
+            "/media/catalog/elegance-gold-black-marble/elegance-gold-black-marble-white-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HBFEGBM01 Black, HBFEGBM02 Brown, HBFEGBM03 White"
+        },
+        {
+          "label": "Motor",
+          "value": "BLDC, high torque"
+        },
+        {
+          "label": "Control",
+          "value": "Smart remote, Wi-Fi app, voice assistants"
+        },
+        {
+          "label": "THD",
+          "value": "< 5%"
+        },
+        {
+          "label": "Certification",
+          "value": "ISO"
+        },
+        {
+          "label": "Warranty",
+          "value": "3 years"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "warranty": "3 years",
+      "attributes": {
+        "colour": [
+          "Black",
+          "Brown",
+          "White"
+        ]
+      },
+      "related": [
+        "elegance-gold-plywood",
+        "elegance-golden-cap",
+        "edge-panel-series"
+      ],
+      "brochurePages": [
+        60,
+        61
+      ]
+    },
+    {
+      "slug": "elegance-gold-plywood",
+      "subcategory": "bldc-fans",
+      "name": "Elegance Gold Plywood",
+      "tagline": "Warm wood, gold accents.",
+      "summary": "The Elegance smart BLDC fan with a gold and plywood-pattern motor cover, in brown, black or white.",
+      "image": "/media/products/studio/elegance-gold-plywood.webp",
+      "gallery": [
+        "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-running.webp",
+        "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-below.webp",
+        "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-remote.webp",
+        "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-detail.webp",
+        "/media/catalog/elegance-collection.webp"
+      ],
+      "highlights": [
+        "High torque motor",
+        "Energy efficient",
+        "Smart remote",
+        "Smooth operation",
+        "Superior air",
+        "Longer life span"
+      ],
+      "features": [
+        {
+          "title": "Brushless DC motor",
+          "body": "Smooth, noiseless and reliable operation, with lower power consumption than traditional fans."
+        },
+        {
+          "title": "Smart control",
+          "body": "Smart remote, Wi-Fi app control and voice through Google Home, Amazon Alexa and Apple Siri."
+        },
+        {
+          "title": "3 year warranty",
+          "body": "ISO certified, with THD under 5%."
+        }
+      ],
+      "options": [
+        {
+          "key": "colour",
+          "label": "Colour",
+          "values": [
+            {
+              "id": "brown",
+              "label": "Brown",
+              "swatch": "#5b3a29"
+            },
+            {
+              "id": "black",
+              "label": "Black",
+              "swatch": "#1d1d1d"
+            },
+            {
+              "id": "white",
+              "label": "White",
+              "swatch": "#f2f1ec"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hbfegp01",
+          "label": "Brown",
+          "model": "HBFEGP01",
+          "options": {
+            "colour": "brown"
+          },
+          "images": [
+            "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-brown-1.webp",
+            "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-brown-2.webp"
+          ]
+        },
+        {
+          "id": "hbfegp02",
+          "label": "Black",
+          "model": "HBFEGP02",
+          "options": {
+            "colour": "black"
+          },
+          "images": [
+            "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-black-1.webp",
+            "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-black-2.webp"
+          ]
+        },
+        {
+          "id": "hbfegp03",
+          "label": "White",
+          "model": "HBFEGP03",
+          "options": {
+            "colour": "white"
+          },
+          "images": [
+            "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-white-1.webp",
+            "/media/catalog/elegance-gold-plywood/elegance-gold-plywood-white-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HBFEGP01 Brown, HBFEGP02 Black, HBFEGP03 White"
+        },
+        {
+          "label": "Motor",
+          "value": "BLDC, high torque"
+        },
+        {
+          "label": "Control",
+          "value": "Smart remote, Wi-Fi app, voice assistants"
+        },
+        {
+          "label": "THD",
+          "value": "< 5%"
+        },
+        {
+          "label": "Certification",
+          "value": "ISO"
+        },
+        {
+          "label": "Warranty",
+          "value": "3 years"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "warranty": "3 years",
+      "attributes": {
+        "colour": [
+          "Brown",
+          "Black",
+          "White"
+        ]
+      },
+      "related": [
+        "elegance-silver-wood",
+        "elegance-gold-black-marble",
+        "wooden-door-lock"
+      ],
+      "brochurePages": [
+        60,
+        61
+      ]
+    },
+    {
+      "slug": "elegance-golden-cap",
+      "subcategory": "bldc-fans",
+      "name": "Elegance Golden Cap",
+      "tagline": "A golden finishing touch.",
+      "summary": "The Elegance smart BLDC fan with a golden cap, in white, brown or black.",
+      "image": "/media/products/studio/elegance-golden-cap.webp",
+      "gallery": [
+        "/media/catalog/elegance-golden-cap/elegance-golden-cap-running.webp",
+        "/media/catalog/elegance-golden-cap/elegance-golden-cap-below.webp",
+        "/media/catalog/elegance-golden-cap/elegance-golden-cap-remote.webp",
+        "/media/catalog/elegance-golden-cap/elegance-golden-cap-detail.webp",
+        "/media/catalog/elegance-collection.webp"
+      ],
+      "highlights": [
+        "High torque motor",
+        "Energy efficient",
+        "Smart remote",
+        "Smooth operation",
+        "Superior air",
+        "Longer life span"
+      ],
+      "features": [
+        {
+          "title": "Brushless DC motor",
+          "body": "Smooth, noiseless and reliable operation, with lower power consumption than traditional fans."
+        },
+        {
+          "title": "Smart control",
+          "body": "Smart remote, Wi-Fi app control and voice through Google Home, Amazon Alexa and Apple Siri."
+        },
+        {
+          "title": "3 year warranty",
+          "body": "ISO certified, with THD under 5%."
+        }
+      ],
+      "options": [
+        {
+          "key": "colour",
+          "label": "Colour",
+          "values": [
+            {
+              "id": "white",
+              "label": "White",
+              "swatch": "#f2f1ec"
+            },
+            {
+              "id": "brown",
+              "label": "Brown",
+              "swatch": "#5b3a29"
+            },
+            {
+              "id": "black",
+              "label": "Black",
+              "swatch": "#1d1d1d"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hbfegc01",
+          "label": "White",
+          "model": "HBFEGC01",
+          "options": {
+            "colour": "white"
+          },
+          "images": [
+            "/media/catalog/elegance-golden-cap/elegance-golden-cap-white-1.webp",
+            "/media/catalog/elegance-golden-cap/elegance-golden-cap-white-2.webp"
+          ]
+        },
+        {
+          "id": "hbfegc02",
+          "label": "Brown",
+          "model": "HBFEGC02",
+          "options": {
+            "colour": "brown"
+          },
+          "images": [
+            "/media/catalog/elegance-golden-cap/elegance-golden-cap-brown-1.webp",
+            "/media/catalog/elegance-golden-cap/elegance-golden-cap-brown-2.webp"
+          ]
+        },
+        {
+          "id": "hbfegc03",
+          "label": "Black",
+          "model": "HBFEGC03",
+          "options": {
+            "colour": "black"
+          },
+          "images": [
+            "/media/catalog/elegance-golden-cap/elegance-golden-cap-black-1.webp",
+            "/media/catalog/elegance-golden-cap/elegance-golden-cap-black-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HBFEGC01 White, HBFEGC02 Brown, HBFEGC03 Black"
+        },
+        {
+          "label": "Motor",
+          "value": "BLDC, high torque"
+        },
+        {
+          "label": "Control",
+          "value": "Smart remote, Wi-Fi app, voice assistants"
+        },
+        {
+          "label": "THD",
+          "value": "< 5%"
+        },
+        {
+          "label": "Certification",
+          "value": "ISO"
+        },
+        {
+          "label": "Warranty",
+          "value": "3 years"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "warranty": "3 years",
+      "attributes": {
+        "colour": [
+          "White",
+          "Brown",
+          "Black"
+        ]
+      },
+      "related": [
+        "elegance-white-cap",
+        "elegance-base",
+        "premium-glass-touch-switch"
+      ],
+      "brochurePages": [
+        60,
+        62
+      ]
+    },
+    {
+      "slug": "elegance-silver-wood",
+      "subcategory": "bldc-fans",
+      "name": "Elegance Silver Wood",
+      "tagline": "Wood tones, silver trim.",
+      "summary": "The Elegance smart BLDC fan with silver trim and wood tones, in black, white or brown.",
+      "image": "/media/products/studio/elegance-silver-wood.webp",
+      "gallery": [
+        "/media/catalog/elegance-silver-wood/elegance-silver-wood-running.webp",
+        "/media/catalog/elegance-silver-wood/elegance-silver-wood-below.webp",
+        "/media/catalog/elegance-silver-wood/elegance-silver-wood-remote.webp",
+        "/media/catalog/elegance-silver-wood/elegance-silver-wood-detail.webp",
+        "/media/catalog/elegance-collection.webp"
+      ],
+      "highlights": [
+        "High torque motor",
+        "Energy efficient",
+        "Smart remote",
+        "Smooth operation",
+        "Superior air",
+        "Longer life span"
+      ],
+      "features": [
+        {
+          "title": "Brushless DC motor",
+          "body": "Smooth, noiseless and reliable operation, with lower power consumption than traditional fans."
+        },
+        {
+          "title": "Smart control",
+          "body": "Smart remote, Wi-Fi app control and voice through Google Home, Amazon Alexa and Apple Siri."
+        },
+        {
+          "title": "3 year warranty",
+          "body": "ISO certified, with THD under 5%."
+        }
+      ],
+      "options": [
+        {
+          "key": "colour",
+          "label": "Colour",
+          "values": [
+            {
+              "id": "black",
+              "label": "Black",
+              "swatch": "#1d1d1d"
+            },
+            {
+              "id": "white",
+              "label": "White",
+              "swatch": "#f2f1ec"
+            },
+            {
+              "id": "brown",
+              "label": "Brown",
+              "swatch": "#5b3a29"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hbfesw01",
+          "label": "Black",
+          "model": "HBFESW01",
+          "options": {
+            "colour": "black"
+          },
+          "images": [
+            "/media/catalog/elegance-silver-wood/elegance-silver-wood-black-1.webp",
+            "/media/catalog/elegance-silver-wood/elegance-silver-wood-black-2.webp"
+          ]
+        },
+        {
+          "id": "hbfesw02",
+          "label": "White",
+          "model": "HBFESW02",
+          "options": {
+            "colour": "white"
+          },
+          "images": [
+            "/media/catalog/elegance-silver-wood/elegance-silver-wood-white-1.webp",
+            "/media/catalog/elegance-silver-wood/elegance-silver-wood-white-2.webp"
+          ]
+        },
+        {
+          "id": "hbfesw03",
+          "label": "Brown",
+          "model": "HBFESW03",
+          "options": {
+            "colour": "brown"
+          },
+          "images": [
+            "/media/catalog/elegance-silver-wood/elegance-silver-wood-brown-1.webp",
+            "/media/catalog/elegance-silver-wood/elegance-silver-wood-brown-2.webp"
+          ]
+        }
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "HBFESW01 Black, HBFESW02 White, HBFESW03 Brown"
+        },
+        {
+          "label": "Motor",
+          "value": "BLDC, high torque"
+        },
+        {
+          "label": "Control",
+          "value": "Smart remote, Wi-Fi app, voice assistants"
+        },
+        {
+          "label": "THD",
+          "value": "< 5%"
+        },
+        {
+          "label": "Certification",
+          "value": "ISO"
+        },
+        {
+          "label": "Warranty",
+          "value": "3 years"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "warranty": "3 years",
+      "attributes": {
+        "colour": [
+          "Black",
+          "White",
+          "Brown"
+        ]
+      },
+      "related": [
+        "elegance-gold-plywood",
+        "elegance-base",
+        "chrome-cob-downlight"
+      ],
+      "brochurePages": [
+        60,
+        62
+      ]
+    },
+    {
+      "slug": "elegance-white-cap",
+      "subcategory": "bldc-fans",
+      "name": "Elegance White Cap",
+      "tagline": "All white, all quiet.",
+      "summary": "The Elegance smart BLDC fan with a white cap, in white.",
+      "image": "/media/products/studio/elegance-white-cap.webp",
+      "gallery": [
+        "/media/catalog/elegance-white-cap/elegance-white-cap-studio.webp",
+        "/media/catalog/elegance-white-cap/elegance-white-cap-running.webp",
+        "/media/catalog/elegance-white-cap/elegance-white-cap-below.webp",
+        "/media/catalog/elegance-white-cap/elegance-white-cap-bedroom.webp",
+        "/media/catalog/elegance-white-cap/elegance-white-cap-remote.webp",
+        "/media/catalog/elegance-white-cap/elegance-white-cap-detail.webp",
+        "/media/catalog/elegance-collection.webp"
+      ],
+      "highlights": [
+        "High torque motor",
+        "Energy efficient",
+        "Smart remote",
+        "Smooth operation",
+        "Superior air",
+        "Longer life span"
+      ],
+      "features": [
+        {
+          "title": "Brushless DC motor",
+          "body": "Smooth, noiseless and reliable operation, with lower power consumption than traditional fans."
+        },
+        {
+          "title": "Smart control",
+          "body": "Smart remote, Wi-Fi app control and voice through Google Home, Amazon Alexa and Apple Siri."
+        },
+        {
+          "title": "3 year warranty",
+          "body": "ISO certified, with THD under 5%."
+        }
+      ],
+      "options": [
+        {
+          "key": "colour",
+          "label": "Colour",
+          "values": [
+            {
+              "id": "white",
+              "label": "White",
+              "swatch": "#f2f1ec"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "hbfewc01",
+          "label": "White",
+          "model": "HBFEWC01",
+          "options": {
+            "colour": "white"
+          }
+        }
+      ],
+      "specs": [
+        {
+          "label": "Model",
+          "value": "HBFEWC01 White"
+        },
+        {
+          "label": "Motor",
+          "value": "BLDC, high torque"
+        },
+        {
+          "label": "Control",
+          "value": "Smart remote, Wi-Fi app, voice assistants"
+        },
+        {
+          "label": "THD",
+          "value": "< 5%"
+        },
+        {
+          "label": "Certification",
+          "value": "ISO"
+        },
+        {
+          "label": "Warranty",
+          "value": "3 years"
+        }
+      ],
+      "worksWith": [
+        "Google Home",
+        "Amazon Alexa",
+        "Apple Siri"
+      ],
+      "warranty": "3 years",
+      "attributes": {
+        "colour": [
+          "White"
+        ]
+      },
+      "related": [
+        "elegance-golden-cap",
+        "elegance-base",
+        "k-panel-series"
+      ],
+      "brochurePages": [
+        60,
+        62
+      ]
+    }
+  ]
+}

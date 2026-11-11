@@ -1,0 +1,229 @@
+/* Support: help-centre hero with search, contact channels, topic cards, a searchable answer browser, setup steps, downloads and a closing contact panel. Shares the About page's warm paper, charcoal and orange. */
+.support-page{overflow:hidden;background:#f5f2ec;color:#151515}
+.support-page *{box-sizing:border-box}
+.sp-wrap{width:min(100% - 64px,1260px);margin-inline:auto}
+.sp-eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 15px;color:#b4421c;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.sp-eyebrow>span{display:inline-block;width:18px;height:1px;background:#f05a28}
+.sp-caption{position:absolute;right:20px;bottom:14px;color:#ffffffa3;font-size:9px;letter-spacing:.03em}
+.support-page h2{margin:0;font-size:clamp(36px,4.2vw,56px);font-weight:600;line-height:1;letter-spacing:-.05em}
+.sp-section-head{margin-bottom:34px}
+
+.sp-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border:1px solid #f05a28;border-radius:999px;background:#f05a28;color:#171311;font-size:14px;font-weight:650;letter-spacing:-.01em;white-space:nowrap;transition:background .22s,border-color .22s,color .22s,transform .22s}
+.sp-btn:hover{transform:translateY(-2px);border-color:#ff754b;background:#ff754b}
+.sp-btn-ghost{border-color:#15151533;background:transparent;color:#151515}
+.sp-btn-ghost:hover{border-color:#151515;background:#151515;color:#fff}
+.sp-btn-outline{border-color:#ffffff8c;background:#10110fb8;color:#fff}
+.sp-btn-outline:hover{border-color:#fff;background:#fff;color:#151515}
+.support-page :focus-visible{outline:2px solid #f05a28;outline-offset:3px}
+
+/* Hero */
+.sp-hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:clamp(520px,46vw,660px);overflow:hidden;background:#0b0c0b;color:#f5f3ef}
+.sp-hero-image,.sp-hero-shade{position:absolute;inset:0;width:100%;height:100%}
+.sp-hero-image{z-index:-2;object-fit:cover;object-position:right center}
+.sp-hero-shade{z-index:-1;background:linear-gradient(90deg,#070807f2 0%,#070807d6 30%,#07080766 56%,#07080700 80%),linear-gradient(0deg,#07080780,transparent 40%)}
+.sp-hero-content{padding-block:80px}
+.sp-hero .sp-eyebrow{color:#ff8854}
+.sp-hero h1{max-width:680px;margin:0;font-size:clamp(46px,6vw,80px);font-weight:600;line-height:.99;letter-spacing:-.055em}
+.sp-hero-content>p:not(.sp-eyebrow){max-width:470px;margin:20px 0 28px;color:#f1eee8d1;font-size:clamp(15px,1.3vw,18px);line-height:1.5;letter-spacing:-.015em}
+
+.sp-search{position:relative;display:flex;align-items:center;width:min(100%,540px);height:58px;padding:0 10px 0 20px;border:1px solid #ffffff2e;border-radius:999px;background:#f8f6f1;color:#151515;box-shadow:0 20px 50px #0007;transition:box-shadow .2s,border-color .2s}
+.sp-search:focus-within{border-color:#f05a28;box-shadow:0 0 0 4px #f05a2840,0 20px 50px #0007}
+.sp-search>svg{flex:none;color:#7a756c}
+.sp-search input{flex:1;min-width:0;height:100%;padding:0 12px;border:0;background:transparent;font-size:16px;letter-spacing:-.015em;outline:none}
+.sp-search input::placeholder{color:#8a857c}
+.sp-search input::-webkit-search-cancel-button{display:none}
+.sp-search-clear{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#5d5a54;transition:background .2s}
+.sp-search-clear:hover{background:#15151512}
+/* The pill itself shows the focus ring (:focus-within), so the input inside needs no outline of its own. */
+.support-page .sp-search input:focus-visible{outline:none}
+.support-page .sp-search-clear:focus-visible{outline-offset:0}
+.sp-popular{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
+.sp-popular>span{margin-right:4px;color:#ffffff99;font-size:12px}
+.sp-chip{min-height:32px;padding:0 14px;border:1px solid #ffffff38;border-radius:999px;background:#ffffff0f;color:#f5f3ef;font-size:12.5px;backdrop-filter:blur(6px);transition:background .2s,border-color .2s}
+.sp-chip:hover{border-color:#ffffff8c;background:#ffffff24}
+
+/* Contact channels */
+.sp-channels{background:#101110;color:#f5f3ef}
+.sp-channels-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.sp-channel{position:relative;display:flex;align-items:center;gap:14px;min-height:96px;padding:20px 22px;transition:background .2s}
+.sp-channel+.sp-channel{border-left:1px solid #ffffff1f}
+.sp-channel:hover{background:#ffffff0a}
+.sp-channel>svg:first-child{flex:none;color:#ff8a4d}
+.sp-channel strong{display:block;font-size:14px;font-weight:600;letter-spacing:-.01em}
+.sp-channel small{display:block;margin-top:2px;color:#e1dfd9a6;font-size:12px;overflow-wrap:anywhere}
+.sp-channel-arrow{margin-left:auto;flex:none;color:#ffffff66;transition:transform .2s,color .2s}
+.sp-channel:hover .sp-channel-arrow{transform:translate(2px,-2px);color:#fff}
+
+/* Topic cards */
+.sp-topics-section{padding:92px 0 40px}
+.sp-topic-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sp-topic-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:190px;padding:24px 22px 20px;border:1px solid #1515151a;border-radius:18px;background:#fffcf6;text-align:left;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s}
+.sp-topic-card:hover{transform:translateY(-3px);border-color:#f05a2859;box-shadow:0 14px 34px #3a28160f}
+.sp-topic-card>svg{margin-bottom:14px;color:#c4491e}
+.sp-topic-card strong{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.sp-topic-card>span{color:#5d5a54;font-size:13px;line-height:1.45}
+.sp-topic-card small{display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:10px;color:#b4421c;font-size:12px;font-weight:600}
+.sp-topic-card small svg{transition:transform .2s}
+.sp-topic-card:hover small svg{transform:translateX(3px)}
+/* The seventh card closes the grid as a dark tile. */
+.sp-topic-card:last-child{grid-column:span 2;background:#151515;border-color:#151515;color:#f5f3ef}
+.sp-topic-card:last-child>span{color:#e1dfd9b3}
+.sp-topic-card:last-child>svg,.sp-topic-card:last-child small{color:#ff8a4d}
+
+/* Answer browser */
+.sp-answers{padding:72px 0 96px;scroll-margin-top:12px}
+.sp-answers-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:34px}
+.sp-answers-head .sp-search{width:min(100%,400px);height:50px;border-color:#1515151f;background:#fffcf6;box-shadow:none}
+.sp-answers-head .sp-search:focus-within{box-shadow:0 0 0 4px #f05a2826}
+.sp-browser{display:grid;grid-template-columns:270px minmax(0,1fr);gap:40px;align-items:start}
+.sp-topics{position:sticky;top:20px}
+.sp-topics ul{display:grid;gap:2px;margin:0;padding:0;list-style:none}
+.sp-topics button{display:flex;align-items:center;gap:12px;width:100%;min-height:46px;padding:0 14px;border-radius:12px;color:#3b3934;font-size:14px;text-align:left;transition:background .2s,color .2s}
+.sp-topics button:hover{background:#15151509;color:#151515}
+.sp-topics button svg{flex:none;color:#8a857c}
+.sp-topics button span{flex:1}
+.sp-topics button small{min-width:24px;padding:2px 7px;border-radius:999px;background:#1515150d;color:#77726a;font-size:11px;text-align:center;font-variant-numeric:tabular-nums}
+.sp-topics button[aria-pressed=true]{background:#151515;color:#fff}
+.sp-topics button[aria-pressed=true] svg{color:#ff8a4d}
+.sp-topics button[aria-pressed=true] small{background:#ffffff1f;color:#fff}
+.sp-results-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1px solid #15151524}
+.sp-results-head h3{font-size:22px;font-weight:600;letter-spacing:-.03em}
+.sp-results-head p{color:#77726a;font-size:13px;text-align:right}
+.sp-faq details{border-bottom:1px solid #1515151c}
+.sp-faq summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 2px;font-size:16px;font-weight:600;letter-spacing:-.02em;line-height:1.35;cursor:pointer;list-style:none}
+.sp-faq summary::-webkit-details-marker{display:none}
+.sp-faq summary em{display:block;margin-bottom:4px;color:#b4421c;font-size:11px;font-style:normal;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.sp-faq summary i{position:relative;flex:none;width:30px;height:30px;border:1px solid #15151526;border-radius:50%;transition:background .2s,border-color .2s,transform .3s}
+.sp-faq summary i:before,.sp-faq summary i:after{content:"";position:absolute;top:50%;left:50%;width:11px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.sp-faq summary i:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+.sp-faq summary:hover i{border-color:#151515}
+.sp-faq details[open] summary i{background:#151515;border-color:#151515;color:#fff}
+.sp-faq details[open] summary i:after{transform:translate(-50%,-50%) rotate(0)}
+.sp-faq-body{display:grid;justify-items:start;gap:12px;padding:0 60px 24px 2px}
+.sp-faq-body p{max-width:680px;color:#4d4a44;font-size:15px;line-height:1.6}
+.sp-inline-link{display:inline-flex;align-items:center;gap:6px;color:#b4421c;font-size:14px;font-weight:600}
+.sp-inline-link:hover{text-decoration:underline}
+.sp-faq-topic{padding:3px 9px;border-radius:999px;background:#1515150d;color:#77726a;font-size:11px}
+.sp-empty{display:grid;justify-items:start;gap:14px;padding:40px 0;color:#4d4a44}
+.sp-empty>svg{color:#c4491e}
+.sp-empty p{max-width:440px;font-size:15px;line-height:1.5}
+.sp-empty strong{color:#151515}
+.sp-empty>div{display:flex;flex-wrap:wrap;gap:10px}
+
+/* Setup steps */
+.sp-setup{background:#ebe6dc}
+.sp-setup-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:7%;min-height:600px}
+.sp-setup-photo{position:relative;min-height:440px;margin:0;overflow:hidden}
+.sp-setup-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center}
+.sp-setup-photo:after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(0deg,#0909098f,transparent);pointer-events:none}
+.sp-setup-photo figcaption{position:absolute;z-index:1;left:22px;bottom:19px;color:#fff;font-size:12px}
+.sp-setup-copy{align-self:center;padding-block:76px}
+.sp-steps{display:grid;margin:30px 0 32px;padding:0;list-style:none}
+.sp-steps li{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:17px 0;border-top:1px solid #1515151f}
+.sp-steps li:last-child{border-bottom:1px solid #1515151f}
+.sp-steps span{color:#c4491e;font-size:12px;font-weight:700;letter-spacing:.06em;padding-top:3px}
+.sp-steps h3{font-size:16px;font-weight:600;letter-spacing:-.02em}
+.sp-steps p{max-width:420px;margin-top:4px;color:#5d5a54;font-size:14px;line-height:1.5}
+
+/* Resources */
+.sp-resources{padding:96px 0}
+.sp-resource-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:12px}
+.sp-card{display:flex;flex-direction:column;padding:28px;border:1px solid #1515151a;border-radius:20px;background:#fffcf6}
+.sp-card h3{font-size:19px;font-weight:600;letter-spacing:-.03em}
+.sp-card ul{display:grid;margin:16px 0 0;padding:0;list-style:none}
+.sp-downloads a{display:flex;align-items:center;gap:14px;padding:15px 0;border-top:1px solid #15151517;transition:color .2s}
+.sp-downloads li:first-child a{border-top:0}
+.sp-downloads a>svg:first-child{flex:none;color:#c4491e}
+.sp-downloads a>svg:last-child{margin-left:auto;flex:none;color:#8a857c;transition:transform .2s,color .2s}
+.sp-downloads a:hover>svg:last-child{transform:translate(2px,-2px);color:#151515}
+.sp-downloads strong{display:block;font-size:14px;font-weight:600}
+.sp-downloads small{display:block;margin-top:2px;color:#77726a;font-size:12px}
+.sp-app-card{background:#151515;border-color:#151515;color:#f5f3ef}
+.sp-app-card>img{width:56px;height:56px;margin-bottom:18px;border-radius:14px}
+.sp-app-card p{margin-top:8px;color:#e1dfd9b3;font-size:14px;line-height:1.5}
+.sp-stores{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:auto;padding-top:22px}
+.sp-stores img{width:auto;height:40px}
+/* The Google Play badge carries its own clear space; scale it so the visible badge matches the App Store's 40px. */
+.sp-stores a:last-child img{height:59px;margin:-9.5px -8px}
+.sp-policies a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-top:1px solid #15151517;font-size:14px;transition:color .2s}
+.sp-policies li:first-child a{border-top:0}
+.sp-policies a:hover{color:#b4421c}
+.sp-policies a svg{color:#8a857c}
+.sp-policies>p{margin-top:auto;padding-top:14px;color:#8a857c;font-size:12px}
+
+/* Closing contact */
+.sp-cta{position:relative;isolation:isolate;display:flex;align-items:center;min-height:460px;overflow:hidden;background:#151411;color:#f5f3ef}
+.sp-cta-image,.sp-cta-shade{position:absolute;inset:0;width:100%;height:100%}
+.sp-cta-image{z-index:-2;object-fit:cover;object-position:center 60%}
+.sp-cta-shade{z-index:-1;background:linear-gradient(90deg,#090a09f0 0%,#090a09c4 38%,#090a0947 70%,#090a0912 100%)}
+.sp-cta-content{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;padding-block:70px}
+.sp-cta .sp-eyebrow{color:#ff9a63}
+.sp-cta-content>div:first-child>p:last-child{max-width:440px;margin-top:16px;color:#f1eee8cc;font-size:15px;line-height:1.5}
+.sp-cta-actions{display:flex;flex-wrap:wrap;gap:10px}
+
+@media(max-width:1000px){
+ .sp-wrap{width:min(100% - 48px,900px)}
+ .sp-channels-grid{grid-template-columns:repeat(2,1fr)}
+ .sp-channel:nth-child(3){border-left:0}
+ .sp-channel:nth-child(n+3){border-top:1px solid #ffffff1f}
+ .sp-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sp-topic-card:last-child{grid-column:1/-1;min-height:150px}
+ .sp-browser{grid-template-columns:1fr;gap:24px}
+ /* Topics become a scrolling row of pills above the answers. */
+ .sp-topics{position:static;margin-inline:-24px;overflow-x:auto;scrollbar-width:none}
+ .sp-topics::-webkit-scrollbar{display:none}
+ .sp-topics ul{display:flex;gap:8px;width:max-content;padding:2px 24px}
+ .sp-topics button{min-height:40px;padding:0 14px;border:1px solid #1515151f;border-radius:999px;white-space:nowrap}
+ .sp-topics button[aria-pressed=true]{border-color:#151515}
+ .sp-setup-grid{grid-template-columns:1fr;gap:0;width:100%;min-height:0}
+ .sp-setup-photo{min-height:380px}
+ .sp-setup-copy{width:min(100% - 48px,900px);margin-inline:auto;padding-block:56px 64px}
+ .sp-resource-grid{grid-template-columns:1fr 1fr}
+ .sp-downloads{grid-column:1/-1}
+ .sp-cta-content{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:700px){
+ .sp-wrap{width:min(100% - 32px,520px)}
+ .sp-hero{min-height:640px;align-items:flex-end}
+ .sp-hero-image{object-position:78% center}
+ .sp-hero-shade{background:linear-gradient(0deg,#070807f5 0%,#070807d9 50%,#07080740 100%)}
+ .sp-hero-content{padding-block:0 48px}
+ .sp-hero h1{font-size:clamp(42px,11vw,56px)}
+ .sp-search{height:54px}
+ .sp-caption{right:12px;bottom:10px;font-size:8px}
+ .sp-channels-grid{width:100%;grid-template-columns:1fr}
+ .sp-channel{min-height:74px;padding:16px}
+ .sp-channel+.sp-channel{border-left:0;border-top:1px solid #ffffff1f}
+ .support-page h2{font-size:38px}
+ .sp-topics-section{padding:64px 0 24px}
+ .sp-section-head{margin-bottom:24px}
+ .sp-topic-grid{gap:10px}
+ .sp-topic-card{min-height:0;padding:18px 16px 16px}
+ .sp-topic-card>svg{margin-bottom:6px}
+ .sp-topic-card>span{display:none}
+ .sp-topic-card strong{font-size:15px}
+ .sp-topic-card:last-child{min-height:0}
+ .sp-answers{padding:56px 0 72px}
+ .sp-answers-head{flex-direction:column;align-items:stretch;gap:18px}
+ .sp-answers-head .sp-search{width:100%}
+ .sp-topics{margin-inline:-16px}
+ .sp-topics ul{padding-inline:16px}
+ .sp-results-head{flex-direction:column;gap:4px}
+ .sp-results-head p{text-align:left}
+ .sp-faq summary{font-size:15px;padding:18px 0}
+ .sp-faq-body{padding-right:0}
+ .sp-setup-photo{min-height:300px}
+ .sp-setup-copy{width:min(100% - 32px,520px)}
+ .sp-resources{padding:64px 0}
+ .sp-resource-grid{grid-template-columns:1fr}
+ .sp-card{padding:22px}
+ .sp-cta{min-height:560px;align-items:flex-end}
+ .sp-cta-image{object-position:72% center}
+ .sp-cta-shade{background:linear-gradient(0deg,#090a09f5 0%,#090a09cc 52%,#090a0930 100%)}
+ .sp-cta-content{padding-block:0 52px;gap:24px}
+ .sp-cta-actions{flex-direction:column;align-items:stretch;width:100%}
+ .sp-cta-actions .sp-btn{white-space:normal;overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce){
+ .support-page *,.support-page *::before,.support-page *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}

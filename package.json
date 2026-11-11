@@ -13,9 +13,13 @@
     "check": "tsc --noEmit",
     "test:energy": "node scripts/verify-energy.mjs",
     "test:catalog": "node scripts/verify-catalog.mjs",
+    "test:products": "node scripts/verify-products.mjs",
+    "test:simulation": "node scripts/verify-simulation.mjs",
     "model:build": "node scripts/build-home.mjs",
     "model:compress": "node scripts/compress-models.mjs",
-    "test:voice": "node scripts/verify-voice.mjs"
+    "test:voice": "node scripts/verify-voice.mjs",
+    "db:migrate": "wrangler d1 migrations apply DB --local --config wrangler.local.json --persist-to .wrangler/state",
+    "test:admin": "node scripts/verify-admin.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

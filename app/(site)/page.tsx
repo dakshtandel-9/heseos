@@ -1,128 +1,117 @@
-import { ArrowRight, BadgeCheck, Home as HomeIcon, Mic, Smartphone } from 'lucide-react';
-import VideoHero from '../components/media/VideoHero';
-import HighlightsCarousel from '../components/media/HighlightsCarousel';
-import ScrollRotate from '../components/media/ScrollRotate';
-import StickyMedia from '../components/media/StickyMedia';
-import LoopVideo from '../components/media/LoopVideo';
-import PanelDemo from '../components/story/PanelDemo';
-import PlugDemo from '../components/story/PlugDemo';
-import PromoTile from '../components/story/PromoTile';
-import CardScroller from '../components/story/CardScroller';
-import VariantPicker from '../components/commerce/VariantPicker';
-import PackageCompare from '../components/commerce/PackageCompare';
+import type { ReactNode } from 'react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { CATALOG_META, CATEGORIES, family, familiesInCategory, familiesOf, familyHref, subcategoriesOf, trail, type Product } from '../../lib/products';
+import { directoryHrefFor } from '../../lib/product-directory';
+import { CONTACT } from '../../lib/site';
+import { CLIENTS, CTA, FEATURED, HERO, HOW, LISTENS, PARTNERS, POPULAR, SOLUTIONS_SECTION, TESTIMONIALS, WHY } from '../../lib/home';
 import SiteLink from '../components/site/SiteLink';
-import { Footnotes } from '../components/site/Footer';
-import { formatINR, product } from '../../lib/catalog';
+import HomeIcon from '../components/home/HomeIcon';
+import ProductRail from '../components/home/ProductRail';
+import HeroScene from '../components/home/HeroScene';
+import Reveal from '../components/home/Reveal';
+import ProductExplorer from '../components/home/ProductExplorer';
+import PanelStudio from '../components/home/PanelStudio';
+import AppShowcase from '../components/home/AppShowcase';
+import PackageShowcase from '../components/home/PackageShowcase';
+import HowItWorks from '../components/home/HowItWorks';
 
-const panel=product('touch-panel')!,plug=product('smart-plug')!,blaster=product('ir-blaster')!;
-const WHY=[
- {icon:HomeIcon,title:'A free demo, at home.',body:'See Heseos working in your own space before you decide.',href:'/demo',cta:'Book a demo'},
- {icon:BadgeCheck,title:'Keep your switchboards.',body:'Retrofit modules make the switches you already have smart.',href:'/packages',cta:'See retrofit packages'},
- {icon:Smartphone,title:'Control from anywhere.',body:'Your home over Wi‑Fi, in the Heseos app.',href:'/app',cta:'About the app'},
- {icon:Mic,title:'Works with your assistant.',body:'Siri, Bixby, Alexa and Google Assistant, through the Heseos app.³',href:'/products/ir-blaster',cta:'Learn more'},
-];
+const popular=POPULAR.map(family).filter((p):p is Product=>!!p).map(p=>({slug:p.slug,href:familyHref(p),name:p.name,tagline:p.tagline,image:p.image,range:trail(p).subcategory.name}));
+const explorer=CATEGORIES.map(c=>({slug:c.slug,name:c.shortName,href:directoryHrefFor(familiesInCategory(c.slug).map(p=>p.slug),'category'),ranges:subcategoriesOf(c.slug).map(s=>({slug:s.slug,name:s.name,tagline:s.tagline,image:s.image,href:directoryHrefFor(familiesOf(s.slug).map(p=>p.slug),'subcategory'),families:familiesOf(s.slug).length}))}));
+// Frame finishes as the catalogue lists them for the Edge and Bezel series.
+const finishes=family('edge-panel-series')?.options.find(o=>o.key==='finish')?.values??[];
+const half=Math.ceil(CLIENTS.length/2),clientRows=[CLIENTS.slice(0,half),CLIENTS.slice(half)];
+
+function Head({eyebrow,title,body,children,id}:{eyebrow:string;title:ReactNode;body?:string;children?:ReactNode;id:string}){
+ return <div className="hh" data-reveal><div><span className="ey">{eyebrow}</span><h2 id={id} className="ht">{title}</h2></div>{(body||children)&&<div className="hh-side">{body&&<p>{body}</p>}{children}</div>}</div>;
+}
 
 export default function Home(){
- return <>
-  <VideoHero src="/media/home/hero.mp4" poster="/media/home/hero-start.webp" still="/media/home/hero.webp" label="film of a living room waking up">
-   <span className="eyebrow">Heseos Smart Home</span>
-   <h1 className="display">The home that listens.</h1>
-   <p className="lead">Touch it, tap it or just say it. Lights, AC and appliances that answer, wherever you are.</p>
-   <div className="actions"><SiteLink className="btn" href="/experience">Step inside</SiteLink><SiteLink className="btn secondary" href="/packages">Shop packages</SiteLink></div>
-  </VideoHero>
+ return <div className="hp">
+  <Reveal/>
+  <HeroScene dayImage={HERO.dayImage} nightImage={HERO.nightImage} stats={CATALOG_META.stats}>
+   <span className="hx-pill"><span/>Smarter energy for everyday living</span>
+   <h1 id="hero-title">{HERO.title}{' '}<em>{HERO.accent}</em></h1>
+   <p>{HERO.body}</p>
+   <div className="ha"><SiteLink className="btn hb" href="/experience">Explore energy savings <ArrowRight size={16}/></SiteLink></div>
+  </HeroScene>
 
-  <section className="section" aria-labelledby="highlights-title">
-   <div className="section-head"><h2 id="highlights-title" className="headline">Get the highlights.</h2></div>
-   <HighlightsCarousel items={[
-    {image:'/media/home/living-evening.webp',title:'Set the mood with a touch.',body:'Dim every light in the room from one glass panel.'},
-    {image:'/media/home/apt2-ac.webp',title:'Cool the room you’re in.',body:'The IR Blaster runs your AC from the Heseos app.'},
-    {image:'/media/home/tv-on.webp',title:'Standby, switched off.',body:'The Smart Plug cuts power to appliances you’re not using.'},
-    {image:'/media/home/apt2-away.webp',title:'Away, in one tap.',body:'Lights, AC and TV off as you head out the door.'},
-    {image:'/media/home/teaser.webp',title:'Try it before you buy it.',body:'Every control works in the Heseos Simulation.'},
-   ]}/>
-  </section>
-
-  <section className="section light product-intro" aria-labelledby="panel-title">
-   <div className="section-head"><span className="eyebrow">{panel.name}</span><h2 id="panel-title" className="headline">{panel.tagline}</h2><p className="lead">{panel.summary}</p>
-    <div className="actions"><SiteLink className="btn" href={`/store/buy/${panel.slug}`}>Choose a package</SiteLink><SiteLink className="link" href={`/products/${panel.slug}`}>Learn more ›</SiteLink></div></div>
-   <ScrollRotate src="/media/products/touch-4m.webp" alt="Heseos 4M touch panel in black glass with a champagne frame"/>
-   <div className="split">
-    <div><h3 className="title">Six sizes. One look.</h3><p className="lead">From a 2-module switch to a 16-module panel, every Heseos touch panel shares the same black glass and soft-lit rings.</p></div>
-    <VariantPicker product={panel}/>
-   </div>
-   <div className="split reverse">
-    <div><h3 className="title">Home, evening, away.</h3><p className="lead">One touch changes the whole room. Try the scenes on the panel, as rendered in the Heseos Simulation.¹</p></div>
-    <PanelDemo/>
+  <section className="hsx lt" aria-labelledby="why-title">
+   <div className="hw">
+    <Head id="why-title" eyebrow={WHY.eyebrow} title={<>{WHY.title[0]}<br/><span className="mute">{WHY.title[1]}</span></>} body={WHY.body}/>
+    <div className="why" data-reveal>
+     <figure className="why-photo"><img src={FEATURED.detail} alt="A fingertip on a Heseos glass touch panel set in a walnut wall" loading="lazy"/><figcaption><b>Designed to be touched.</b>Glass, metal and light, made to last.</figcaption></figure>
+     {WHY.cards.map((c,i)=><article key={c.title} className="why-tile"><span className="why-n">0{i+1}</span><span className="why-ico"><HomeIcon name={c.icon} size={24}/></span><h3>{c.title}</h3><p>{c.body}</p></article>)}
+    </div>
    </div>
   </section>
 
-  <section className="section" aria-labelledby="plug-title">
-   <div className="section-head"><span className="eyebrow">{plug.name}</span><h2 id="plug-title" className="headline">{plug.tagline}</h2><p className="lead">{plug.summary}</p>
-    <div className="actions"><SiteLink className="btn" href={`/store/buy/${plug.slug}`}>Buy · {formatINR(plug.price!)}</SiteLink><SiteLink className="link" href={`/products/${plug.slug}`}>Learn more ›</SiteLink></div></div>
-   <div className="stats">
-    <div><strong className="gradient-text">16A</strong><span>Rated for heavy appliances like an AC or a geyser.</span></div>
-    <div><strong className="gradient-text">Ceramic</strong><span>A ceramic socket for safe conduction and performance.</span></div>
-    <div><strong className="gradient-text">Anywhere</strong><span>Forgot the AC? Switch it off from your phone.</span></div>
-   </div>
-   <PlugDemo/>
-  </section>
-
-  <section className="section surface" aria-labelledby="blaster-title">
-   <div className="section-head"><span className="eyebrow">{blaster.name}</span><h2 id="blaster-title" className="headline">{blaster.tagline}</h2><p className="lead">{blaster.summary}</p>
-    <div className="actions"><SiteLink className="btn" href={`/store/buy/${blaster.slug}`}>Buy · {formatINR(blaster.price!)}</SiteLink><SiteLink className="link" href={`/products/${blaster.slug}`}>Learn more ›</SiteLink></div></div>
-   <StickyMedia steps={[
-    {title:'Your AC, from anywhere.',body:'Switch it on before you get home, or off after you’ve left. The IR Blaster sends the same commands as its remote.',image:'/media/home/apt2-ac.webp',alt:'Air conditioner in a living room, controlled by the IR Blaster'},
-    {title:'Your TV, without the hunt.',body:'Add the TV’s remote to the app once. After that, your phone is the remote.',image:'/media/home/tv-on.webp',alt:'TV on a media console'},
-    {title:'Plugs into any USB port.',body:'Even a phone charger. No wiring, no installation.',image:'/media/products/ir-blaster.webp',alt:'Two Heseos IR Blasters with USB connectors',contain:true},
-   ]}/>
-  </section>
-
-  <section className="section" aria-labelledby="sim-title">
-   <h2 id="sim-title" className="sr-only">The Heseos Simulation</h2>
-   <PromoTile size="full" stacked title="Step inside the Heseos Simulation." body="Walk through two apartments and try the Touch Panel, IR Blaster and Smart Plug for yourself." href="/experience" cta="Enter the simulation" secondary={{href:'/experience?apartment=1',label:'Start in Apartment 1'}}
-    media={<LoopVideo src="/media/home/teaser.mp4" poster="/media/home/teaser.webp" label="simulation preview"/>}/>
-  </section>
-
-  <section className="section light" aria-labelledby="app-title">
-   <div className="split app-split">
-    <div><span className="eyebrow">Heseos app</span><h2 id="app-title" className="headline">Your home in your pocket.</h2>
-     <p className="lead">Every switch, plug and remote in one app. Forgot to turn off the AC? Turn it off from wherever you are.</p>
-     <div className="actions start"><SiteLink className="btn" href="/app">About the app</SiteLink></div></div>
-    <img src="/media/products/app-phone.webp" alt="The Heseos app on a phone, showing living-room switches and power use" loading="lazy" className="app-phone"/>
+  <section className="hsx" aria-labelledby="solutions-title">
+   <div className="hw">
+    <Head id="solutions-title" eyebrow={SOLUTIONS_SECTION.eyebrow} title={SOLUTIONS_SECTION.title} body={SOLUTIONS_SECTION.body}/>
+    <div className="sol" data-reveal>{SOLUTIONS_SECTION.cards.map((c,i)=><SiteLink key={c.title} className="sol-card" href={`/demo?space=${encodeURIComponent(c.title)}`} aria-label={`Explore ${c.title}`}>
+     <img src={c.image} alt="" loading="lazy"/>
+     {'video' in c&&<video src={c.video} poster={c.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true"/>}
+     <span className="sol-n">0{i+1}</span>
+     <span className="sol-copy"><span className="sol-name"><span className="sol-ico"><HomeIcon name={c.icon} size={18}/></span>{c.title}</span><span className="sol-body">{c.body}</span></span>
+    </SiteLink>)}</div>
    </div>
   </section>
 
-  <section className="section" aria-labelledby="solutions-title">
-   <div className="section-head"><h2 id="solutions-title" className="headline">Smart, for every kind of space.</h2></div>
-   <div className="promo-grid">
-    <PromoTile title="Smart Home" body="A day that runs itself." image="/media/home/living-home.webp" href="/solutions/home" cta="Learn more"/>
-    <PromoTile title="Smart Hotel" body="Hospitality without friction." image="/media/home/bedroom.webp" href="/solutions/hotel" cta="Learn more"/>
-    <PromoTile title="Smart Buildings" body="Control at property scale." image="/media/home/entrance.webp" href="/solutions/buildings" cta="Learn more"/>
-    <PromoTile title="Smart Enterprise" body="Automation without complexity." image="/media/home/office.webp" href="/solutions/enterprise" cta="Learn more"/>
+  <section className="hsx lt" aria-labelledby="products-title">
+   <div className="hw">
+    <Head id="products-title" eyebrow="Our products" title="Intelligent products for a connected world." body="A complete range of smart products designed for beautiful, effortless living.">
+     <SiteLink className="btn secondary small" href="/products">View All Products <ArrowRight size={14}/></SiteLink>
+    </Head>
+    <div data-reveal><ProductExplorer categories={explorer}/></div>
    </div>
   </section>
 
-  <section className="section light" aria-labelledby="compare-title">
-   <div className="section-head"><h2 id="compare-title" className="headline">Which package is right for you?</h2><p className="lead">Every package is priced as listed on heseos.com.²</p></div>
-   <PackageCompare/>
-   <p className="center" style={{marginTop:32}}><SiteLink className="link" href="/compare">Compare every package ›</SiteLink></p>
+  <PanelStudio data={FEATURED} finishes={finishes}/>
+
+  <section className="hsx lt" aria-labelledby="listens-title">
+   <div className="hw">
+    <Head id="listens-title" eyebrow="Connected living" title={LISTENS.title} body={LISTENS.body}/>
+    <figure className="ls-media" data-reveal>
+     <img src={LISTENS.image} alt="An open-plan living room with a ceiling fan, downlights, curtains, a touch panel, a smart door lock and a smart plug" loading="lazy"/>
+     {LISTENS.hotspots.map(h=><SiteLink key={h.label} href={h.href} className={'spot'+(h.x>60?' left':'')+(h.y<20?' below':'')} style={{left:`${h.x}%`,top:`${h.y}%`}}>
+      <span className="spot-dot" aria-hidden="true"/><span className="spot-card"><b>{h.label}</b><span>{h.detail}</span></span>
+     </SiteLink>)}
+    </figure>
+    <ul className="ls-points" data-reveal>{LISTENS.points.map(p=><li key={p.title}><span className="pi"><HomeIcon name={p.icon} size={20}/></span><span><b>{p.title}</b><span>{p.body}</span></span></li>)}</ul>
+   </div>
   </section>
 
-  <section className="section" aria-labelledby="why-title">
-   <div className="section-head"><h2 id="why-title" className="headline">Why Heseos.</h2></div>
-   <CardScroller label="Reasons to choose Heseos">{WHY.map(w=><div key={w.title} className="why-card" role="listitem"><w.icon size={30} strokeWidth={1.5}/><h3 className="title">{w.title}</h3><p className="muted">{w.body}</p><SiteLink className="link" href={w.href}>{w.cta} <ArrowRight size={14}/></SiteLink></div>)}</CardScroller>
+  <AppShowcase/>
+
+  <section className="hsx lt" aria-label="Popular products">
+   <div className="hw" data-reveal><ProductRail eyebrow="Featured products" title="Popular products for smarter living." items={popular}/></div>
   </section>
 
-  <section className="closing" aria-labelledby="closing-title">
-   <img src="/media/home/apt2-away.webp" alt="" loading="lazy"/>
-   <div><h2 id="closing-title" className="display">Your home is about to wake up.</h2>
-    <div className="actions"><SiteLink className="btn" href="/demo">Book a free demo</SiteLink><SiteLink className="btn secondary" href="/store">Shop</SiteLink></div></div>
+  <PackageShowcase/>
+
+  <section className="hsx lt trust" aria-label="Clients and partners">
+   <div className="hw trust-head" data-reveal>
+    <div><span className="ey">Our clients</span><h2 className="ht">Trusted by leading brands.</h2></div>
+    <div className="trust-partners"><span>Exclusive partners</span><ul>{PARTNERS.map(p=><li key={p.name}><img src={p.logo} alt={p.name} loading="lazy"/></li>)}</ul></div>
+   </div>
+   <div className="marquees">{clientRows.map((row,r)=><div key={r} className={'marquee'+(r?' rev':'')}><ul>{[...row,...row].map((c,i)=><li key={i} aria-hidden={i>=row.length}><img src={c.logo} alt={i<row.length?c.name:''} loading="lazy"/></li>)}</ul></div>)}</div>
+   {TESTIMONIALS.length>0&&<div className="hw quotes">{TESTIMONIALS.map(t=><figure key={t.name}><blockquote>“{t.quote}”</blockquote><figcaption><b>{t.name}</b>{t.role}</figcaption></figure>)}</div>}
   </section>
 
-  <Footnotes notes={[
-   'Rooms, scenes and films on this page are rendered in the Heseos Simulation. Device models in the simulation are illustrative.',
-   'Prices and package contents as listed on heseos.com; the struck-through price is the listed MRP. Watts shown are illustrative example loads, not measurements.',
-   'Voice assistant compatibility as described on the Heseos IR Blaster product page.',
-  ]}/>
- </>;
+  <section className="hsx how" aria-labelledby="how-title">
+   <div className="hw">
+    <Head id="how-title" eyebrow={HOW.eyebrow} title={<>{HOW.title[0]}<br/><span className="mute">{HOW.title[1]}</span></>}><p>{HOW.body[0]}<br/>{HOW.body[1]}</p></Head>
+    <div data-reveal><HowItWorks steps={HOW.steps}/></div>
+   </div>
+  </section>
+
+  <section className="cta" aria-labelledby="cta-title">
+   <img src={CTA.image} alt="A sunlit modern home overlooking the coast" width={1916} height={821} loading="lazy" decoding="async"/>
+   <div className="hw" data-reveal>
+    <span className="ey">Free home demo</span>
+    <h2 id="cta-title">{CTA.title}</h2><p>{CTA.body}</p>
+    <div className="ha"><SiteLink className="btn hb" href="/demo">Book a Demo <ArrowRight size={16}/></SiteLink><a className="btn secondary" href={CONTACT.whatsapp} target="_blank" rel="noreferrer">Talk to an Expert <ArrowUpRight size={16}/></a></div>
+   </div>
+  </section>
+ </div>;
 }

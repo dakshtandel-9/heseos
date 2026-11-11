@@ -10,7 +10,6 @@ import sharp from 'sharp';
 import fs from 'node:fs';
 
 const MODELS=[
- {source:'../modern_apartment.glb',target:'public/media/models/apartment-1.glb',triangleBudget:12000},
  {source:'../appartement.glb',target:'public/media/models/apartment-2.glb'},
 ];
 const root=new URL('..',import.meta.url);

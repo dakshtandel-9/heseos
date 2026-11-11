@@ -1,0 +1,146 @@
+/* Smart Lighting: the page is the light. It opens dark, scrolling switches the room on and warms the page,
+   then light paper sections hold a room you can dim, the downlights compared, and a kitchen through a power cut. */
+.sl{--paper:#f6f1e7;--ink:#161512;--mute:#6f6a60;--glow:#ffcf8a;--ease:cubic-bezier(.2,.7,.2,1);background:var(--paper);color:var(--ink)}
+.sl [data-scroll]{--p:0;position:relative}
+.sl-stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.sl-wrap{width:88%;max-width:1200px;margin:0 auto}
+.sl h1,.sl h2,.sl h3{font-weight:700;letter-spacing:-.035em;text-wrap:balance}
+.sl-head{max-width:720px;margin-bottom:clamp(32px,5vh,52px)}
+.sl-head--center{margin-inline:auto;text-align:center}
+.sl-head h2{font-size:clamp(34px,4.4vw,58px);line-height:1.05}
+.sl-head p{margin-top:16px;font-size:clamp(17px,1.4vw,20px);line-height:1.45;color:var(--mute)}
+.sl-link{display:inline-flex;align-items:center;gap:2px;font-size:17px;color:#0066cc}
+.sl-link:hover{text-decoration:underline}
+
+/* 1 · Lights on. Two beats: the frame grows to full screen (--grow), then the lights come up slowly (--on),
+   eased so they start gently like a dimmer, with the dark photo lifting a little as the warm one fades in. */
+.sl-hero{--grow:clamp(0,calc(var(--p) / .32),1);--on-raw:clamp(0,calc((var(--p) - .3) / .55),1);--on:calc(var(--on-raw) * var(--on-raw) * (3 - 2 * var(--on-raw)));height:320vh;background:#000;color:#fff}
+.sl-frame{position:absolute;inset:0;overflow:hidden;clip-path:inset(calc((1 - var(--grow)) * 17vh) calc((1 - var(--grow)) * 19vw) round calc((1 - var(--grow)) * 32px));will-change:clip-path}
+.sl-frame>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.12 - var(--grow) * .08 - var(--on) * .04))}
+.sl-off{filter:brightness(calc(.62 + var(--grow) * .1 + var(--on) * .35))}
+.sl-on{opacity:var(--on)}
+.sl-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--paper) 0%,#f6f1e700 26%);opacity:clamp(0,calc((var(--p) - .86) * 7),1);pointer-events:none}
+.sl-trail{position:absolute;z-index:2;top:22px;left:6vw;font-size:12px;color:#ffffff99}
+.sl-trail ol{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+.sl-trail li+li::before{content:"/";margin-right:8px;opacity:.5}
+.sl-title{position:absolute;z-index:2;left:0;right:0;top:50%;display:grid;place-items:center;translate:0 -50%;padding:0 6vw;text-align:center;font-size:clamp(52px,8vw,124px);line-height:1;letter-spacing:-.045em;text-shadow:0 4px 50px #000a}
+.sl-title span{grid-area:1/1}
+.sl-t1{opacity:clamp(0,calc(1 - (var(--p) - .4) * 4),1);transform:scale(calc(1 - var(--grow) * .08))}
+.sl-t2{color:var(--glow);opacity:clamp(0,calc((var(--p) - .66) * 5),1);transform:translateY(calc((1 - clamp(0,calc((var(--p) - .66) * 5),1)) * 40px))}
+.sl-hint{position:absolute;z-index:2;left:0;right:0;bottom:6vh;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:15px;color:#ffffffb3;opacity:calc(1 - var(--p) * 8)}
+.sl-hint::after{content:"";width:1px;height:30px;background:linear-gradient(#fff,#fff0);animation:sl-hint 1.8s ease-in-out infinite}
+@keyframes sl-hint{0%,100%{transform:translateY(-4px);opacity:.4}50%{transform:translateY(4px);opacity:1}}
+
+/* 2 · Try it: the room and two sliders */
+.sl-try-section{padding:clamp(80px,14vh,140px) 0}
+.sl-try{display:grid;gap:28px}
+/* --e runs 0 → 1 as the room arrives. The frame never changes size, so the heading, readout and sliders stay put;
+   only the photos inside it zoom from 1.18× down to 1× as you scroll. */
+.sl-room{--p:0;--e:clamp(0,calc((var(--p) - .1) / .4),1);position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:28px;background:#0d0c0a;isolation:isolate}
+.sl-room-media{position:absolute;inset:0;transform:scale(calc(1 + (1 - var(--e)) * .18));transform-origin:50% 50%;will-change:transform}
+.sl-room img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .25s linear}
+.sl-room img:first-child{filter:brightness(.55)}
+.sl-readout{z-index:2}
+.sl-readout{position:absolute;left:20px;bottom:20px;padding:8px 14px;border-radius:999px;background:#000000a6;color:#fff;font-size:14px;font-variant-numeric:tabular-nums;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.sl-controls{display:grid;grid-template-columns:1fr 1fr;gap:20px 48px}
+.sl-controls label{display:grid;gap:14px}
+.sl-controls label>span{display:flex;justify-content:space-between;font-size:15px;font-weight:600}
+.sl-controls output{font-weight:400;color:var(--mute);font-variant-numeric:tabular-nums}
+.sl-range{width:100%;height:30px;margin:0;background:none;cursor:pointer;-webkit-appearance:none;appearance:none}
+.sl-range::-webkit-slider-runnable-track{height:8px;border-radius:999px;background:var(--track)}
+.sl-range::-moz-range-track{height:8px;border-radius:999px;background:var(--track)}
+.sl-range::-webkit-slider-thumb{width:28px;height:28px;margin-top:-10px;border-radius:50%;background:#fff;box-shadow:0 2px 8px #00000040,0 0 0 1px #0000000f;-webkit-appearance:none;appearance:none}
+.sl-range::-moz-range-thumb{width:28px;height:28px;border:0;border-radius:50%;background:#fff;box-shadow:0 2px 8px #00000040}
+.sl-range--level{--track:linear-gradient(90deg,var(--ink) var(--v),#16151226 var(--v))}
+.sl-range--cct{--track:linear-gradient(90deg,#ffb35c,#fff3dc 45%,#dce8ff)}
+.sl-range:focus-visible{outline:2px solid #0066cc;outline-offset:4px;border-radius:999px}
+.sl-note{margin-top:22px;font-size:13px;color:var(--mute)}
+
+/* 3 · Choose your beam: three downlights, the same rows across */
+.sl-beams{padding:clamp(80px,14vh,140px) 0;background:#fff}
+.sl-compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(16px,3vw,44px)}
+.sl-model{display:grid;grid-row:span 8;grid-template-rows:subgrid;text-align:center}
+.sl-model-media{position:relative;display:block;aspect-ratio:1;overflow:hidden;border-radius:24px;background:#efe9de}
+.sl-model-media img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.sl-model-media i{position:absolute;z-index:2;left:50%;bottom:-30%;width:70%;aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,#ffd9a0b3,#ffd9a000);opacity:0;transition:opacity .6s var(--ease);pointer-events:none}
+.sl-model-media:hover img{transform:scale(1.04)}.sl-model-media:hover i{opacity:1}
+.sl-kicker{margin-top:24px;font-size:13px;font-weight:600;color:#a45a12}
+.sl-model h3{margin-top:6px;font-size:clamp(20px,1.9vw,26px);line-height:1.15}
+.sl-tagline{margin-top:8px;font-size:15px;color:var(--mute)}
+.sl-model .sl-link{justify-self:center;margin:14px 0 24px}
+.sl-row{display:flex;flex-direction:column;gap:4px;padding:18px 6px;border-top:1px solid #1615121a;font-size:15px;line-height:1.4}
+.sl-row small{font-size:12px;color:var(--mute)}
+
+/* 4 · Power cut, in three steps while the stage is pinned (data-step from ScrollScenes):
+   0 · the kitchen with every light on, on the light page;  1 · the power cuts: the photo blinks out and the whole section goes dark;
+   2 · the tubelight flickers back on from its battery and its cool light spills out of the frame onto the dark page. */
+.sl-outage{--out-mute:var(--mute);--out-line:#1615121a;height:300vh;background:var(--paper);color:var(--ink);transition:background-color .7s var(--ease),color .7s var(--ease)}
+.sl-outage:is([data-step="1"],[data-step="2"]){--out-mute:#ffffff99;--out-line:#ffffff1f;background:#050505;color:#fff}
+.sl-outage .sl-stage::after{content:none}
+.sl-out{--w:min(88vw,1200px);display:grid;grid-template-rows:auto auto minmax(0,calc(var(--w) * .5625)) auto;align-content:center;gap:clamp(14px,2.4vh,24px);width:var(--w);height:100%;margin:0 auto;padding:clamp(64px,10vh,96px) 0 clamp(28px,5vh,56px)}
+.sl-out-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sl-out-kicker{font-size:17px;font-weight:600;color:var(--out-mute);transition:color .7s var(--ease)}
+/* Status pill: one label per step, stacked in the same cell. */
+.sl-out-status{display:grid;grid-template-columns:auto auto;align-items:center;gap:8px;padding:7px 14px 7px 12px;border:1px solid var(--out-line);border-radius:999px;font-size:14px;font-weight:600;transition:border-color .7s var(--ease)}
+.sl-out-status span{grid-area:1/2;opacity:0;transition:opacity .3s}
+.sl-out-status i{width:8px;height:8px;border-radius:50%;background:#30d158;box-shadow:0 0 0 3px #30d15826;transition:background-color .3s,box-shadow .3s}
+.sl-outage:not([data-step="1"]):not([data-step="2"]) .sl-out-status span:nth-of-type(1),
+.sl-outage[data-step="1"] .sl-out-status span:nth-of-type(2),
+.sl-outage[data-step="2"] .sl-out-status span:nth-of-type(3){opacity:1}
+.sl-outage[data-step="1"] .sl-out-status i{background:#ff9f0a;box-shadow:0 0 0 3px #ff9f0a33;animation:sl-pulse 1s ease-in-out infinite}
+.sl-outage[data-step="2"] .sl-out-status i{background:#e6eeff;box-shadow:0 0 10px 2px #cfe0ffaa}
+@keyframes sl-pulse{50%{opacity:.35}}
+/* Title: three lines share one cell; the current one rises in as the last one leaves. */
+.sl-out-title{display:grid;font-size:clamp(34px,4.4vw,60px);line-height:1.05}
+.sl-out-title>[aria-hidden]{grid-area:1/1;opacity:0;transform:translateY(.35em);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.sl-outage:not([data-step="1"]):not([data-step="2"]) .sl-out-title>[aria-hidden]:nth-of-type(2),
+.sl-outage[data-step="1"] .sl-out-title>[aria-hidden]:nth-of-type(3),
+.sl-outage[data-step="2"] .sl-out-title>[aria-hidden]:nth-of-type(4){opacity:1;transform:none}
+.sl-outage[data-step="2"] .sl-out-title>[aria-hidden]:nth-of-type(4){text-shadow:0 0 48px #cfe0ff59}
+/* The scene: both photos fill the frame; a soft cool glow sits behind it, ready to spill out when the tube comes back. */
+.sl-out-scene{position:relative;isolation:isolate;margin:0;min-height:0}
+.sl-out-scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;border-radius:24px}
+.sl-out-scene::before{content:"";position:absolute;z-index:-1;inset:-8% -6%;border-radius:50%;background:radial-gradient(50% 45% at 50% 30%,#d6e4ff59,#d6e4ff00 70%);filter:blur(30px);opacity:0;transition:opacity 1.2s var(--ease) .3s}
+.sl-out-a{transition:filter .8s var(--ease)}
+.sl-out-b{opacity:0;transition:opacity .4s}
+.sl-outage[data-step="1"] .sl-out-a{filter:brightness(.07) saturate(.4);animation:sl-cut .7s linear}
+.sl-outage[data-step="2"] .sl-out-a{filter:brightness(.07) saturate(.4)}
+.sl-outage[data-step="2"] .sl-out-b{opacity:1;transition:none;animation:sl-flick 1.3s linear}
+.sl-outage[data-step="2"] .sl-out-scene::before{opacity:1}
+/* Lights cut out with a stutter, and the tube catches with a couple of blinks before it holds. */
+@keyframes sl-cut{0%{filter:none}12%{filter:brightness(.1) saturate(.4)}20%{filter:brightness(.75)}30%,100%{filter:brightness(.07) saturate(.4)}}
+@keyframes sl-flick{0%,30%{opacity:0}34%{opacity:.85}40%{opacity:.1}48%{opacity:1}54%{opacity:.45}62%,100%{opacity:1}}
+.sl-out-foot{display:flex;align-items:baseline;justify-content:space-between;gap:12px 40px}
+.sl-out-foot p{max-width:600px;font-size:17px;line-height:1.5;color:var(--out-mute);transition:color .7s var(--ease)}
+.sl-out-foot .sl-link{flex-shrink:0;transition:color .7s var(--ease)}
+.sl-outage:is([data-step="1"],[data-step="2"]) .sl-link{color:#6cb4ff}
+
+/* 5 · Numbers */
+.sl-specs-section{padding:clamp(64px,10vh,100px) 0}
+.sl-specs{display:grid;grid-template-columns:repeat(4,1fr);max-width:1200px;margin:0 auto;padding:0 6vw}
+.sl-specs div{display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 clamp(12px,2.4vw,32px);text-align:center}
+.sl-specs div+div{border-left:1px solid #1615121f}
+.sl-specs dd{margin:0;white-space:nowrap;font-size:clamp(26px,3.4vw,48px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.sl-specs dt{font-size:14px;color:var(--mute)}
+
+@media(max-width:860px){
+ .sl-controls{grid-template-columns:1fr}
+ .sl-compare{grid-auto-flow:column;grid-template-columns:none;grid-template-rows:repeat(8,auto);grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+ .sl-model{scroll-snap-align:start}
+ .sl-out{grid-template-rows:auto auto minmax(0,calc(var(--w) * 1.25)) auto}
+ .sl-out-scene img{border-radius:18px}
+ .sl-out-foot{flex-direction:column;align-items:flex-start}
+ .sl-out-foot p{font-size:16px}
+ .sl-specs{grid-template-columns:1fr 1fr;gap:32px 0}.sl-specs div:nth-child(3){border-left:0}
+ .sl-room{aspect-ratio:4/3;border-radius:20px}.sl-readout{left:14px;bottom:14px}
+}
+/* Reduced motion: nothing pins; scenes show their lit, final state. */
+@media(prefers-reduced-motion:reduce){
+ .sl [data-scroll]{--p:1;height:auto}.sl-stage{position:relative;height:100svh}
+ .sl-room{--e:1}.sl-hint,.sl-t1{display:none}.sl-frame{clip-path:none}
+ .sl-hint::after{animation:none}.sl-room img{transition:none}
+ .sl-outage{--out-mute:#ffffff99;--out-line:#ffffff1f;background:#050505;color:#fff}.sl-outage .sl-link{color:#6cb4ff}
+ .sl-outage .sl-out-b,.sl-outage .sl-out-scene::before,.sl-outage .sl-out-status span:nth-of-type(3),.sl-outage .sl-out-title>[aria-hidden]:nth-of-type(4){opacity:1;transform:none}
+ .sl-outage .sl-out-status span:nth-of-type(-n+2),.sl-outage .sl-out-title>[aria-hidden]:nth-of-type(-n+3){opacity:0}
+ .sl-outage .sl-out-status i{background:#e6eeff}
+}

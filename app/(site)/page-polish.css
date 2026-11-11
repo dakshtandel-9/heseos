@@ -1,0 +1,42 @@
+/* One heading system for the supporting pages, matching the home page's eyebrow (.ey) and title (.ht) scale.
+   `main` and the page class lift these above each page's own stylesheet, which loads later. */
+main :is(.app-page,.about-page,.support-page,.demo-page) :is(.app-kicker,.about-eyebrow,.sp-eyebrow,.demo-eyebrow){font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+main :is(.app-page,.about-page,.support-page,.demo-page) h1{font-size:clamp(44px,5.6vw,78px);line-height:1.02;font-weight:600;letter-spacing:-.04em;text-wrap:balance}
+main :is(.app-section-intro,.app-experience,.app-living-copy,.app-final-cta,.about-craft,.about-cta,.support-page section) h2,main .about-page .about-section-title{font-size:clamp(32px,4vw,54px);line-height:1.06;font-weight:600;letter-spacing:-.032em;text-wrap:balance}
+main :is(.app-page,.about-page,.support-page,.demo-page) :is(h3,.about-purpose-copy h2,.app-download-copy h2,.demo-form-card h2,.demo-next h2){line-height:1.18;letter-spacing:-.025em;text-wrap:balance}
+.support-page .sp-contact h2{font-size:clamp(30px,4vw,48px)}
+.sp-section-head{max-width:760px}
+#spaces,#download,#contact{scroll-margin-top:30px}
+.ftr-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+.capture-form{box-sizing:border-box}.capture-form input,.capture-form select,.capture-form textarea{box-sizing:border-box;min-width:0;line-height:1.5}.capture-form textarea{resize:vertical}.capture-row{min-width:0}.capture-form label{min-width:0}.capture-form .capture-consent{color:#696e65;line-height:1.6}.capture-form .capture-honey{left:0;top:0;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.demo-page{background:#f4f1ea;color:#20231f;color-scheme:light}
+.demo-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,100px);max-width:1240px;margin:0 auto;padding:76px 24px 88px;align-items:start}
+.demo-eyebrow{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:650;color:#a34120;display:block;margin-bottom:18px}
+.demo-intro{padding:32px 0}
+.demo-intro h1{font-size:clamp(46px,5.4vw,74px);line-height:1.06;letter-spacing:-.055em;font-weight:600}
+.demo-intro h1 em{font-style:normal;color:#b44a25}
+.demo-intro>p{font-size:16px;line-height:1.8;color:#64695f;max-width:430px;margin:26px 0}
+.demo-intro ul{display:grid;gap:17px;list-style:none;margin:30px 0 42px;padding:0}
+.demo-intro li{display:flex;align-items:flex-start;gap:12px;font-size:13px;line-height:1.6}
+.demo-intro li svg{flex-shrink:0;color:#b44a25;margin-top:2px}
+.demo-chat{display:flex;gap:16px;align-items:center;border-top:1px solid #20231f25;padding-top:26px;max-width:400px}
+.demo-chat strong{font-size:13px;font-weight:600;display:block;margin-bottom:7px}
+.demo-chat a{display:flex;align-items:center;gap:7px;font-size:13px;color:#a34120}
+.demo-form-card{border:1px solid #20231f18;background:#fffcf6;border-radius:18px;padding:34px;box-shadow:0 15px 50px #20231f08}
+.demo-form-card h2{font-size:32px;line-height:1.15;letter-spacing:-.035em;margin-bottom:12px}
+.demo-form-card>p{font-size:13px;line-height:1.7;color:#656b60}
+.demo-form-card .capture-form{margin:26px 0 16px;gap:18px}
+.demo-form-card .capture-form label{font-size:12px;font-weight:500}
+.demo-form-card .capture-form input,.demo-form-card .capture-form select,.demo-form-card .capture-form textarea{background:#fff;border-color:#d7d9cf;font-size:13px;font-weight:400}
+.demo-form-card .capture-form .btn{width:100%;font-size:14px;min-height:46px;font-weight:500}
+.demo-form-card .demo-form-note{font-size:11px;text-align:center}
+.demo-form-card .demo-interest{padding:12px 14px;background:#f1eee4;border-radius:8px;white-space:pre-line;margin-top:18px;color:#78371f}
+.demo-next{border-top:1px solid #20231f20;max-width:1192px;margin:0 auto;padding:56px 24px 72px}
+.demo-next h2{font-size:32px;letter-spacing:-.035em;font-weight:600;margin-bottom:34px}
+.demo-next ol{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;padding:0;margin:0;gap:48px}
+.demo-next li>span{font-size:11px;letter-spacing:.12em;color:#a34120}
+.demo-next h3{font-size:19px;margin:14px 0 10px;letter-spacing:-.025em}
+.demo-next p{font-size:14px;line-height:1.8;color:#656b60}
+.demo-page :focus-visible{outline-color:#a34120;outline-offset:3px}
+@media(max-width:800px){.demo-layout{grid-template-columns:1fr;gap:24px;padding-top:30px}.demo-intro{padding:20px 0}.demo-intro h1 br{display:none}.demo-intro h1{max-width:560px}.demo-intro>p{max-width:560px}.demo-next ol{gap:24px}.demo-form-card{max-width:660px;width:100%;box-sizing:border-box}}
+@media(max-width:520px){.demo-form-card{padding:24px 20px}.demo-layout{padding:24px 20px 48px}.demo-next ol{grid-template-columns:1fr}.demo-next{padding:40px 20px}.demo-intro h1{font-size:48px}.ftr-links{grid-template-columns:repeat(2,minmax(0,1fr))}}

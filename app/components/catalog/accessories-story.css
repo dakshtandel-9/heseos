@@ -1,0 +1,151 @@
+/* Smart Home Accessories: a light page about having less to hold. Class prefix "acc-".
+   The pinned scenes' progress values are registered numbers so each is worked out once per frame, not re-expanded. */
+@property --aq{syntax:'<number>';inherits:true;initial-value:0}
+@property --ag{syntax:'<number>';inherits:true;initial-value:0}
+@property --ae1{syntax:'<number>';inherits:true;initial-value:0}
+@property --ae2{syntax:'<number>';inherits:true;initial-value:0}
+
+.acc{--ease:cubic-bezier(.2,.7,.2,1);--ink:#1d1d1f;--mute:#6e6e73;background:#fff;color:var(--ink)}
+.acc [data-scroll]{position:relative}
+.acc h1,.acc h2,.acc h3{margin:0;font-weight:700;letter-spacing:-.03em;text-wrap:balance}
+.acc p{margin:0}
+.acc-wrap{width:88%;max-width:1200px;margin:0 auto}
+.acc-link{display:inline-flex;align-items:center;gap:2px;font-size:17px;color:#0066cc}
+.acc-link:hover{text-decoration:underline}
+@keyframes acc-rise{from{opacity:0;transform:translateY(24px)}}
+
+/* 1 · Less to hold. Six beats of scroll (--aq runs 0→6). The table starts as a framed picture under the headline and grows to the full
+   screen (--ag); remote k then leaves between beats k−.1 and k+.35, lifting slightly as it fades, while its row lands on the phone.
+   The camera drifts in a little the whole time (--ae1) and at the end pushes in on the phone (--ae2). All eased like a dimmer (smoothstep). */
+.acc-table{--aq:calc(var(--p,0) * 6);height:calc(6 * 100vh + 100vh);background:#fff;
+ --g0:clamp(0,calc((var(--aq) - .1) / .7),1);--ag:calc(var(--g0) * var(--g0) * (3 - 2 * var(--g0)));
+ --z1:clamp(0,calc((var(--aq) - .8) / 3.6),1);--ae1:calc(var(--z1) * var(--z1) * (3 - 2 * var(--z1)));
+ --z2:clamp(0,calc((var(--aq) - 4.4) / .9),1);--ae2:calc(var(--z2) * var(--z2) * (3 - 2 * var(--z2)))}
+/* The photo covers the screen once grown (--w × its 2400 × 1358 shape). --z0 is the framed size, --t0 how far below centre the frame sits,
+   --za/--zb the two zooms and --t2 how far the phone rises during the last one. The zoom is centred on the phone. */
+.acc-stage{--w:max(100vw,176.8svh);--z0:.64;--t0:10svh;--za:.1;--zb:.5;--t2:0px;--cy:50%;position:sticky;top:0;height:100svh;overflow:hidden}
+.acc-world{--zz:calc((var(--z0) + (1 - var(--z0)) * var(--ag)) * (1 + var(--za) * var(--ae1) + var(--zb) * var(--ae2)));
+ position:absolute;left:50%;top:var(--cy);width:var(--w);aspect-ratio:2400/1358;overflow:hidden;border-radius:calc((1 - var(--ag)) * 38px);
+ transform-origin:50.25% 49.1%;transform:translate(-50%,calc(-50% + (1 - var(--ag)) * var(--t0) + var(--ae2) * var(--t2))) scale(var(--zz));will-change:transform}
+.acc-world>img{position:absolute;inset:0;width:100%;height:100%}
+.acc-remote{--v0:clamp(0,calc((var(--aq) - var(--k) + .1) / .45),1);--v:calc(var(--v0) * var(--v0) * (3 - 2 * var(--v0)));opacity:calc(1 - var(--v));transform:scale(calc(1 + var(--v) * .045))}
+/* The phone's live screen, behind the photo's transparent one. Sized in cqw so it scales with the phone. */
+.acc-screen{position:absolute;container-type:inline-size;background:#f2f2f7;color:var(--ink)}
+.acc-app{padding:17cqw 7cqw 5cqw;font-size:10cqw;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.acc-app small{display:block;margin-bottom:1.5cqw;font-size:5.4cqw;font-weight:500;letter-spacing:0;color:var(--mute)}
+.acc-screen ul{display:grid;gap:3cqw;margin:0;padding:0 5cqw;list-style:none}
+.acc-screen li{--o0:clamp(0,calc((var(--aq) - var(--k) - .05) / .3),1);display:flex;align-items:baseline;justify-content:space-between;gap:3cqw;
+ padding:6cqw 6cqw;border-radius:6cqw;background:#fff;box-shadow:0 .6cqw 2cqw #0000000f;opacity:var(--o0);transform:translateY(calc((1 - var(--o0)) * 5cqw))}
+.acc-screen b{font-size:6.6cqw;font-weight:600}
+.acc-screen li span{font-size:5cqw;color:#248a3d}
+/* A soft light wash from the bottom, so the copy reads on the oak. */
+.acc-stage::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--ag);background:linear-gradient(0deg,#fbf7f1a6,#fbf7f100 24%)}
+.acc-trail,.acc-intro,.acc-lines,.acc-outro{position:absolute;z-index:1}
+.acc-trail{top:22px;left:5vw;font-size:12px;color:var(--mute)}
+.acc-trail ol{display:flex;gap:8px;margin:0;padding:0;list-style:none}
+.acc-trail li+li::before{content:"/";margin-right:8px;opacity:.5}
+.acc-trail a:hover{color:var(--ink)}
+.acc-intro{--o:clamp(0,calc((var(--aq) - .3) / .3),1);left:5vw;right:5vw;top:8svh;text-align:center;opacity:calc(1 - var(--o));transform:translateY(calc(var(--o) * -24px))}
+.acc-intro>*{animation:acc-rise 1.1s var(--ease) both}.acc-intro>:nth-child(2){animation-delay:.3s}
+.acc-intro h1{font-size:clamp(34px,3.6vw,54px);line-height:1.06;letter-spacing:-.035em}
+.acc-intro h1 span+span{color:#86868b}
+.acc-hint{margin-top:10px;font-size:15px;color:var(--mute)}
+.acc-lines{left:5vw;bottom:8vh;width:min(22vw,380px);margin:0;padding:0;list-style:none}
+.acc-lines li{--o:min(clamp(0,calc((var(--aq) - var(--k) + .35) / .25),1),clamp(0,calc((var(--k) + .7 - var(--aq)) / .15),1));
+ position:absolute;left:0;bottom:0;font-size:clamp(21px,2vw,30px);font-weight:600;line-height:1.2;letter-spacing:-.02em;opacity:var(--o);transform:translateY(calc((1 - var(--o)) * 16px))}
+.acc-outro{--o:clamp(0,calc((var(--aq) - 5.1) / .35),1);left:5vw;bottom:8vh;width:min(30vw,440px);opacity:var(--o);transform:translateY(calc((1 - var(--o)) * 22px));pointer-events:none}
+.acc-table[data-step="5"] .acc-outro{pointer-events:auto}
+.acc-outro h2{font-size:clamp(34px,3.8vw,56px);line-height:1.03;letter-spacing:-.04em}
+.acc-outro>p:not(.acc-links){margin-top:14px;font-size:clamp(17px,1.35vw,19px);line-height:1.45;color:#3a3a3c}
+.acc-links{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px!important}
+.acc-note{padding:18px 0 0;font-size:12px;color:#86868b;text-align:center}
+
+/* 2 · All it takes: the photo sits in a rounded frame and settles from a slight push-in as the section scrolls through. */
+.acc-usb{padding:clamp(96px,14vh,160px) 0 clamp(72px,10vh,120px)}
+.acc-usb-head{max-width:860px;margin-bottom:clamp(40px,6vh,64px);text-align:center}
+.acc-usb-head h2{font-size:clamp(36px,4.4vw,60px);line-height:1.05}
+.acc-usb-head p{max-width:34em;margin:20px auto 0;font-size:clamp(18px,1.5vw,21px);line-height:1.45;color:var(--mute)}
+.acc-usb-media{--s:clamp(0,calc((var(--p,1) - .1) / .55),1);width:88%;max-width:1200px;height:min(78svh,720px);margin:0 auto;overflow:hidden;border-radius:30px}
+.acc-usb-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 55%;transform:scale(calc(1.16 - var(--s) * .16))}
+
+/* 3 · The Smart Plug on a filmstrip: the stage holds while the strip slides left by exactly its overflow (--travel). */
+.acc-plug{--cw:34vw;--gap:2.4vw;--pad:6vw;--travel:calc(var(--n) * var(--cw) + (var(--n) - 1) * var(--gap) + 2 * var(--pad) - 100vw);height:calc(100vh + var(--travel) * 1.4);background:#f5f5f7}
+.acc-plug-stage{position:sticky;top:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,52px);height:100svh;overflow:hidden}
+.acc-plug-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 32px;padding:0 var(--pad)}
+.acc-plug-head h2{max-width:16em;font-size:clamp(34px,4vw,56px);line-height:1.05}
+.acc-plug-head h2 span{color:#86868b}
+.acc-strip{display:flex;gap:var(--gap);width:max-content;margin:0;padding:0 var(--pad);list-style:none;transform:translateX(calc(var(--p,0) * -1 * var(--travel)));will-change:transform}
+.acc-strip li{width:var(--cw)}
+.acc-strip img{display:block;width:100%;aspect-ratio:1;max-height:56svh;object-fit:cover;border-radius:26px}
+.acc-strip p{max-width:26em;margin-top:18px;font-size:17px;line-height:1.45;color:var(--mute)}
+.acc-strip b{color:var(--ink);font-weight:600}
+
+/* 4 · The Energy Meter. */
+.acc-meter{padding:clamp(96px,14vh,160px) 0}
+.acc-split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(32px,6vw,96px)}
+.acc-split figure,.acc-versions figure{margin:0}
+.acc-split img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:30px}
+.acc-split h2{font-size:clamp(36px,4.2vw,58px);line-height:1.04;letter-spacing:-.035em}
+.acc-split p{max-width:25em;margin:20px 0 22px;font-size:clamp(18px,1.5vw,21px);line-height:1.45;color:var(--mute)}
+.acc-versions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);margin-top:clamp(56px,9vh,104px)}
+.acc-versions img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:26px}
+.acc-versions figcaption{margin-top:16px;font-size:17px;line-height:1.4;color:var(--mute)}
+.acc-versions b{display:block;font-weight:600;color:var(--ink)}
+
+/* 5 · The lineup. */
+.acc-lineup{padding:clamp(88px,13vh,150px) 0;background:#f5f5f7}
+.acc-lineup h2{margin-bottom:clamp(40px,7vh,72px);font-size:clamp(36px,4.4vw,60px);line-height:1.05;text-align:center}
+.acc-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,44px)}
+.acc-cols article{display:flex;flex-direction:column;align-items:center;text-align:center}
+.acc-tile{display:block;width:100%;overflow:hidden;border-radius:26px;background:#e8e8ed}
+.acc-tile img{display:block;width:100%;aspect-ratio:1;object-fit:cover;transition:transform .8s var(--ease)}
+.acc-tile:hover img{transform:scale(1.04)}
+.acc-cols h3{margin-top:24px;font-size:22px;line-height:1.2;letter-spacing:-.02em}
+.acc-tagline{margin:8px 0 12px!important;font-size:17px;color:var(--mute)}
+.acc-cols dl{width:100%;margin:26px 0 0;border-top:1px solid #d2d2d7}
+.acc-cols dl div{padding:16px 0;border-bottom:1px solid #d2d2d7}
+.acc-cols dt{font-size:12px;color:var(--mute)}
+.acc-cols dd{margin:5px 0 0;font-size:16px;line-height:1.4}
+
+/* Phones: the table is a full-width strip under the headline (no frame to grow out of), it only pushes in at the end, when it fills
+   the screen and the phone rises to make room for the copy. */
+@media (max-width:760px){
+ .acc-stage{--w:190vw;--z0:1;--t0:0px;--za:0;--zb:1.45;--t2:-15svh;--cy:55%}
+ .acc-stage::after{opacity:var(--ae2)}
+ .acc-trail{top:16px}
+ .acc-intro{top:56px;text-align:left}
+ .acc-intro h1{font-size:32px}
+ .acc-lines,.acc-outro{left:6vw;right:6vw;bottom:5vh;width:auto}
+ .acc-lines li{font-size:20px}
+ .acc-outro h2{font-size:32px}
+ .acc-usb-media{width:100%;height:62svh;border-radius:0}
+ .acc-plug{--cw:78vw;--gap:4vw}
+ .acc-split,.acc-cols{grid-template-columns:minmax(0,1fr)}
+ .acc-split img,.acc-versions img{border-radius:20px}
+ .acc-versions{grid-template-columns:minmax(0,1fr)}
+ .acc-cols{gap:64px}
+}
+
+/* Reduced motion: nothing is pinned or moves. The table shows its final state (the phone with every remote on it), then the copy. */
+@media (prefers-reduced-motion:reduce){
+ .acc-table{height:auto}
+ .acc-stage{position:relative;display:flex;flex-direction:column;height:auto;overflow:visible;padding-bottom:48px}
+ .acc-stage::after{display:none}
+ .acc-world{position:relative;left:auto;top:auto;width:100%;border-radius:0;transform:none}
+ .acc-remote{display:none}
+ .acc-screen li{opacity:1;transform:none}
+ .acc-trail,.acc-intro,.acc-lines,.acc-outro{position:relative;inset:auto;width:auto;opacity:1;transform:none}
+ .acc-trail{order:-2;padding:22px 6vw 0}
+ .acc-intro{order:-1;padding:28px 6vw 36px}
+ .acc-intro>*{animation:none}
+ .acc-hint{display:none}
+ .acc-lines{display:grid;gap:14px;padding:40px 6vw 0}
+ .acc-lines li{position:relative;opacity:1;transform:none}
+ .acc-outro{padding:40px 6vw 0;pointer-events:auto}
+ .acc-usb-media img{transform:none}
+ .acc-plug{height:auto;padding:96px 0}
+ .acc-plug-stage{position:relative;height:auto}
+ .acc-strip{width:auto;overflow-x:auto;transform:none;scroll-snap-type:x mandatory}
+ .acc-strip li{flex:none;scroll-snap-align:start}
+ .acc-tile img{transition:none}
+}

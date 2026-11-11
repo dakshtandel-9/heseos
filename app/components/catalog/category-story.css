@@ -1,0 +1,115 @@
+/* Category stories (CategoryStory). Scenes read --p (0 → 1) from ScrollScenes; only the hero and morning-to-evening pin.
+   Sections alternate black and warm white, as Apple's product pages do, so the motion has quiet space around it. */
+.sw{--ink:#f5f2ec;--dim:#a3a59e;--accent:#ff8a57;--light:#f5f2ec;--ease:cubic-bezier(.2,.7,.2,1);background:#000;color:var(--ink)}
+.sw [data-scroll]{--p:0;position:relative}
+.sw-stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.sw-wrap{width:88%;max-width:1280px;margin:0 auto}
+.sw-eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.sw h1,.sw h2,.sw h3{font-weight:600;letter-spacing:-.035em;text-wrap:balance}
+.sw-head{margin-bottom:clamp(32px,5vh,56px)}
+.sw-head--center{text-align:center}
+.sw-head h2{margin-top:12px;font-size:clamp(36px,4.6vw,64px);line-height:1.04}
+.sw-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;background:var(--brand,#f05a28);color:#fff;font-size:15px;font-weight:600;transition:transform .3s var(--ease)}
+.sw-btn:hover{transform:scale(1.03)}
+.sw-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:500;color:var(--accent)}
+.sw-link:hover{text-decoration:underline}
+@keyframes sw-rise{from{opacity:0;transform:translateY(22px)}}
+@keyframes sw-arrive{from{opacity:0;transform:translateY(10vh)}}
+
+/* 1 · Hero: copy above the product, both arriving on load; scrolling lifts the product into the space the copy leaves */
+.sw-hero{height:165vh;background:#000}
+.sw-hero .sw-stage{display:flex;flex-direction:column;align-items:center;padding-top:clamp(70px,12vh,130px)}
+.sw-trail{position:absolute;z-index:3;top:22px;left:6vw;font-size:12px;color:var(--dim)}
+.sw-trail ol{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+.sw-trail li+li::before{content:"/";margin-right:8px;opacity:.5}
+.sw-trail a:hover{color:var(--ink)}
+.sw-hero-copy{position:relative;z-index:2;padding:0 6vw;text-align:center;opacity:calc(1 - var(--p) * 2);transform:translateY(calc(var(--p) * -5vh))}
+.sw-hero-copy>*{animation:sw-rise 1s var(--ease) both}
+.sw-hero-copy>:nth-child(2){animation-delay:.08s}.sw-hero-copy>:nth-child(3){animation-delay:.16s}.sw-hero-copy>:nth-child(4){animation-delay:.24s}
+.sw-hero h1{margin-top:14px;font-size:clamp(48px,7.2vw,108px);line-height:1}
+.sw-hero-sub{margin-top:18px;font-size:clamp(19px,1.7vw,25px);line-height:1.35;color:#c9cac4}
+.sw-hero-ctas{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 28px;margin-top:30px}
+.sw-hero-product{position:relative;flex:1;width:100%;min-height:0;animation:sw-arrive 1.5s .3s var(--ease) both}
+.sw-hero-product img{position:absolute;top:0;left:50%;height:max(135%,56vh);width:auto;max-width:none;transform:translate(-50%,calc(var(--p) * -22vh)) scale(calc(1 + var(--p) * .14));transform-origin:50% 35%;-webkit-mask-image:radial-gradient(48% 50% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(48% 50% at 50% 50%,#000 62%,transparent 100%);will-change:transform}
+
+/* 2 · Statement: words light up as it crosses the screen; nothing pins */
+.sw-words{display:grid;place-items:center;padding:24vh 8vw;background:#000}
+.sw-words p{max-width:980px;text-align:center;font-size:clamp(34px,5vw,72px);line-height:1.1;font-weight:600;letter-spacing:-.035em}
+.sw-words span{opacity:clamp(.18,calc((var(--p) - .22) * 2.6 * var(--n) - var(--i)),1)}
+
+/* 3 · Morning to evening: the one long pinned moment */
+.sw-daynight{height:210vh}
+.sw-daynight img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.06 - var(--p) * .06))}
+.sw-night{opacity:calc((var(--p) - .25) * 2.5)}
+.sw-daynight .sw-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000000c7,#00000000 45%)}
+.sw-caps{position:absolute;z-index:2;left:6vw;right:6vw;bottom:8vh}
+.sw-cap{position:absolute;left:0;bottom:0;max-width:560px;font-size:clamp(32px,4vw,58px);line-height:1.05;font-weight:600;letter-spacing:-.035em;opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.sw-cap small{display:block;margin-bottom:12px;font-size:13px;letter-spacing:.16em;color:var(--accent)}
+.sw-cap span{display:block;margin-top:14px;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;color:#e2e3dd}
+.sw-daynight:not([data-step="1"]) .sw-cap:first-child,.sw-daynight[data-step="1"] .sw-cap:last-child{opacity:1;transform:none}
+
+/* 4 · Lineup: one studio shot per range on the same backdrop, then the same facts in the same rows so the ranges compare at a glance */
+.sw-ranges{padding:clamp(88px,16vh,160px) 0;background:#fbfaf7;color:#151515}
+.sw-ranges .sw-eyebrow,.sw-lineup .sw-eyebrow{color:#b4421c}
+.sw-ranges .sw-head{display:flex;flex-direction:column;align-items:center}
+.sw-ranges .sw-head .sw-link,.sw-model .sw-link{color:#b4421c}
+.sw-ranges .sw-head .sw-link{margin-top:18px}
+.sw-lineup-grid{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:56px clamp(16px,2vw,28px)}
+.sw-model{display:grid;grid-row:span var(--rows,10);grid-template-rows:subgrid;row-gap:0;text-align:center}
+.sw-model-media{display:block;aspect-ratio:1;overflow:hidden;border-radius:22px;background:#ede7db}
+.sw-model-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.sw-model-media:hover img{transform:scale(1.04)}
+.sw-model-swatches{display:flex;justify-content:center;align-items:center;min-height:20px;margin:22px 0 18px;font-size:12px;color:#6e6e73}
+.sw-model-swatches ul{display:flex;gap:8px;margin:0;padding:0;list-style:none}
+.sw-model-swatches li{width:13px;height:13px;border-radius:50%;box-shadow:inset 0 0 0 1px #0000002e}
+.sw-model-kicker{font-size:12px;font-weight:600;color:#b4421c}
+.sw-model h3{margin-top:6px;font-size:clamp(22px,1.9vw,28px);line-height:1.15}
+.sw-model-tagline{margin-top:8px;font-size:15px;line-height:1.45;color:#6e6e73}
+.sw-model-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 20px;margin:20px 0 30px}
+.sw-pill{padding:9px 18px;border-radius:999px;background:#151515;color:#fff;font-size:14px;font-weight:600;transition:background .3s}
+.sw-pill:hover{background:#b4421c}
+.sw-model-fact{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 8px;font-size:14px;line-height:1.45;color:#3a3b38;border-top:1px solid #1515151a}
+.sw-model-fact svg{color:#151515}
+
+/* 5 · Touch, tap or talk: one large image and three quiet tiles */
+.sw-control{padding:clamp(88px,16vh,160px) 0;background:#000}
+.sw-bento{display:grid;grid-template-columns:1.25fr 1fr;grid-auto-rows:minmax(0,auto);gap:18px}
+.sw-tile{display:flex;flex-direction:column;gap:10px;padding:32px;border-radius:24px;background:#131412}
+.sw-tile svg{color:var(--accent)}
+.sw-tile h3{margin-top:10px;font-size:30px;line-height:1}
+.sw-tile p{max-width:380px;font-size:15px;line-height:1.6;color:var(--dim)}
+.sw-tile--img{grid-row:span 3;min-height:540px;margin:0;padding:0;overflow:hidden}
+.sw-tile--img img{width:100%;height:100%;object-fit:cover}
+
+/* 6 · Sizes and numbers (a story without a sizes image shows the numbers alone) */
+.sw-lineup--stats{padding:clamp(64px,10vh,100px) 0}
+.sw-lineup--stats .sw-stats{margin-top:0}
+/* 6 · Sizes: the lineup opens out from a rounded window as it scrolls into view */
+.sw-lineup{padding:clamp(88px,16vh,160px) 0 clamp(72px,12vh,120px);background:var(--light);color:#151515}
+.sw-lineup .sw-head{padding:0 6vw}
+.sw-lineup-media{overflow:hidden;clip-path:inset(0 calc((1 - var(--p) * 1.7) * 14%) round 28px)}
+.sw-lineup-media img{display:block;width:100%;aspect-ratio:21/9;object-fit:cover;transform:scale(calc(1.15 - var(--p) * .15))}
+.sw-stats{display:grid;grid-template-columns:repeat(var(--n,4),1fr);max-width:calc(var(--n,4) * 275px);margin:64px auto 0;padding:0 6vw}
+.sw-stats div{display:flex;flex-direction:column-reverse;gap:6px;padding:0 20px;border-left:1px solid #15151524}
+.sw-stats dd{margin:0;font-size:clamp(44px,5.6vw,80px);font-weight:600;line-height:1;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.sw-stats dt{font-size:13px;color:#5f625b}
+
+@media(max-width:900px){
+ .sw-lineup-grid{grid-auto-flow:column;grid-template-columns:none;grid-template-rows:repeat(var(--rows,10),auto);grid-auto-columns:minmax(250px,44%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:none}
+ .sw-model{scroll-snap-align:start}
+ .sw-bento{grid-template-columns:1fr}.sw-tile--img{grid-row:auto;min-height:0;aspect-ratio:4/5}
+}
+@media(max-width:600px){
+ .sw-hero{height:150vh}.sw-daynight{height:190vh}.sw-daynight img{object-position:80% center}
+ .sw-hero-product img{height:max(120%,48vh)}
+ .sw-stats{grid-template-columns:1fr 1fr;gap:32px 0}
+ .sw-lineup-grid{grid-auto-columns:78%}
+}
+/* Reduced motion: nothing pins or moves; every scene shows its finished state. */
+@media(prefers-reduced-motion:reduce){
+ .sw [data-scroll]{--p:1;height:auto}
+ .sw-stage{position:relative;height:auto;min-height:80vh}
+ .sw-hero-copy{opacity:1;transform:none}.sw-hero .sw-stage{height:100svh}.sw-hero-product img{transform:translateX(-50%)}
+ .sw-hero-copy>*,.sw-hero-product{animation:none}
+ .sw-cap,.sw-model-media img,.sw-btn{transition:none}
+}
