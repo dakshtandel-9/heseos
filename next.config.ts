@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // The schema files in drizzle/ are applied on first database use (lib/admin/database.ts).
+  outputFileTracingIncludes: { '/api/**': ['./drizzle/*.sql'] },
+  serverExternalPackages: ['@libsql/client', 'libsql'],
   async redirects() {
     return [
       { source: '/packages', destination: '/demo', permanent: true },
