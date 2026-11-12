@@ -38,3 +38,6 @@ next-env.d.ts
 /work/
 
 *.tsbuildinfo
+
+# large source files (too big for GitHub; not needed to run the site)
+/pdf/
