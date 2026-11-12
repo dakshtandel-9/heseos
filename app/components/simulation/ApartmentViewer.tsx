@@ -19,6 +19,24 @@ type Props={
  onSelect:(id:string)=>void;onStatus:(status:ViewerStatus)=>void;
 };
 
+// A dusk city panorama seen through the open window glazing (equirectangular, so it stays put as the camera turns).
+function nightSkyline(){
+ const c=document.createElement('canvas');c.width=4096;c.height=2048;const x=c.getContext('2d')!,H=1080;
+ const sky=x.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#06091a');sky.addColorStop(.55,'#16224a');sky.addColorStop(.86,'#3b3a6b');sky.addColorStop(1,'#a5627a');
+ x.fillStyle=sky;x.fillRect(0,0,c.width,H);x.fillStyle='#0b0d18';x.fillRect(0,H,c.width,c.height-H);
+ let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+ for(let i=0;i<220;i++){x.fillStyle=`rgba(255,255,255,${.2+rnd()*.5})`;x.fillRect(rnd()*c.width,rnd()*H*.6,1.6,1.6);}
+ for(const [depth,count,maxH,tone] of [[0,90,170,'#1a1f38'],[1,70,300,'#11152a'],[2,46,430,'#0a0d1c']] as const){
+  for(let i=0;i<count;i++){
+   const w=40+rnd()*(60+depth*50),h=40+rnd()*maxH,bx=rnd()*c.width,top=H+60-h+depth*40;
+   x.fillStyle=tone;x.fillRect(bx,top,w,c.height);
+   for(let wy=top+6;wy<H+120;wy+=7+depth*2)for(let wx=bx+4;wx<bx+w-4;wx+=5+depth*2)if(rnd()<.36){x.fillStyle=rnd()<.8?`rgba(255,${190+rnd()*40|0},${110+rnd()*60|0},${.35+rnd()*.5})`:'rgba(190,215,255,.6)';x.fillRect(wx,wy,1.6+depth*.6,2.4+depth*.6);}
+  }
+ }
+ const glow=x.createLinearGradient(0,H-40,0,H+260);glow.addColorStop(0,'rgba(255,150,90,0)');glow.addColorStop(.5,'rgba(255,150,90,.12)');glow.addColorStop(1,'rgba(255,150,90,0)');x.fillStyle=glow;x.fillRect(0,H-40,c.width,300);
+ const t=new THREE.CanvasTexture(c);t.mapping=THREE.EquirectangularReflectionMapping;t.colorSpace=THREE.SRGBColorSpace;return t;
+}
+
 export default function ApartmentViewer(props:Props){
  const {apartment,focus,selected,debug=false}=props;
  const mount=useRef<HTMLDivElement>(null),latest=useRef(props);
@@ -33,7 +51,7 @@ export default function ApartmentViewer(props:Props){
   try{renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});}catch{latest.current.onStatus({state:'error',loaded:0,total:0});return;}
   renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setSize(el.clientWidth,el.clientHeight);
   renderer.toneMapping=THREE.ACESFilmicToneMapping;el.appendChild(renderer.domElement);
-  const scene=new THREE.Scene();scene.background=new THREE.Color('#0a0b0d');
+  const scene=new THREE.Scene();scene.background=nightSkyline();
   const pmrem=new THREE.PMREMGenerator(renderer);
   scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
   const hemi=new THREE.HemisphereLight(0xffffff,0x444444,.6);scene.add(hemi);
@@ -248,7 +266,7 @@ int apartmentRoom() { ${zoneChecks} return 0; }
    disposed=true;renderer.setAnimationLoop(null);timer.dispose();observer.disconnect();
    model?.traverse(o=>{const m=o as THREE.Mesh;if(m.isMesh){m.geometry.dispose();(Array.isArray(m.material)?m.material:[m.material]).forEach(mat=>{Object.values(mat).forEach(x=>{if(x instanceof THREE.Texture)x.dispose();});mat.dispose();});}});
    for(const m of new Set(Object.values(productModels)))m.dispose();ac.dispose();tv.dispose();
-   draco.dispose();pmrem.dispose();scene.environment?.dispose();renderer.dispose();el.removeChild(canvas);
+   draco.dispose();pmrem.dispose();scene.environment?.dispose();(scene.background as THREE.Texture|null)?.dispose();renderer.dispose();el.removeChild(canvas);
   };
  },[apartment,debug]);
 

@@ -1,0 +1,10 @@
+/* /simulation only: keep more of the 3D room visible on phones. */
+@media (max-width:900px){
+ .sim-tour{max-height:min(52%,calc(100% - 96px));padding:14px;gap:7px;border-radius:18px}
+ .sim-tour .sim-room-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+ .sim-tour h2{font-size:21px;line-height:1.15}
+ .sim-tour>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:13.5px}
+ .sim-tour .sim-room-products,.sim-tour-nav>span{display:none}
+ .sim-tour-control{min-height:38px}
+ .sim-tour-progress{margin:0 -14px -14px}
+}

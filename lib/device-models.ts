@@ -99,8 +99,8 @@ export function television({onConsole=false,screen:screenSize}:{onConsole?:boole
  if(!screenSize)mesh(screenGroup,t.keep(new THREE.BoxGeometry(1.23,.71,.04)),frame,0,0,.02);
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=288;
  const ctx=canvas.getContext('2d')!;const g=ctx.createLinearGradient(0,0,512,288);g.addColorStop(0,'#2b1408');g.addColorStop(.55,'#c4541f');g.addColorStop(1,'#f6b25c');ctx.fillStyle=g;ctx.fillRect(0,0,512,288);
- ctx.fillStyle='#ffffffd9';ctx.font='600 30px Inter, Arial, sans-serif';ctx.textAlign='center';ctx.fillText('Good evening',256,150);
- const tex=t.keep(new THREE.CanvasTexture(canvas));tex.colorSpace=THREE.SRGBColorSpace;
+  const tex=t.keep(new THREE.CanvasTexture(canvas));tex.colorSpace=THREE.SRGBColorSpace;
+ const still=new Image();still.onload=()=>{canvas.width=still.naturalWidth;canvas.height=still.naturalHeight;ctx.drawImage(still,0,0);tex.needsUpdate=true;};still.src='/media/experience/tv.webp';
  const screen=t.keep(new THREE.MeshBasicMaterial({map:tex,color:'#000',toneMapped:false}));
  const [w,h]=screenSize??[1.2,.675];
  mesh(screenGroup,t.keep(new THREE.PlaneGeometry(w,h)),screen,0,0,screenSize?0:.0405);
