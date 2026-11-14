@@ -2,7 +2,8 @@
    The floating bag sits bottom-right, expands into a drawer with WhatsApp + email quote options.
    Warm paper, charcoal and Heseos orange, shared with /about, /support and /partners. */
 
-.sh-page{overflow-x:clip;background:#f5f2ec;color:#151515}
+.sh-page{overflow-x:clip;background:#f5f2ec;color:#151515;position:relative;z-index:1}
+.sh-page::before{content:'';position:fixed;inset:0;background:#f5f2ec;z-index:-1}
 .sh-page *{box-sizing:border-box}
 .sh-page h2{text-wrap:balance}
 .sh-wrap{width:min(100% - 64px,1260px);margin-inline:auto}
