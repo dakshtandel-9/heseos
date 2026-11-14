@@ -21,17 +21,19 @@ export const LEGAL:NavLink[]=[
 export const NAV:NavItem[]=[
  // The site layout fills in the mega menu from the eight-category product directory.
  {label:'Products',href:'/products'},
+ {label:'Shop',href:'/shop'},
  {label:'Simulation',href:'/experience',groups:[
   {title:'Step inside',big:true,links:[{label:'The Heseos Simulation',href:'/experience'}]},
  ]},
  {label:'App',href:'/app'},
  {label:'About',href:'/about'},
+ {label:'Partners',href:'/partners'},
  {label:'Support',href:'/support'},
 ];
 export const FOOTER:NavGroup[]=[
- {title:'Products',links:[{label:'Touch Panels',href:'/products/browse/smart-switches-panels/touch-panels'},{label:'Door Locks',href:'/products/browse/smart-door-locks/digital-door-locks'},{label:'Smart Lighting',href:'/products/browse/smart-lighting/led-cob-lighting'},{label:'Smart Fans',href:'/products/browse/bldc-fans/elegance-series'},{label:'View All Products',href:'/products'}]},
+ {title:'Products',links:[{label:'Touch Panels',href:'/products/browse/smart-switches-panels/touch-panels'},{label:'Door Locks',href:'/products/browse/smart-door-locks/digital-door-locks'},{label:'Smart Lighting',href:'/products/browse/smart-lighting/led-cob-lighting'},{label:'Smart Fans',href:'/products/browse/bldc-fans/elegance-series'},{label:'Shop All',href:'/shop'},{label:'View All Products',href:'/products'}]},
  {title:'Support',links:[{label:'Help & Support',href:'/support'},{label:'Book a Free Demo',href:'/demo'},{label:'Heseos App',href:'/app'}]},
- {title:'Company',links:[{label:'About Us',href:'/about'},{label:'Our solutions',href:'/about#spaces'},{label:'The Simulation',href:'/experience'},{label:'Contact Us',href:`mailto:${CONTACT.email}`}]},
+ {title:'Company',links:[{label:'About Us',href:'/about'},{label:'Partner with Us',href:'/partners'},{label:'Our solutions',href:'/about#spaces'},{label:'The Simulation',href:'/experience'},{label:'Contact Us',href:`mailto:${CONTACT.email}`}]},
 ];
 // External, mail and phone links are full page loads.
 export const isDocumentLink=(href:string)=>/^(https?|mailto|tel):/.test(href);

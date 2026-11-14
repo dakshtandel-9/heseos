@@ -25,6 +25,8 @@
 .hdr-actions{display:flex;align-items:center;gap:4px;margin-left:auto}
 .hdr-icon{position:relative;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;color:#e8e8e3d9;transition:color .2s,background .2s}
 .hdr-icon:hover{color:#fff;background:#ffffff14}
+.hdr-bag{font-size:0}
+.hdr-bag b{position:absolute;top:4px;right:4px;display:inline-flex;align-items:center;justify-content:center;min-width:16px;height:16px;background:#f05a28;color:#fff;border-radius:999px;font-size:9px;font-weight:700}
 .hdr .bag-count{left:auto;right:3px;bottom:4px}
 .hdr-cta{margin-left:10px}
 .hdr-menu,.hdr-sheet{display:none}

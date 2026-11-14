@@ -8,12 +8,10 @@ const nextConfig: NextConfig = {
     return [
       { source: '/packages', destination: '/demo', permanent: true },
       { source: '/compare', destination: '/products', permanent: true },
-      // The online store is retired: shop, bag and checkout links go to the catalogue or a demo.
-      { source: '/store', destination: '/products', permanent: true },
-      { source: '/store/:path*', destination: '/products', permanent: true },
-      { source: '/shop', destination: '/products', permanent: true },
-      { source: '/shop/:path*', destination: '/products', permanent: true },
-      { source: '/bag', destination: '/products', permanent: true },
+      // The online store is retired: bag and checkout links go to the shop or a demo.
+      { source: '/store', destination: '/shop', permanent: true },
+      { source: '/store/:path*', destination: '/shop', permanent: true },
+      { source: '/bag', destination: '/shop', permanent: true },
       { source: '/build', destination: '/demo', permanent: true },
       { source: '/checkout', destination: '/demo', permanent: true },
       { source: '/solutions', destination: '/about#spaces', permanent: true },

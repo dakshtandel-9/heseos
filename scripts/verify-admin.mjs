@@ -33,7 +33,7 @@ try{
  assert.equal((await call(`/api/admin/orders/${record.id}`,'PATCH',{...record,status:'cancelled',payment:'refunded'})).status,200);
  assert.equal((await state()).products.find(p=>p.id===productId).stock,1,'Cancellation restores stock');
  record=(await state()).orders.find(o=>o.id===order.data.id);assert.equal((await call(`/api/admin/orders/${record.id}`,'PATCH',{...record,status:'confirmed'})).status,400,'Cancelled order cannot reopen');
- for(const type of ['demo','quote','newsletter','support']){const result=await call('/api/submissions','POST',{type,name:tag,email:`${tag}@example.test`,phone:'9000000000',details:tag},false);assert.equal(result.status,201);formIds.push(result.data.id);}
+ for(const type of ['demo','quote','partner','newsletter','support']){const result=await call('/api/submissions','POST',{type,name:tag,email:`${tag}@example.test`,phone:'9000000000',details:tag},false);assert.equal(result.status,201);formIds.push(result.data.id);}
  assert.equal((await call(`/api/admin/submissions/${formIds[0]}`,'PATCH',{status:'contacted',notes:'Follow up'})).status,200);
  assert.equal((await state()).submissions.find(s=>s.id===formIds[0]).status,'contacted');
  assert.equal((await call('/api/submissions','POST',{type:'newsletter',email:'bad'},false)).status,400);

@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, Search, X } from 'lucide-react';
 import type { NavItem } from '../../../lib/site';
 import SiteLink from './SiteLink';
+import HeaderBag from '../shop/HeaderBag';
 // The site header: transparent over the homepage hero, solid everywhere else. Flyouts open on hover or focus; below 1000px the links move into a sheet.
 export default function GlobalNav({nav}:{nav:NavItem[]}){
  const pathname=usePathname(),[open,setOpen]=useState(false),[shownPath,setShownPath]=useState(pathname);
@@ -19,6 +20,7 @@ export default function GlobalNav({nav}:{nav:NavItem[]}){
    </li>)}</ul>
    <div className="hdr-actions">
     <SiteLink href="/products#search" className="hdr-icon" aria-label="Search products"><Search size={18} strokeWidth={1.8}/></SiteLink>
+    <HeaderBag />
     <SiteLink href="/demo" className="btn small hdr-cta">Book a Demo</SiteLink>
     <button className="hdr-icon hdr-menu" aria-label={open?'Close menu':'Open menu'} aria-expanded={open} aria-controls="hdr-sheet" onClick={()=>setOpen(o=>!o)}>{open?<X size={20} strokeWidth={1.8}/>:<Menu size={20} strokeWidth={1.8}/>}</button>
    </div>
