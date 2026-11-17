@@ -1,7 +1,7 @@
 /* Site header and footer: logo, links with flyouts, search, bag and Book a Demo; a brand column, four link columns and updates sign-up. */
 
 .hdr{position:relative;z-index:100;background:#0b0c0b;border-bottom:1px solid #ffffff14}
-.hdr.over{position:absolute;top:0;left:0;right:0;background:linear-gradient(#000000b3,#0000);border-bottom:0}
+.hdr.over{position:fixed;top:0;left:0;right:0;background:linear-gradient(#000000b3,#0000);border-bottom:0}
 .hdr-inner{display:flex;align-items:center;gap:24px;max-width:1240px;height:68px;margin:0 auto;padding:0 24px}
 .hdr-logo{display:flex;align-items:center;flex-shrink:0}
 .hdr-logo img{width:104px;height:auto}

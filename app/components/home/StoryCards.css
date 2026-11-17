@@ -1,0 +1,36 @@
+/* Story strip: pinned stage, a rail of chapter cards moved sideways by StoryCards.tsx (--p = progress, --f = card focus). */
+.sc{--sc-gut:max(24px,calc((100vw - 1240px)/2 + 24px));position:relative;height:420vh;background:#070706;color:#fff}
+.sc-stage{--p:0;position:sticky;top:0;display:flex;align-items:center;height:100vh;height:100svh;overflow:hidden}
+.sc-rail{display:flex;align-items:center;gap:clamp(16px,2vw,28px);width:max-content;padding:0 var(--sc-gut);will-change:transform}
+
+.sc-intro{flex:0 0 auto;width:min(400px,78vw);padding-right:clamp(8px,3vw,48px)}
+.sc-intro h2{margin-top:14px;font-size:clamp(30px,3.4vw,50px);line-height:1.04;font-weight:600;letter-spacing:-.035em;text-wrap:balance}
+.sc-intro p{margin-top:18px;font-size:16px;line-height:1.6;color:var(--muted-dark)}
+.sc-cue{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:13px;font-weight:500;color:#ffffffa6}
+
+.sc-card{position:relative;flex:0 0 auto;width:min(80vw,960px);height:min(70svh,600px);overflow:hidden;border:1px solid #ffffff1a;border-radius:28px;background:#151614;transform:scale(calc(.9 + var(--f,1)*.1));opacity:calc(.45 + var(--f,1)*.55)}
+.sc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.14 - var(--f,1)*.14))}
+.sc-card:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#000000eb 0%,#00000085 36%,#0000 62%),linear-gradient(90deg,#00000059,#0000 55%)}
+.sc-n{position:absolute;top:clamp(18px,2.6vw,32px);left:clamp(20px,3.2vw,44px);z-index:1;padding:7px 13px;border:1px solid #ffffff33;border-radius:999px;background:#0000004d;backdrop-filter:blur(8px);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.sc-n em{font-style:normal;color:#ffffff8c}
+.sc-body{position:absolute;left:0;right:0;bottom:0;z-index:1;display:grid;grid-template-columns:auto minmax(0,380px);align-items:end;justify-content:space-between;gap:18px 48px;padding:clamp(22px,3.4vw,44px);opacity:calc(.25 + var(--f,1)*.75)}
+.sc-fig{display:block;font-size:clamp(60px,9vw,144px);line-height:.92;font-weight:600;letter-spacing:-.06em;background:linear-gradient(180deg,#fff 35%,#ffd1a1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sc-label{display:block;margin-top:10px;font-size:clamp(13px,1.1vw,16px);font-weight:500;color:#ffffffc7}
+.sc-copy h3{font-size:clamp(20px,1.8vw,26px);line-height:1.15;font-weight:600;letter-spacing:-.02em}
+.sc-copy p{margin-top:10px;font-size:15px;line-height:1.55;color:#ffffffc2}
+
+.sc-bar{position:absolute;left:var(--sc-gut);right:var(--sc-gut);bottom:clamp(18px,4vh,40px);height:2px;overflow:hidden;border-radius:2px;background:#ffffff1f}
+.sc-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--amber),var(--brand));transform-origin:left;transform:scaleX(var(--p))}
+
+@media (max-width:734px){
+ .sc-card{width:86vw;height:min(72svh,620px);border-radius:22px}
+ .sc-body{grid-template-columns:1fr;gap:12px}
+ .sc-fig{font-size:clamp(54px,16vw,78px)}
+ .sc-copy p{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){
+ .sc{height:auto}
+ .sc-stage{position:relative;height:auto;padding:96px 0;overflow-x:auto;scroll-snap-type:x mandatory}
+ .sc-card{scroll-snap-align:center}
+ .sc-bar{display:none}
+}

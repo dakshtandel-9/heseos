@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, MessageCircle, Plus } from 'lucide-react';
+import { ArrowUpRight, FileText, GraduationCap, MessageCircle, MessagesSquare, Plus, Rocket } from 'lucide-react';
 import { CONTACT } from '../../../lib/site';
 import { CLIENTS, PARTNERS } from '../../../lib/home';
 import { PRODUCT_DIRECTORY, directoryCategoryHref } from '../../../lib/product-directory';
 import { PARTNER_FAQ, PARTNER_STATS, PARTNER_STEPS } from '../../../lib/partners';
 import SiteLink from '../../components/site/SiteLink';
 import Reveal from '../../components/home/Reveal';
-import CountUp from '../../components/home/CountUp';
+import Odometer from '../../components/partners/Odometer';
 import ScrollScenes from '../../components/catalog/ScrollScenes';
 import PartnerStory from '../../components/partners/PartnerStory';
 import PartnerSwitch from '../../components/partners/PartnerSwitch';
@@ -25,6 +25,14 @@ export const metadata: Metadata = {
   },
 };
 
+// The largest figure leads the numbers section; the others keep their order beside it.
+const statSize = (v: string) => Number(v.replace(/\D/g, ''));
+const heroStat = PARTNER_STATS.reduce((a, b) => (statSize(b.value) > statSize(a.value) ? b : a));
+const otherStats = PARTNER_STATS.filter((s) => s !== heroStat);
+
+// One icon per partner step, in PARTNER_STEPS order: apply, meet, onboard, grow.
+const STEP_ICONS = [FileText, MessagesSquare, GraduationCap, Rocket];
+
 const productCount = PRODUCT_DIRECTORY.reduce((sum, c) => sum + c.subcategories.reduce((n, s) => n + s.products.length, 0), 0);
 
 // Partners: a pinned story (one villa from sketch to switch-on, a partnership per chapter), the figures, a touch panel that
@@ -36,9 +44,18 @@ export default function PartnersPage() {
 
     <PartnerStory />
 
-    <section className="pt-stats" aria-label="Heseos at a glance">
-      <div className="pt-wrap pt-stats-grid">
-        {PARTNER_STATS.map((s, i) => <div className="pt-stat" key={s.label} data-reveal style={{ transitionDelay: `${i * 80}ms` }}><strong><CountUp value={s.value} /></strong><span>{s.label}</span></div>)}
+    {/* The figures as mechanical counters: the largest gets the big counter under the heading, the rest are read off a list beside it. */}
+    <section className="pt-section pt-figures" aria-labelledby="pt-figures-title">
+      <div className="pt-wrap pt-figures-grid">
+        <div className="pt-figures-main" data-reveal>
+          <p className="pt-eyebrow"><span />By the numbers</p>
+          <h2 id="pt-figures-title" className="pt-title">Numbers your clients<br />will ask about.</h2>
+          <p className="pt-lede">When a homeowner asks how long Heseos has been around, this is your answer.</p>
+          <Odometer value={heroStat.value} label={heroStat.label} variant="hero" />
+        </div>
+        <div className="pt-figures-list">
+          {otherStats.map((s, i) => <Odometer key={s.label} value={s.value} label={s.label} variant="row" delay={250 + i * 180} />)}
+        </div>
       </div>
     </section>
 
@@ -64,14 +81,27 @@ export default function PartnersPage() {
     {/* The journey as a circuit: a wire runs through the four steps as the section scrolls past, lighting each node it reaches. */}
     <section className="pt-section pt-journey" data-scroll="view" aria-labelledby="pt-journey-title">
       <div className="pt-wrap">
-        <div className="pt-head" data-reveal>
-          <p className="pt-eyebrow"><span />How it works</p>
-          <h2 id="pt-journey-title" className="pt-title">From hello to<br />first handover.</h2>
+        <div className="pt-head pt-head-split" data-reveal>
+          <div>
+            <p className="pt-eyebrow"><span />How it works</p>
+            <h2 id="pt-journey-title" className="pt-title">From hello to<br />first handover.</h2>
+          </div>
+          <p className="pt-lede">One partnerships team takes you from your first message to your first handover, in four steps.</p>
         </div>
         <div className="pt-circuit">
           <i className="pt-wire" aria-hidden="true" />
           <ol className="pt-steps">
-            {PARTNER_STEPS.map((s, i) => <li key={s.title} style={{ '--at': i / (PARTNER_STEPS.length - 1) } as CSSProperties}><span className="pt-step-dot">{i + 1}</span><h3>{s.title}</h3><p>{s.body}</p></li>)}
+            {PARTNER_STEPS.map((s, i) => {
+              const Icon = STEP_ICONS[i];
+              return <li key={s.title} style={{ '--at': i / (PARTNER_STEPS.length - 1) } as CSSProperties}>
+                <span className="pt-step-dot" aria-hidden="true">{i + 1}</span>
+                <div className="pt-step-card">
+                  <div className="pt-step-top"><span className="pt-step-no">Step {i + 1} of {PARTNER_STEPS.length}</span>{Icon && <span className="pt-step-icon"><Icon size={19} aria-hidden="true" /></span>}</div>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </div>
+              </li>;
+            })}
           </ol>
         </div>
       </div>

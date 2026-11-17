@@ -1,0 +1,137 @@
+/* Homepage hero: the Heseos app pinned in a phone while the page scrolls behind it (driven by HeroApp.tsx).
+   --k runs 0→1 over the intro (phone straightens), --t 0→1 across each chapter, --o 0→1 over the outro.
+   data-s on cards, screens, copy and tabs is set by the script: on / off / past / peek / next / done. */
+.hx{position:relative;background:#070706;color:#fff}
+.hx-stage{
+ --k:0;--t:0;--o:0;--hx-ease:cubic-bezier(.22,.8,.24,1);
+ --gut:max(32px,calc((100vw - 1260px)/2 + 24px));
+ --sh:min(72svh,700px);--sw:calc(var(--sh)*.4615);--bz:calc(var(--sh)*.015);
+ --pw:calc(var(--sw) + var(--bz)*2);--ph:calc(var(--sh) + var(--bz)*2);
+ --cw:clamp(178px,14.5vw,232px);--tuck:.46;--px:66%;--py:50%;--rise:0%;
+ position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate}
+
+.hx-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(42% 62% at var(--px) var(--py),#21180f,#0b0a09 62%,#070706)}
+.hx-bg:after{content:'';position:absolute;inset:0;background:radial-gradient(#ffffff0c 1px,transparent 1.4px) 0 0/26px 26px;mask-image:radial-gradient(60% 70% at var(--px) var(--py),#000,transparent)}
+
+/* The band of tab names that slides behind the phone; the box fades it out under the copy column. */
+.hx-bandbox{position:absolute;inset:0;z-index:-1;pointer-events:none;mask-image:linear-gradient(90deg,#0000 calc(var(--gut) + 22vw),#000 calc(var(--px) - 8vw))}
+.hx-band{position:absolute;left:0;top:var(--py);display:flex;gap:6vw;white-space:nowrap;font-size:clamp(110px,18vw,300px);font-weight:700;line-height:1;letter-spacing:-.065em;pointer-events:none;user-select:none;transform:translate3d(0,-50%,0);will-change:transform;opacity:calc(.55 + var(--k)*.45 - var(--o)*.5)}
+.hx-band span{color:transparent;-webkit-text-stroke:1.5px #ffffff17;transition:color .7s ease,-webkit-text-stroke-color .7s ease}
+.hx-band span[data-s=on]{color:#ffffff0b;-webkit-text-stroke-color:#ff9d3c4d}
+
+/* The deck is the phone's box; cards are positioned relative to its centre. */
+.hx-deck{position:absolute;left:var(--px);top:var(--py);z-index:1;width:var(--pw);height:var(--ph);transform:translate(-50%,-50%) translateY(calc((1 - var(--k))*var(--rise)))}
+.hx-glow{position:absolute;left:50%;top:52%;width:230%;height:110%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,#ff8a003a,#f05a2812 58%,#f05a2800);opacity:calc(.55 + var(--k)*.45 - var(--o)*.4);pointer-events:none}
+
+.hx-phone{position:absolute;inset:0;z-index:2;margin:0;padding:var(--bz);border-radius:calc(var(--pw)*.13);background:linear-gradient(150deg,#3a3936,#121211 34%,#0a0a09 70%,#2a2927);
+ box-shadow:inset 0 0 0 1px #ffffff2e,inset 0 0 0 calc(var(--bz)*.5) #050505,0 70px 110px -40px #000,0 40px 90px -40px #ff7a0066;
+ transform:perspective(1600px) rotateY(calc((1 - var(--k))*-20deg)) rotateX(calc((1 - var(--k))*9deg)) rotate(calc((1 - var(--k))*-5deg)) scale(calc(1 - var(--o)*.06));transform-origin:50% 60%}
+.hx-phone:before,.hx-phone:after{content:'';position:absolute;width:3px;border-radius:3px;background:linear-gradient(#3b3a37,#1a1a19)}
+.hx-phone:before{right:-3px;top:23%;height:10%}
+.hx-phone:after{left:-3px;top:17%;height:15%;box-shadow:0 calc(var(--ph)*-.06) 0 0 #2a2927}
+.hx-screen-wrap{position:relative;width:100%;height:100%;overflow:hidden;border-radius:calc(var(--pw)*.13 - var(--bz));background:#efefef;isolation:isolate;transform:translateZ(0)}
+.hx-screen-wrap:after{content:'';position:absolute;inset:0;z-index:5;background:linear-gradient(118deg,#ffffff26,#ffffff00 30%);pointer-events:none}
+.hx-screens{position:absolute;inset:0;margin:0;padding:0;list-style:none}
+.hx-screen{position:absolute;inset:0;transition:transform .75s var(--hx-ease),filter .75s var(--hx-ease)}
+.hx-screen[data-s=next]{transform:translateX(102%)}
+.hx-screen[data-s=past]{transform:translateX(-30%);filter:brightness(.55)}
+.hx-screen img{display:block;width:100%;height:100%;object-fit:cover}
+.hx-island{position:absolute;left:50%;top:1.2%;z-index:3;width:29%;height:3.2%;border-radius:999px;background:#050505;transform:translateX(-50%)}
+.hx-time{position:absolute;left:10%;top:2.8%;z-index:3;font-size:calc(var(--sw)*.043);font-weight:600;letter-spacing:-.01em;line-height:1;color:#141414;transform:translateY(-50%)}
+.hx-tap{position:absolute;left:50%;top:50%;z-index:4;width:calc(var(--sw)*.17);aspect-ratio:1;border-radius:50%;border:2px solid #ff9500;background:radial-gradient(closest-side,#ff950066,#ff950000);opacity:0;pointer-events:none}
+
+/* Cards: glass widgets dealt from behind the phone, one set of three per chapter. */
+.hx-cards{position:absolute;inset:0;z-index:1;margin:0;padding:0;list-style:none}
+.hx-cards li{position:absolute;left:50%;top:50%;width:var(--cw);transform:translateY(calc((var(--t) - .5)*var(--d)*1px))}
+.hx-card{--dl:0s;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px;padding:14px 16px 15px;border:1px solid #ffffff26;border-radius:20px;background:linear-gradient(150deg,#ffffff21,#ffffff08 62%);box-shadow:0 30px 60px -26px #000,inset 0 1px 0 #ffffff1f;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);color:#fff;
+ opacity:0;visibility:hidden;transform:translate(-50%,-50%) translate(calc(var(--sx)*var(--pw)*.12),calc(var(--sy)*var(--ph)*.35)) scale(.76);
+ transition:transform .7s var(--hx-ease),opacity .4s ease,visibility 0s .7s}
+.hx-cards li:nth-child(3n+2) .hx-card{--dl:.09s}
+.hx-cards li:nth-child(3n) .hx-card{--dl:.18s}
+.hx-card[data-s=on]{opacity:1;visibility:visible;transform:translate(-50%,-50%) translate(calc(var(--sx)*(var(--pw)/2 + var(--cw)*var(--tuck))),calc(var(--sy)*var(--ph))) rotate(var(--sr));transition:transform .95s var(--hx-ease) var(--dl),opacity .5s ease var(--dl),visibility 0s}
+.hx-card[data-s=peek]{opacity:1;visibility:visible;transform:translate(-50%,-50%) translate(calc(var(--sx)*var(--pw)*.36),calc(var(--sy)*var(--ph)*.5 - var(--ph)*.05)) rotate(calc(var(--sr)*3)) scale(.92);transition:transform .7s var(--hx-ease),opacity .4s ease,visibility 0s}
+.hx-ico{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(140deg,#ffb63f,#ff8a00);color:#1c1204;box-shadow:0 8px 18px -8px #ff9500}
+.hx-txt{display:grid;gap:2px;min-width:0}
+.hx-txt small{font-size:11px;letter-spacing:.02em;color:#ffffffa8}
+.hx-txt b{font-size:clamp(14px,1.08vw,16px);font-weight:600;line-height:1.2;letter-spacing:-.02em}
+.hx-txt em{font-size:12px;font-style:normal;color:#ffffffb0}
+.hx-spark{grid-column:1/-1;display:block;width:100%;height:34px;overflow:visible}
+.hx-spark polyline{fill:none;stroke:#ffae3d;stroke-width:1.7;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.hx-spark polygon{fill:#ff950024}
+.hx-bar{grid-column:1/-1;position:relative;display:block;height:6px;overflow:hidden;border-radius:9px;background:#ffffff1f}
+.hx-bar:before{content:'';position:absolute;inset:0;width:calc(var(--v)*100%);border-radius:inherit;background:linear-gradient(90deg,#ffb63f,#ff8a00)}
+
+/* Copy: the intro, one block per chapter and the outro share one cell and cross-fade. */
+.hx-copy{position:absolute;left:var(--gut);top:50%;z-index:3;display:grid;width:min(460px,30vw);transform:translateY(-50%)}
+.hx-say{grid-area:1/1;align-self:center;transition:opacity .45s ease,transform .7s var(--hx-ease),visibility 0s}
+.hx-say[data-s=off],.hx-say[data-s=past]{opacity:0;transform:translateY(26px);pointer-events:none}
+.hx-say[data-s=past]{transform:translateY(-26px)}
+.hx-say[data-s=on]{transition-delay:.14s,.14s,0s}
+.hx-intro[data-s=past],.hx-end[data-s=off]{visibility:hidden;transition:opacity .45s ease,transform .7s var(--hx-ease),visibility 0s .7s}
+.hx-pill{display:inline-flex;align-items:center;gap:10px;padding:8px 15px;border:1px solid #ffffff2e;border-radius:999px;background:#ffffff0d;backdrop-filter:blur(10px);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#f4f1ea}
+.hx-pill span{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px #f05a282a;animation:hx-pulse 2.4s ease-in-out infinite}
+@keyframes hx-pulse{50%{box-shadow:0 0 0 7px #f05a2800}}
+.hx h1{margin-top:20px;font-size:clamp(36px,3.75vw,62px);line-height:1.02;font-weight:600;letter-spacing:-.05em;text-wrap:balance}
+.hx h1 em{display:block;padding-bottom:.06em;font-style:normal;background:linear-gradient(90deg,#ffd6aa,var(--amber) 38%,var(--brand) 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hx-intro>p{max-width:430px;margin-top:20px;font-size:clamp(15px,1.15vw,18px);line-height:1.55;color:#d9d6cf}
+.hx .ha{margin-top:30px}
+.btn.hx-ghost{background:#ffffff0f;color:#fff;box-shadow:inset 0 0 0 1px #ffffff3d}
+.btn.hx-ghost:hover{background:#ffffff1f}
+.hx-step{display:block;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#ffffff8f}
+.hx-step b{font-weight:600;color:#ffad3a}
+.hx-say h2{margin-top:16px;font-size:clamp(32px,3.3vw,54px);line-height:1.04;font-weight:600;letter-spacing:-.045em;text-wrap:balance}
+.hx-say>p{max-width:420px;margin-top:18px;font-size:clamp(15px,1.15vw,18px);line-height:1.55;color:#cfcbc3}
+.hx-stores{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.hx-stores a{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;background:#ffffff0f;box-shadow:inset 0 0 0 1px #ffffff40;font-size:14px;font-weight:600;color:#fff;transition:background .25s}
+.hx-stores a:hover{background:#ffffff21}
+
+/* The tour's tab bar, mirroring the app's own. */
+.hx-tabs{position:absolute;left:var(--gut);bottom:28px;z-index:4;display:flex;gap:2px;padding:5px;border:1px solid #ffffff1c;border-radius:999px;background:#ffffff0b;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.hx-tabs button{position:relative;display:flex;align-items:center;gap:7px;min-height:42px;padding:0 14px;border-radius:999px;font-size:12.5px;font-weight:500;color:#ffffff99;transition:color .3s,background .3s}
+.hx-tabs button:hover{color:#fff}
+.hx-tabs button[data-s=done]{color:#ffffffc7}
+.hx-tabs button[data-s=on]{background:#ffffff14;color:#ffad3a}
+.hx-tabs i{position:absolute;left:14px;right:14px;bottom:5px;height:2px;border-radius:2px;background:#ff9a2e;transform:scaleX(0);transform-origin:left}
+.hx-tabs button[data-s=on] i{transform:scaleX(var(--t))}
+.hx-tabs button:focus-visible{outline:2px solid var(--focus-dark);outline-offset:2px}
+
+.hx-hint{position:absolute;right:var(--gut);bottom:34px;z-index:3;display:flex;align-items:center;gap:12px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#ffffff80;opacity:calc(1 - var(--k)*3)}
+.hx-hint i{width:1px;height:30px;background:linear-gradient(#ffffffa6,#fff0);transform-origin:top;animation:hx-hint 1.8s var(--ease) infinite}
+@keyframes hx-hint{0%{transform:scaleY(0)}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* Tablet and phone: copy on top, the phone below it, cards over the phone's edges. */
+@media (max-width:1100px){
+ .hx-stage{--sh:min(52svh,600px);--cw:clamp(140px,31vw,200px);--tuck:.05;--px:50%;--py:calc(100% - 84px - var(--ph)/2);--rise:30%}
+ .hx-copy{left:50%;top:calc(var(--nav-h) + 14px);width:min(600px,calc(100% - 40px));text-align:center;transform:translateX(-50%)}
+ .hx-intro>p,.hx-say>p{max-width:520px;margin-left:auto;margin-right:auto}
+ .hx .ha{justify-content:center}
+ .hx-stores{justify-content:center}
+ .hx-cards{z-index:3}
+ .hx-bandbox{mask-image:none}
+ .hx-card{gap:10px;padding:11px 12px;border-radius:16px;background:linear-gradient(150deg,#2b2a27d9,#151513d9)}
+ .hx-card[data-s=peek]{opacity:0;visibility:hidden}
+ .hx-ico{width:30px;height:30px;border-radius:10px}
+ .hx-ico svg{width:15px;height:15px}
+ .hx-tabs{left:50%;bottom:16px;transform:translateX(-50%);opacity:clamp(0,calc(var(--k)*2.5 - 1.2),1)}
+ .hx-hint{display:none}
+}
+@media (max-width:640px){
+ .hx-pill{font-size:10px;letter-spacing:.1em}
+ .hx h1{margin-top:16px;font-size:clamp(30px,8.6vw,40px)}
+ .hx-intro>p{margin-top:14px;font-size:14.5px}
+ .hx .ha{gap:10px;margin-top:20px}
+ .hx-step{font-size:11px}
+ .hx-say h2{margin-top:10px;font-size:clamp(25px,7vw,34px)}
+ .hx-say>p{margin-top:10px;font-size:14px;line-height:1.5}
+ .hx-txt small{font-size:10px}
+ .hx-txt b{font-size:13px}
+ .hx-txt em{font-size:11px}
+ .hx-spark{height:26px}
+ .hx-tabs button{padding:0 12px}
+ .hx-tabs button span{display:none}
+ .hx-tabs button[data-s=on] span{display:inline}
+}
+@media (prefers-reduced-motion:reduce){
+ .hx-say,.hx-card,.hx-screen,.hx-band span{transition:none!important}
+ .hx-pill span,.hx-hint i{animation:none}
+}

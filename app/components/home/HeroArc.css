@@ -1,0 +1,328 @@
+/* Hero arc: cards stand on the inside of a slow-turning cylinder. The nearest at the edges, far ones fade out.
+   Turns on its own, stops under the pointer, draggable, and brings focused cards to the front. */
+
+:root {
+  --r: 500px;
+}
+
+.ha {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  perspective: 1200px;
+  touch-action: none;
+  user-select: none;
+}
+
+.ha.dragging {
+  cursor: grabbing;
+}
+
+.ha-ring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.ha-slot {
+  --a: 0deg;
+  --o: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 220px;
+  height: 220px;
+  margin: -110px 0 0 -110px;
+  transform: rotateY(var(--a)) translateZ(var(--r)) rotateY(calc(-1 * var(--a)));
+  opacity: var(--o);
+  transition: opacity 0.6s var(--ease-card), z-index 0.1s linear;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.ha-slot:active {
+  cursor: grabbing;
+}
+
+.ha-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(16, 16, 15, 0.9), rgba(16, 16, 15, 0.7));
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e8e8e3;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+  transition: all 0.3s var(--ease-card);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ha-card:hover {
+  background: linear-gradient(135deg, rgba(16, 16, 15, 1), rgba(16, 16, 15, 0.85));
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.ha-card:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Photo card: category with tag. */
+.ha-photo {
+  overflow: hidden;
+  padding: 0;
+  gap: 0;
+}
+
+.ha-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ha-photo .ha-tag {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #fff;
+  z-index: 2;
+}
+
+/* App card: screenshot with label chip. */
+.ha-app {
+  overflow: hidden;
+  padding: 0;
+  gap: 0;
+}
+
+.ha-app img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ha-chip {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+  z-index: 2;
+}
+
+/* Stat card: label, number, spark or toggle, sub. */
+.ha-stat {
+  gap: 12px;
+  padding: 20px 16px;
+  background: linear-gradient(135deg, rgba(240, 90, 40, 0.1), rgba(240, 90, 40, 0.05));
+  border-color: rgba(240, 90, 40, 0.15);
+}
+
+.ha-stat .ha-l {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.ha-stat b {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+}
+
+.ha-stat svg {
+  width: 100%;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.ha-toggle {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ha-toggle i {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  animation: pulse 2s var(--ease) infinite;
+}
+
+.ha-toggle i:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.ha-toggle i:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.ha-stat .ha-s {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.3;
+}
+
+/* Note card: headline with infinity mark. */
+.ha-note {
+  gap: 16px;
+  position: relative;
+}
+
+.ha-note p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.ha-note b {
+  color: var(--brand);
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.ha-note i {
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+.ha-mark {
+  position: absolute;
+  top: -24px;
+  right: 12px;
+  font-size: 48px;
+  line-height: 1;
+  color: rgba(240, 90, 40, 0.15);
+  font-style: italic;
+}
+
+/* Glass card: plus/mic icon, title, sub, link. */
+.ha-glass {
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ha-glass:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.ha-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand), var(--amber));
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.ha-glass b {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.ha-glass > span:last-child {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 1200px) {
+  .ha-slot {
+    width: 180px;
+    height: 180px;
+    margin: -90px 0 0 -90px;
+  }
+}
+
+@media (max-width: 760px) {
+  .ha {
+    min-height: auto;
+    perspective: none;
+  }
+
+  .ha-ring {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 16px;
+  }
+
+  .ha-slot {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: 0;
+    opacity: 1 !important;
+    z-index: auto !important;
+  }
+
+  .ha-card {
+    min-height: 120px;
+  }
+}

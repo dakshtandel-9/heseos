@@ -126,14 +126,31 @@
 .pk-led{position:absolute;left:50%;bottom:20px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,#ffb27a calc(var(--p) * 100%),#3a3a3a);box-shadow:0 0 calc(var(--p) * 10px) #ffb27a;translate:-50% 0}
 
 
-/* Figures */
-.pt-stats{border-bottom:1px solid #15151518;background:#fbf9f5}
-.pt-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);padding-block:34px}
-.pt-stat{display:flex;flex-direction:column;gap:8px;padding:6px 28px}
-.pt-stat:first-child{padding-left:0}
-.pt-stat+.pt-stat{border-left:1px solid #1515151f}
-.pt-stat strong{font-size:clamp(30px,3.2vw,44px);font-weight:600;line-height:1;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
-.pt-stat span{color:#6b675f;font-size:12.5px}
+/* Figures: mechanical counters (Odometer). The largest figure sits under the heading on a big counter; the others are read
+   off a list on the right, label left and reading right, so their + signs line up. Digits are dark drums in a recessed window,
+   shaded top and bottom so they read as cylinders. A drum's --pos is how many digits it rolls; .is-ready parks every drum at 0
+   until the counter is on screen, then .is-run rolls it home and the status light comes on as it lands. */
+.pt-figures{border-bottom:1px solid #15151514;background:#fbf9f5}
+.pt-figures-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end;gap:56px 80px}
+.pt-figures-list{display:flex;flex-direction:column;border-top:1px solid #1515151f}
+.od{position:relative;display:flex;flex-direction:column;gap:18px;color:#151515}
+.od--hero{margin-top:56px;font-size:clamp(46px,6vw,86px)}
+.od--row{flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:20px;padding-block:30px;border-bottom:1px solid #1515151f;font-size:clamp(32px,3vw,46px)}
+.od-reading{display:inline-flex;align-items:center;width:max-content;font-weight:600;line-height:1.2em;font-variant-numeric:tabular-nums}
+.od-window{display:inline-flex;gap:.05em;padding:.07em;border-radius:.17em;background:#e6e0d5;box-shadow:inset 0 1px 3px #0000002e,0 1px 0 #fff}
+.od-drum{position:relative;display:block;width:.78em;height:1.2em;overflow:hidden;border-radius:.1em;background:linear-gradient(#131312,#272725 50%,#131312);color:#f5f3ef;text-align:center}
+.od-drum::after{content:"";position:absolute;inset:0;background:linear-gradient(#000000ad,#0000 27%,#0000 73%,#000000ad);pointer-events:none}
+.od-strip{display:block;white-space:pre;line-height:1.2em;translate:0 calc(var(--pos) * -1.2em)}
+.od-sep{display:block;width:.24em;line-height:1.2em;text-align:center}
+.od-unit{margin-left:.07em;color:#f05a28;font-weight:500}
+.od-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.od-label{display:flex;align-items:center;gap:11px;min-width:0;color:#5d5a54;font-size:15px;font-weight:450;line-height:1.35;letter-spacing:-.01em}
+.od--row .od-label{font-size:14.5px}
+.od-led{flex-shrink:0;width:7px;height:7px;border-radius:50%;background:#f05a28;box-shadow:0 0 0 3px #f05a2824,0 0 10px #f05a28a6}
+.od.is-ready .od-strip{translate:0 0}
+.od.is-ready .od-led{background:#cdc7bc;box-shadow:0 0 0 3px #0000,0 0 0 #0000}
+.od.is-run .od-strip{transition:translate 1.8s cubic-bezier(.15,.7,.2,1) calc(var(--delay) + var(--i) * 90ms)}
+.od.is-run .od-led{transition:background .35s,box-shadow .5s;transition-delay:calc(var(--delay) + 1.5s + var(--n) * 90ms)}
 
 /* The range */
 .pt-range-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:7%}
@@ -153,15 +170,22 @@
 .pt-range-visual img{transform:translateY(calc((.5 - var(--p)) * 70px)) rotate(calc((.5 - var(--p)) * -8deg))}
 
 /* Journey: a wire runs through the four steps as the section crosses the viewport, lighting each node it reaches */
-.pt-journey{--p:1;--fill:clamp(0,calc((var(--p) - .28) / .3),1);padding-top:0}
-.pt-circuit{position:relative}
-.pt-wire{position:absolute;top:21px;left:22px;right:calc(25% - 40px);height:2px;border-radius:2px;background:#1515151a}
+/* The wire runs from the first node to the last; nodes never move, so they stay on it. A step "lights" when the wire reaches
+   it: its node turns orange and its card turns from paper to white and lifts. Unlit cards stay fully readable. */
+.pt-journey{--p:1;--fill:clamp(0,calc((var(--p) - .22) / .32),1);padding-top:0}
+.pt-journey .pt-head-split .pt-lede{max-width:400px}
+.pt-circuit{--gap:20px;--dot:48px;position:relative}
+.pt-wire{position:absolute;top:calc(var(--dot) / 2 - 1px);left:calc(var(--dot) / 2);right:calc((100% - 3 * var(--gap)) / 4 - var(--dot) / 2);height:2px;border-radius:2px;background:#1515151f}
 .pt-wire::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#f05a28,#ff8854);box-shadow:0 0 12px #f05a2899;transform-origin:left;transform:scaleX(var(--fill))}
-.pt-steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:0;padding:0;list-style:none}
-.pt-steps li{--lit:clamp(0,calc((var(--fill) - var(--at) * .98) * 30),1);position:relative;opacity:calc(.45 + var(--lit) * .55);translate:0 calc((1 - var(--lit)) * 10px)}
-.pt-step-dot{display:grid;place-items:center;width:44px;height:44px;margin-bottom:22px;border:1px solid color-mix(in srgb,#f05a28 calc(var(--lit) * 100%),#15151533);border-radius:50%;background:color-mix(in srgb,#f05a28 calc(var(--lit) * 100%),#f5f2ec);color:color-mix(in srgb,#171311 calc(var(--lit) * 100%),#8a857c);font-size:14px;font-weight:700;box-shadow:0 0 0 calc(var(--lit) * 6px) #f05a2826}
-.pt-steps h3{font-size:21px;font-weight:600;letter-spacing:-.03em}
-.pt-steps p{max-width:250px;margin-top:8px;color:#5d5a54;font-size:14px;line-height:1.5}
+.pt-steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);margin:0;padding:0;list-style:none}
+.pt-steps li{--lit:clamp(0,calc((var(--fill) - var(--at) * .98) * 30),1);display:flex;flex-direction:column;gap:22px}
+.pt-step-dot{position:relative;display:grid;flex-shrink:0;place-items:center;width:var(--dot);height:var(--dot);border:1px solid color-mix(in srgb,#f05a28 calc(var(--lit) * 100%),#15151533);border-radius:50%;background:color-mix(in srgb,#f05a28 calc(var(--lit) * 100%),#f5f2ec);color:color-mix(in srgb,#171311 calc(var(--lit) * 100%),#8a857c);font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;box-shadow:0 0 0 calc(var(--lit) * 7px) #f05a2826}
+.pt-step-card{display:flex;flex:1;flex-direction:column;padding:22px 24px 26px;border:1px solid color-mix(in srgb,#f05a28 calc(var(--lit) * 30%),#15151514);border-radius:20px;background:color-mix(in srgb,#fffdf9 calc(var(--lit) * 100%),#ece8e0);box-shadow:0 calc(var(--lit) * 20px) calc(var(--lit) * 44px) calc(var(--lit) * -24px) #5a2e1240;translate:0 calc((1 - var(--lit)) * 6px)}
+.pt-step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px}
+.pt-step-no{color:#8a857c;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pt-step-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,#f05a28 calc(var(--lit) * 14%),#1515150a);color:color-mix(in srgb,#b4421c calc(var(--lit) * 100%),#8a857c)}
+.pt-steps h3{margin:0;font-size:24px;font-weight:600;letter-spacing:-.035em}
+.pt-steps p{margin:10px 0 0;color:#5d5a54;font-size:14.5px;line-height:1.5}
 
 
 /* Logos */
@@ -238,14 +262,15 @@
  .pt-section,.pt-apply{padding-block:80px}
  .pt-journey{padding-top:0}
  .pt-range-grid{grid-template-columns:1fr;gap:44px}
+ .pt-figures-grid{grid-template-columns:1fr;gap:48px}
  .pt-range-visual{aspect-ratio:16/11}
  .pt-range-visual img{width:min(62%,460px)}
- .pt-steps{grid-template-columns:1fr;row-gap:30px}
- .pt-steps li{display:grid;grid-template-columns:44px 1fr;column-gap:18px}
- .pt-step-dot{grid-row:span 2;margin:0}
- .pt-steps h3{align-self:end}
+ .pt-journey .pt-head-split{flex-direction:column;align-items:flex-start;gap:18px}
+ .pt-steps{grid-template-columns:1fr;row-gap:16px}
+ .pt-steps li{flex-direction:row;gap:16px}
+ .pt-step-top{margin-bottom:20px}
  .pt-steps p{max-width:420px}
- .pt-wire{top:22px;bottom:40px;left:21px;right:auto;width:2px;height:auto}
+ .pt-wire{top:calc(var(--dot) / 2);bottom:60px;left:calc(var(--dot) / 2 - 1px);right:auto;width:2px;height:auto}
  .pt-wire::after{transform-origin:top;transform:scaleY(var(--fill))}
  .pt-faq-grid,.pt-apply-grid{grid-template-columns:1fr;gap:40px}
  .pk-wrap{column-gap:6vw}
@@ -297,11 +322,9 @@
  .pt-title{font-size:40px}
  .pt-head{margin-bottom:36px}
  .pt-lede{font-size:14px}
- .pt-stats-grid{grid-template-columns:1fr 1fr;padding-block:12px}
- .pt-stat,.pt-stat:first-child{padding:16px 12px}
- .pt-stat:nth-child(odd){border-left:0;padding-left:0}
- .pt-stat:nth-child(n+3){border-top:1px solid #1515151f}
- .pt-stat strong{font-size:30px}
+ .od--hero{margin-top:36px;font-size:clamp(38px,12vw,56px)}
+ .od--row{padding-block:20px;font-size:28px}
+ .od--row .od-label{font-size:14px}
  .pt-range-visual{aspect-ratio:1;border-radius:22px}
  .pt-range-visual img{width:80%}
  .pt-range-badge{left:14px;right:14px;bottom:14px;max-width:none}

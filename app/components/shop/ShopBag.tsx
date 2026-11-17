@@ -1,9 +1,15 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { MessageCircle, Minus, Plus, ShoppingBag, Trash2, X } from 'lucide-react';
 import SiteLink from '../site/SiteLink';
 import ContactForm from '../site/ContactForm';
-import { bagCount, clearBag, setQty, useBag } from './bag';
+import { bagCount, clearBag, openBag, setQty, useBag } from './bag';
+
+// A button anywhere on /shop that opens the bag drawer and shows how many items are in it.
+export function OpenBagButton({className,children='View your bag'}:{className?:string;children?:ReactNode}){
+ const count=bagCount(useBag());
+ return <button type="button" className={className} onClick={openBag}><ShoppingBag size={17} aria-hidden="true"/>{children}{count>0&&<b>{count}</b>}</button>;
+}
 // The floating bag on /shop and its drawer: adjust quantities, then send the whole bag as one quote request (form or WhatsApp).
 export default function ShopBag({whatsapp}:{whatsapp:string}){
  const lines=useBag(),count=bagCount(lines),[open,setOpen]=useState(false),[bump,setBump]=useState(0);
@@ -20,7 +26,7 @@ export default function ShopBag({whatsapp}:{whatsapp:string}){
  const chat=`https://wa.me/${whatsapp.replace(/\D/g,'')}?text=${encodeURIComponent(message)}`;
  return <>
   <button type="button" key={bump} className={'sh-fab'+(count?' has-items':'')+(bump?' bump':'')} onClick={()=>setOpen(true)} aria-label={`Open quote bag, ${count} ${count===1?'item':'items'}`}>
-   <ShoppingBag size={19} aria-hidden="true"/><span>Bag</span><b>{count}</b>
+   <ShoppingBag size={19} aria-hidden="true"/><span>Bag</span>{count>0&&<b>{count}</b>}
   </button>
   <div className={'sh-scrim'+(open?' open':'')} onClick={()=>setOpen(false)} aria-hidden="true"/>
   <aside className={'sh-drawer'+(open?' open':'')} aria-label="Quote bag" inert={!open}>
@@ -33,7 +39,7 @@ export default function ShopBag({whatsapp}:{whatsapp:string}){
      </div>
     </li>)}</ul>
     <div className="sh-checkout">
-     <p className="sh-note">Prices depend on finish, size and installation, so we quote every bag personally, usually within one working day.</p>
+     <p className="sh-note">Prices depend on finish, size and installation, so our team prices every bag personally.</p>
      <a className="sh-wa" href={chat} target="_blank" rel="noreferrer"><MessageCircle size={17} aria-hidden="true"/>Send bag on WhatsApp</a>
      <details className="sh-form"><summary>Or request a quote by email</summary><div className="sh-form-content"><ContactForm type="quote" context={message} button="Request quote for bag"/></div></details>
      <button type="button" className="sh-clear" onClick={clearBag}>Empty bag</button>

@@ -1,9 +1,117 @@
 // Homepage content. Figures, partners and clients come from the HESEOS 2026–27 brochure (pages 2–5, 67–68); package prices come from lib/catalog.ts.
 // Images in /media/home/gen are AI-generated mood photography (Higgsfield, GPT Image 2.5); product photos are real.
 export const HERO={
- title:'Use less energy.',accent:'Live beautifully.',
- body:'Intelligent controls help your home use only the energy it needs, day and night, so you can keep electricity costs in check.',
- dayImage:'/media/home/hero-day.webp',nightImage:'/media/home/hero-night.webp',
+ eyebrow:'Energy · Security · Automation',
+ title:'Infinite Responsibility',accent:'and Infinite Possibility.',
+ body:'Switches, locks, sensors, fans and lighting that save power and keep watch, so your home looks after itself. All on one app.',
+ proof:'Trusted in 9,000+ homes, offices and hotels',
+};
+
+// Hero background: one evening on a ridge in the Western Ghats, generated with Higgsfield (GPT Image 2.6 still → Kling 3.0 timelapse).
+// The clip loops with a crossfade, so the evening repeats. Each beat captions the part of the clip it starts at (seconds).
+export const HERO_SKY={
+ poster:'/media/home/sky/dusk-start.webp',posterSmall:'/media/home/sky/dusk-start-sm.webp',
+ video:'/media/home/sky/dusk.mp4',videoSmall:'/media/home/sky/dusk-720.mp4',
+ beats:[
+  {at:0,time:'6:12 PM',line:'The sun goes down over the ghats.'},
+  {at:4,time:'6:38 PM',line:'The lights come on, room by room.'},
+  {at:7.5,time:'7:05 PM',line:'The home looks after itself.'},
+ ],
+};
+
+// Cards on the hero's turning arc. Category cards reuse the "day in a home" photos and link to their category;
+// app cards are real Heseos app screenshots, and their figures are read off those screenshots.
+export type HeroCard=
+ |{kind:"photo";slug:string;name:string;image:string}
+ |{kind:"app";image:string;label:string}
+ |{kind:"stat";label:string;value:string;sub:string;spark?:boolean}
+ |{kind:"note";lead:string;rest:string}
+ |{kind:"glass";icon:"plus"|"mic";title:string;sub:string;href:string};
+export const HERO_CARDS:HeroCard[]=[
+ {kind:"photo",slug:"smart-door-locks",name:"Door Locks",image:"/media/home/day/01-lock.webp"},
+ {kind:"stat",label:"Smart home",value:"9000+",sub:"homes and hotels"},
+ {kind:"photo",slug:"smart-switches-panels",name:"Switches",image:"/media/home/day/02-panel.webp"},
+ {kind:"note",lead:"Infinite",rest:"responsibility: for every device, every room, every unit of power."},
+ {kind:"photo",slug:"automation-controls",name:"Automation",image:"/media/home/day/03-curtain.webp"},
+ {kind:"glass",icon:"plus",title:"Free home demo",sub:"We bring it",href:"/demo"},
+ {kind:"photo",slug:"video-door-phones-doorbells",name:"Video Doorbells",image:"/media/home/day/04-bell.webp"},
+ {kind:"stat",label:"Devices",value:"1,00,000+",sub:"installed and running"},
+ {kind:"photo",slug:"bldc-fans",name:"Fans",image:"/media/home/day/05-fan.webp"},
+ {kind:"app",image:"/media/home/eco/connected-devices.webp",label:"Ecosystem"},
+ {kind:"photo",slug:"security-sensors",name:"Sensors",image:"/media/home/day/06-gas.webp"},
+ {kind:"stat",label:"Years",value:"15+",sub:"designing smart homes"},
+ {kind:"photo",slug:"smart-lighting",name:"Lighting",image:"/media/home/day/07-light.webp"},
+ {kind:"note",lead:"Infinite",rest:"possibility in one app for a home that looks after itself."},
+ {kind:"app",image:"/media/home/night/living-lights-on.webp",label:"Smart Living"},
+ {kind:"photo",slug:"smart-home-accessories",name:"Accessories",image:"/media/home/day/08-plug.webp"},
+ {kind:"stat",label:"International",value:"6+",sub:"projects abroad"},
+ {kind:"glass",icon:"mic",title:"Voice control",sub:"Alexa, Google, Siri",href:"/products"},
+];
+
+// "What we've done so far": brochure figures (CATALOG_META.stats, same order), each with one line of context.
+export const NUMBERS={
+ eyebrow:'What we have done so far',
+ title:['Fifteen years.','Nine thousand homes.','One promise kept.'],
+ body:'Every number here is a home, an office or a hotel that now uses less electricity and worries less.',
+ details:[
+  'Designing switches, controls and lighting that do more with less power.',
+  'Families, offices and hotels that see what they use, and use only what they need.',
+  'Panels, locks, sensors, fans and lights on duty every day.',
+  'Residences and hotels beyond India, built on Heseos systems.',
+ ],
+};
+
+// The hero's app tour. Screens are real screenshots of the Heseos app (/media/home/app); chapters follow its five tabs.
+// `tap` is where a finger lands (as % of the screen) to reach that screen. Card figures are read off the same screenshots.
+export const APP_TOUR={
+ chapters:[
+  {tab:'Home',title:'Your whole home, on one screen.',body:'Today’s power use, what is on and off, and your favourite scenes and switches, the moment you open the app.',
+   screens:[{src:'/media/home/app/home.webp',alt:'Heseos app home screen: today’s power consumption chart, device status, scene and switch shortcuts',tap:[5.6,95]},{src:'/media/home/app/fan.webp',alt:'Fan speed slider, opened by holding the fan shortcut',tap:[50,76]}],
+   cards:[{icon:'zap',label:'Today’s power',value:'3.51 units',spark:true},{icon:'fan',label:'Fan · Living Room',value:'Hold to set speed',bar:.68},{icon:'bulb',label:'Scene shortcut',value:'Start Home Theatre',sub:'8 devices'}]},
+  {tab:'Devices',title:'Every room, at a glance.',body:'Each room on its own card, with its devices and their status, a lock, and one tap to switch the whole room off.',
+   screens:[{src:'/media/home/app/devices.webp',alt:'Devices screen: room cards for the living room, home theatre, master bedroom, kitchen, guest bathroom and pantry',tap:[23.6,95]}],
+   cards:[{icon:'sofa',label:'Living Room',value:'9 devices'},{icon:'bed',label:'Master Bedroom',value:'13 devices'},{icon:'lock',label:'Room lock',value:'One tap to lock'}]},
+  {tab:'Automations',title:'Scenes and routines that run themselves.',body:'Good Morning at 7:45, the evening scene at 7:30, Good night with one tap. Lights, fans and screens, set together.',
+   screens:[{src:'/media/home/app/scenes.webp',alt:'Automations screen: Good Morning and evening routines, and scenes for the home theatre, good night and good morning',tap:[47.2,95]}],
+   cards:[{icon:'sunrise',label:'Routine',value:'Good Morning',sub:'7:45 AM · 7 devices'},{icon:'moon',label:'Scene',value:'Good night',sub:'7 devices'},{icon:'film',label:'Scene',value:'Start Home Theatre',sub:'8 devices'}]},
+  {tab:'Remotes',title:'Every remote, in your pocket.',body:'Your AC, TV and set-top box, with the buttons you already know. Change the temperature or set a schedule from the sofa.',
+   screens:[{src:'/media/home/app/ac.webp',alt:'AC remote: 18 °C, cool mode, auto fan speed, power, mode and schedule buttons',tap:[71.5,95]},{src:'/media/home/app/tv.webp',alt:'TV remote: power, input, menu, channel, volume, mute and direction pad'},{src:'/media/home/app/dth.webp',alt:'Set-top box remote: power, mute, volume, channel, direction pad, keypad and playback buttons'}],
+   cards:[{icon:'snow',label:'AC',value:'18 °C · Cool',sub:'Fan speed auto'},{icon:'tv',label:'TV and set-top box',value:'Vol · Ch · OK'},{icon:'alarm',label:'AC schedule',value:'On and off on time'}]},
+  {tab:'Settings',title:'Set up your way.',body:'Homes, rooms, devices, remotes and routines, plus widgets, voice control and app language, all in Settings.',
+   screens:[{src:'/media/home/app/settings.webp',alt:'Settings screen: homes, rooms, devices, remotes, schedules, FAQ, support, widgets, voice control and app language',tap:[92.3,95]}],
+   cards:[{icon:'mic',label:'Voice control',value:'Alexa · Google · Siri'},{icon:'grid',label:'Widgets',value:'On your home screen'},{icon:'lang',label:'App language',value:'Pick yours'}]},
+ ],
+ outro:{title:'Get the Heseos app.',body:'One app for every switch, lock, sensor, fan and remote in your home. On iPhone and Android.'},
+};
+
+// "A day in one Heseos home": one category per moment, 6 AM to 11:30 PM. Photos generated with Higgsfield (GPT Image 2.6)
+// from the real studio shots in /media/products/studio, styled as 35mm documentary film in a lived-in Pune flat.
+export const DAY={
+ eyebrow:'A day in one Heseos home',
+ title:'Eight categories. One ordinary, well-run day.',
+ moments:[
+  {time:'06:10',slug:'smart-door-locks',name:'Door Locks',line:'Out for a walk before the city wakes. One thumb on the lock, no keys to find.',image:'/media/home/day/01-lock.webp',alt:'A hand in a grey kurta sleeve pressing a thumb on a black Heseos smart lever lock on a teak door, a shoe rack and newspaper beside it'},
+  {time:'07:40',slug:'smart-switches-panels',name:'Switches & Panels',line:'Chai on the stove, tiffins half packed. One tap on the glass for the kitchen lights.',image:'/media/home/day/02-panel.webp',alt:'A fingertip tapping a black glass Heseos touch panel on a kitchen wall, chai on the stove and a tiffin on the counter'},
+  {time:'09:30',slug:'automation-controls',name:'Automation',line:'The curtains open on schedule, while the newspaper is still being read.',image:'/media/home/day/03-curtain.webp',alt:'Printed curtains opening on a motorised track in a sunlit living room as an older man reads the newspaper'},
+  {time:'11:20',slug:'video-door-phones-doorbells',name:'Video Door Phones',line:'A parcel at the door. See who it is before anyone gets up.',image:'/media/home/day/04-bell.webp',alt:'A delivery person with a parcel pressing a black Heseos video doorbell beside a door with a marigold toran'},
+  {time:'14:15',slug:'bldc-fans',name:'BLDC Fans',line:'The afternoon nap, under a fan that runs quietly on far less power.',image:'/media/home/day/05-fan.webp',alt:'A brown and gold Heseos BLDC ceiling fan turning over a child napping in a bedroom on a hot afternoon'},
+  {time:'17:40',slug:'security-sensors',name:'Security & Sensors',line:'Dinner prep begins. A sensor keeps watch over the gas.',image:'/media/home/day/06-gas.webp',alt:'A Heseos gas leak sensor with a glowing screen on the tiled wall above a stove with a pressure cooker'},
+  {time:'20:15',slug:'smart-lighting',name:'Lighting',line:'Everyone at the table, under warm light that is just bright enough.',image:'/media/home/day/07-light.webp',alt:'Hands passing a bowl of dal across a dining table lit by recessed Heseos COB downlights'},
+  {time:'23:30',slug:'smart-home-accessories',name:'Accessories',line:'Lights out. The smart plug shows what is still drawing power, and switches it off.',image:'/media/home/day/08-plug.webp',alt:'A white Heseos smart plug with a green status light in a wall socket in a dark living room'},
+ ],
+};
+
+// "Our story in numbers": one chapter per catalogue stat, in CATALOG_META.stats order. Images generated (Higgsfield, GPT Image).
+export const STORY={
+ eyebrow:'Our story, in numbers',
+ title:'Fifteen years of making electricity work harder.',
+ body:'Every number below is a home, a building or a project that now uses less, and worries less.',
+ chapters:[
+  {title:'It started with a switch.',body:'For over fifteen years we have designed switches, controls and lighting that do more with less electricity.',image:'/media/home/story/years.webp'},
+  {title:'9,000 homes said yes.',body:'Families, offices and hotels that now see what they use, and use only what they need.',image:'/media/home/story/customers.webp'},
+  {title:'A lakh devices, on duty.',body:'Panels, locks, sensors, fans and lights working every day, quietly cutting waste and keeping watch.',image:'/media/home/story/devices.webp'},
+  {title:'Made in India. Trusted abroad.',body:'Heseos systems now light, secure and automate projects beyond India, from private residences to hotels.',image:'/media/home/story/global.webp'},
+ ],
 };
 
 export const WHY={
