@@ -1,28 +1,23 @@
 'use client';
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, House, Keyboard, Mic, MicOff, Moon, Phone, PhoneOff, Play, Power, Send, Sun, Volume2, VolumeX, X, Zap } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronLeft, House, Keyboard, Mic, MicOff, Phone, PhoneOff, Play, Send, Volume2, VolumeX, X, Zap } from 'lucide-react';
 import { parseSimulationCommand } from '../../../lib/devices';
 import { ROOM_SCENES } from '../../../lib/experience-scenes';
 import { FITTINGS, LEGACY_PRODUCTS, ROOM_NAMES, ROOM_PLAN, ROOM_TOUR, UNFITTED_PRODUCTS, apartmentReducer, apartmentUsage, fittedProduct, initialApartmentState, installed, lightingCommandTarget, normalizeRoomCommand, roomPlan, type ApartmentState, type RoomId } from '../../../lib/simulation-products';
 import { createVoiceSession, type SpeechWindow, type VoiceSession, type VoiceState } from '../../../lib/voice';
 import { useSpeechFeedback, WELCOME } from '../useSpeechFeedback';
 import { useReducedMotion } from '../media/usePlatform';
-import DeviceCard, { Slider, Toggle } from './DeviceCard';
+import AppPanel from './AppPanel';
+import { quickAction } from './devices';
+import './app-panel.css';
 import HomeStage from './HomeStage';
 import RoomStage from './RoomStage';
-import { ROOM_ICONS } from './devices';
 
 type View = 'home' | RoomId;
-type SceneId = 'home' | 'evening' | 'away';
 const VIEWS: View[] = ['home', ...ROOM_PLAN.map(r => r.id)];
 const isRoom = (value: string | null): value is RoomId => ROOM_PLAN.some(r => r.id === value);
 const HELP = 'Try “lights off”, “dim the bedroom to 30 percent”, “AC off”, “go to the kitchen” or “away mode”.';
-const SCENES: { id: SceneId; name: string; detail: string; icon: typeof Sun }[] = [
- { id: 'home', name: 'Home', detail: 'Lights at 80%, TV on, curtains open', icon: Sun },
- { id: 'evening', name: 'Evening', detail: 'Lights dimmed to 30%, curtains drawn', icon: Moon },
- { id: 'away', name: 'Away', detail: 'Lights, fans, AC and TV all off', icon: Power },
-];
 const ROOM_WORDS: [RegExp, RoomId][] = [[/\bbedroom\s*(2|two)\b|\bguest\b|\bstudy\b/i, 'bedroom2'], [/\bbedroom\b/i, 'bedroom'], [/\bliving\b|\blounge\b/i, 'living'], [/\bkitchen\b/i, 'kitchen'], [/\bbath(room)?\b/i, 'bath']];
 
 type Alert = { id: string; urgent: boolean; title: string; body: string; slot: string };
@@ -60,7 +55,8 @@ export default function Experience() {
  }, [view, reduced]);
  useEffect(() => () => window.clearTimeout(zoomTimer.current), []);
  const visit = useCallback((next: View) => { setTour(null); go(next); }, [go]);
- const toggleDevice = useCallback((id: string) => setSlot(current => current === id ? null : id), []);
+ // Tapping a marker in the picture switches that device, and opens it in the app.
+ const tapPin = useCallback((id: string) => { const f = FITTINGS.find(x => x.id === id); if (!f) return; const q = quickAction(fittedProduct(id, state), state); if (q) dispatch(q.action); setSlot(id); }, [state]);
  const openDevice = useCallback((id: string) => { const f = FITTINGS.find(x => x.id === id); if (f) go(f.room, id); }, [go]);
  const goTour = useCallback((index: number) => {
   const n = Math.max(0, Math.min(ROOM_TOUR.length - 1, index)), step = ROOM_TOUR[n];
@@ -138,7 +134,7 @@ export default function Experience() {
   <div className="xp-main">
    <div className="xp-view">
    <div className="xp-stage">
-    {scene ? <RoomStage key={scene.room} scene={scene} state={state} selected={slot} onSelect={toggleDevice} /> : <HomeStage state={state} zoom={zoom} onEnter={visit} />}
+    {scene ? <RoomStage key={scene.room} scene={scene} state={state} selected={slot} onSelect={tapPin} /> : <HomeStage state={state} zoom={zoom} onEnter={visit} />}
     <div className="xp-bar">
      {room ? <button className="xp-chip" onClick={() => visit('home')}><ChevronLeft size={16} />Whole home</button> : <span className="xp-chip quiet"><i className="xp-live" />Apartment 2 · live</span>}
      <div className="xp-load" aria-live="polite"><Zap size={14} /><b className="tabular">{usage.total.toLocaleString('en-IN')} W</b><small>{lit} of 5 rooms lit</small></div>
@@ -186,37 +182,6 @@ export default function Experience() {
    </div>
   </div>
 
-  <aside className="xp-panel" aria-label={room ? `${ROOM_NAMES[room]} devices` : 'Whole-home controls'}>
-   <header className="xp-panel-head">
-    <div><span>{room && plan ? `${plan.circuit} · ${fittings.length} devices` : `${FITTINGS.length} devices · 5 circuits`}</span><h2>{room ? ROOM_NAMES[room] : 'Whole home'}</h2></div>
-    <div className="xp-panel-load"><b className="tabular">{usage.total.toLocaleString('en-IN')}<small> W</small></b><span>Live load</span><i style={{ transform: `scaleX(${Math.min(1, usage.total / 2000)})` }} /></div>
-   </header>
-   <div className="xp-scenes" role="group" aria-label="Whole-home scenes">
-    {SCENES.map(s => <button key={s.id} aria-pressed={state.scene === s.id} onClick={() => dispatch({ type: 'scene', scene: s.id })}><s.icon size={17} /><b>{s.name}</b><small>{s.detail}</small></button>)}
-   </div>
-
-   {room ? <div className="xp-list">
-    <p className="xp-list-title">Fitted in this room<small>Tap a marker in the picture, or a device here</small></p>
-    {fittings.map(f => <DeviceCard key={f.id} fitting={f} state={state} open={slot === f.id} dispatch={dispatch} onToggle={toggleDevice} />)}
-   </div> : <>
-    <div className="xp-list">
-     <p className="xp-list-title">Rooms<small>Each switch changes its own room, and nothing else</small></p>
-     {ROOM_PLAN.map(r => {
-      const Icon = ROOM_ICONS[r.id], s = state.rooms[r.id];
-      return <article key={r.id} className="xp-device xp-roomrow">
-       <div className="xp-device-row">
-        <button className="xp-device-main" onClick={() => visit(r.id)}><span className={'xp-device-icon' + (s.lights ? ' on' : '')}><Icon size={17} /></span><span className="xp-device-text"><b>{r.name}</b><small>{r.circuit} · {s.lights ? `On at ${s.brightness}%` : 'Off'}</small></span><ChevronRight size={16} className="xp-device-chevron" /></button>
-        <Toggle on={s.lights} label={`${r.circuit}, ${r.name}`} onChange={() => dispatch({ type: 'room-lights', room: r.id, on: !s.lights })} />
-       </div>
-       <Slider label={`${r.circuit} brightness`} value={s.lights ? s.brightness : 0} min={0} max={100} step={5} unit="%" onChange={value => dispatch({ type: 'room-lights', room: r.id, on: value > 0, brightness: value })} />
-      </article>;
-     })}
-    </div>
-    <div className="xp-energy">
-     <p className="xp-list-title">Where the power goes<small>Illustrative loads, updated as you switch things</small></p>
-     {([['Air conditioning', usage.climate], ['Lighting', usage.lighting], ['TV and set-top box', usage.tv], ['Fans', usage.fans]] as const).map(([name, watts]) => <div key={name} className="xp-energy-row"><span>{name}</span><b className="tabular">{watts.toLocaleString('en-IN')} W</b><i><em style={{ transform: `scaleX(${usage.total ? watts / Math.max(usage.total, 1) : 0})` }} /></i></div>)}
-    </div>
-   </>}
-  </aside>
+  <AppPanel state={state} dispatch={dispatch} alerts={alerts} view={view} selected={slot} onVisit={visit} />
  </section>;
 }

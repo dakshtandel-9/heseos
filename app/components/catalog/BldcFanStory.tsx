@@ -1,80 +1,72 @@
-// Scroll-interactive BLDC fan page: fan spins and room cools as you scroll
+import { Mic, Smartphone, Radio } from 'lucide-react';
 import { directoryProductHref, directoryProducts, directorySource, type DirectoryCategory } from '../../../lib/product-directory';
 import SiteLink from '../site/SiteLink';
 import ScrollScenes from './ScrollScenes';
+import FanFinish, { type Finish } from './FanFinish';
 import './bldc-fan-story.css';
 
-// BLDC Fans: cool airflow, smart control. The page scrolls a fan from idle to full speed while the room cools.
-// As a visitor drags a temperature slider, the fan responds. All 6 finishes shown in a carousel.
+// BLDC Fans, told from the sofa looking up. The hero is one real Elegance fan (a cut-out of its product render) on a generated,
+// illustrative ceiling: scrolling switches it on, spins it up and cools the afternoon light. Then the six collections, still, so the
+// finish reads; how you run it; and the numbers. Every fact is from the 2026–27 catalogue (data/products.json).
 const MEDIA='/media/browse/category/bldc-fans/';
-const SPECS=[{value:'15–100%',label:'Speed range'},{value:'≤ 28 dB',label:'Ultra-quiet'},{value:'72 W',label:'Max power'},{value:'IP20',label:'Indoor rated'}];
-const FINISHES=[
- {slug:'elegance-base',name:'Base Model',desc:'Timeless simplicity'},
- {slug:'elegance-white-cap',name:'White Cap',desc:'Clean and bright'},
- {slug:'elegance-silver-wood',name:'Silver Wood',desc:'Modern elegance'},
- {slug:'elegance-golden-cap',name:'Golden Cap',desc:'Warm luxury'},
- {slug:'elegance-gold-plywood',name:'Gold Plywood',desc:'Rich texture'},
- {slug:'elegance-gold-black-marble',name:'Black Marble',desc:'Bold sophistication'},
+const fanImage=(slug:string)=>`${MEDIA}fan-${slug.replace(/^elegance-/,'')}.webp`;
+const ORDER=['elegance-gold-black-marble','elegance-golden-cap','elegance-gold-plywood','elegance-silver-wood','elegance-white-cap','elegance-base'];
+const BEATS=[
+ {title:'Look up.',body:'Four o’clock in May. The air hasn’t moved all afternoon.'},
+ {title:'Quiet air.',body:'A brushless DC motor turns smoothly and almost silently, on less power than a traditional fan.'},
+ {title:'Smart control.',body:'Set the speed from the remote, the Heseos app, or just by asking.'},
 ];
+const CONTROLS=[
+ {icon:Radio,title:'Smart remote',body:'A dedicated remote for when your phone isn’t to hand.'},
+ {icon:Smartphone,title:'The Heseos app',body:'Switch it on and set the speed over Wi-Fi.'},
+ {icon:Mic,title:'Your voice',body:'Google Home, Amazon Alexa and Apple Siri.'},
+];
+const SPECS=[{value:'BLDC',label:'High-torque motor'},{value:'6',label:'Collections'},{value:'< 5%',label:'Harmonic distortion (THD)'},{value:'3 years',label:'Warranty'}];
 
 export default function BldcFanStory({category:c}:{category:DirectoryCategory}){
- const products=directoryProducts(c).map(p=>({...p,family:directorySource(p),href:directoryProductHref(p)}));
+ const products=directoryProducts(c);
+ const finishes:Finish[]=ORDER.flatMap(slug=>{const p=products.find(x=>x.slug===slug);if(!p)return [];const src=directorySource(p);
+  return [{slug,name:p.name,tagline:src.tagline,href:directoryProductHref(p),image:fanImage(slug),colours:src.options?.find(o=>o.key==='colour')?.values??[]}];});
  return <div className="bf">
   <ScrollScenes/>
 
-  {/* Hero: the fan idles in a warm room, then spins up and cools it as you scroll. */}
-  <section className="bf-hero" data-scroll="pin" aria-labelledby="bf-title">
+  {/* Look up: the fan hangs still in the afternoon heat. Scrolling switches it on; it spins up until the blades blur into a disc,
+      and the gold light on the ceiling cools as the story moves through its three beats. */}
+  <section className="bf-hero" data-scroll="pin" data-steps="3" aria-labelledby="bf-title">
    <div className="bf-stage">
-    <img className="bf-warm" src={MEDIA+'room-warm.webp?v=1'} alt="A living room, warm and stuffy, with a ceiling fan idle" loading="eager"/>
-    <img className="bf-cool" src={MEDIA+'room-cool.webp?v=1'} alt="The same room, cool and refreshed, with the fan spinning fast" loading="eager" style={{opacity:0}}/>
-    <div className="bf-fan-ring" aria-hidden="true"/>
-    <p className="bf-temp" aria-live="polite"><span>{Math.round(38-(typeof window!=='undefined'?Math.min(38,Math.max(0,38)):0))}</span>°C</p>
+    <img className="bf-ceiling" src={MEDIA+'ceiling.webp'} alt="Looking up at a living-room ceiling in late-afternoon sun, an Elegance Gold Black Marble fan overhead" fetchPriority="high"/>
+    <div className="bf-cool" aria-hidden="true"/>
+    <div className="bf-hero-fan" aria-hidden="true">
+     <img className="bf-hero-sharp" src={fanImage('elegance-gold-black-marble')} alt=""/>
+     <div className="bf-hero-blur"><img src={fanImage('elegance-gold-black-marble')} alt=""/><img src={fanImage('elegance-gold-black-marble')} alt=""/></div>
+    </div>
+    <div className="bf-shade" aria-hidden="true"/>
     <nav className="bf-trail" aria-label="Breadcrumb"><ol><li><SiteLink href="/products">Products</SiteLink></li><li><span aria-current="page">{c.name}</span></li></ol></nav>
-    <h1 id="bf-title" className="bf-title">Cool airflow.<br/>Smart control.</h1>
-    <p className="bf-hint">Scroll to spin up</p>
-   </div>
-  </section>
-
-  {/* Try it: drag to set the fan speed and temperature. */}
-  <section className="bf-try-section" aria-labelledby="bf-try-title">
-   <div className="bf-wrap">
-    <div className="bf-head" data-reveal><h2 id="bf-try-title">Feel the difference.</h2><p>Smart speed and schedules keep your home comfortable, quietly.</p></div>
-    <div className="bf-interactive" data-reveal>
-     <div className="bf-fan-demo">
-      <div className="bf-fan-body">
-       <div className="bf-blades" style={{'--speed':'50%'} as React.CSSProperties} aria-hidden="true"/>
-      </div>
-      <p className="bf-readout"><span>50</span>% speed</p>
-     </div>
-     <div className="bf-slider-group">
-      <label><span>Speed <output>50%</output></span>
-       <input type="range" min={0} max={100} defaultValue={50} className="bf-range" style={{'--v':'50%'} as React.CSSProperties}/>
-      </label>
-      <p className="bf-info">8 W at 50%, scheduling, and voice control. Wi-Fi, Zigbee, and RF ready.</p>
-     </div>
+    <div className="bf-copy">
+     <h1 id="bf-title" className="bf-title"><span className="sr-only">{c.name}: quiet air, smart control.</span>{BEATS.map(b=><span key={b.title} aria-hidden="true">{b.title}</span>)}</h1>
+     <div className="bf-beats" aria-hidden="true">{BEATS.map(b=><p key={b.title}>{b.body}</p>)}</div>
+     <p className="bf-steps" aria-hidden="true">{BEATS.map(b=><i key={b.title}/>)}</p>
     </div>
+    <p className="bf-hint">Scroll to switch it on</p>
    </div>
   </section>
 
-  {/* Six finishes in a swipeable row. */}
-  <section className="bf-finishes-section" aria-labelledby="bf-finishes-title">
+  <section className="bf-pick-section" aria-labelledby="bf-pick-title">
    <div className="bf-wrap">
-    <div className="bf-head bf-head--center" data-reveal><h2 id="bf-finishes-title">Choose your finish.</h2><p>One motor, six styles.</p></div>
-    <div className="bf-carousel" data-reveal>
-     {FINISHES.map((f)=>{const p=products.find(x=>x.slug===f.slug);if(!p)return null;
-      return <article key={f.slug} className="bf-finish">
-       <SiteLink className="bf-finish-media" href={p.href} aria-label={`Explore ${f.name}`}>
-        <img src={`/media/products/studio/${p.slug}.webp`} alt={f.name} loading="lazy"/>
-       </SiteLink>
-       <h3>{f.name}</h3><p className="bf-desc">{f.desc}</p>
-      </article>;})
-     }
-    </div>
+    <div className="bf-head" data-reveal><h2 id="bf-pick-title">Six collections. One quiet motor.</h2><p>This is the view you’ll live with, so pick the one that looks right overhead. Then switch it on.</p></div>
+    <div data-reveal><FanFinish finishes={finishes}/></div>
+    <p className="bf-note">Product renders. The ceiling above is an illustrative scene.</p>
    </div>
   </section>
 
-  {/* Specs. */}
-  <section className="bf-specs-section" aria-label={`${c.name} specs`}>
+  <section className="bf-control-section" aria-labelledby="bf-control-title">
+   <div className="bf-wrap">
+    <div className="bf-head bf-head--center" data-reveal><h2 id="bf-control-title">Run it your way.</h2><p>Every Elegance fan answers to three things.</p></div>
+    <ul className="bf-controls">{CONTROLS.map((x,k)=><li key={x.title} data-reveal style={{transitionDelay:`${k*90}ms`}}><x.icon size={26} strokeWidth={1.5} aria-hidden="true"/><h3>{x.title}</h3><p>{x.body}</p></li>)}</ul>
+   </div>
+  </section>
+
+  <section className="bf-specs-section" aria-label={`${c.name} in numbers`}>
    <dl className="bf-specs" data-reveal>{SPECS.map(x=><div key={x.label}><dd>{x.value}</dd><dt>{x.label}</dt></div>)}</dl>
   </section>
  </div>;

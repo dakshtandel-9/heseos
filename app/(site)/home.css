@@ -1,15 +1,6 @@
 /* Homepage: cinematic black sections in warm amber light, alternating with ivory; one 1240px column; reveals as you scroll. */
 
 .hp{--hp-line:#ffffff17;--hp-card:#121311;--hp-glow:#f05a2840;overflow-x:clip}
-.hp .hdr.over{pointer-events:none}
-.hp .hdr.over .hdr-inner>*{pointer-events:auto}
-
-/* Hero pill: eyebrow in the sky. */
-.hx-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8)}
-.hx-pill span{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brand);animation:pulse-dot 2s var(--ease) infinite}
-@keyframes pulse-dot{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
-.hx-pill:hover{background:rgba(255,255,255,.12);color:#fff}
-
 .hw{max-width:1240px;margin:0 auto;padding:0 24px}
 .hsx{position:relative;padding:clamp(80px,9vw,128px) 0;background:#0a0a09}
 .hsx.lt{background:var(--paper);color:var(--text-light)}

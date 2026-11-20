@@ -7,45 +7,23 @@ export const HERO={
  proof:'Trusted in 9,000+ homes, offices and hotels',
 };
 
-// Hero background: one evening on a ridge in the Western Ghats, generated with Higgsfield (GPT Image 2.6 still → Kling 3.0 timelapse).
-// The clip loops with a crossfade, so the evening repeats. Each beat captions the part of the clip it starts at (seconds).
-export const HERO_SKY={
- poster:'/media/home/sky/dusk-start.webp',posterSmall:'/media/home/sky/dusk-start-sm.webp',
- video:'/media/home/sky/dusk.mp4',videoSmall:'/media/home/sky/dusk-720.mp4',
- beats:[
-  {at:0,time:'6:12 PM',line:'The sun goes down over the ghats.'},
-  {at:4,time:'6:38 PM',line:'The lights come on, room by room.'},
-  {at:7.5,time:'7:05 PM',line:'The home looks after itself.'},
- ],
-};
+// Hero background: a city of homes going from blue hour to night as the visitor scrolls, every home's lights switching on.
+// Generated with Higgsfield (GPT Image 2.6 start and end stills → Kling 3.0 timelapse), then cut into frames that scroll plays.
+// `count` frames live at `${dir}/${n}.webp` (desktop, 16:9) and `${dir}/m/${n}.webp` (phones, centre crop), n = 000….
+export const HERO_CITY={dir:'/media/home/city',count:72,width:1600,height:900,mWidth:720,mHeight:960};
 
-// Cards on the hero's turning arc. Category cards reuse the "day in a home" photos and link to their category;
-// app cards are real Heseos app screenshots, and their figures are read off those screenshots.
-export type HeroCard=
- |{kind:"photo";slug:string;name:string;image:string}
- |{kind:"app";image:string;label:string}
- |{kind:"stat";label:string;value:string;sub:string;spark?:boolean}
- |{kind:"note";lead:string;rest:string}
- |{kind:"glass";icon:"plus"|"mic";title:string;sub:string;href:string};
+// The hero's turning arc shows the eight product categories, each linking to its page. Photos are from "a day in one Heseos home".
+export type HeroCard={name:string;href:string;image:string};
+const browse=(slug:string)=>`/products/browse/${slug}`;
 export const HERO_CARDS:HeroCard[]=[
- {kind:"photo",slug:"smart-door-locks",name:"Door Locks",image:"/media/home/day/01-lock.webp"},
- {kind:"stat",label:"Smart home",value:"9000+",sub:"homes and hotels"},
- {kind:"photo",slug:"smart-switches-panels",name:"Switches",image:"/media/home/day/02-panel.webp"},
- {kind:"note",lead:"Infinite",rest:"responsibility: for every device, every room, every unit of power."},
- {kind:"photo",slug:"automation-controls",name:"Automation",image:"/media/home/day/03-curtain.webp"},
- {kind:"glass",icon:"plus",title:"Free home demo",sub:"We bring it",href:"/demo"},
- {kind:"photo",slug:"video-door-phones-doorbells",name:"Video Doorbells",image:"/media/home/day/04-bell.webp"},
- {kind:"stat",label:"Devices",value:"1,00,000+",sub:"installed and running"},
- {kind:"photo",slug:"bldc-fans",name:"Fans",image:"/media/home/day/05-fan.webp"},
- {kind:"app",image:"/media/home/eco/connected-devices.webp",label:"Ecosystem"},
- {kind:"photo",slug:"security-sensors",name:"Sensors",image:"/media/home/day/06-gas.webp"},
- {kind:"stat",label:"Years",value:"15+",sub:"designing smart homes"},
- {kind:"photo",slug:"smart-lighting",name:"Lighting",image:"/media/home/day/07-light.webp"},
- {kind:"note",lead:"Infinite",rest:"possibility in one app for a home that looks after itself."},
- {kind:"app",image:"/media/home/night/living-lights-on.webp",label:"Smart Living"},
- {kind:"photo",slug:"smart-home-accessories",name:"Accessories",image:"/media/home/day/08-plug.webp"},
- {kind:"stat",label:"International",value:"6+",sub:"projects abroad"},
- {kind:"glass",icon:"mic",title:"Voice control",sub:"Alexa, Google, Siri",href:"/products"},
+ {name:'Door Locks',href:browse('smart-door-locks'),image:'/media/home/day/01-lock.webp'},
+ {name:'Switches & Panels',href:browse('smart-switches-panels'),image:'/media/home/day/02-panel.webp'},
+ {name:'Automation',href:browse('automation-controls'),image:'/media/home/day/03-curtain.webp'},
+ {name:'Video Door Phones',href:browse('video-door-phones-doorbells'),image:'/media/home/day/04-bell.webp'},
+ {name:'BLDC Fans',href:browse('bldc-fans'),image:'/media/home/day/05-fan.webp'},
+ {name:'Security & Sensors',href:browse('security-sensors'),image:'/media/home/day/06-gas.webp'},
+ {name:'Lighting',href:browse('smart-lighting'),image:'/media/home/day/07-light.webp'},
+ {name:'Accessories',href:browse('smart-home-accessories'),image:'/media/home/day/08-plug.webp'},
 ];
 
 // "What we've done so far": brochure figures (CATALOG_META.stats, same order), each with one line of context.
@@ -58,6 +36,13 @@ export const NUMBERS={
   'Families, offices and hotels that see what they use, and use only what they need.',
   'Panels, locks, sensors, fans and lights on duty every day.',
   'Residences and hotels beyond India, built on Heseos systems.',
+ ],
+ // Candid 35mm-style photos, one per figure (Higgsfield, GPT Image 2.6; the panel shots use the Edge Panel studio photo as reference).
+ photos:[
+  {src:'/media/home/numbers/years.webp',alt:'An engineer’s hands soldering a switch circuit board under a brass desk lamp in a small workshop'},
+  {src:'/media/home/numbers/homes.webp',alt:'An apartment building in Pune at night, its balcony windows glowing warm'},
+  {src:'/media/home/numbers/devices.webp',alt:'An electrician’s hands fitting a black glass Heseos Edge touch panel into a freshly plastered wall'},
+  {src:'/media/home/numbers/abroad.webp',alt:'A Heseos Edge touch panel on a walnut wall beside a hotel bed, a coastal city skyline at night through the window'},
  ],
 };
 

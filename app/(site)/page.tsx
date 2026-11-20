@@ -1,16 +1,15 @@
 import type { ReactNode } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { CATALOG_META, CATEGORIES, family, familiesInCategory, familiesOf, familyHref, subcategoriesOf, trail, type Product } from '../../lib/products';
-import { directoryCategory, directoryHrefFor } from '../../lib/product-directory';
+import { directoryHrefFor } from '../../lib/product-directory';
 import { CONTACT } from '../../lib/site';
-import { APP_TOUR, CLIENTS, CTA, DAY, FEATURED, HERO, HERO_SKY, HERO_CARDS, HOW, LISTENS, NUMBERS, PARTNERS, POPULAR, SOLUTIONS_SECTION, TESTIMONIALS, WHY } from '../../lib/home';
+import { CLIENTS, CTA, FEATURED, HERO, HERO_CITY, HERO_CARDS, HOW, LISTENS, NUMBERS, PARTNERS, POPULAR, SOLUTIONS_SECTION, TESTIMONIALS, WHY } from '../../lib/home';
 import SiteLink from '../components/site/SiteLink';
 import HomeIcon from '../components/home/HomeIcon';
 import ProductRail from '../components/home/ProductRail';
 import HeroSky from '../components/home/HeroSky';
 import HeroArc from '../components/home/HeroArc';
 import NumberStack from '../components/home/NumberStack';
-import DayInHome from '../components/home/DayInHome';
 import Reveal from '../components/home/Reveal';
 import ProductExplorer from '../components/home/ProductExplorer';
 import PanelStudio from '../components/home/PanelStudio';
@@ -22,11 +21,7 @@ const popular=POPULAR.map(family).filter((p):p is Product=>!!p).map(p=>({slug:p.
 const explorer=CATEGORIES.map(c=>({slug:c.slug,name:c.shortName,href:directoryHrefFor(familiesInCategory(c.slug).map(p=>p.slug),'category'),ranges:subcategoriesOf(c.slug).map(s=>({slug:s.slug,name:s.name,tagline:s.tagline,image:s.image,href:directoryHrefFor(familiesOf(s.slug).map(p=>p.slug),'subcategory'),families:familiesOf(s.slug).length}))}));
 // Frame finishes as the catalogue lists them for the Edge and Bezel series.
 const finishes=family('edge-panel-series')?.options.find(o=>o.key==='finish')?.values??[];
-// Each moment links to its category and shows how many products the directory lists there.
-const moments=DAY.moments.map(({slug,...m})=>({...m,href:`/products/browse/${slug}`,count:directoryCategory(slug)?.subcategories.reduce((n,s)=>n+s.products.length,0)??0}));
 const half=Math.ceil(CLIENTS.length/2),clientRows=[CLIENTS.slice(0,half),CLIENTS.slice(half)];
-// Removed the old "AI-generated" hero app tour (APP_TOUR, HeroApp) and DAY/STORY/StoryCards.
-// Replaced with video + arc carousel hero (HeroSky, HeroArc) and number stack (NumberStack).
 
 function Head({eyebrow,title,body,children,id}:{eyebrow:string;title:ReactNode;body?:string;children?:ReactNode;id:string}){
  return <div className="hh" data-reveal><div><span className="ey">{eyebrow}</span><h2 id={id} className="ht">{title}</h2></div>{(body||children)&&<div className="hh-side">{body&&<p>{body}</p>}{children}</div>}</div>;
@@ -35,19 +30,17 @@ function Head({eyebrow,title,body,children,id}:{eyebrow:string;title:ReactNode;b
 export default function Home(){
  return <div className="hp">
   <Reveal/>
-  <HeroSky {...HERO_SKY}>
-   <div style={{textAlign:'center'}}>
-    <span className="hx-pill"><span/>{HERO.eyebrow}</span>
-    <h1 id="hero-title" style={{fontSize:'clamp(32px, 8vw, 72px)', lineHeight: 1, marginTop: '20px', marginBottom: '16px', letterSpacing: '-0.03em'}}>
-     {HERO.title}{' '}<em style={{color:'var(--amber)'}}>{HERO.accent}</em>
-    </h1>
-    <p style={{fontSize: '16px', lineHeight: 1.5, maxWidth: '600px', margin: '24px auto'}}>{HERO.body}</p>
-    <p style={{fontSize: '13px', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, color: 'rgba(255,255,255,0.7)', margin: '28px 0 36px'}}>{HERO.proof}</p>
+  <HeroSky frames={HERO_CITY}>
+   <div className="hs-copy">
+    <span className="hs-pill"><i/>{HERO.eyebrow}</span>
+    <h1 id="hero-title">{HERO.title}<span>{HERO.accent}</span></h1>
+    <p>{HERO.body}</p>
+    <div className="hs-cta"><SiteLink className="hs-btn ghost" href="/demo">Book a demo</SiteLink><SiteLink className="hs-btn main" href="/products">Explore products<b><ArrowUpRight size={17}/></b></SiteLink></div>
    </div>
+   <HeroArc cards={HERO_CARDS}/>
+   <p className="hs-proof"><i aria-hidden="true"/>{HERO.proof}</p>
   </HeroSky>
-  <HeroArc cards={HERO_CARDS}/>
-  <NumberStack {...NUMBERS} stats={CATALOG_META.stats} cta={{href:'/products', label:'Explore all products'}}/>
-  <DayInHome eyebrow={DAY.eyebrow} title={DAY.title} moments={moments}/>
+  <NumberStack {...NUMBERS} stats={CATALOG_META.stats} cta={{href:'/products',label:'Explore all products'}}/>
 
   <section className="hsx lt" aria-labelledby="why-title">
    <div className="hw">

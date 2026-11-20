@@ -1,7 +1,9 @@
 /* Site header and footer: logo, links with flyouts, search, bag and Book a Demo; a brand column, four link columns and updates sign-up. */
 
 .hdr{position:relative;z-index:100;background:#0b0c0b;border-bottom:1px solid #ffffff14}
-.hdr.over{position:fixed;top:0;left:0;right:0;background:linear-gradient(#000000b3,#0000);border-bottom:0}
+.hdr.over{position:fixed;top:0;left:0;right:0;background:linear-gradient(#0b1a3359,#0000);border-bottom:1px solid #0000;transition:background .35s,border-color .35s,backdrop-filter .35s}
+.hdr.over.scrolled{background:#0b0c0bcc;border-bottom-color:#ffffff14;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
+@media (max-width:1000px){.hdr.over.open{position:fixed;background:#0b0c0b}}
 .hdr-inner{display:flex;align-items:center;gap:24px;max-width:1240px;height:68px;margin:0 auto;padding:0 24px}
 .hdr-logo{display:flex;align-items:center;flex-shrink:0}
 .hdr-logo img{width:104px;height:auto}
@@ -12,6 +14,7 @@
 .hdr-link:focus-visible,.hdr-icon:focus-visible{outline-offset:-4px}
 .hdr-flyout{position:absolute;left:0;right:0;top:100%;display:flex;padding:36px max(24px,calc((100% - 1192px)/2)) 56px;background:#0b0c0b;border-top:1px solid #ffffff14;box-shadow:0 40px 80px #000a;visibility:hidden;opacity:0;transform:translateY(-6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility 0s .2s}
 .hdr-item:hover .hdr-flyout,.hdr-item:focus-within .hdr-flyout{visibility:visible;opacity:1;transform:none;transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.hdr-item.hushed .hdr-flyout{visibility:hidden;opacity:0;transform:translateY(-6px);pointer-events:none;transition:none}
 .hdr-flyout>div{flex:1;max-width:300px;padding-right:32px}
 .hdr-flyout--products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 16px;max-height:calc(100vh - 68px);overflow-y:auto}
 .hdr-flyout--products>div{max-width:none;padding-right:12px}

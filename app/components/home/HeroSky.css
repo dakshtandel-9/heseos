@@ -1,138 +1,45 @@
-/* Hero backdrop: evening timelapse on a ridge, looping with crossfade. Fixed background, smooth video loop, and caption over the story beats. */
+/* Homepage hero: a city that goes from blue hour to night as you scroll, every home lighting up, behind the headline and the card arc.
+   The section is taller than the screen; the stage stays pinned while its extra height scrolls by. */
 
-.hs {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  overflow: hidden;
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+.hs{--stage-h:clamp(720px,100svh,1080px);--run:150vh;position:relative;height:calc(var(--stage-h) + var(--run));background:#0d1830}
+.hs-stage{position:sticky;top:0;isolation:isolate;display:flex;flex-direction:column;align-items:center;height:var(--stage-h);padding:calc(68px + clamp(28px,6.5vh,76px)) 0 clamp(18px,3vh,30px);overflow:hidden;color:#fff}
+
+/* Backdrop: the first frame as an image (shows at once, framed exactly like the canvas), then the canvas that scroll plays. */
+.hs-bg{position:absolute;inset:0;z-index:-2;background:#2b3c63}
+.hs-bg img,.hs-bg canvas{position:absolute;inset:0;width:100%;height:100%}
+.hs-bg img{object-fit:cover;object-position:50% 62%;transform:scale(1.16);transform-origin:50% 62%}
+.hs-bg canvas{opacity:0;transition:opacity .6s}
+.hs.live .hs-bg canvas{opacity:1}
+/* Shade: darker behind the copy so it reads over lit windows, clear through the middle so the city shows. */
+.hs-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 46% at 50% 36%,#0b1430a6,#0b143000 72%),linear-gradient(180deg,#0b1430b3 0,#0b143033 30%,#0000 56%,#0000 84%,#070a12e6 100%)}
+
+/* Copy */
+.hs-copy{display:flex;flex-direction:column;align-items:center;max-width:960px;padding:0 24px;text-align:center}
+.hs-pill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px 7px 11px;border-radius:999px;background:#ffffff1f;border:1px solid #ffffff2e;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#ffffffe0}
+.hs-pill i{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px #faa43d33}
+.hs h1{margin-top:22px;font-size:clamp(40px,6.3vw,90px);line-height:.98;font-weight:500;letter-spacing:-.045em;text-wrap:balance;text-shadow:0 2px 30px #0b143059}
+.hs h1 span{display:block;background:linear-gradient(90deg,#fff3e4,#ffd2a1 55%,#ffb877);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;padding-bottom:.06em}
+.hs-copy>p{max-width:540px;margin-top:20px;font-size:clamp(15px,1.25vw,17px);line-height:1.55;color:#ffffffde;text-shadow:0 1px 16px #0b1430a6}
+.hs-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+.hs-btn{display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 22px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,transform .25s var(--ease-card),box-shadow .25s}
+.hs-btn.ghost{background:#ffffff26;border:1px solid #ffffff4d;color:#fff;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.hs-btn.ghost:hover{background:#ffffff3d}
+.hs-btn.main{padding:0 6px 0 24px;background:linear-gradient(135deg,#ffc27a,var(--amber) 45%,var(--brand));color:#1a0d05;box-shadow:0 12px 32px -10px #f05a28b3,inset 0 1px 0 #ffffff59}
+.hs-btn.main b{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#14110e;color:#fff;transition:transform .25s var(--ease-card)}
+.hs-btn.main:hover{transform:translateY(-1px);box-shadow:0 16px 36px -10px #f05a28cc,inset 0 1px 0 #ffffff59}
+.hs-btn.main:hover b{transform:rotate(45deg)}
+
+/* Proof line under the arc */
+.hs-proof{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.02em;color:#ffffffcc;text-shadow:0 1px 12px #0008}
+.hs-proof i{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px #faa43d33}
+
+@media (max-width:760px){
+ .hs{--stage-h:max(640px,100svh);--run:110vh}
+ .hs-stage{padding-top:calc(68px + 36px)}
+ .hs h1{font-size:clamp(36px,10.6vw,52px)}
+ .hs-cta{flex-direction:column-reverse;width:100%;max-width:320px;gap:10px;margin-top:24px}
+ .hs-btn{justify-content:center;height:46px;white-space:nowrap}
+ .hs-btn.main{justify-content:space-between;padding:0 5px 0 22px}
 }
-
-.hs-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background: #000;
-}
-
-.hs-bg picture {
-  display: block;
-  position: absolute;
-  inset: 0;
-}
-
-.hs-bg img,
-.hs-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hs-bg video {
-  opacity: 0;
-  transition: opacity 1.6s var(--ease);
-  pointer-events: none;
-  user-select: none;
-}
-
-.hs-bg video.on {
-  opacity: 1;
-}
-
-.hs-shade {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
-  pointer-events: none;
-}
-
-/* Story caption with beat indicators. */
-.hs-story {
-  position: relative;
-  z-index: 10;
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-  line-height: 1.4;
-  text-align: center;
-  pointer-events: none;
-  user-select: none;
-}
-
-.hs-steps {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-
-.hs-steps i {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transition: background 0.5s var(--ease-card), transform 0.5s var(--ease-card);
-}
-
-.hs-steps i.on {
-  background: #fff;
-  transform: scale(1.3);
-}
-
-.hs-steps i.done {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.hs-story b {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 6px;
-  transition: color 0.4s var(--ease-card);
-}
-
-.hs-story .hs-line {
-  display: block;
-  font-size: 20px;
-  line-height: 1.3;
-  font-weight: 500;
-  color: #fff;
-  transition: opacity 0.4s var(--ease-card);
-}
-
-/* While video is loading, caption is hidden. */
-.hs:not(.live) .hs-story {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Hero content (headline, etc.) sits in front. */
-.hs > * {
-  position: relative;
-  z-index: 5;
-}
-
-@media (max-width: 760px) {
-  .hs {
-    min-height: 90vh;
-  }
-
-  .hs-story {
-    font-size: 14px;
-  }
-
-  .hs-story .hs-line {
-    font-size: 18px;
-  }
-}
+/* Without motion there is nothing to scroll through: one late frame, no pinning. */
+@media (prefers-reduced-motion:reduce){.hs{--run:0px}}
