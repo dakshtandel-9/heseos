@@ -107,7 +107,7 @@ export default function AppPanel({ state, dispatch, alerts, view, selected, onVi
  const lightRoom = (id: RoomId): Shortcut => ({ id: 'light-' + id, name: 'Ceiling Light', place: ROOM_NAMES[id], icon: Lightbulb, on: r[id].lights, toggle: () => dispatch({ type: 'room-lights', room: id, on: !r[id].lights }), slide: { label: 'Brightness', value: r[id].lights ? r[id].brightness : 0, min: 0, max: 100, step: 5, unit: '%', set: v => dispatch({ type: 'room-lights', room: id, on: v > 0, brightness: v }) } });
  const fanRoom = (id: RoomId): Shortcut => ({ id: 'fan-' + id, name: 'Fan', place: ROOM_NAMES[id], icon: Fan, on: r[id].fanSpeed > 0, badge: r[id].fanSpeed > 0 ? String(r[id].fanSpeed) : undefined, toggle: () => dispatch({ type: 'fan', room: id, speed: r[id].fanSpeed > 0 ? 0 : 3 }), slide: { label: 'Speed', value: r[id].fanSpeed, min: 0, max: 5, step: 1, unit: '/5', set: v => dispatch({ type: 'fan', room: id, speed: v }) } });
  const shortcuts: Shortcut[] = [
-  { id: 'tv', name: 'TV', place: 'Living room', icon: Tv, on: state.tv, toggle: () => dispatch({ type: 'tv', on: !state.tv }) }, fanRoom('living'), lightRoom('living'), lightRoom('bedroom'), fanRoom('bedroom'),
+  { id: 'tv', name: 'TV', place: 'Living room', icon: Tv, on: state.tv, toggle: () => { dispatch({ type: 'tv', on: !state.tv }); say(state.tv ? 'TV off.' : 'TV on.'); } }, fanRoom('living'), lightRoom('living'), lightRoom('bedroom'), fanRoom('bedroom'),
   { id: 'ac', name: 'AC', place: 'Living room', icon: Snowflake, on: state.climate, toggle: () => dispatch({ type: 'climate', on: !state.climate }), slide: { label: 'Temperature', value: state.temperature, min: 16, max: 30, step: 1, unit: '°C', set: v => dispatch({ type: 'temperature', value: v }) } },
  ];
  const pressProps = (s: Shortcut) => ({
@@ -119,7 +119,7 @@ export default function AppPanel({ state, dispatch, alerts, view, selected, onVi
  });
  const sheetItem = sheet ? shortcuts.find(s => s.id === sheet) : undefined;
 
- const onCount = ROOM_PLAN.filter(x => r[x.id].lights).length + ROOM_PLAN.filter(x => r[x.id].fanSpeed > 0).length + (state.tv ? 1 : 0) + (state.climate ? 1 : 0), total = 10;
+ const onCount = ROOM_PLAN.filter(x => r[x.id].lights).length + ROOM_PLAN.filter(x => r[x.id].fanSpeed > 0).length + (state.tv ? 1 : 0) + (state.climate ? 1 : 0), total = ROOM_PLAN.length + ROOM_PLAN.filter(x => x.fan).length + 2;
  const bell = <button className="ha-icon-btn" aria-label={alerts.length ? `${alerts.length} notifications` : 'Notifications'} onClick={() => say(alerts[0] ? `${alerts[0].title}. ${alerts[0].body}` : 'No new notifications.')}><Bell size={22} />{alerts.length > 0 && <em>{alerts.length}</em>}</button>;
  const door = fittedProduct('bedroom-lock', state), doorLocked = state.devices[door.id].locked, sceneCount = (id: string) => state.scene === id;
 
@@ -169,9 +169,9 @@ export default function AppPanel({ state, dispatch, alerts, view, selected, onVi
   <p className="ha-status">{state.tv ? `On · Ch ${rm.ch} · ${rm.mute ? 'Muted' : `Vol ${rm.vol}`}` : 'TV is off'}</p>
   <div className="ha-keys">{key('Power', <Power size={26} />, () => dispatch({ type: 'tv', on: !state.tv }))}{key('Input', <LogIn size={24} />)}{key('Menu', <Menu size={26} />)}{key('Exit', <LogOut size={24} />)}{key('Numbers', <Grip size={24} />)}{key('Back', <Undo2 size={24} />)}</div>
   <div className="ha-rbody">
-   <div className="ha-rocker"><button aria-label="Channel up" onClick={() => { setRm(v => ({ ...v, ch: v.ch + 1 })); ping('Channel up'); }}><Plus size={18} /></button><span>Ch</span><button aria-label="Channel down" onClick={() => { setRm(v => ({ ...v, ch: Math.max(1, v.ch - 1) })); ping('Channel down'); }}><Minus size={18} /></button></div>
-   <button className="ha-round" aria-label="Mute" aria-pressed={rm.mute} onClick={() => { setRm(v => ({ ...v, mute: !v.mute })); ping(rm.mute ? 'Sound on' : 'Muted'); }}>{rm.mute ? <VolumeX size={22} /> : <Volume2 size={22} />}</button>
-   <div className="ha-rocker"><button aria-label="Volume up" onClick={() => { setRm(v => ({ ...v, vol: Math.min(100, v.vol + 5), mute: false })); ping('Volume up'); }}><Plus size={18} /></button><span>Vol</span><button aria-label="Volume down" onClick={() => { setRm(v => ({ ...v, vol: Math.max(0, v.vol - 5) })); ping('Volume down'); }}><Minus size={18} /></button></div>
+   <div className="ha-rocker"><button aria-label="Channel up" onClick={() => { if (state.tv) setRm(v => ({ ...v, ch: v.ch + 1 })); ping('Channel up'); }}><Plus size={18} /></button><span>Ch</span><button aria-label="Channel down" onClick={() => { if (state.tv) setRm(v => ({ ...v, ch: Math.max(1, v.ch - 1) })); ping('Channel down'); }}><Minus size={18} /></button></div>
+   <button className="ha-round" aria-label="Mute" aria-pressed={rm.mute} onClick={() => { if (state.tv) setRm(v => ({ ...v, mute: !v.mute })); ping(rm.mute ? 'Sound on' : 'Muted'); }}>{rm.mute ? <VolumeX size={22} /> : <Volume2 size={22} />}</button>
+   <div className="ha-rocker"><button aria-label="Volume up" onClick={() => { if (state.tv) setRm(v => ({ ...v, vol: Math.min(100, v.vol + 5), mute: false })); ping('Volume up'); }}><Plus size={18} /></button><span>Vol</span><button aria-label="Volume down" onClick={() => { if (state.tv) setRm(v => ({ ...v, vol: Math.max(0, v.vol - 5) })); ping('Volume down'); }}><Minus size={18} /></button></div>
   </div>
   <div className="ha-dpad"><i />{[['Up', 'u', ChevronUp], ['Left', 'l', ChevronLeft], ['Right', 'r', ChevronRight], ['Down', 'd', ChevronDown]].map(([l, c, I]) => { const Icon = I as LucideIcon; return <button key={l as string} className={c as string} aria-label={l as string} onClick={() => ping(`${l} sent`)}><Icon size={34} strokeWidth={3} /></button>; })}<button className="ok" onClick={() => ping('OK sent')}>OK</button></div>
  </>;

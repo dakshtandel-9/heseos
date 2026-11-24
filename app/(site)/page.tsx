@@ -3,12 +3,11 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { CATALOG_META, CATEGORIES, family, familiesInCategory, familiesOf, familyHref, subcategoriesOf, trail, type Product } from '../../lib/products';
 import { directoryHrefFor } from '../../lib/product-directory';
 import { CONTACT } from '../../lib/site';
-import { CLIENTS, CTA, FEATURED, HERO, HERO_CITY, HERO_CARDS, HOW, LISTENS, NUMBERS, PARTNERS, POPULAR, SOLUTIONS_SECTION, TESTIMONIALS, WHY } from '../../lib/home';
+import { CLIENTS, CTA, FEATURED, HERO, HOW, LISTENS, NUMBERS, PARTNERS, POPULAR, SOLUTIONS_SECTION, TESTIMONIALS, WHY } from '../../lib/home';
 import SiteLink from '../components/site/SiteLink';
 import HomeIcon from '../components/home/HomeIcon';
 import ProductRail from '../components/home/ProductRail';
-import HeroSky from '../components/home/HeroSky';
-import HeroArc from '../components/home/HeroArc';
+import HeroScene from '../components/home/HeroScene';
 import NumberStack from '../components/home/NumberStack';
 import Reveal from '../components/home/Reveal';
 import ProductExplorer from '../components/home/ProductExplorer';
@@ -16,6 +15,8 @@ import PanelStudio from '../components/home/PanelStudio';
 import AppShowcase from '../components/home/AppShowcase';
 import PackageShowcase from '../components/home/PackageShowcase';
 import HowItWorks from '../components/home/HowItWorks';
+import TestimonialReel from '../components/testimonials/TestimonialReel';
+import { REEL } from '../../lib/testimonials';
 
 const popular=POPULAR.map(family).filter((p):p is Product=>!!p).map(p=>({slug:p.slug,href:familyHref(p),name:p.name,tagline:p.tagline,image:p.image,range:trail(p).subcategory.name}));
 const explorer=CATEGORIES.map(c=>({slug:c.slug,name:c.shortName,href:directoryHrefFor(familiesInCategory(c.slug).map(p=>p.slug),'category'),ranges:subcategoriesOf(c.slug).map(s=>({slug:s.slug,name:s.name,tagline:s.tagline,image:s.image,href:directoryHrefFor(familiesOf(s.slug).map(p=>p.slug),'subcategory'),families:familiesOf(s.slug).length}))}));
@@ -30,16 +31,12 @@ function Head({eyebrow,title,body,children,id}:{eyebrow:string;title:ReactNode;b
 export default function Home(){
  return <div className="hp">
   <Reveal/>
-  <HeroSky frames={HERO_CITY}>
-   <div className="hs-copy">
-    <span className="hs-pill"><i/>{HERO.eyebrow}</span>
-    <h1 id="hero-title">{HERO.title}<span>{HERO.accent}</span></h1>
-    <p>{HERO.body}</p>
-    <div className="hs-cta"><SiteLink className="hs-btn ghost" href="/demo">Book a demo</SiteLink><SiteLink className="hs-btn main" href="/products">Explore products<b><ArrowUpRight size={17}/></b></SiteLink></div>
-   </div>
-   <HeroArc cards={HERO_CARDS}/>
-   <p className="hs-proof"><i aria-hidden="true"/>{HERO.proof}</p>
-  </HeroSky>
+  <HeroScene dayImage={HERO.dayImage} nightImage={HERO.nightImage}>
+   <span className="hx-pill"><span/>Smarter energy for everyday living</span>
+   <h1 id="hero-title">{HERO.title}{' '}<em>{HERO.accent}</em></h1>
+   <p>{HERO.body}</p>
+   <div className="ha"><SiteLink className="btn hb" href="/experience">Explore energy savings <ArrowRight size={16}/></SiteLink></div>
+  </HeroScene>
   <NumberStack {...NUMBERS} stats={CATALOG_META.stats} cta={{href:'/products',label:'Explore all products'}}/>
 
   <section className="hsx lt" aria-labelledby="why-title">
@@ -95,6 +92,15 @@ export default function Home(){
   </section>
 
   <PackageShowcase/>
+
+  <section className="hsx tm" id="testimonials" aria-labelledby="testimonials-title">
+   <div className="hw">
+    <Head id="testimonials-title" eyebrow="Testimonials" title={<>Heard at home.<br/><span className="mute">Real customers, unscripted.</span></>} body="Seven Heseos customers on what changed once their spaces got smarter. Tap a face to jump to them, or turn the sound on.">
+     <SiteLink className="btn secondary small" href="/testimonials">All customer stories <ArrowRight size={14}/></SiteLink>
+    </Head>
+    <div data-reveal><TestimonialReel src={REEL.src} poster={REEL.poster} chapters={REEL.chapters}/></div>
+   </div>
+  </section>
 
   <section className="hsx lt trust" aria-label="Clients and partners">
    <div className="hw trust-head" data-reveal>

@@ -1,10 +1,9 @@
 // Homepage content. Figures, partners and clients come from the HESEOS 2026–27 brochure (pages 2–5, 67–68); package prices come from lib/catalog.ts.
 // Images in /media/home/gen are AI-generated mood photography (Higgsfield, GPT Image 2.5); product photos are real.
 export const HERO={
- eyebrow:'Energy · Security · Automation',
- title:'Infinite Responsibility',accent:'and Infinite Possibility.',
- body:'Switches, locks, sensors, fans and lighting that save power and keep watch, so your home looks after itself. All on one app.',
- proof:'Trusted in 9,000+ homes, offices and hotels',
+ title:'Use less energy.',accent:'Live beautifully.',
+ body:'Intelligent controls help your home use only the energy it needs, day and night, so you can keep electricity costs in check.',
+ dayImage:'/media/home/hero-day.webp',nightImage:'/media/home/hero-night.webp',
 };
 
 // Hero background: a city of homes going from blue hour to night as the visitor scrolls, every home's lights switching on.

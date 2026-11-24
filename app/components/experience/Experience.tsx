@@ -17,7 +17,7 @@ import RoomStage from './RoomStage';
 type View = 'home' | RoomId;
 const VIEWS: View[] = ['home', ...ROOM_PLAN.map(r => r.id)];
 const isRoom = (value: string | null): value is RoomId => ROOM_PLAN.some(r => r.id === value);
-const HELP = 'Try “lights off”, “dim the bedroom to 30 percent”, “AC off”, “go to the kitchen” or “away mode”.';
+const HELP = 'Try “lights off”, “dim the bedroom to 30 percent”, “AC off”, “TV off”, “go to the kitchen” or “away mode”.';
 const ROOM_WORDS: [RegExp, RoomId][] = [[/\bbedroom\s*(2|two)\b|\bguest\b|\bstudy\b/i, 'bedroom2'], [/\bbedroom\b/i, 'bedroom'], [/\bliving\b|\blounge\b/i, 'living'], [/\bkitchen\b/i, 'kitchen'], [/\bbath(room)?\b/i, 'bath']];
 
 type Alert = { id: string; urgent: boolean; title: string; body: string; slot: string };

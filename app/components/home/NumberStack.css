@@ -1,53 +1,71 @@
-/* "What we have done so far": the hero's night carries on. Each figure is drawn in window lights (NumberStack.tsx);
-   rows are an editorial list with a photo that opens as the row's lights gather (--p, 0 → 1, set from scroll). */
+/* "What we have done so far": copy on the left, the four figures as a fanned hand of photo cards on the right.
+   A picked card spins out to the middle of the screen and shows its detail (NumberStack.tsx). */
 
-.ns{position:relative;padding:clamp(88px,10vw,140px) 0 clamp(80px,9vw,120px);background:radial-gradient(70% 40% at 50% 0,#16203a,#0000 70%),radial-gradient(50% 30% at 85% 60%,#f05a2812,#0000 70%),#070a12;color:#fff;overflow:hidden}
+.ns{position:relative;padding:clamp(64px,7vw,104px) 0;background:radial-gradient(70% 50% at 30% 0,#16203a,#0000 70%),radial-gradient(45% 55% at 78% 55%,#f05a2814,#0000 70%),#070a12;color:#fff;overflow:hidden}
 .ns:before{content:'';position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,#0000,#ffffff1f,#0000)}
+.ns-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:40px clamp(32px,5vw,80px)}
 
-/* Header */
-.ns-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);align-items:end;gap:24px 72px;margin-bottom:clamp(48px,6vw,80px)}
+/* Copy */
 .ns-head .ey{color:var(--amber)}
-.ns-title{display:flex;flex-direction:column;margin-top:16px;font-size:clamp(36px,4.6vw,64px);line-height:1.02;font-weight:500;letter-spacing:-.04em}
+.ns-title{display:flex;flex-direction:column;margin-top:16px;font-size:clamp(34px,3.9vw,54px);line-height:1.04;font-weight:500;letter-spacing:-.04em}
 .ns-title .l1{color:#ffffff99}
 .ns-title .l2{color:#ffffff59}
-.ns-body{font-size:16px;line-height:1.6;color:#ffffffa6}
-
-/* Rows: index, figure in lights, photo, label and line */
-.ns-list{margin:0;padding:0;list-style:none;border-bottom:1px solid #ffffff17}
-.ns-row{--p:0;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 148px minmax(0,250px);grid-template-rows:auto 1fr;column-gap:clamp(24px,3vw,44px);align-items:center;padding:28px 0 clamp(32px,3.6vw,48px);border-top:1px solid #ffffff17}
-.ns-row:after{content:'';position:absolute;top:-1px;left:0;width:calc(var(--p)*100%);height:1px;background:linear-gradient(90deg,var(--amber),var(--brand) 60%,#f05a2800)}
-.ns-i{grid-column:1/-1;margin-bottom:6px;font-size:12px;font-weight:600;letter-spacing:.14em;color:#ffffff73;font-variant-numeric:tabular-nums}
-.ns-i em{margin-left:6px;font-style:normal;color:#ffffff38}
-
-.ns-fig{position:relative;container-type:inline-size;touch-action:pan-y}
-.ns-fig canvas{position:absolute;left:-28px;top:-40px;width:calc(100% + 56px);height:calc(100% + 150px);pointer-events:none}
-.ns-val{display:block;width:max-content;max-width:100%;font-size:min(150px,21cqi);line-height:1;font-weight:600;letter-spacing:-.045em;font-variant-numeric:tabular-nums;color:#ffe2b8;white-space:nowrap}
-.ns.lit .ns-val{color:#0000}
-
-.ns-photo{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:14px;background:#11162a;clip-path:inset(calc((1 - var(--p))*100%) 0 0 0 round 14px);box-shadow:0 24px 50px -24px #000}
-.ns-photo img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.18 - var(--p)*.18))}
-.ns-copy{opacity:calc(var(--p)*1.4 - .2);transform:translateY(calc((1 - var(--p))*18px))}
-.ns-label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
-.ns-copy p{margin-top:12px;font-size:15px;line-height:1.55;color:#ffffffa6}
-
-/* Foot */
-.ns-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;margin-top:clamp(40px,5vw,64px)}
-.ns-foot p{max-width:420px;font-size:15px;line-height:1.55;color:#ffffff8c}
-.ns-cta{display:inline-flex;align-items:center;gap:14px;height:50px;padding:0 6px 0 24px;border-radius:999px;background:linear-gradient(135deg,#ffc27a,var(--amber) 45%,var(--brand));color:#1a0d05;font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 32px -10px #f05a28b3,inset 0 1px 0 #ffffff59;transition:transform .25s var(--ease-card),box-shadow .25s}
+.ns-body{max-width:420px;margin-top:22px;font-size:16px;line-height:1.6;color:#ffffffa6}
+.ns-cta{display:inline-flex;align-items:center;gap:14px;height:50px;margin-top:30px;padding:0 6px 0 24px;border-radius:999px;background:linear-gradient(135deg,#ffc27a,var(--amber) 45%,var(--brand));color:#1a0d05;font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 32px -10px #f05a28b3,inset 0 1px 0 #ffffff59;transition:transform .25s var(--ease-card),box-shadow .25s}
 .ns-cta b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#14110e;color:#fff;transition:transform .25s var(--ease-card)}
 .ns-cta:hover{transform:translateY(-1px);box-shadow:0 16px 36px -10px #f05a28cc,inset 0 1px 0 #ffffff59}
 .ns-cta:hover b{transform:rotate(45deg)}
 
+/* The hand: cards pivot on a point well below them, so they open into an overlapping fan like a hand of cards. */
+.nc-hand-wrap{display:flex;flex-direction:column;align-items:center}
+.nc-hand{--w:clamp(130px,12vw,176px);position:relative;width:100%;height:calc(var(--w)*1.95);margin:0;padding:0;list-style:none}
+.nc-slot{position:absolute;left:calc(50% - var(--w)/2);top:calc(var(--w)*.18);width:var(--w);aspect-ratio:5/7.4;transform-origin:50% 230%;transform:rotate(var(--r))}
+.nc-slot:hover,.nc-slot:focus-within{z-index:5}
+.nc-slot.out{visibility:hidden}
+.nc-card{display:block;width:100%;height:100%;padding:0;border-radius:calc(var(--w)*.09);cursor:pointer;transition:transform .3s var(--ease-card)}
+.nc-card:hover,.nc-card:focus-visible{transform:translateY(-18px)}
+.nc-card:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.nc-hint{margin-top:4px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#ffffff66}
+
+/* Card: photo background, figure and label top-left over a dark fade (the corner that shows in the fan), thin white edge. Same look in the hand and when dealt. */
+.nc-face{position:relative;display:block;width:100%;height:100%;overflow:hidden;container-type:inline-size;border-radius:calc(var(--w)*.09);background:#11162a;box-shadow:0 0 0 1.5px #ffffffd9,0 24px 44px -18px #000e,0 2px 8px #0008;text-align:left}
+.nc-face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.nc-face:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#05070df0,#05070dbf 30%,#0000 62%)}
+.nc-text{position:absolute;left:0;right:0;top:0;z-index:1;display:flex;flex-direction:column;padding:9cqi;color:#fff}
+.nc-text b{font-size:min(30cqi,100cqi/var(--len));line-height:1;font-weight:700;letter-spacing:-.045em;text-shadow:0 2px 16px #0009}
+.nc-label{margin-top:3.6cqi;font-size:max(9px,6.4cqi);line-height:1.3;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.nc-detail{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22cqi 9cqi 9cqi;background:linear-gradient(180deg,#0000,#05070de6 55%);font-size:max(12px,5cqi);line-height:1.45;color:#ffffffd9}
+
+/* The dealt card, in the middle of the screen. */
+.nc-stage{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:clamp(16px,4vw,56px);background:#04060bd9;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);animation:nc-fade .35s ease both}
+@keyframes nc-fade{from{background:#04060b00;backdrop-filter:blur(0);-webkit-backdrop-filter:blur(0)}}
+.nc-big{--w:clamp(260px,26vw,340px);position:relative;flex-shrink:0;width:var(--w);aspect-ratio:5/7.4;transform-style:preserve-3d}
+.nc-side{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+/* Card back, seen mid-spin: plain dark card with the header logo. */
+.nc-back{display:grid;place-items:center;transform:rotateY(180deg);border-radius:calc(var(--w)*.09);background:radial-gradient(circle at 50% 40%,#1a1d2a,#0b0d14 75%);box-shadow:0 0 0 1.5px #ffffffd9,0 24px 44px -18px #000e}
+.nc-back img{width:62%;height:auto}
+
+.nc-nav,.nc-close{display:grid;place-items:center;flex-shrink:0;width:52px;height:52px;border-radius:50%;border:1px solid #ffffff33;background:#ffffff14;color:#fff;transition:background .2s,color .2s,transform .2s var(--ease-card)}
+.nc-nav:hover,.nc-close:hover{background:#fff;color:#111}
+.nc-prev:hover{transform:translateX(-2px)}
+.nc-next:hover{transform:translateX(2px)}
+.nc-nav:focus-visible,.nc-close:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.nc-close{position:absolute;top:clamp(16px,3vw,32px);right:clamp(16px,3vw,32px);width:46px;height:46px}
+.nc-scroll{position:absolute;bottom:clamp(20px,4vh,40px);left:50%;transform:translateX(-50%);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:#ffffff8c}
+
 @media (max-width:1000px){
- .ns-head{grid-template-columns:1fr}
- .ns-row{grid-template-columns:112px minmax(0,1fr);row-gap:20px}
- .ns-fig{grid-column:1/-1}
- .ns-photo{grid-row:3}
+ .ns-grid{grid-template-columns:1fr}
+ .nc-hand{--w:clamp(110px,24vw,150px)}
 }
 @media (max-width:600px){
- .ns-row{grid-template-columns:88px minmax(0,1fr);column-gap:18px;padding-top:22px}
- .ns-photo{border-radius:10px}
- .ns-copy p{font-size:14px}
  .ns-cta{width:100%;justify-content:space-between}
+ .nc-stage{flex-direction:column;gap:0}
+ .nc-nav{position:absolute;bottom:clamp(20px,4vh,36px)}
+ .nc-prev{left:calc(50% - 116px)}
+ .nc-next{right:calc(50% - 116px)}
+ .nc-big{--w:min(300px,74vw)}
+ .nc-scroll{bottom:calc(clamp(20px,4vh,36px) + 64px)}
 }
-@media (prefers-reduced-motion:reduce){.ns-row{--p:1}}
+@media (prefers-reduced-motion:reduce){
+ .nc-stage{animation:none}
+}

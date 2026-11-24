@@ -1,0 +1,165 @@
+// Customer films from /Testimonials, re-encoded to /public/media/testimonials.
+// Transcripts are from the films themselves (Whisper, plus the burned-in English captions for Swaraj Patil), lightly cleaned for reading.
+export type Line=[number,string];
+export type Film={kind:'reel'|'film'|'full';label:string;orient:'v'|'h';src:string;poster:string;duration:number;transcript:Line[]};
+export type Testimonial={slug:string;name:string;role:string;place?:string;headline:string;story:string;tags:string[];avatar:string;films:Film[]};
+export type ReelChapter={slug:string;name:string;place:string;line:string;avatar:string;start:number;end:number};
+
+// Posters and avatars use plain paths (rewritten to R2 in production, see next.config.ts); films stream straight from R2 to spare the host's bandwidth.
+const M='/media/testimonials/';
+const V=`${process.env.NEXT_PUBLIC_MEDIA_URL?.replace(/\/$/,'')??''}${M}`;
+const film=(kind:Film['kind'],file:string,duration:number,transcript:Line[]):Film=>({kind,label:kind==='reel'?'Reel':kind==='film'?'Film':'Full interview',orient:kind==='reel'?'v':'h',src:`${V}${file}.mp4`,poster:`${M}${file}.jpg`,duration,transcript});
+
+const MUKESH:Line[]=[
+ [0,'My name is Mukesh Narang. I stay at Mughal Garden, Koregaon Park.'],
+ [7,'I read about this automation of the electricals on Facebook.'],
+ [17,'And I approached the company to do a few of the switches.'],
+ [24,'About six months back I got it done, despite the old wiring of the house.'],
+ [32,'They were able to do the connections, and it’s very effective. Very good.'],
+ [38,'At my age, I cannot go up to the switches. So now I can handle them from my bed, from wherever I’m sitting.'],
+ [47,'It is a very nice, positive thing to use in homes which are quite large.'],
+ [56,'Because otherwise, at my age — I’m 80 — moving about to the light switches and all that was a bit difficult for me.'],
+ [65,'This has made life very simple for me.'],
+ [68,'Thank you, Heseos, for making my home smart.'],
+];
+const derek=(t:number[]):Line[]=>[
+ 'Hi, my name is Derek. I am from Pune Pet Park. We look after domesticated animals here at this facility.',
+ 'It’s a huge facility, spread over one acre, with separate areas for dogs, cats, rabbits, sheep and cows.',
+ 'Managing such a facility is a cumbersome task — putting on lights at various places, and so on.',
+ 'So we were into automation for the entire park right from the start.',
+ 'But in the market we didn’t find a product we could rely on. Every time we bought one, within three or six months we had to replace it.',
+ 'Products where the lighting was scheduled to come on and go off automatically.',
+ 'I came across Heseos on Instagram through one of their ads, and that’s when I called them up.',
+ 'They came over and the transition was really very smooth. I placed an order, got the products, and within 15 minutes they set it up.',
+ 'The other products I had bought were much more cumbersome.',
+ 'I am really grateful to Heseos for their products.',
+].map((s,i)=>[t[i],s]);
+
+export const TESTIMONIALS:Testimonial[]=[
+ {slug:'mukesh-narang',name:'Mukesh Narang',role:'Retired businessman',place:'Koregaon Park, Pune',
+  headline:'At my age, I cannot go up to the switches. Now I can handle them from my bed.',
+  story:'At 80, getting up in the dark to reach a switch had become hard. Mukesh saw Heseos on Facebook, a demo kit helped him decide, and the team wired his bungalow despite its old wiring. Now the lights answer his phone, whether he’s getting up at night or wants the house lit if he suspects an intruder. He plans to recommend it to his housing society.',
+  tags:['Touch switches','Phone control','Works with old wiring','Senior-friendly'],avatar:`${M}avatars/mukesh-narang.jpg`,
+  films:[film('reel','mukesh-narang-v',76.5,MUKESH),film('film','mukesh-narang-h',77.2,MUKESH),film('full','mukesh-narang-full',210,[
+   [0,'Q — Congratulations on getting your bungalow automated by Heseos. What was your journey, from the day you first enquired?'],
+   [20.3,'About a week back, I was scrolling through Facebook and saw this ad explaining how the panel works and how automation can be done.'],
+   [34.2,'I contacted the company to help me understand it, and it started from there.'],
+   [47,'Q — Now that all the products are installed, how are they working?'],
+   [52,'So far so good. I’m happy with it, and that’s why I’m discussing a bit of expansion too. It is worth having.'],
+   [63,'Q — And the installation process?'],
+   [67,'The presentation from Heseos was really very encouraging. She explained everything with the kit she had brought, and seeing the switches actually working helped me take a decision.'],
+   [86,'Q — As a senior citizen, how is automation making life easier?'],
+   [95,'Because of my age, getting up at night to go to the switches in the dark is difficult. Now I just lie in bed, take my mobile, switch the lights on and then go wherever I need to.'],
+   [116.2,'Living in a ground-plus-one bungalow, there are times we feel somebody has intruded. We can switch on the lights from where we are, and the intruder might run away. It helps us there too.'],
+   [129.2,'Q — Would you recommend Heseos?'],
+   [137.6,'From what I’ve seen in these two days, I will recommend it to most of the senior citizens in my society.'],
+   [145,'I might also convince my committee to automate the buildings. Right now we depend on security to switch the lights on and off. We would like to control that.'],
+   [177.7,'I’ll ask the other members to visit my place and check for themselves. The product is really good. It has solved most of my problems.'],
+   [200.3,'Thank you for giving us this opportunity.'],
+  ])]},
+ {slug:'derek',name:'Derek Demitrius',role:'Owner, Pune Pet Park',place:'Pune',
+  headline:'I placed an order, got the products, and within 15 minutes they set it up.',
+  story:'Pune Pet Park covers an acre, with separate areas for dogs, cats, rabbits, sheep and cows, and lights all over it. Derek wanted the lighting on automatic schedules from day one, but the products he tried kept failing within months. After seeing a Heseos ad on Instagram, he placed an order and the team set it up in 15 minutes.',
+  tags:['Scheduled lighting','Commercial site','15-minute setup'],avatar:`${M}avatars/derek.jpg`,
+  films:[film('reel','derek-v',79.3,derek([0,8.5,17.5,25,29.5,42,49,56.2,67.5,72])),film('film','derek-h',79.8,derek([0,8.5,17.5,25,29.5,40.5,49.5,55.5,66,70.5]))]},
+ {slug:'ritesh-khemka',name:'Ritesh Khemka',role:'Homeowner',place:'Noida',
+  headline:'The process was very hassle-free, pocket-friendly. I’m loving it. My family is loving it.',
+  story:'Ritesh spent two and a half years looking at home automation. He wanted more than voice and phone control: it had to suit his interiors, so he chose touch panels. Varun from Heseos visited, gave a demo and answered every question. A design document followed, and the rest was hassle-free.',
+  tags:['Touch panels','Interior-led design','Home demo','Design document'],avatar:`${M}avatars/ritesh-khemka.jpg`,
+  films:[film('reel','ritesh-khemka-v',95.8,[
+   [0,'Hi, my name is Ritesh, from Noida.'],
+   [14.6,'I would really like to thank the Heseos team for the support and the product they are providing.'],
+   [22.6,'I had been exploring home automation for the past two, two and a half years.'],
+   [27.8,'I had a very unique requirement. I didn’t want automation just to switch on appliances by voice or mobile.'],
+   [36.4,'My whole intention was that it should enhance the look of my house, match my interiors and improve the overall interior experience.'],
+   [48.8,'That’s why I went with the touch plates. Since this isn’t a very common thing, I reached out to Heseos.'],
+   [58.4,'I would really like to thank Mr. Varun for his patience. I reached out to him multiple times, and he was kind enough to visit my place, show me the demo and answer a lot of my questions.'],
+   [72.2,'Maybe I am a tough customer, but I had a lot of questions, and he patiently answered all of them.'],
+   [76.6,'I got the design document and went through it. The process was very hassle-free, pocket-friendly, and I really enjoyed it.'],
+   [86.9,'I’m loving it. My family is loving it.'],
+   [89.9,'Thank you to your team once more. Thank you, Mr. Varun. Take care.'],
+  ])]},
+ {slug:'swaraj-patil',name:'Swaraj Patil',role:'Event management',place:'Pune',
+  headline:'We had individual keys for each of us. We got a keyless entry from Heseos.',
+  story:'Swaraj has lived in his Pune house for 15 years. With friends and family coming and going on manual locks and spare keys, he worried about a key ending up in the wrong hands. He chose a biometric Heseos lock with fingerprint, RFID, keypad and key access, plus a log on his phone. Touch panels with phone control followed, after a home demo and an easy install.',
+  tags:['Smart door lock','Fingerprint · RFID · keypad','Phone access log','Touch panels'],avatar:`${M}avatars/swaraj-patil.jpg`,
+  films:[film('reel','swaraj-patil-v',66.1,[
+   [0,'I am Swaraj Patil. I work in event management.'],
+   [4.4,'We shifted to this house 15 years back. When we moved here, there were manual locks.'],
+   [13.4,'I like new technology and innovative things. That’s why I was looking for a touch panel and lock system.'],
+   [19.5,'Three or four of us friends lived together and had individual keys for each of us. We got a keyless entry from Heseos.'],
+   [28.6,'The benefits are that there are four types of access: key access, RFID access, numeric pad access and fingerprint access.'],
+   [36.5,'Coming to home automation panels: we had used traditional switches since childhood. A touch system integrated with the phone had to be done.'],
+   [48,'We came across Heseos on Instagram. Very good service was given.'],
+   [52.8,'A demo was given on how it works and what works. After purchasing, installation was simple. Their man came and did it.'],
+   [61.6,'Thank you, Heseos, for making our home smart.'],
+  ]),film('film','swaraj-patil-h',92.4,[
+   [0,'My name is Swaraj Patil. I work in event management in Pune.'],
+   [4.4,'We bought this house 15 years back, when we came to Pune. When we came here, there were manual locks.'],
+   [12.5,'Three or four friends used to live here, relatives used to come, uncles, aunts. What if a key fell into someone’s hands? That was a problem.'],
+   [26.4,'I like technology and exploring new things. I wanted something different from before: a fingerprint-based, biometric keyless entry, which I now got from Heseos.'],
+   [39.6,'Its advantages: first of all it is keyless, and I get a log on my mobile of who came in.'],
+   [44,'There are four types of access: RFID, key, numeric pad and fingerprint. Everyone will like it.'],
+   [55,'Coming to home automation panels: a touch system integrated with the phone was interesting, so we got it in.'],
+   [66,'I found the Heseos brand online, on Facebook or Instagram. They gave very good service.'],
+   [72.6,'They came home and gave a demo of how everything works: lock, lights, apps. After purchasing, installation was also done by their man, very easily and simply.'],
+   [85.8,'Thank you, Heseos, for making our home smart.'],
+  ])]},
+ {slug:'suresh-dsouza',name:'Suresh D’Souza',role:'Architect, Deeksha Design Studio',
+  headline:'Not only look at the price, but look at the quality of the product.',
+  story:'An architect knows finishes. Kamil from Heseos surveyed Suresh’s home, suggested where automation would help (curtains included) and walked him through a demo kit. The team set the system up to work from remotes, the phone, Alexa and voice, within budget. He rates it on service, attention to detail and remotes that are far more elegant than most.',
+  tags:['Curtains','Remotes · phone · Alexa','Within budget','Architect’s pick'],avatar:`${M}avatars/suresh-dsouza.jpg`,
+  films:[film('reel','suresh-dsouza-v',93,[
+   [0,'Kamil (Heseos) — Hi, my name is Kamil, and I am from Heseos Technologies.'],
+   [4.8,'This house belongs to a well-known architect, Suresh D’Souza Sir. Let’s meet him and hear his feedback on Heseos products.'],
+   [14.6,'Hi, I am Suresh D’Souza, from DDS, Deeksha Design Studio.'],
+   [19.2,'Kamil came over, checked my property and gave me various ideas, like curtains and so on.'],
+   [28.6,'He came with his kit and showed me everything in detail, so I was quite clear on what the mechanism is and how it works.'],
+   [35.3,'The Heseos team came and set up what they needed to, including the software that had to be adapted to the remotes and other things.'],
+   [42.8,'It was a good experience. Things work very smoothly, quick and fast. You don’t just rely on a remote. You can use your phone, Alexa or voice commands, and that was very essential to me.'],
+   [57.3,'It was also essential to fit within the budget.'],
+   [60.6,'Definitely look at Heseos from the service point of view: professional attention to getting the details done.'],
+   [69.9,'The product quality is also good. Even the remotes and other things you can see are far more elegant than what you get most of the time.'],
+   [79.6,'That should be the consideration when you look at them: not only the price, but the quality of the product.'],
+  ])]},
+ {slug:'vikash-mishra',name:'Vikash Mishra',role:'Homeowner',
+  headline:'A very pocket-friendly product. Normal people can afford it and automate their home.',
+  story:'Vikash saw a Heseos ad on social media and asked for a call back. The service team called the next day, came to his house and suggested a retrofit touch panel for his existing setup. Now his appliances respond to the app, Alexa and the panel. He calls the process streamlined and the price within reach.',
+  tags:['Retrofit touch panel','App & Alexa','Next-day visit'],avatar:`${M}avatars/vikash-mishra.jpg`,
+  films:[film('reel','vikash-mishra-v',71.7,[
+   [0,'Two weeks back, while surfing social media, I saw a Heseos ad. It was very eye-catching, and I stopped there.'],
+   [16.4,'I put in a request. The next day I got a call from the service team about my requirements, and they visited my house.'],
+   [25,'They checked all the options and whether they could do the installation, and suggested a retrofit solution.'],
+   [33.1,'They installed a retrofit touch panel in my house, so I can operate all my electronic gadgets wirelessly, through the app, through Alexa, through every medium I have.'],
+   [45.8,'When it comes to service and installation, the process is very streamlined. The team is very supportive.'],
+   [52.5,'And the product is very pocket-friendly. Normal people can afford it and automate their home as they need, which adds convenience to daily life.'],
+   [66,'Thank you, Heseos.'],
+  ])]},
+ {slug:'sandeep-puri',name:'Sandeep Puri',role:'Businessman',
+  headline:'I saw it was made in India, and I preferred it. They customised it specially for me.',
+  story:'Sandeep looked at home automation for a long time but wasn’t interested in the imported options. A Facebook ad for a made-in-India brand caught his eye. His living room needed a 16-module switchboard, which wasn’t a stock size, so Heseos customised one and delivered it in three to four days. Voice and phone control came next, and both bedrooms are on his list.',
+  tags:['Custom 16-module panel','Alexa voice control','Made in India'],avatar:`${M}avatars/sandeep-puri.jpg`,
+  films:[film('film','sandeep-puri-h',72.9,[
+   [0,'Hi guys, I’m Sandeep Puri. I was searching for automation for a long time but didn’t see any good options. There were some Chinese brands and others, but I wasn’t interested.'],
+   [15.5,'I saw this ad on Facebook, saw it was made in India, and I preferred it. So I looked into it, and it was a good option to try.'],
+   [32,'My problem was that my living room switchboard was 16-module, and that wasn’t available. So they customised it specially for me, and the switch came within three to four days.'],
+   [47,'I’ve been using it for almost two and a half months: voice control, mobile control.'],
+   [54.5,'Next, I’m going to do both bedrooms as well.'],
+   [60.9,'Thank you, Heseos, for making my home smart.'],
+   [65.3,'“Alexa, switch off hall lights.”'],
+  ])]},
+];
+
+// Highlight reel cut from the films above (see the cut list in the build notes): one line per speaker.
+const cut:[string,string,string,number][]=[
+ ['mukesh-narang','Retired businessman · Pune','At my age, I cannot go up to the switches. Now I handle them from my bed.',8.9],
+ ['derek','Owner, Pune Pet Park','I placed an order, got the products, and within 15 minutes they set it up.',11.65],
+ ['ritesh-khemka','Homeowner · Noida','Hassle-free. Pocket-friendly. I’m loving it. My family is loving it.',7.55],
+ ['swaraj-patil','Event management · Pune','We had individual keys for each of us. We got a keyless entry from Heseos.',9.8],
+ ['suresh-dsouza','Architect · Deeksha Design Studio','The product quality is good. Far more elegant than what you get most of the time.',9.7],
+ ['vikash-mishra','Homeowner','Very streamlined. The team is very supportive. A very pocket-friendly product.',11.35],
+ ['sandeep-puri','Businessman','Thank you, Heseos, for making my home smart. “Alexa, switch off hall lights.”',9.6],
+];
+let at=0;
+export const REEL={src:`${V}highlight-reel.mp4`,poster:`${M}highlight-reel.jpg`,duration:68.7,
+ chapters:cut.map(([slug,place,line,d]):ReelChapter=>{const t=TESTIMONIALS.find(x=>x.slug===slug)!,c={slug,name:t.name,place,line,avatar:t.avatar,start:at,end:at+d};at+=d;return c;})};

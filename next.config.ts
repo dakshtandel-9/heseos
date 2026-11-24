@@ -1,6 +1,16 @@
 import type { NextConfig } from 'next';
 
+// Media and 3D models live in the heseos-media R2 bucket at the same paths as public/.
+// With NEXT_PUBLIC_MEDIA_URL set, /media/* and /assets/* that aren't on disk are served from it, so CSS, JSON data and next/image keep their plain paths.
+const MEDIA_URL = process.env.NEXT_PUBLIC_MEDIA_URL?.replace(/\/$/, '');
+
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return MEDIA_URL ? [
+      { source: '/media/:path*', destination: `${MEDIA_URL}/media/:path*` },
+      { source: '/assets/:path*', destination: `${MEDIA_URL}/assets/:path*` },
+    ] : [];
+  },
   // The schema files in drizzle/ are applied on first database use (lib/admin/database.ts).
   outputFileTracingIncludes: { '/api/**': ['./drizzle/*.sql'] },
   serverExternalPackages: ['@libsql/client', 'libsql'],

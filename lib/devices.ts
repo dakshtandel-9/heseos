@@ -16,7 +16,7 @@ export const SCENES:{id:SceneId;name:string;power:PowerState}[]=[
 ];
 export const lightLevel=(power:PowerState)=>power.lights?Math.max(0,Math.min(100,power.brightness))/100:0;
 export type SimulationCommand=EnergyCommand|{type:'focus';device:DeviceId};
-const DEVICE_WORDS:[RegExp,DeviceId][]=[[/\b(panel|switch|touch)\b/,'touch-panel'],[/\b(ir|blaster|remote)\b/,'ir-blaster'],[/\b(plug|socket)\b/,'smart-plug']];
+const DEVICE_WORDS:[RegExp,DeviceId][]=[[/\b(panel|switch|touch)\b/,'touch-panel'],[/\b(ir|blaster|remote)\b/,'ir-blaster'],[/\b(plug|socket|tv|television)\b/,'smart-plug']];
 export function parseSimulationCommand(raw:string):SimulationCommand{
  const s=raw.toLowerCase().replace(/[^a-z0-9%\s]/g,' ').replace(/\s+/g,' ').trim();
  if(/\b(show|where|find|take me|go to|open)\b/.test(s)){const match=DEVICE_WORDS.find(([pattern])=>pattern.test(s));if(match)return {type:'focus',device:match[1]};}

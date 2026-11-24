@@ -1,8 +1,8 @@
 /* Site header and footer: logo, links with flyouts, search, bag and Book a Demo; a brand column, four link columns and updates sign-up. */
 
 .hdr{position:relative;z-index:100;background:#0b0c0b;border-bottom:1px solid #ffffff14}
-.hdr.over{position:fixed;top:0;left:0;right:0;background:linear-gradient(#0b1a3359,#0000);border-bottom:1px solid #0000;transition:background .35s,border-color .35s,backdrop-filter .35s}
-.hdr.over.scrolled{background:#0b0c0bcc;border-bottom-color:#ffffff14;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
+.hdr.over{position:fixed;top:0;left:0;right:0;background:linear-gradient(#0b1a3359,#0000);border-bottom:0;transition:background .35s,backdrop-filter .35s}
+.hdr.over.scrolled{background:#0b0c0bcc;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
 @media (max-width:1000px){.hdr.over.open{position:fixed;background:#0b0c0b}}
 .hdr-inner{display:flex;align-items:center;gap:24px;max-width:1240px;height:68px;margin:0 auto;padding:0 24px}
 .hdr-logo{display:flex;align-items:center;flex-shrink:0}

@@ -13,7 +13,7 @@ export function parseEnergyCommand(raw:string):EnergyCommand {
  if(/\b(dim|brightness)\b/.test(s)){const words:Record<string,number>={zero:0,ten:10,twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90,hundred:100};const named=Object.entries(words).find(([word])=>new RegExp('\\b'+word+'\\b').test(s));const n=s.match(/\b(\d{1,3})\s*%?/);return {type:'brightness',value:n?Math.max(0,Math.min(100,Number(n[1]))):(named?.[1]??30)};}
  if(/\b(lights?|lighting)\b/.test(s)){if(/\b(off|out)\b/.test(s))return {type:'lights',on:false};if(/\b(on|up)\b/.test(s))return {type:'lights',on:true};}
  if(/\b(ac|air conditioning|climate|cooling)\b/.test(s)){if(/\b(off|stop)\b/.test(s))return {type:'climate',on:false};if(/\b(on|start)\b/.test(s))return {type:'climate',on:true};}
- if(/\b(standby|plug|plugs)\b/.test(s)){if(/\b(off|stop)\b/.test(s))return {type:'standby',on:false};if(/\b(on|start)\b/.test(s))return {type:'standby',on:true};}
+ if(/\b(standby|plug|plugs|tv|television)\b/.test(s)){if(/\b(off|stop)\b/.test(s))return {type:'standby',on:false};if(/\b(on|start)\b/.test(s))return {type:'standby',on:true};}
  if(/\b(away|leaving|save|saving|goodbye)\b/.test(s))return {type:'scene',scene:'away'};
  if(/\b(movie|cinema|evening)\b/.test(s))return {type:'scene',scene:'movie'};
  if(/\b(home|reset|morning)\b/.test(s))return {type:'scene',scene:'home'};

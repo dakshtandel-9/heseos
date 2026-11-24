@@ -59,6 +59,7 @@
 .xp-home-plate{position:relative;width:min(100%,calc((100cqh - 14px) * 1.5));aspect-ratio:3/2;transition:transform .46s cubic-bezier(.5,0,.3,1),opacity .4s ease .04s;-webkit-mask-image:linear-gradient(90deg,#0000,#000 1.6%,#000 98.4%,#0000);mask-image:linear-gradient(90deg,#0000,#000 1.6%,#000 98.4%,#0000)}
 .xp-home.zooming .xp-home-plate{transform:scale(2.3);opacity:0}
 .xp-home-lit{transition:opacity .6s ease;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.xp-home-tv{border-radius:2px;box-shadow:0 0 2.2cqw .4cqw #8fb8ff40}
 .xp-home-hit{position:absolute;inset:0;width:100%;height:100%}
 .xp-home-hit polygon{fill:#fff0;stroke:#fff0;stroke-width:.35;stroke-linejoin:round;cursor:pointer;transition:fill .25s,stroke .25s}
 .xp-home-hit polygon.hover{fill:#ffffff12;stroke:#ffffffa6}
