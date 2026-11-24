@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 // The 4 module Heseos Touch Panel at real-world scale (metres): a metal frame around a glass face.
-// The face wears the product photo flattened to a straight-on view, so its rings, sensor and logo are the real ones.
+// The face wears a 3200px drawing of the real glass (rings, sensor and logo at the photo's positions), so it stays sharp up close.
 // Built from primitives until an approved product GLB exists; only the face texture and these measurements would change.
 const FRAME={w:.146,h:.086,d:.009,r:.0032},GLASS={w:.1432,h:.0832,d:.0018,r:.0022},LIFT=.0003;
 // Ring centres on the face (0–1 from its top left) and their radius, measured on the flattened photo.
@@ -90,7 +90,7 @@ export default function PanelScene(props:Props){
   const faceTex=keep(new THREE.TextureLoader().load(live.current.face,()=>{loaded=true;wake.current();},undefined,()=>live.current.onFail()));
   faceTex.colorSpace=THREE.SRGBColorSpace;faceTex.anisotropy=renderer.capabilities.getMaxAnisotropy();
   // The face also glows faintly with its own texture, so the printed rings and logo read at any angle while the black glass stays black.
-  const faceMat=keep(new THREE.MeshPhysicalMaterial({map:faceTex,emissiveMap:faceTex,emissive:'#fff',emissiveIntensity:0,roughness:.22,clearcoat:1,clearcoatRoughness:.05}));
+  const faceMat=keep(new THREE.MeshPhysicalMaterial({map:faceTex,emissiveMap:faceTex,emissive:'#fff',emissiveIntensity:0,roughness:.08,clearcoat:1,clearcoatRoughness:.02}));
   const edgeMat=keep(new THREE.MeshPhysicalMaterial({color:'#08090a',roughness:.12,clearcoat:1}));
   const glass=new THREE.Mesh(glassGeo,[faceMat,edgeMat]);panel.add(glass);
 
