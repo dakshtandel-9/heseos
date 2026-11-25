@@ -4,6 +4,7 @@ import SiteLink from '../site/SiteLink';
 import ScrollScenes from './ScrollScenes';
 import { plural } from './RangeCards';
 import type { CategoryStoryContent } from './stories';
+import ProductSliceAnimation from './ProductSliceAnimation';
 import './category-story.css';
 
 // A category told the way Apple tells a product: two pinned moments (the hero, and a scene that changes from one state to another),
@@ -39,7 +40,11 @@ export default function CategoryStory({category:c,story:s}:{category:DirectoryCa
      <p className="sw-hero-sub">{s.hero.sub}</p>
      <div className="sw-hero-ctas"><a className="sw-btn" href="#sw-ranges">{s.lineup.kind==='range'?`Explore ${subs.length} ranges`:`Explore ${plural(products.length,'product')}`} <ArrowDown size={15} aria-hidden="true"/></a><SiteLink className="sw-link" href="/demo">Book a free demo <ArrowRight size={15} aria-hidden="true"/></SiteLink></div>
     </div>
-    <div className="sw-hero-product"><img src={img('hero.webp')} alt={s.hero.alt} fetchPriority="high"/></div>
+    {c.slug === 'smart-switches-panels' ? (
+     <div className="sw-hero-product"><ProductSliceAnimation /></div>
+    ) : (
+     <div className="sw-hero-product"><img src={img('hero.webp')} alt={s.hero.alt} fetchPriority="high"/></div>
+    )}
    </div>
   </section>
 
