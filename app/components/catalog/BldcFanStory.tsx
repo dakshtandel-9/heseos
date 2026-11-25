@@ -36,7 +36,7 @@ export default function BldcFanStory({category:c}:{category:DirectoryCategory}){
       fan itself comes into sight, spinning. Both are generated, illustrative films, scrubbed by scroll. */}
   <section className="bf-hero" data-scroll="pin" data-steps="3" aria-labelledby="bf-title">
    <div className="bf-stage">
-    <div className="bf-cube" role="img" aria-label="Looking down from a ceiling fan at a living room where a man naps under a newspaper; as the fan starts, the paper and a dupatta lift in the breeze. Then the view turns up to an Elegance Gold Black Marble fan, spinning.">
+    <div className="bf-cube" role="img" aria-label="Looking down from a ceiling fan at a living room where a man naps under a newspaper; as the fan starts, the paper and a dupatta lift in the breeze. Then the view turns up to an Elegance Silver Wood fan, spinning.">
      <div className="bf-face bf-face--floor"><div className="bf-room">
       <FanFilm className="bf-film" src={MEDIA+'room.mp4'} srcSmall={MEDIA+'room-720.mp4'} poster={MEDIA+'room-poster.webp'} start={.04} span={.62}/>
      </div></div>

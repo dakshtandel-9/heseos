@@ -91,7 +91,7 @@ export default function AboutPage() {
           <p className="about-made-in-india">Made in India. Proudly serving the world.</p>
         </div>
         <figure className="about-frame about-intro-photo has-caption" data-reveal>
-          <Image src="/media/about/intro.webp" alt="Illustrative image: a hand touching a black glass touch panel on a sunlit plaster wall" fill sizes="(max-width: 700px) 100vw, 55vw" />
+          <Image src="/media/about/intro.webp" alt="Illustrative image: a hand touching a Heseos Edge Panel, a horizontal black glass touch switch with a rose-gold frame, on a sunlit plaster wall" fill sizes="(max-width: 700px) 100vw, 55vw" />
           <figcaption>Designed for the spaces we live in · Illustrative</figcaption>
         </figure>
       </div>
