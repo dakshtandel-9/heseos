@@ -4,7 +4,8 @@ import SiteLink from '../site/SiteLink';
 import ScrollScenes from './ScrollScenes';
 import { plural } from './RangeCards';
 import type { CategoryStoryContent } from './stories';
-import ProductSliceAnimation from './ProductSliceAnimation';
+import ExplodeHero from './ExplodeHero';
+import ExplodeFilm from './ExplodeFilm';
 import './category-story.css';
 
 // A category told the way Apple tells a product: two pinned moments (the hero, and a scene that changes from one state to another),
@@ -27,43 +28,48 @@ export default function CategoryStory({category:c,story:s}:{category:DirectoryCa
   return [{...item,name:p.name,href:directoryProductHref(p),image:item.image??p.slug,tagline:f.tagline,finish:f.options.find(o=>o.values.every(v=>v.swatch)),count:plural(f.variants.length,'model')}];
  });
  const stats=[subs.length>1&&{label:'Ranges',value:subs.length},{label:'Products',value:products.length},{label:'Configurations',value:configurations},worksWith.length>0&&{label:'Voice assistants',value:worksWith.length}].filter((x):x is {label:string;value:number}=>!!x);
+ const cta=s.lineup.kind==='range'?`Explore ${subs.length} ranges`:`Explore ${plural(products.length,'product')}`;
  const statList=<dl className="sw-stats" data-reveal style={{'--n':stats.length} as React.CSSProperties}>{stats.map(x=><div key={x.label}><dt>{x.label}</dt><dd>{x.value}</dd></div>)}</dl>;
  return <div className="sw">
   <ScrollScenes/>
 
-  <section className="sw-hero" data-scroll="pin" aria-labelledby="rg-title">
+  {s.explode?<ExplodeHero category={c} story={s} cta={cta} ctaHref="#sw-ranges"/>:<section className="sw-hero" data-scroll="pin" aria-labelledby="rg-title">
    <div className="sw-stage">
     <nav className="sw-trail" aria-label="Breadcrumb"><ol><li><SiteLink href="/products">Products</SiteLink></li><li><span aria-current="page">{c.name}</span></li></ol></nav>
     <div className="sw-hero-copy">
      <p className="sw-eyebrow">{c.name}</p>
      <h1 id="rg-title">{s.hero.headline}</h1>
      <p className="sw-hero-sub">{s.hero.sub}</p>
-     <div className="sw-hero-ctas"><a className="sw-btn" href="#sw-ranges">{s.lineup.kind==='range'?`Explore ${subs.length} ranges`:`Explore ${plural(products.length,'product')}`} <ArrowDown size={15} aria-hidden="true"/></a><SiteLink className="sw-link" href="/demo">Book a free demo <ArrowRight size={15} aria-hidden="true"/></SiteLink></div>
+     <div className="sw-hero-ctas"><a className="sw-btn" href="#sw-ranges">{cta} <ArrowDown size={15} aria-hidden="true"/></a><SiteLink className="sw-link" href="/demo">Book a free demo <ArrowRight size={15} aria-hidden="true"/></SiteLink></div>
     </div>
-    {c.slug === 'smart-switches-panels' ? (
-     <div className="sw-hero-product"><ProductSliceAnimation /></div>
-    ) : (
-     <div className="sw-hero-product"><img src={img('hero.webp')} alt={s.hero.alt} fetchPriority="high"/></div>
-    )}
+    <div className="sw-hero-product"><img src={img('hero.webp')} alt={s.hero.alt} fetchPriority="high"/></div>
    </div>
-  </section>
+  </section>}
 
   <section className="sw-words" data-scroll="view" aria-label={c.name}>
    <p style={{'--n':words.length} as React.CSSProperties}>{words.map((w,i)=><span key={i} style={{'--i':i} as React.CSSProperties}>{w} </span>)}</p>
   </section>
 
-  <section className="sw-daynight" data-scroll="pin" data-steps="2" aria-label={`${s.scene.caps[0].title} ${s.scene.caps[1].title}`}>
+  {/* A film scrubbed by scroll (ExplodeFilm writes its run to --open here); each caption fades in over its part of the run. */}
+  {s.film?<section className="sw-film" data-film data-scroll="pin" aria-labelledby="sw-film-title">
+   <div className="sw-stage">
+    <ExplodeFilm src={s.film.film} srcSmall={s.film.filmSmall} poster={s.film.poster} still={s.film.still} label={s.film.alt} start={.02} span={.86}/>
+    <h2 id="sw-film-title" className="sw-film-title">{s.film.title}</h2>
+    <ol className="sw-film-caps">{s.film.caps.map(cap=><li key={cap.title} style={{'--a':cap.from,'--b':cap.to} as React.CSSProperties}>{cap.time&&<small>{cap.time}</small>}<b>{cap.title}</b><span>{cap.body}</span></li>)}</ol>
+    <div className="sw-film-rail" aria-hidden="true"><i/></div>
+   </div>
+  </section>:s.scene&&<section className="sw-daynight" data-scroll="pin" data-steps="2" aria-label={`${s.scene.caps[0].title} ${s.scene.caps[1].title}`}>
    <div className="sw-stage">
     <img className="sw-day" src={img(s.scene.day)} alt={s.scene.dayAlt} loading="lazy"/>
     <img className="sw-night" src={img(s.scene.night)} alt={s.scene.nightAlt} loading="lazy"/>
     <div className="sw-caps">{s.scene.caps.map(cap=><p key={cap.time} className="sw-cap"><small>{cap.time}</small>{cap.title}<span>{cap.body}</span></p>)}</div>
    </div>
-  </section>
+  </section>}
 
   <section className="sw-ranges" id="sw-ranges" aria-labelledby="sw-ranges-title">
    <div className="sw-wrap">
     <div className="sw-head sw-head--center" data-reveal><p className="sw-eyebrow">Explore the lineup</p><h2 id="sw-ranges-title">{s.lineup.title}</h2>{s.lineup.kind==='range'&&<a className="sw-link" href="#products">Compare all products <ArrowRight size={14} aria-hidden="true"/></a>}</div>
-    <div className="sw-lineup-grid" style={{'--cols':lineup.length>4&&lineup.length%3===0?3:Math.min(lineup.length,4),'--rows':6+(lineup[0]?.facts.length??0)} as React.CSSProperties}>{lineup.map((l,i)=><article key={l.slug} className="sw-model" data-reveal style={{transitionDelay:`${(i%4)*90}ms`}}>
+    <div className="sw-lineup-grid" style={{'--cols':lineup.length>4&&(lineup.length%3===0||lineup.length===5)?3:Math.min(lineup.length,4),'--rows':6+(lineup[0]?.facts.length??0)} as React.CSSProperties}>{lineup.map((l,i)=><article key={l.slug} className="sw-model" data-reveal style={{transitionDelay:`${(i%4)*90}ms`}}>
      <SiteLink className="sw-model-media" href={l.href} aria-label={`Explore ${l.name}`}><img src={`/media/products/studio/${l.image}.webp`} alt={`${l.name}, studio image`} loading="lazy"/></SiteLink>
      {/* Finish swatches come from the catalogue; without them the column shows its product or model count. */}
      <div className="sw-model-swatches">{l.finish?<ul aria-label={`${l.finish.values.length} finishes`}>{l.finish.values.map(v=><li key={v.id} title={v.label} style={{background:v.swatch}}/>)}</ul>:<span>{l.count}</span>}</div>

@@ -8,3 +8,7 @@ Generated 2026-11-04 with Higgsfield (`gpt_image_2_5`) for `/about`; all are ill
 - `cta.webp`: contemporary villa at blue hour beside a reflecting pool. Upscaled to 2K, resized to 2400px.
 
 Replaced on this page: `/media/home/cta-dusk.webp` (hero), the former catalogue crop of the touch panel (intro), `/media/home/gen/spotlight.webp` (craft), `/media/home/hero-night.webp` (CTA). Catalogue crops are retained for product detail galleries.
+
+- `township.webp` — Higgsfield GPT Image 2.6 (high, 2K, 16:9), generated 2026-11-25. Illustrative township at dusk, mission and vision band.
+- `retrofit.webp` — Higgsfield GPT Image 2.6 (high, 2K, 3:2), generated 2026-11-25. Illustrative retrofit module behind a switchboard.
+- `indian-angels.webp` — YouTube thumbnail of the Heseos channel video "Heseos on Indian Angels!! Full Video on Jio Cinema!!" (https://www.youtube.com/watch?v=xC4w-jMrZTo), uploaded 2024-01-31.

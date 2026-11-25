@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ['@libsql/client', 'libsql'],
   async redirects() {
     return [
+      { source: '/products/browse/automation-controls/screen-control-panels', destination: '/products/browse/smart-switches-panels/screen-control-panels', permanent: true },
       { source: '/packages', destination: '/demo', permanent: true },
       { source: '/compare', destination: '/products', permanent: true },
       // The online store is retired: bag and checkout links go to the shop or a demo.

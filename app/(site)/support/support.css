@@ -19,7 +19,7 @@
 /* Hero */
 .sp-hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:clamp(520px,46vw,660px);overflow:hidden;background:#0b0c0b;color:#f5f3ef}
 .sp-hero-image,.sp-hero-shade{position:absolute;inset:0;width:100%;height:100%}
-.sp-hero-image{z-index:-2;object-fit:cover;object-position:right center}
+.sp-hero-image{z-index:-2;object-fit:cover;object-position:right top}
 .sp-hero-shade{z-index:-1;background:linear-gradient(90deg,#070807f2 0%,#070807d6 30%,#07080766 56%,#07080700 80%),linear-gradient(0deg,#07080780,transparent 40%)}
 .sp-hero-content{padding-block:80px}
 .sp-hero .sp-eyebrow{color:#ff8854}
@@ -185,7 +185,7 @@
 @media(max-width:700px){
  .sp-wrap{width:min(100% - 32px,520px)}
  .sp-hero{min-height:640px;align-items:flex-end}
- .sp-hero-image{object-position:78% center}
+ .sp-hero-image{object-position:78% top}
  .sp-hero-shade{background:linear-gradient(0deg,#070807f5 0%,#070807d9 50%,#07080740 100%)}
  .sp-hero-content{padding-block:0 48px}
  .sp-hero h1{font-size:clamp(42px,11vw,56px)}

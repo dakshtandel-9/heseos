@@ -17,7 +17,7 @@ const browse=(slug:string)=>`/products/browse/${slug}`;
 export const HERO_CARDS:HeroCard[]=[
  {name:'Door Locks',href:browse('smart-door-locks'),image:'/media/home/day/01-lock.webp'},
  {name:'Switches & Panels',href:browse('smart-switches-panels'),image:'/media/home/day/02-panel.webp'},
- {name:'Automation',href:browse('automation-controls'),image:'/media/home/day/03-curtain.webp'},
+ {name:'Curtain & Blinds',href:browse('automation-controls'),image:'/media/home/day/03-curtain.webp'},
  {name:'Video Door Phones',href:browse('video-door-phones-doorbells'),image:'/media/home/day/04-bell.webp'},
  {name:'BLDC Fans',href:browse('bldc-fans'),image:'/media/home/day/05-fan.webp'},
  {name:'Security & Sensors',href:browse('security-sensors'),image:'/media/home/day/06-gas.webp'},
@@ -38,8 +38,8 @@ export const NUMBERS={
  ],
  // Candid 35mm-style photos, one per figure (Higgsfield, GPT Image 2.6; the panel shots use the Edge Panel studio photo as reference).
  photos:[
-  {src:'/media/home/numbers/years.webp',alt:'An engineer’s hands soldering a switch circuit board under a brass desk lamp in a small workshop'},
-  {src:'/media/home/numbers/homes.webp',alt:'An apartment building in Pune at night, its balcony windows glowing warm'},
+  {src:'/media/home/numbers/years.webp',alt:'A senior engineer at a workshop bench lined with fifteen years of switches, from a bakelite toggle to a black glass Heseos Edge touch panel'},
+  {src:'/media/home/numbers/homes.webp',alt:'A family laughs in their living room as the mother taps a newly fitted Heseos Edge touch panel and the installer explains it'},
   {src:'/media/home/numbers/devices.webp',alt:'An electrician’s hands fitting a black glass Heseos Edge touch panel into a freshly plastered wall'},
   {src:'/media/home/numbers/abroad.webp',alt:'A Heseos Edge touch panel on a walnut wall beside a hotel bed, a coastal city skyline at night through the window'},
  ],
@@ -76,7 +76,7 @@ export const DAY={
  moments:[
   {time:'06:10',slug:'smart-door-locks',name:'Door Locks',line:'Out for a walk before the city wakes. One thumb on the lock, no keys to find.',image:'/media/home/day/01-lock.webp',alt:'A hand in a grey kurta sleeve pressing a thumb on a black Heseos smart lever lock on a teak door, a shoe rack and newspaper beside it'},
   {time:'07:40',slug:'smart-switches-panels',name:'Switches & Panels',line:'Chai on the stove, tiffins half packed. One tap on the glass for the kitchen lights.',image:'/media/home/day/02-panel.webp',alt:'A fingertip tapping a black glass Heseos touch panel on a kitchen wall, chai on the stove and a tiffin on the counter'},
-  {time:'09:30',slug:'automation-controls',name:'Automation',line:'The curtains open on schedule, while the newspaper is still being read.',image:'/media/home/day/03-curtain.webp',alt:'Printed curtains opening on a motorised track in a sunlit living room as an older man reads the newspaper'},
+  {time:'09:30',slug:'automation-controls',name:'Curtain & Blinds',line:'The curtains open on schedule, while the newspaper is still being read.',image:'/media/home/day/03-curtain.webp',alt:'Printed curtains opening on a motorised track in a sunlit living room as an older man reads the newspaper'},
   {time:'11:20',slug:'video-door-phones-doorbells',name:'Video Door Phones',line:'A parcel at the door. See who it is before anyone gets up.',image:'/media/home/day/04-bell.webp',alt:'A delivery person with a parcel pressing a black Heseos video doorbell beside a door with a marigold toran'},
   {time:'14:15',slug:'bldc-fans',name:'BLDC Fans',line:'The afternoon nap, under a fan that runs quietly on far less power.',image:'/media/home/day/05-fan.webp',alt:'A brown and gold Heseos BLDC ceiling fan turning over a child napping in a bedroom on a hot afternoon'},
   {time:'17:40',slug:'security-sensors',name:'Security & Sensors',line:'Dinner prep begins. A sensor keeps watch over the gas.',image:'/media/home/day/06-gas.webp',alt:'A Heseos gas leak sensor with a glowing screen on the tiled wall above a stove with a pressure cooker'},
@@ -120,7 +120,7 @@ export const SOLUTIONS_SECTION={
  ],
 } as const;
 
-// `face` is the touch-4m photo flattened to a straight-on view of the glass; the 3D panel wears it, so its rings, sensor and logo are the real ones.
+// `face` is a sharp 3200px drawing of the touch-4m glass (rings, sensor and logo where the photo has them); the 3D panel wears it.
 export const FEATURED={
  eyebrow:'Featured product · Heseos Touch Panel',name:'Heseos Touch Panel',model:'4 Module',title:'Control beautifully.',
  body:'Meet the Heseos Touch Panel. A seamless blend of intelligent control, precision engineering and timeless design.',

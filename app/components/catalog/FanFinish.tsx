@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronRight, Power } from 'lucide-react';
 import SiteLink from '../site/SiteLink';
-// "Pick your finish": the six Elegance collections, seen from below as you would see them overhead. The fan sits still so the finish
+// "Pick your finish": five Elegance collections, seen from below as you would see them overhead. The fan sits still so the finish
 // reads clearly; "Switch on" spins it up and lets it coast down again, the way a BLDC motor ramps. Speed eases toward its target each frame.
 export type Finish={slug:string;name:string;tagline:string;href:string;image:string;colours:{id:string;label:string;swatch?:string}[]};
 const MAX=14;// degrees per frame at full speed

@@ -3,25 +3,26 @@ import { directoryProductHref, directoryProducts, directorySource, type Director
 import SiteLink from '../site/SiteLink';
 import ScrollScenes from './ScrollScenes';
 import FanFinish, { type Finish } from './FanFinish';
+import FanFilm from './FanFilm';
 import './bldc-fan-story.css';
 
-// BLDC Fans, told from the sofa looking up. The hero is one real Elegance fan (a cut-out of its product render) on a generated,
-// illustrative ceiling: scrolling switches it on, spins it up and cools the afternoon light. Then the six collections, still, so the
+// BLDC Fans, told from the fan's point of view. The hero looks down from the hub at a still afternoon; scrolling switches the
+// fan on, the room turns and starts to breathe, and then the view tips up to the real Elegance fan (generated, illustrative films). Then five collections, still, so the
 // finish reads; how you run it; and the numbers. Every fact is from the 2026–27 catalogue (data/products.json).
 const MEDIA='/media/browse/category/bldc-fans/';
 const fanImage=(slug:string)=>`${MEDIA}fan-${slug.replace(/^elegance-/,'')}.webp`;
-const ORDER=['elegance-gold-black-marble','elegance-golden-cap','elegance-gold-plywood','elegance-silver-wood','elegance-white-cap','elegance-base'];
+const ORDER=['elegance-golden-cap','elegance-gold-plywood','elegance-silver-wood','elegance-white-cap','elegance-base'];
 const BEATS=[
- {title:'Look up.',body:'Four o’clock in May. The air hasn’t moved all afternoon.'},
- {title:'Quiet air.',body:'A brushless DC motor turns smoothly and almost silently, on less power than a traditional fan.'},
- {title:'Smart control.',body:'Set the speed from the remote, the Heseos app, or just by asking.'},
+ {title:'The view from up here.',body:'Four o’clock in May. The air hasn’t moved all afternoon.'},
+ {title:'Quiet air.',body:'The paper lifts. He sleeps on. A brushless DC motor turns smoothly and almost silently, on less power than a traditional fan.'},
+ {title:'Now look up.',body:'Set the speed from the remote, the Heseos app, or just by asking.'},
 ];
 const CONTROLS=[
  {icon:Radio,title:'Smart remote',body:'A dedicated remote for when your phone isn’t to hand.'},
  {icon:Smartphone,title:'The Heseos app',body:'Switch it on and set the speed over Wi-Fi.'},
  {icon:Mic,title:'Your voice',body:'Google Home, Amazon Alexa and Apple Siri.'},
 ];
-const SPECS=[{value:'BLDC',label:'High-torque motor'},{value:'6',label:'Collections'},{value:'< 5%',label:'Harmonic distortion (THD)'},{value:'3 years',label:'Warranty'}];
+const SPECS=[{value:'BLDC',label:'High-torque motor'},{value:'5',label:'Collections'},{value:'< 5%',label:'Harmonic distortion (THD)'},{value:'3 years',label:'Warranty'}];
 
 export default function BldcFanStory({category:c}:{category:DirectoryCategory}){
  const products=directoryProducts(c);
@@ -30,15 +31,18 @@ export default function BldcFanStory({category:c}:{category:DirectoryCategory}){
  return <div className="bf">
   <ScrollScenes/>
 
-  {/* Look up: the fan hangs still in the afternoon heat. Scrolling switches it on; it spins up until the blades blur into a disc,
-      and the gold light on the ceiling cools as the story moves through its three beats. */}
+  {/* The view from the fan: the camera sits on the hub, looking down at a still afternoon. Scrolling switches the fan on: the
+      room turns beneath it and the paper, the dupatta and the book start to move. On the last beat the view tips up and the
+      fan itself comes into sight, spinning. Both are generated, illustrative films, scrubbed by scroll. */}
   <section className="bf-hero" data-scroll="pin" data-steps="3" aria-labelledby="bf-title">
    <div className="bf-stage">
-    <img className="bf-ceiling" src={MEDIA+'ceiling.webp'} alt="Looking up at a living-room ceiling in late-afternoon sun, an Elegance Gold Black Marble fan overhead" fetchPriority="high"/>
-    <div className="bf-cool" aria-hidden="true"/>
-    <div className="bf-hero-fan" aria-hidden="true">
-     <img className="bf-hero-sharp" src={fanImage('elegance-gold-black-marble')} alt=""/>
-     <div className="bf-hero-blur"><img src={fanImage('elegance-gold-black-marble')} alt=""/><img src={fanImage('elegance-gold-black-marble')} alt=""/></div>
+    <div className="bf-cube" role="img" aria-label="Looking down from a ceiling fan at a living room where a man naps under a newspaper; as the fan starts, the paper and a dupatta lift in the breeze. Then the view turns up to an Elegance Gold Black Marble fan, spinning.">
+     <div className="bf-face bf-face--floor"><div className="bf-room">
+      <FanFilm className="bf-film" src={MEDIA+'room.mp4'} srcSmall={MEDIA+'room-720.mp4'} poster={MEDIA+'room-poster.webp'} start={.04} span={.62}/>
+     </div></div>
+     <div className="bf-face bf-face--ceiling">
+      <FanFilm className="bf-film" src={MEDIA+'film.mp4'} srcSmall={MEDIA+'film-720.mp4'} poster={MEDIA+'film-poster.webp'} start={.66} span={.34} from={.3}/>
+     </div>
     </div>
     <div className="bf-shade" aria-hidden="true"/>
     <nav className="bf-trail" aria-label="Breadcrumb"><ol><li><SiteLink href="/products">Products</SiteLink></li><li><span aria-current="page">{c.name}</span></li></ol></nav>
@@ -53,9 +57,9 @@ export default function BldcFanStory({category:c}:{category:DirectoryCategory}){
 
   <section className="bf-pick-section" aria-labelledby="bf-pick-title">
    <div className="bf-wrap">
-    <div className="bf-head" data-reveal><h2 id="bf-pick-title">Six collections. One quiet motor.</h2><p>This is the view you’ll live with, so pick the one that looks right overhead. Then switch it on.</p></div>
+    <div className="bf-head" data-reveal><h2 id="bf-pick-title">Five collections. One quiet motor.</h2><p>This is the view you’ll live with, so pick the one that looks right overhead. Then switch it on.</p></div>
     <div data-reveal><FanFinish finishes={finishes}/></div>
-    <p className="bf-note">Product renders. The ceiling above is an illustrative scene.</p>
+    <p className="bf-note">Product renders. The films above are illustrative scenes.</p>
    </div>
   </section>
 

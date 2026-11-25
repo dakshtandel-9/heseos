@@ -29,10 +29,8 @@
 .sw-hero h1{margin-top:14px;font-size:clamp(48px,7.2vw,108px);line-height:1}
 .sw-hero-sub{margin-top:18px;font-size:clamp(19px,1.7vw,25px);line-height:1.35;color:#c9cac4}
 .sw-hero-ctas{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 28px;margin-top:30px}
-.sw-hero-product{position:relative;flex:1;width:100%;min-height:0;animation:sw-arrive 1.5s .3s var(--ease) both;display:flex;align-items:center;justify-content:center}
+.sw-hero-product{position:relative;flex:1;width:100%;min-height:0;animation:sw-arrive 1.5s .3s var(--ease) both}
 .sw-hero-product img{position:absolute;top:0;left:50%;height:max(135%,56vh);width:auto;max-width:none;transform:translate(-50%,calc(var(--p) * -22vh)) scale(calc(1 + var(--p) * .14));transform-origin:50% 35%;-webkit-mask-image:radial-gradient(48% 50% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(48% 50% at 50% 50%,#000 62%,transparent 100%);will-change:transform}
-.sw-hero-product > div{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-
 /* 2 · Statement: words light up as it crosses the screen; nothing pins */
 .sw-words{display:grid;place-items:center;padding:24vh 8vw;background:#000}
 .sw-words p{max-width:980px;text-align:center;font-size:clamp(34px,5vw,72px);line-height:1.1;font-weight:600;letter-spacing:-.035em}
@@ -48,6 +46,23 @@
 .sw-cap small{display:block;margin-bottom:12px;font-size:13px;letter-spacing:.16em;color:var(--accent)}
 .sw-cap span{display:block;margin-top:14px;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;color:#e2e3dd}
 .sw-daynight:not([data-step="1"]) .sw-cap:first-child,.sw-daynight[data-step="1"] .sw-cap:last-child{opacity:1;transform:none}
+
+/* 3b · Film: a pinned film scrubbed by scroll. ExplodeFilm writes its run (0–1) to --open; each caption's --v rises and falls
+   over its own window (--a…--b), so the words change with the picture. The title fades as the film starts. */
+.sw-film{--open:0;height:340vh}
+.sw-film .sw-stage{background:#000}
+.sw-film .xh-film video,.sw-film .xh-film img{object-position:62% center}
+.sw-film .sw-stage::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#000000b8,#00000000 52%),linear-gradient(0deg,#000000b3,#00000000 42%)}
+.sw-film-title{position:absolute;z-index:2;left:6vw;top:clamp(84px,14vh,150px);max-width:11ch;font-size:clamp(40px,4.8vw,76px);line-height:1;letter-spacing:-.04em;opacity:calc(1 - var(--open) * 3.5);transform:translateY(calc(var(--open) * -30px))}
+.sw-film-caps{position:absolute;z-index:2;left:6vw;right:6vw;bottom:calc(8vh + 18px);margin:0;padding:0;list-style:none}
+.sw-film-caps li{--v:clamp(0,min((var(--open) - var(--a)) * 14,(var(--b) - var(--open)) * 14),1);position:absolute;left:0;bottom:0;max-width:520px;opacity:var(--v);transform:translateY(calc((1 - var(--v)) * 18px))}
+.sw-film-caps small{display:block;margin-bottom:12px;font-size:13px;letter-spacing:.16em;color:var(--accent)}
+.sw-film-caps b{display:block;font-size:clamp(32px,4vw,58px);line-height:1.05;font-weight:600;letter-spacing:-.035em}
+.sw-film-caps span{display:block;margin-top:14px;font-size:17px;line-height:1.5;color:#e2e3dd}
+.sw-film-rail{position:absolute;z-index:2;left:6vw;right:6vw;bottom:8vh;height:2px;border-radius:2px;background:#ffffff26}
+.sw-film-rail i{position:absolute;inset:0 auto 0 0;width:calc(var(--open) * 100%);border-radius:inherit;background:var(--accent)}
+@media(prefers-reduced-motion:reduce){.sw-film{height:auto}.sw-film-title{opacity:1;transform:none}}
+@media(max-width:600px){.sw-film{height:300vh}.sw-film .xh-film video,.sw-film .xh-film img{object-position:72% center}.sw-film-caps span{font-size:15px}}
 
 /* 4 · Lineup: one studio shot per range on the same backdrop, then the same facts in the same rows so the ranges compare at a glance */
 .sw-ranges{padding:clamp(88px,16vh,160px) 0;background:#fbfaf7;color:#151515}

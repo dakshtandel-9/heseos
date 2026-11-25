@@ -26,6 +26,7 @@ export const PRODUCT_DIRECTORY:DirectoryCategory[]=[
    item('premium-textured-touch-switches','Premium Textured Touch Switches','premium-glass-touch-switch','textured'),
    item('premium-leather-touch-switches','Premium Leather Touch Switches','premium-glass-touch-switch','leather'),
   ]},
+  {slug:'screen-control-panels',name:'Screen Control Panels',products:[item('smart-screen-control-panel','Smart Screen Control Panel','screen-control-panel')]},
  ]},
  {slug:'smart-door-locks',name:'Smart Door Locks',icon:'lock',subcategories:[
   {slug:'digital-door-locks',name:'Digital Door Locks',products:[
@@ -78,9 +79,8 @@ export const PRODUCT_DIRECTORY:DirectoryCategory[]=[
    item('three-phase-energy-meter','Three Phase Energy Meter'),
   ]},
  ]},
- {slug:'automation-controls',name:'Automation & Controls',icon:'home',subcategories:[
+ {slug:'automation-controls',name:'Curtain & Blinds',icon:'home',subcategories:[
   {slug:'curtain-automation',name:'Curtain Automation',products:[item('smart-curtain-motor','Smart Curtain Motor','curtain-blind-motor')]},
-  {slug:'screen-control-panels',name:'Screen Control Panels',products:[item('smart-screen-control-panel','Smart Screen Control Panel','screen-control-panel')]},
  ]},
 ];
 

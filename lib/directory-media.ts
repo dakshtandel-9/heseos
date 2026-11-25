@@ -38,7 +38,7 @@ export const CATEGORY_INTROS:Record<string,string>={
  'bldc-fans':'Quiet air, smart control and effortless comfort.',
  'security-sensors':'Small sensors that keep watch throughout your home.',
  'smart-home-accessories':'Make the home you have smarter, one device at a time.',
- 'automation-controls':'Bring everyday routines together in one connected home.',
+ 'automation-controls':'Curtains and blinds that open and close right on cue.',
 };
 
 // Closing call-to-action banners, one per category, shared by the category page and its range pages (same source and caveats as above).

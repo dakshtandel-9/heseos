@@ -12,8 +12,8 @@ import './automation-story.css';
 const MEDIA='/media/browse/category/automation-controls/';
 const PANEL='/media/catalog/screen-control-panel/screen-control-panel-';
 const MOTOR='/media/catalog/curtain-blind-motor/curtain-blind-motor-';
-// The panel's screen in the room photo, measured from its green screen (left, top, width, height in %).
-const SCREEN={left:'84.11%',top:'38.29%',width:'5.17%',height:'7.04%'};
+// The panel's screen in the room photo, measured from its transparent cut-out (left, top, width, height in %).
+const SCREEN={left:'84%',top:'38.07%',width:'5.38%',height:'7.44%'};
 const SCENES=['Good morning','Away','Movie','Good night'];
 const SIZES:PanelSize[]=[
  {id:'4',label:'4 inch',model:'H4INPanelTY',img:PANEL+'4in-1.webp',alt:'The 4 inch Screen Control Panel'},
@@ -56,7 +56,7 @@ export default function AutomationStory({category:c}:{category:DirectoryCategory
       <p className="cue-time">6:30</p>
       <ul>{SCENES.map((s,i)=><li key={s} data-on={i===0||undefined}>{s}</li>)}</ul>
      </div></div>
-     <img src={MEDIA+'room-open.webp'} alt="A bedroom at sunrise: the curtains open on their own, and the wall panel beside the window shows the morning scene" fetchPriority="high"/>
+     <img src={MEDIA+'room-open.webp'} alt="A bedroom over Marine Drive at sunrise: the curtains open on their own, and the wall panel beside the window shows the morning scene" fetchPriority="high"/>
     </div>
     <div className="cue-curtain" aria-hidden="true">
      <div className="cue-half cue-half--l"><img src={MEDIA+'curtain-closed.webp'} alt=""/></div>
@@ -70,7 +70,7 @@ export default function AutomationStory({category:c}:{category:DirectoryCategory
     <p className="cue-line cue-line--1"><b>6:30 AM.</b> The curtains open by themselves, right on schedule.</p>
     <div className="cue-outro">
      <h2>Your home, on cue.</h2>
-     <p>A morning scene, set once on the Screen Control Panel. The curtain motor takes care of the rest.</p>
+     <p>A morning scene, set once. The curtain motor takes care of the rest.</p>
      <p className="cue-links">{motor&&<SiteLink className="cue-link" href={motor.href}>Curtain motor <ChevronRight size={16} aria-hidden="true"/></SiteLink>}{panel&&<SiteLink className="cue-link" href={panel.href}>Screen Control Panel <ChevronRight size={16} aria-hidden="true"/></SiteLink>}</p>
     </div>
    </div>
@@ -109,7 +109,7 @@ export default function AutomationStory({category:c}:{category:DirectoryCategory
    </div>
   </section>}
 
-  <section className="cue-compare" aria-labelledby="cue-compare-title">
+  {products.length>1&&<section className="cue-compare" aria-labelledby="cue-compare-title">
    <div className="cue-wrap">
     <h2 id="cue-compare-title" data-reveal>Better together.</h2>
     <div className="cue-cols">{products.map(p=><article key={p.slug} data-reveal>
@@ -119,6 +119,6 @@ export default function AutomationStory({category:c}:{category:DirectoryCategory
      <dl>{ROWS.map(r=><div key={r.label}><dt>{r.label}</dt><dd>{r.values[p.slug]??'—'}</dd></div>)}</dl>
     </article>)}</div>
    </div>
-  </section>
+  </section>}
  </div>;
 }
