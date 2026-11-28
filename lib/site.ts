@@ -12,8 +12,15 @@ export const SOCIAL=[
  {id:'facebook',label:'Facebook',href:'https://www.facebook.com/heseos'},
 ] as const;
 // Heseos (homeowner) store pages. Partner and Installer fall back to a store search until their exact listing links are set here.
-const search = (q: string) => ({ appStore: `https://apps.apple.com/search?term=${encodeURIComponent(q)}`, googlePlay: `https://play.google.com/store/search?q=${encodeURIComponent(q)}&c=apps` });
-export const APPS={appStore:'https://apps.apple.com/us/app/heseos/id6443842270',googlePlay:'https://play.google.com/store/apps/details?id=com.heseos.smart',partner:search('Heseos Partner'),installer:search('Heseos Installer')};
+// Store links per app. Partner and Installer are not on the App Store yet: add their apps.apple.com URL here when they go live and the badge appears.
+export type StoreLinks = { appStore?: string; googlePlay: string };
+const play = (id: string) => `https://play.google.com/store/apps/details?id=${id}`;
+export const APPS: StoreLinks & { appStore: string; partner: StoreLinks; installer: StoreLinks } = {
+  appStore: 'https://apps.apple.com/app/heseos/id6443842270',
+  googlePlay: play('com.heseos.smart'),
+  partner: { googlePlay: play('com.heseos.partner') },
+  installer: { googlePlay: play('com.heseos.installer') },
+};
 export const LEGAL:NavLink[]=[
  {label:'Privacy Policy',href:'https://www.heseos.com/privacy-policies'},
  {label:'Terms & Conditions',href:'https://www.heseos.com/terms-condition'},

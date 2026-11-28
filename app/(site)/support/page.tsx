@@ -94,7 +94,7 @@ export default function SupportPage() {
    <section className="sp-setup" aria-labelledby="sp-setup-title">
     <div className="sp-wrap sp-setup-grid">
      <figure className="sp-setup-photo" data-reveal>
-      <Image src="/media/support/install.webp" alt="Illustrative image: a technician's hands fitting a black glass touch panel onto a wall switch box" fill sizes="(max-width: 800px) 100vw, 48vw" />
+      <Image src="/media/support/install-edge-panel.webp" alt="Illustrative image: a technician's hands fitting a Heseos Edge Panel onto a wall switch box" fill sizes="(max-width: 800px) 100vw, 48vw" />
       <figcaption>Fitted and connected by our team · Illustrative</figcaption>
      </figure>
      <div className="sp-setup-copy" data-reveal>

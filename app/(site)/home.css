@@ -320,7 +320,8 @@
  .hx-stats li{flex-direction:column;gap:6px;padding:14px 12px;text-align:center}
  .hx-stats li>span{max-width:none}
  .why{grid-template-columns:1fr 1fr;grid-template-rows:auto}
- .why-photo{grid-row:auto;grid-column:1/-1;min-height:360px}
+ .why-photo{grid-row:auto;grid-column:1/-1;min-height:480px}
+ .why-photo img{object-position:50% 34%}
  .sol{height:auto;display:grid;grid-template-columns:1fr 1fr}
  .sol-card{min-height:380px}
  .px-grid,.px-grid.n3,.px-grid.n4{grid-template-columns:repeat(2,1fr)}

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { Box, ChevronRight, GitBranch, House, Monitor, Plus, Satellite, Settings, Snowflake, Speaker, Tv } from 'lucide-react';
 import { directoryProductHref, directoryProducts, directorySource, type DirectoryCategory } from '../../../lib/product-directory';
 import SiteLink from '../site/SiteLink';
 import ScrollScenes from './ScrollScenes';
@@ -15,16 +15,18 @@ const METER='/media/catalog/three-phase-energy-meter/three-phase-energy-meter-';
 const SCREEN={left:'44.1%',top:'25.95%',width:'12.3%',height:'46.35%'};
 // Each remote's box in the photo (x0, x1, y0, y1 in %), shadow included; that box of the first photo sits over the second until the remote goes.
 const REMOTES=[
- {name:'Air conditioner',line:'The AC remote. Now on your phone.',box:[27,39.5,4.5,46]},
- {name:'TV',line:'The TV remote, too.',box:[27,39.5,46,98.5]},
- {name:'Set-top box',line:'The set-top box.',box:[61.8,74,6.5,50]},
- {name:'Speaker',line:'And the speaker.',box:[62.5,74,52,94]},
+ {name:'Air conditioner',icon:Snowflake,line:'The AC remote. Now on your phone.',box:[27,39.5,4.5,46]},
+ {name:'TV',icon:Tv,line:'The TV remote, too.',box:[27,39.5,46,98.5]},
+ {name:'Set-top box',icon:Satellite,line:'The set-top box.',box:[61.8,74,6.5,50]},
+ {name:'Speaker',icon:Speaker,line:'And the speaker.',box:[62.5,74,52,94]},
 ];
 const F=1.2;// feather, in %
 const patch=([x0,x1,y0,y1]:number[]):CSSProperties=>({
  maskImage:`linear-gradient(90deg,#0000 ${x0}%,#000 ${x0+F}%,#000 ${x1-F}%,#0000 ${x1}%),linear-gradient(#0000 ${y0}%,#000 ${y0+F}%,#000 ${y1-F}%,#0000 ${y1}%)`,
  maskComposite:'intersect',transformOrigin:`${(x0+x1)/2}% ${(y0+y1)/2}%`,
 });
+// The client app's bottom tabs.
+const TABS=[['Home',House],['Devices',Box],['Automations',GitBranch],['Remotes',Monitor],['Settings',Settings]] as const;
 // The Smart Plug, frame by frame: brochure photos and what each shows.
 const PLUG_FRAMES=[
  {img:PLUG+'geyser.webp',alt:'The Smart Plug 16A powering a geyser in a bathroom',title:'Built for heavy appliances.',body:'Turn 16 A appliances like geysers and ACs on or off from your phone.'},
@@ -52,8 +54,9 @@ export default function AccessoriesStory({category:c}:{category:DirectoryCategor
    <div className="acc-stage">
     <div className="acc-world">
      <div className="acc-screen" style={SCREEN}>
-      <p className="acc-app"><small>Living room</small>Remotes</p>
-      <ul>{REMOTES.map((r,i)=><li key={r.name} style={{'--k':i+1} as CSSProperties}><b>{r.name}</b><span>Ready</span></li>)}</ul>
+      <p className="acc-app">Remotes<Plus aria-hidden="true"/></p>
+      <ul>{REMOTES.map((r,i)=><li key={r.name} style={{'--k':i+1} as CSSProperties}><r.icon aria-hidden="true"/><span><b>{r.name}</b><small>Living room</small></span><ChevronRight aria-hidden="true"/></li>)}</ul>
+      <div className="acc-tabs" aria-hidden="true">{TABS.map(([label,Icon])=><span key={label} className={label==='Remotes'?'on':undefined}><Icon fill={label==='Remotes'?'currentColor':'none'}/>{label}</span>)}</div>
      </div>
      <img src={MEDIA+'table-phone.webp'} alt="A coffee table with a phone and four remote controls; one by one the remotes go, and each appears on the phone" fetchPriority="high"/>
      {REMOTES.map((r,i)=><img key={r.name} className="acc-remote" src={MEDIA+'table-remotes.webp'} alt="" style={{...patch(r.box),'--k':i+1} as CSSProperties}/>)}

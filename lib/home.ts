@@ -124,7 +124,7 @@ export const SOLUTIONS_SECTION={
 export const FEATURED={
  eyebrow:'Featured product · Heseos Touch Panel',name:'Heseos Touch Panel',model:'4 Module',title:'Control beautifully.',
  body:'Meet the Heseos Touch Panel. A seamless blend of intelligent control, precision engineering and timeless design.',
- image:'/media/products/touch-4m.webp',face:'/media/products/touch-4m-face.webp',backdrop:'/media/home/gen/spotlight.webp',detail:'/media/home/gen/touch-detail.webp',
+ image:'/media/products/touch-4m.webp',face:'/media/products/touch-4m-face.webp',backdrop:'/media/home/gen/spotlight.webp',detail:'/media/home/gen/touch-detail-v2.webp',
  href:'/products/browse/smart-switches-panels/touch-panels',cta:'Explore Touch Panels',
  features:[
   {icon:'design',title:'Premium glass finish',body:'Black glass set in a slim metal frame.'},

@@ -1,14 +1,36 @@
-// Product image uploads, stored in Vercel Blob (previously Cloudflare R2).
-// Create the Blob store as Private (the default); set BLOB_ACCESS=public only if you created a public store.
-import { get, put } from '@vercel/blob';
+// Product image uploads, stored in Cloudflare R2 (free tier; Firebase Cloud Storage requires Blaze plan).
+import { S3Client, PutObjectCommand, GetObjectCommand } from '@aws-sdk/client-s3';
 
-const access = process.env.BLOB_ACCESS === 'public' ? 'public' : 'private';
+const s3 = new S3Client({
+  region: 'auto',
+  endpoint: process.env.R2_ENDPOINT,
+  credentials: {
+    accessKeyId: process.env.R2_ACCESS_KEY_ID!,
+    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
+  },
+});
 
 export async function saveImage(key: string, data: ArrayBuffer, contentType: string) {
-  await put(key, data, { access, contentType, addRandomSuffix: false, allowOverwrite: false });
+  await s3.send(new PutObjectCommand({
+    Bucket: process.env.R2_BUCKET || 'heseos-media',
+    Key: `products/${key}`,
+    Body: Buffer.from(data),
+    ContentType: contentType,
+  }));
 }
 
 export async function readImage(key: string) {
-  const file = await get(key, { access });
-  return file?.statusCode === 200 ? { body: file.stream, contentType: file.blob.contentType } : null;
+  try {
+    const result = await s3.send(new GetObjectCommand({
+      Bucket: process.env.R2_BUCKET || 'heseos-media',
+      Key: `products/${key}`,
+    }));
+    const body = await result.Body?.transformToByteArray();
+    if (!body) return null;
+    return { body: new Uint8Array(body), contentType: result.ContentType || 'image/jpeg' };
+  } catch (error) {
+    const e = error as { name?: string; $metadata?: { httpStatusCode?: number } };
+    if (e.name === 'NoSuchKey' || e.$metadata?.httpStatusCode === 404) return null;
+    throw error;
+  }
 }

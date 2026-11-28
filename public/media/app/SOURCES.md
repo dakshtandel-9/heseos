@@ -29,7 +29,10 @@ The three source PNGs remain in the local Codex generated-images directory. Thes
 ## Partner & Installer sections (2026-11-24)
 Generated with Higgsfield GPT Image 2.6 (high, 2K, 2 credits each, 8 total), using `/media/products/studio/touch-panel-series.webp` as the product reference. Resized to 1600px WebP.
 - `installer-site.webp`: an electrician wiring a glass touch panel in a finished home (Installer section lead photo).
+- `installer-site-v3.webp`: `installer-site.webp` reworked with Higgsfield GPT Image 2.6: phone removed from the back pocket (job 595d436e-b409-4d9d-b11f-e73c4a13ef07); tool bag and tools removed, socks instead of shoes, neat uniform (87bcf7ab-d7c5-4b6f-b106-49a35da994af); panel made horizontal (988c9d5d-a2ca-47e2-86d4-ce47bc45a163); then a crop around the panel was edited to match the real 6M touch switch photo `products/touch-6m.webp` (41145fbe-5379-4ae4-abec-0784cfb2d31f, medium 1K) and blended back. Used on `/partners` and `/app`.
 - `installer-hands.webp`: close view of hands fitting the panel, tool pouch and phone nearby (Installer detail).
+- `installer-hands-v3.webp`: new close-up of an installer's hands fitting the 6M touch panel, no tools or bag. Higgsfield GPT Image 2.6 (high, 2K, 1:1, 2 credits, job c429e080-21c3-486d-86f8-9fd333c5a8ef), reference `products/touch-6m.webp`. Used on `/app`.
 - `partner-studio.webp`: a designer showing a phone to a homeowner couple over floor plans and swatches (Partner section lead photo).
+- `partner-studio-v2.webp`: panel replaced with the Edge Panel (GPT Image 2.6 high/2K, job 2d3a3b74-4b28-47a0-8d47-0f050f4bbdbb, 2 credits; reference `products/studio/edge-panel-series.webp`), only that area blended into the original; official mark added locally.
 - `partner-site.webp`: an architect showing homeowners a mounted panel at a villa site visit (Partner detail).
 - `icons/{customer,partner,installer}.png`: the three real app icons, cropped from a device home-screen screenshot.

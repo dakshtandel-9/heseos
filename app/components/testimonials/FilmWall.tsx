@@ -13,7 +13,9 @@ export default function FilmWall({items}:{items:Item[]}){
  const [open,setOpen]=useState<Item|null>(null);
  const dlg=useRef<HTMLDialogElement>(null);
  useEffect(()=>{const d=dlg.current;if(!d)return;if(open&&!d.open)d.showModal();if(!open&&d.open)d.close();},[open]);
- const shown=items.filter(i=>filter==='all'||i.kind===filter);
+ // Reels first, then the full interview, then landscape films, so the grid tiles cleanly.
+ const rank=(i:Item)=>i.orient==='v'?0:i.kind==='full'?1:2;
+ const shown=items.filter(i=>filter==='all'||i.kind===filter).sort((a,b)=>rank(a)-rank(b));
  const hover=(e:React.PointerEvent<HTMLButtonElement>,on:boolean)=>{
   if(e.pointerType!=='mouse')return;const v=e.currentTarget.querySelector('video');if(!v)return;
   if(on){v.currentTime=8;v.play().catch(()=>{});}else v.pause();
@@ -21,7 +23,7 @@ export default function FilmWall({items}:{items:Item[]}){
 
  return <>
   <div className="fw-filters" role="group" aria-label="Filter films">{FILTERS.map(f=><button key={f.k} type="button" aria-pressed={filter===f.k} onClick={()=>setFilter(f.k)}>{f.l}<small>{f.k==='all'?items.length:items.filter(i=>i.kind===f.k).length}</small></button>)}</div>
-  <ul className="fw">{shown.map(i=><li key={i.src} className={'fw-'+i.orient}>
+  <ul className="fw">{shown.map(i=><li key={i.src} className={'fw-'+i.orient+(i.kind==='full'?' fw-full':'')}>
    <button type="button" onClick={()=>setOpen(i)} onPointerEnter={e=>hover(e,true)} onPointerLeave={e=>hover(e,false)} aria-label={`Play ${i.name}, ${i.label.toLowerCase()}, ${fmt(i.duration)}`}>
     <img src={i.poster} alt="" loading="lazy"/>
     <video src={i.src+'#t=8'} muted playsInline preload="none" aria-hidden="true"/>

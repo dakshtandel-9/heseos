@@ -106,7 +106,7 @@
 .about-retrofit{padding:104px 0}
 .about-retrofit-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:7%}
 .about-retrofit-photo{aspect-ratio:3/2.4}
-.about-retrofit-photo img{object-position:center 45%}
+.about-retrofit-photo.has-caption:after{inset:86% 0 0}
 .about-steps{display:grid;margin:30px 0 0;padding:0;list-style:none;counter-reset:none}
 .about-steps li{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:16px 0;border-top:1px solid #15151524}
 .about-steps li>span{padding-top:2px;color:#b4421c;font-size:11px;font-weight:700}

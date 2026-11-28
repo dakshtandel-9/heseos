@@ -42,7 +42,7 @@ export function CustomerScreen() {
 
 /* ── Heseos Partner ── */
 export function PartnerSignup() {
- return <div className="ws ws-photo" style={{ backgroundImage: 'linear-gradient(180deg,#070d1a55,#070d1a 62%),url(/media/app/partner-studio.webp)' }}>
+ return <div className="ws ws-photo" style={{ backgroundImage: 'linear-gradient(180deg,#070d1a55,#070d1a 62%),url(/media/app/partner-studio-v2.webp)' }}>
   <div className="ws-pad ws-signup">
    <h4>Join the Heseos Partner <em>Network</em></h4>
    <p>Create your account and start punching quality leads.</p>

@@ -107,8 +107,13 @@
 .fw-filters button{display:flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid #ffffff1c;border-radius:999px;background:none;color:var(--muted-dark);font:inherit;font-size:14px;cursor:pointer;transition:all .25s}
 .fw-filters button small{font-size:11px;padding:1px 7px;border-radius:999px;background:#ffffff12}
 .fw-filters [aria-pressed=true]{border-color:var(--brand);background:var(--brand);color:#fff}
-.fw{columns:4 220px;column-gap:16px;margin:0;padding:0;list-style:none}
-.fw li{break-inside:avoid;margin-bottom:16px;animation:trUp .6s var(--ease-card) both}
+.fw{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin:0;padding:0;list-style:none}
+.fw li{grid-column:span 3;animation:trUp .6s var(--ease-card) both}
+.fw li.fw-v{grid-column:span 2}
+.fw li.fw-full{grid-column:span 6;grid-row:span 2}
+.fw-full button,.fw-full img{height:100%}
+@media (max-width:900px){.fw{grid-template-columns:repeat(6,1fr)}.fw li.fw-full{grid-row:auto}}
+@media (max-width:560px){.fw{grid-template-columns:repeat(2,1fr);gap:12px}.fw li,.fw li.fw-full{grid-column:span 2}.fw li.fw-v{grid-column:span 1}}
 .fw li button{position:relative;display:block;width:100%;padding:0;border:0;border-radius:20px;overflow:hidden;background:#000;color:#fff;font:inherit;text-align:left;cursor:pointer}
 .fw img,.fw video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;transition:transform .8s var(--ease-card)}
 .fw-h img,.fw-h video{aspect-ratio:16/9}

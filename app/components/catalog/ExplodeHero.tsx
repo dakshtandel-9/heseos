@@ -38,7 +38,7 @@ export default function ExplodeHero({category:c,story:s,cta,ctaHref}:{category:D
 
    <div className="xh-hud">
     <div className="xh-rail" aria-hidden="true"><span>Assembled</span><i><b/></i><span>Exploded</span></div>
-    <ol className="xh-parts" aria-label={`Inside the ${product?.name??'product'}`}>
+    <ol className="xh-parts" style={{'--n':x.parts.length} as React.CSSProperties} aria-label={`Inside the ${product?.name??'product'}`}>
      {x.parts.map((p,i)=><li key={p.title} style={{'--i':i} as React.CSSProperties}><span className="xh-n">{nn(i)}</span><strong>{p.title}</strong><span className="xh-body">{p.body}</span></li>)}
     </ol>
    </div>

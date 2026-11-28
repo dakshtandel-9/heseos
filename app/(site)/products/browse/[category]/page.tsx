@@ -17,9 +17,10 @@ import BldcFanStory from '../../../../components/catalog/BldcFanStory';
 import SecurityStory from '../../../../components/catalog/SecurityStory';
 import AccessoriesStory from '../../../../components/catalog/AccessoriesStory';
 import AutomationStory from '../../../../components/catalog/AutomationStory';
+import DoorLockStory from '../../../../components/catalog/DoorLockStory';
 
 // Categories with a design of their own, rather than the shared story template.
-const CUSTOM_STORIES:Record<string,typeof DoorPhoneStory>={'video-door-phones-doorbells':DoorPhoneStory,'smart-lighting':LightingStory,'bldc-fans':BldcFanStory,'security-sensors':SecurityStory,'smart-home-accessories':AccessoriesStory,'automation-controls':AutomationStory};
+const CUSTOM_STORIES:Record<string,typeof DoorPhoneStory>={'video-door-phones-doorbells':DoorPhoneStory,'smart-lighting':LightingStory,'bldc-fans':BldcFanStory,'security-sensors':SecurityStory,'smart-home-accessories':AccessoriesStory,'automation-controls':AutomationStory,'smart-door-locks':DoorLockStory};
 import '../range.css';
 
 type Props={params:Promise<{category:string}>};

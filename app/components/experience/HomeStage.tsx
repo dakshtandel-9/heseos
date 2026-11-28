@@ -19,7 +19,7 @@ export default function HomeStage({ state, zoom, onEnter }: { state: ApartmentSt
     const level = lightingLevel(r.id, state);
     return <img key={r.id} className="xp-layer xp-home-lit" src={HOME_SCENE.lit} alt="" draggable={false} style={{ opacity: level <= 0 ? 0 : Math.pow(level, .7), maskImage: MASKS[r.id], WebkitMaskImage: MASKS[r.id] } as CSSProperties} />;
    })}
-   <div className={'xp-tv xp-home-tv' + (state.tv ? ' on' : '')} style={{ left: `${HOME_SCENE.tv.x}%`, top: `${HOME_SCENE.tv.y}%`, width: `${HOME_SCENE.tv.w}%`, height: `${HOME_SCENE.tv.h}%` }} aria-hidden="true"><i /></div>
+   <div className={'xp-tv xp-home-tv' + (state.tv ? ' on' : '')} style={{ left: `${HOME_SCENE.tv.x}%`, top: `${HOME_SCENE.tv.y}%`, width: `${HOME_SCENE.tv.w}%`, height: `${HOME_SCENE.tv.h}%` }} aria-hidden="true"><span style={{ clipPath: HOME_SCENE.tv.clip }}><i /></span></div>
    <svg className="xp-home-hit" viewBox={`0 0 ${100 * HOME_RATIO} 100`} preserveAspectRatio="none" aria-hidden="true">
     {ROOM_PLAN.map(r => <polygon key={r.id} className={hover === r.id ? 'hover' : undefined} points={HOME_SCENE.rooms[r.id].area.map(([x, y]) => `${x * HOME_RATIO},${y}`).join(' ')} onClick={() => onEnter(r.id)} onPointerEnter={() => setHover(r.id)} onPointerLeave={() => setHover(null)} />)}
    </svg>

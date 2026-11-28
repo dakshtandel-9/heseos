@@ -32,7 +32,7 @@ export function ProductCard({product,range}:{product:DirectoryProduct;range?:str
 export function CtaBanner({category,eyebrow,body,subject}:{category:DirectoryCategory;eyebrow:string;body:string;subject:string}){
  const banner=CATEGORY_BANNERS[category.slug];
  return <section className="rg-cta" aria-labelledby="rg-cta-title">
-  {banner&&<img className="rg-cta-image" src={banner.image} alt="" loading="lazy"/>}
+  {banner&&<img className="rg-cta-image" src={banner.image} style={{objectPosition:banner.position}} alt="" loading="lazy"/>}
   <div className="rg-cta-shade" aria-hidden="true"/>
   <div className="rg-wrap rg-cta-inner" data-reveal>
    <div><p className="rg-eyebrow"><span/>{eyebrow}</p><h2 id="rg-cta-title">See it working in your space.</h2><p>{body}</p></div>

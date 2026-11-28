@@ -91,7 +91,7 @@ export default function AboutPage() {
           <p className="about-made-in-india">Made in India. Proudly serving the world.</p>
         </div>
         <figure className="about-frame about-intro-photo has-caption" data-reveal>
-          <Image src="/media/about/intro.webp" alt="Illustrative image: a hand touching a Heseos Edge Panel, a horizontal black glass touch switch with a rose-gold frame, on a sunlit plaster wall" fill sizes="(max-width: 700px) 100vw, 55vw" />
+          <Image src="/media/about/intro-v2.webp" alt="Illustrative image: a hand touching a Heseos Edge Panel, a horizontal black glass touch switch with a rose-gold frame, on a sunlit plaster wall" fill sizes="(max-width: 700px) 100vw, 55vw" />
           <figcaption>Designed for the spaces we live in · Illustrative</figcaption>
         </figure>
       </div>
@@ -140,8 +140,8 @@ export default function AboutPage() {
     <section className="about-retrofit about-light" aria-labelledby="about-retrofit-title">
       <div className="about-wrap about-retrofit-grid">
         <figure className="about-frame about-retrofit-photo has-caption" data-reveal>
-          <Image src="/media/about/retrofit.webp" alt="Illustrative image: hands fitting a small smart module behind an existing white switchboard" fill sizes="(max-width: 700px) 100vw, 50vw" />
-          <figcaption>Fits behind the switchboard you already have · Illustrative</figcaption>
+          <Image src="/media/about/retrofit-range.webp" alt="Illustrative image: the Heseos range on oak shelves, including touch panels, switches, retrofit module, smart plug, door locks, video door phone, doorbell, sensors, downlights, tube light and ceiling fan" fill sizes="(max-width: 700px) 100vw, 50vw" />
+          <figcaption>The Heseos range · Illustrative</figcaption>
         </figure>
         <div data-reveal>
           <p className="about-eyebrow"><span />Why retrofit</p>
@@ -176,7 +176,7 @@ export default function AboutPage() {
 
     <section className="about-craft" aria-labelledby="about-craft-title">
       <div className="about-craft-image" aria-hidden="true" />
-      <Image className="about-craft-panel" src="/media/products/touch-4m.webp" alt="" width={1600} height={1133} sizes="(max-width: 700px) 84vw, 46vw" />
+      <Image className="about-craft-panel" src="/media/about/craft-panel-v2.webp" alt="" width={1600} height={1085} sizes="(max-width: 700px) 84vw, 46vw" />
       <div className="about-craft-wash" aria-hidden="true" />
       <div className="about-wrap about-craft-content" data-reveal>
         <p className="about-eyebrow">Made for everyday life</p>
@@ -188,7 +188,7 @@ export default function AboutPage() {
           </article>)}
         </div>
       </div>
-      <span className="about-craft-caption">Genuine Heseos Touch Panel</span>
+      <span className="about-craft-caption">Heseos Touch Panel · enhanced render</span>
     </section>
 
     <section className="about-solutions about-light" id="spaces" aria-labelledby="about-solutions-title">

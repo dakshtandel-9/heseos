@@ -1,3 +1,3 @@
-import { db, fail, init, json } from '../../../lib/admin/server';
+import { fail, init, json, store } from '../../../lib/admin/server';
 export const dynamic='force-dynamic';
-export async function GET(){try{await init();const data=await db().prepare("SELECT id,name,category,description,image,price,mrp,stock FROM products WHERE status='active' ORDER BY name").all();return json({products:data.results});}catch(e){return fail(e);}}
+export async function GET(){try{await init();const snap=await store().collection('products').where('status','==','active').select('id','name','category','description','image','price','mrp','stock').get();const products=snap.docs.map(d=>d.data()).sort((a,b)=>String(a.name).localeCompare(String(b.name)));return json({products});}catch(e){return fail(e);}}

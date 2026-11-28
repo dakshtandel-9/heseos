@@ -30,14 +30,22 @@
 .acc-world>img{position:absolute;inset:0;width:100%;height:100%}
 .acc-remote{--v0:clamp(0,calc((var(--aq) - var(--k) + .1) / .45),1);--v:calc(var(--v0) * var(--v0) * (3 - 2 * var(--v0)));opacity:calc(1 - var(--v));transform:scale(calc(1 + var(--v) * .045))}
 /* The phone's live screen, behind the photo's transparent one. Sized in cqw so it scales with the phone. */
-.acc-screen{position:absolute;container-type:inline-size;background:#f2f2f7;color:var(--ink)}
-.acc-app{padding:17cqw 7cqw 5cqw;font-size:10cqw;font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.acc-app small{display:block;margin-bottom:1.5cqw;font-size:5.4cqw;font-weight:500;letter-spacing:0;color:var(--mute)}
-.acc-screen ul{display:grid;gap:3cqw;margin:0;padding:0 5cqw;list-style:none}
-.acc-screen li{--o0:clamp(0,calc((var(--aq) - var(--k) - .05) / .3),1);display:flex;align-items:baseline;justify-content:space-between;gap:3cqw;
- padding:6cqw 6cqw;border-radius:6cqw;background:#fff;box-shadow:0 .6cqw 2cqw #0000000f;opacity:var(--o0);transform:translateY(calc((1 - var(--o0)) * 5cqw))}
-.acc-screen b{font-size:6.6cqw;font-weight:600}
-.acc-screen li span{font-size:5cqw;color:#248a3d}
+/* The HESEOS client app's Remotes tab: white title bar, grey body, white cards, orange active tab. */
+.acc-screen{position:absolute;display:flex;flex-direction:column;overflow:hidden;container-type:inline-size;background:#efefef;color:#111}
+.acc-app{display:flex;align-items:center;justify-content:space-between;margin:0;padding:15cqw 7cqw 5cqw 8cqw;background:#fff;box-shadow:0 .8cqw 2.4cqw #0000002e;font-size:7.4cqw;font-weight:400;line-height:1.2}
+.acc-app svg{width:8cqw;height:8cqw;color:#ff9500;stroke-width:1.6}
+.acc-screen ul{display:grid;align-content:start;flex:1;gap:3cqw;margin:0;padding:5cqw 4cqw;list-style:none}
+.acc-screen li{--o0:clamp(0,calc((var(--aq) - var(--k) - .05) / .3),1);display:flex;align-items:center;gap:5cqw;
+ padding:5cqw;border-radius:4cqw;background:#fff;box-shadow:0 .6cqw 2cqw #0000000f;opacity:var(--o0);transform:translateY(calc((1 - var(--o0)) * 5cqw))}
+.acc-screen li>svg{flex:none;width:8.5cqw;height:8.5cqw;color:#ff9500;stroke-width:1.5}
+.acc-screen li>svg:last-child{width:5cqw;height:5cqw;color:#8e8e93}
+.acc-screen li>span{flex:1;min-width:0}
+.acc-screen b{display:block;font-size:6.2cqw;font-weight:400}
+.acc-screen small{display:block;margin-top:.8cqw;font-size:4.6cqw;color:#7a7a7a}
+.acc-tabs{display:flex;justify-content:space-between;padding:4cqw 6cqw 6cqw;border-radius:6cqw 6cqw 0 0;background:#fff;font-size:3.3cqw;color:#666}
+.acc-tabs span{display:flex;flex-direction:column;align-items:center;gap:1.2cqw}
+.acc-tabs svg{width:6.5cqw;height:6.5cqw;color:#555}
+.acc-tabs .on,.acc-tabs .on svg{color:#ff9500}
 /* A soft light wash from the bottom, so the copy reads on the oak. */
 .acc-stage::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--ag);background:linear-gradient(0deg,#fbf7f1a6,#fbf7f100 24%)}
 .acc-trail,.acc-intro,.acc-lines,.acc-outro{position:absolute;z-index:1}

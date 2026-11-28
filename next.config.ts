@@ -11,9 +11,8 @@ const nextConfig: NextConfig = {
       { source: '/assets/:path*', destination: `${MEDIA_URL}/assets/:path*` },
     ] : [];
   },
-  // The schema files in drizzle/ are applied on first database use (lib/admin/database.ts).
-  outputFileTracingIncludes: { '/api/**': ['./drizzle/*.sql'] },
-  serverExternalPackages: ['@libsql/client', 'libsql'],
+  // The admin data lives in Firebase (lib/admin/firebase.ts); keep its Admin SDK out of the bundle.
+  serverExternalPackages: ['firebase-admin'],
   async redirects() {
     return [
       { source: '/products/browse/automation-controls/screen-control-panels', destination: '/products/browse/smart-switches-panels/screen-control-panels', permanent: true },

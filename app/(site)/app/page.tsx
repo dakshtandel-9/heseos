@@ -3,7 +3,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import { ArrowRight, BadgeIndianRupee, BellRing, Box, ChartNoAxesColumn, CheckCheck, FileText, Gauge, House, Image as ImageIcon, Landmark, LayoutGrid, Link2, LockKeyhole, MapPin, Mic2, Package, PlugZap, QrCode, RefreshCw, ShieldCheck, Sparkles, Timer, Wallet, Wrench } from 'lucide-react';
 import SiteLink from '../../components/site/SiteLink';
 import Reveal from '../../components/home/Reveal';
-import { APPS, CONTACT } from '../../../lib/site';
+import { APPS, CONTACT, type StoreLinks } from '../../../lib/site';
 import AppExperience from '../../components/app/AppExperience';
 import SceneExamples from '../../components/app/SceneExamples';
 import AppsHero from '../../components/app/AppsHero';
@@ -65,9 +65,9 @@ function ActionLinks({ compact = false }: { compact?: boolean }) {
   <SiteLink className="app-text-link" href="#download">Download the App <ArrowRight size={16} aria-hidden="true"/></SiteLink>
  </div>;
 }
-function StoreBadges({ name, links }: { name: string; links: { appStore: string; googlePlay: string } }) {
+function StoreBadges({ name, links }: { name: string; links: StoreLinks }) {
  return <div className="wa-badges">
-  <a href={links.appStore} target="_blank" rel="noopener noreferrer" aria-label={`Download ${name} on the App Store (opens in a new tab)`}><img src="/media/app/app-store.svg" width={120} height={40} alt="Download on the App Store"/></a>
+  {links.appStore && <a href={links.appStore} target="_blank" rel="noopener noreferrer" aria-label={`Download ${name} on the App Store (opens in a new tab)`}><img src="/media/app/app-store.svg" width={120} height={40} alt="Download on the App Store"/></a>}
   <a href={links.googlePlay} target="_blank" rel="noopener noreferrer" aria-label={`Get ${name} on Google Play (opens in a new tab)`}><img src="/media/app/google-play-badge.png" width={564} height={168} alt="Get it on Google Play"/></a>
  </div>;
 }
@@ -147,7 +147,7 @@ export default function AppPage() {
      title={<span id="wa-partner-title">Bring a home. <em>Earn on every sale.</em></span>}
      lead="Know someone building or doing up a home? Punch them in as a lead in under a minute. Heseos takes it from there — the call, the plan, the demo — and you earn a slab-based commission when the sale converts."/>
     <div className="wa-photos" data-reveal>
-     <figure className="wa-photo-main"><img src="/media/app/partner-studio.webp" width={1600} height={1063} loading="lazy" alt="A designer shows a phone to a homeowner couple over floor plans, material swatches and a glass touch panel sample"/>
+     <figure className="wa-photo-main"><img src="/media/app/partner-studio-v2.webp" width={1600} height={1063} loading="lazy" alt="A designer shows a phone to a homeowner couple over floor plans, material swatches and a glass touch panel sample"/>
       <div className="wa-float wa-float-lead" aria-hidden="true"><span className="wa-float-ico"><CheckCheck size={16}/></span><span><small>Lead L2048 3177</small><strong>Converted · ₹3,40,000 sale</strong></span><b>+₹51,000</b></div>
      </figure>
      <figure className="wa-photo-side"><img src="/media/app/partner-site.webp" width={1600} height={1063} loading="lazy" alt="An architect points homeowners to a glass touch panel mounted at a villa site"/><figcaption>Architects bring Heseos into the plan at the site visit.</figcaption></figure>
@@ -169,10 +169,10 @@ export default function AppPage() {
      title={<span id="wa-installer-title">Jobs come to you. <em>Install, earn, repeat.</em></span>}
      lead="Think of a delivery-partner app, built for smart homes. Set your coverage area and installation jobs near you show up as Heseos schedules them. Claim one first, install it, hand it over — and earn a fee for every job."/>
     <div className="wa-photos wa-photos-rev" data-reveal>
-     <figure className="wa-photo-main"><img src="/media/app/installer-site.webp" width={1600} height={1063} loading="lazy" alt="An electrician kneels to wire a glass smart touch panel into the wall of a finished home"/>
+     <figure className="wa-photo-main"><img src="/media/app/installer-site-v3.webp" width={1600} height={1063} loading="lazy" alt="An installer kneels to fit a Heseos touch panel onto the wall of a finished home"/>
       <div className="wa-float wa-float-job" aria-hidden="true"><span className="wa-float-ico"><Box size={16}/></span><span><small>New job · 4.2 km</small><strong>3 BHK · Baner · ₹2,400</strong></span><b>Claim</b></div>
      </figure>
-     <figure className="wa-photo-side"><img src="/media/app/installer-hands.webp" width={1600} height={1063} loading="lazy" alt="Close view of hands fitting a glass touch panel, with a tool pouch and phone nearby"/><figcaption>Every device has a training video, so you arrive ready.</figcaption></figure>
+     <figure className="wa-photo-side"><img src="/media/app/installer-hands-v3.webp" width={1600} height={1600} loading="lazy" alt="An installer’s hands fitting a Heseos 6-module touch panel onto a wall"/><figcaption>Every device has a training video, so you arrive ready.</figcaption></figure>
     </div>
     <ul className="wa-pillars" data-reveal>
      <li><MapPin size={20} aria-hidden="true"/><strong>Jobs near you</strong><span>Only in the coverage area you set</span></li>

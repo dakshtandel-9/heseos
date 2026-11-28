@@ -1,0 +1,7 @@
+rules_version = '2';
+// Product images are uploaded and served by the site's server (/api/media), never directly from the browser.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} { allow read, write: if false; }
+  }
+}

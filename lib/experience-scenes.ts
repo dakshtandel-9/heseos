@@ -65,10 +65,11 @@ export const ROOM_SCENES: Record<RoomId, RoomScene> = {
 // Overhead plate of the apartment. Each room's area is lit separately, so one switch changes one room.
 // The kitchen is open to the passage, so the passage follows the kitchen light.
 export const HOME_RATIO = 3 / 2;
-export const HOME_SCENE: { lit: string; dark: string; alt: string; rooms: Record<RoomId, { area: [number, number][]; label: Point }>; tv: Rect } = {
+export const HOME_SCENE: { lit: string; dark: string; alt: string; rooms: Record<RoomId, { area: [number, number][]; label: Point }>; tv: Rect & { clip: string } } = {
  lit: art('home-lit'), dark: art('home-dark'),
  // The living-room TV screen on the overhead plate, so switching the TV shows from the whole-home view too.
- tv: { x: 21.3, y: 23.5, w: 11.3, h: 7.9 },
+ // The plate is shot slightly off-axis, so the screen is a trapezoid: the box bounds it and `clip` traces its corners.
+ tv: { x: 21.24, y: 23.31, w: 11.38, h: 7.94, clip: 'polygon(0 0, 99.1% 0, 100% 100%, 5.2% 100%)' },
  alt: 'Overhead view of the apartment: living room, kitchen, bathroom and two bedrooms',
  rooms: {
   living: { area: [[7.4, 13.4], [41.4, 13.4], [41.4, 49.5], [39.7, 49.5], [39.7, 89.6], [3.2, 89.8]], label: { x: 23, y: 49 } },

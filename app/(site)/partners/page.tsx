@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, BadgeIndianRupee, Box, CheckCheck, FileText, Image as ImageIcon, Landmark, Link2, MessageCircle, Package, Plus, QrCode } from 'lucide-react';
-import { APPS, CONTACT } from '../../../lib/site';
+import { APPS, CONTACT, type StoreLinks } from '../../../lib/site';
 import { CLIENTS, PARTNERS } from '../../../lib/home';
 import { PARTNER_FAQ, PARTNER_STATS } from '../../../lib/partners';
 import Reveal from '../../components/home/Reveal';
@@ -36,9 +36,9 @@ const PARTNER_BEATS: StoryBeat[] = [
   { time: 'Month end', title: 'Paid on the sale', body: 'Commission on the converted sale value, worked out by slab and paid to your bank.', screen: <PartnerRewards/>, scene: '/media/partners/partner-evening.webp' },
 ];
 const INSTALLER_BEATS: StoryBeat[] = [
-  { time: 'Once', title: 'Set your coverage', body: 'Tell us the area you work in. Installation jobs there come to you, and only there.', screen: <InstallerCoverage/>, scene: '/media/partners/installer-ride.webp' },
-  { time: '08:15', title: 'A job drops in', body: 'New installations appear in Available the moment Heseos schedules them. See the devices, the time and the fee. First to claim gets it.', screen: <InstallerJobs/>, scene: '/media/partners/installer-ride.webp' },
-  { time: '08:40', title: 'Learn before you go', body: 'Short videos for every device: touch panels, smart plugs, IR blasters and door locks. Arrive ready.', screen: <InstallerTraining/>, scene: '/media/app/installer-hands.webp' },
+  { time: 'Once', title: 'Set your coverage', body: 'Tell us the area you work in. Installation jobs there come to you, and only there.', screen: <InstallerCoverage/>, scene: '/media/partners/installer-ride-v2.webp' },
+  { time: '08:15', title: 'A job drops in', body: 'New installations appear in Available the moment Heseos schedules them. See the devices, the time and the fee. First to claim gets it.', screen: <InstallerJobs/>, scene: '/media/partners/installer-ride-v2.webp' },
+  { time: '08:40', title: 'Learn before you go', body: 'Short videos for every device: touch panels, smart plugs, IR blasters and door locks. Arrive ready.', screen: <InstallerTraining/>, scene: '/media/app/installer-hands-v2.webp' },
   { time: '11:30', title: 'Install and hand over', body: 'Fit the devices, pair them with the homeowner’s Heseos app and mark the job complete.', screen: <InstallerJob/>, scene: '/media/partners/installer-handover.webp' },
   { time: '18:00', title: 'Paid per job', body: 'Your installation fee waits in Earnings until payout, with every job logged.', screen: <InstallerEarnings/>, scene: '/media/partners/installer-handover.webp' },
 ];
@@ -64,9 +64,9 @@ const statSize = (v: string) => Number(v.replace(/\D/g, ''));
 const heroStat = PARTNER_STATS.reduce((a, b) => (statSize(b.value) > statSize(a.value) ? b : a));
 const otherStats = PARTNER_STATS.filter((s) => s !== heroStat);
 
-function StoreBadges({ name, links }: { name: string; links: { appStore: string; googlePlay: string } }) {
+function StoreBadges({ name, links }: { name: string; links: StoreLinks }) {
   return <div className="ph-badges">
-    <a href={links.appStore} target="_blank" rel="noopener noreferrer" aria-label={`Download ${name} on the App Store (opens in a new tab)`}><img src="/media/app/app-store.svg" width={120} height={40} alt="Download on the App Store"/></a>
+    {links.appStore && <a href={links.appStore} target="_blank" rel="noopener noreferrer" aria-label={`Download ${name} on the App Store (opens in a new tab)`}><img src="/media/app/app-store.svg" width={120} height={40} alt="Download on the App Store"/></a>}
     <a href={links.googlePlay} target="_blank" rel="noopener noreferrer" aria-label={`Get ${name} on Google Play (opens in a new tab)`}><img src="/media/app/google-play-badge.png" width={564} height={168} alt="Get it on Google Play"/></a>
   </div>;
 }
@@ -123,7 +123,7 @@ export default function PartnersPage() {
             </span>
           </a>
           <a className="ph-path ph-path-in" href="#installer-app" data-reveal>
-            <Image src="/media/app/installer-site.webp" alt="" fill sizes="(max-width: 900px) 100vw, 50vw"/>
+            <Image src="/media/app/installer-site-v3.webp" alt="" fill sizes="(max-width: 900px) 100vw, 50vw"/>
             <span className="ph-path-body">
               <img src="/media/app/icons/installer.png" alt="" width={56} height={56}/>
               <small>Heseos Installer</small>

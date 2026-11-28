@@ -1,4 +1,4 @@
-import { DoorClosed, Fingerprint, Hand, KeyRound, Layers, Mic, Palette, Ruler, Smartphone, Wrench, type LucideIcon } from 'lucide-react';
+import { Hand, Mic, Palette, Ruler, Smartphone, Wrench, type LucideIcon } from 'lucide-react';
 // Content for the Apple-style category stories (CategoryStory). A category with an entry here opens with its story;
 // the rest keep the standard category page. Facts are from the 2026–27 brochure (data/products.json).
 // Scene images are generated and illustrative, made from each category's studio shots (see public/media/browse/category/<slug>/).
@@ -20,15 +20,16 @@ export type CategoryStoryContent={
 
 export const STORIES:Record<string,CategoryStoryContent>={
  'smart-switches-panels':{
-  hero:{headline:'Built smart, inside and out.',sub:'Open up the Heseos Three Phase Energy Meter. It tracks every unit in real time and warns you when use crosses your thresholds.',alt:'The Heseos Three Phase Energy Meter opening into an exploded view: printed lid, green control board and white enclosure'},
-  explode:{product:'three-phase-energy-meter',film:'/media/browse/category/smart-switches-panels/explode.mp4',filmSmall:'/media/browse/category/smart-switches-panels/explode-720.mp4',poster:'/media/browse/category/smart-switches-panels/explode-poster.webp',still:'/media/browse/category/smart-switches-panels/explode-open.webp',parts:[
-   {title:'Marked lid',body:'Every terminal labelled: B, Y, R, N, line in and out.',x:56.5,y:23.5},
-   {title:'Three CT inputs',body:'R, Y and B: a current input for each phase.',x:87.5,y:12},
-   {title:'Control board',body:'Real-time energy tracking and relay control.',x:65.8,y:48.7},
-   {title:'Vented enclosure',body:'A compact housing that closes over the board.',x:52.7,y:69.3},
+  hero:{headline:'Built smart, inside and out.',sub:'Open up the Heseos Edge Panel Series. Black glass and a metal edge outside; touch, light and Wi-Fi within.',alt:'The Heseos Edge Panel Series turning from a front view and opening into an exploded view: black glass, rose-gold metal edge, touch and LED boards, control board and back housing'},
+  explode:{product:'edge-panel-series',film:'/media/browse/category/smart-switches-panels/panel-explode.mp4',filmSmall:'/media/browse/category/smart-switches-panels/panel-explode-720.mp4',poster:'/media/browse/category/smart-switches-panels/panel-explode-poster.webp',still:'/media/browse/category/smart-switches-panels/panel-explode-open.webp',parts:[
+   {title:'Glass face',body:'Black glass with the Heseos mark and four touch keys.',x:41.5,y:59.5},
+   {title:'Metal edge',body:'Rose Gold, Grey, Gold, Chrome or Black.',x:55.5,y:48},
+   {title:'Touch and light',body:'A sensor under every key, ringed by LEDs that glow to confirm.',x:60.2,y:58.5},
+   {title:'Control board',body:'Secure Wi-Fi, a relay for each load and a surge protector.',x:71.7,y:35.4},
+   {title:'Back housing',body:'Seats in the wall box and holds the wiring terminals.',x:88.9,y:55.6},
   ]},
   statement:'Every light, fan, curtain and scene. One beautiful sheet of glass.',
-  scene:{day:'room-day.webp',night:'room-night.webp',dayAlt:'A living room in morning light with a touch panel on the walnut wall',nightAlt:'The same living room in the evening, its lights switched on as a scene',
+  scene:{day:'room-day-v2.webp',night:'room-night-v2.webp',dayAlt:'A living room in morning light with a touch panel on the walnut wall',nightAlt:'The same living room in the evening, its lights switched on as a scene',
    caps:[{time:'7:00 AM',title:'Good morning.',body:'Sunlight does the work. Every light stays off.'},{time:'7:00 PM',title:'Evening, in one touch.',body:'A single scene sets the downlights, pendant and mood together.'}]},
   lineup:{title:'Which switch is right for you?',kind:'range',items:[
    {slug:'touch-panels',image:'edge-panel-series',kicker:'Replace the switchboard',facts:[{icon:Ruler,text:'2 to 12 modules'},{icon:Palette,text:'Black glass, five metal-edge finishes'},{icon:Wrench,text:'Replaces the switchboard plate and switches'},{icon:Smartphone,text:'Touch, HESEOS app and voice assistants'}]},
@@ -43,35 +44,5 @@ export const STORIES:Record<string,CategoryStoryContent>={
    {icon:Mic,title:'Talk.',body:'Works with Google Home, Amazon Alexa and Apple Siri.'},
   ]},
   sizes:{title:['From 2 modules to 12.','One look on every wall.'],image:'lineup.webp',alt:'Touch panels in four sizes on a stone wall'},
- },
- 'smart-door-locks':{
-  hero:{headline:'Your door, reimagined.',sub:'Open up the Heseos Wooden Door Lock: a stainless steel heart, a fingerprint reader in the handle and seven ways in.',alt:'The Heseos Wooden Door Lock coming apart into an exploded view: keypad panel with fingerprint lever, inside panel, stainless steel mortise and through-bolts'},
-  // The SS304 and 450 °C lines are from Heseos’s own SS304 product artwork; the rest is from the brochure (wooden-door-lock).
-  explode:{product:'wooden-door-lock',film:'/media/browse/category/smart-door-locks/explode.mp4',filmSmall:'/media/browse/category/smart-door-locks/explode-720.mp4',poster:'/media/browse/category/smart-door-locks/explode-poster.webp',still:'/media/browse/category/smart-door-locks/explode-open.webp',parts:[
-   {title:'Fingerprint lever',body:'Your fingertip is the key, read right on the handle.',x:53.5,y:51.5},
-   {title:'Keypad panel',body:'Aluminium alloy, anti-corrosion. Passcode, card, scramble code or OTP.',x:56.5,y:27},
-   {title:'SS304 mortise',body:'Stainless steel lock body, engineered to resist heat up to 450 °C.',x:75,y:44},
-   {title:'Through-bolts and key',body:'Fits most wooden and metal doors, with a mechanical key as backup.',x:67,y:84},
-  ]},
-  statement:'No more keys under the mat. Just a door that knows the people you trust.',
-  // Run windows follow the film: the touch is at 0.3–1.5 s, the door opens at ~2 s and she steps in from ~3 s (of 5 s).
-  film:{title:'Coming home, keyless.',film:'/media/browse/category/smart-door-locks/home.mp4',filmSmall:'/media/browse/category/smart-door-locks/home-720.mp4',poster:'/media/browse/category/smart-door-locks/home-poster.webp',still:'/media/browse/category/smart-door-locks/home-end.webp',alt:'A woman touches the fingerprint reader on her Heseos lock’s handle, opens her front door and walks into her home',caps:[
-   {time:'7:42 PM',title:'One touch.',body:'Her fingerprint is the key, read right on the handle. No keys to find.',from:-1,to:.32},
-   {title:'Unlocked.',body:'Press the lever, and the door swings in.',from:.32,to:.6},
-   {title:'Welcome home.',body:'Fingerprint, app, passcode, card, scramble code, OTP or key: seven ways in.',from:.6,to:2},
-  ]},
-  lineup:{title:'Find the lock for your door.',kind:'product',items:[
-   {slug:'wooden-door-lock',kicker:'Front doors',facts:[{icon:KeyRound,text:'7 ways in, including OTP'},{icon:DoorClosed,text:'Most wooden and metal doors'},{icon:Layers,text:'4 models'}]},
-   {slug:'screen-door-lock',kicker:'See who’s there',facts:[{icon:KeyRound,text:'6 ways in, including face recognition'},{icon:DoorClosed,text:'Built-in screen'},{icon:Layers,text:'4 models'}]},
-   {slug:'lever-door-lock',kicker:'Homes and offices',facts:[{icon:KeyRound,text:'Fingerprint, app, passcode or key'},{icon:DoorClosed,text:'Lever-handle doors'},{icon:Layers,text:'1 model'}]},
-   {slug:'glass-door-lock',kicker:'Made for glass',facts:[{icon:KeyRound,text:'6 ways in, with access records'},{icon:DoorClosed,text:'Glass doors'},{icon:Layers,text:'2 models'}]},
-   {slug:'sliding-door-lock',kicker:'Made to slide',facts:[{icon:KeyRound,text:'5 ways in, with a backup key'},{icon:DoorClosed,text:'Sliding doors'},{icon:Layers,text:'1 model'}]},
-   {slug:'drawer-lock',kicker:'Inside the home',facts:[{icon:KeyRound,text:'Fingerprint'},{icon:DoorClosed,text:'Drawers and cabinets'},{icon:Layers,text:'2 models'}]},
-  ]},
-  control:{eyebrow:'Ways in',title:'However you open up.',image:'/media/catalog/lever-door-lock/lever-door-lock-lever-finger.webp',alt:'A fingertip on the fingerprint reader of a smart lever lock',tiles:[
-   {icon:Fingerprint,title:'Fingerprint.',body:'Your fingertip is the key, on every lock in the range.'},
-   {icon:Smartphone,title:'Phone.',body:'Unlock from the Heseos app on most models in the range.'},
-   {icon:KeyRound,title:'PIN, card or key.',body:'Passcodes, RFID cards and a physical backup key, depending on the model.'},
-  ]},
  },
 };
